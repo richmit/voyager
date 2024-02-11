@@ -1,0 +1,1197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-02-11 Sun 12:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=1024, initial-scale=1" />
+<title>HP Voyager Programs</title>
+<meta name="author" content="Mitch Richling" />
+<meta name="description" content="Various programs for HP Voyager series calculators" />
+<meta name="keywords" content="Hewlett Packard RPN RPL" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<style>body { width: 95%; margin: 2% auto; font-size: 18px; line-height: 1.4em; font-family: Georgia, serif; color: black; background-color: white; }</style>
+<style>body { min-width: 500px; max-width: 1024px; }</style>
+<style>h1,h2,h3,h4,h5,h6 { color: #A5573E; line-height: 1em; font-family: Helvetica, sans-serif; }</style>
+<style>h1,h2,h3 { line-height: 1.4em; }</style>
+<style>h1.title { font-size: 3em; }</style>
+<style>.subtitle { font-size: 0.6em; }</style>
+<style>h4,h5,h6 { font-size: 1em; }</style>
+<style>.org-src-container { border: 1px solid #ccc; box-shadow: 3px 3px 3px #eee; font-family: Lucida Console, monospace; font-size: 80%; margin: 0px; padding: 0px 0px; position: relative; }</style>
+<style>.org-src-container>pre { line-height: 1.2em; padding-top: 1.5em; margin: 0.5em; background-color: #404040; color: white; overflow: auto; }</style>
+<style>.org-src-container>pre:before { display: block; position: absolute; background-color: #b3b3b3; top: 0; right: 0; padding: 0 0.2em 0 0.4em; border-bottom-left-radius: 8px; border: 0; color: white; font-size: 100%; font-family: Helvetica, sans-serif;}</style>
+<style>pre.example { white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -o-pre-wrap; font-family: Lucida Console, monospace; font-size: 80%; background: #404040; color: white; display: block; padding: 0em; border: 2px solid black; }</style>
+<style>blockquote { margin-bottom: 0.5em; padding: 0.5em; background-color: #FFF8DC; border-left: 2px solid #A5573E; border-left-color: rgb(255, 228, 102); display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 5em; margin-inline-end: 5em; } </style>
+<style>#content { max-width: 60em; }</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="https://www.mitchr.me/"> HOME </a>
+</div><div id="content" class="content">
+<h1 class="title">HP Voyager Programs
+<br />
+<span class="subtitle">For HP-15C</span>
+</h1>
+<table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right"><b>Author:</b></td>
+<td class="org-left"><i>Mitch Richling</i></td>
+</tr>
+
+<tr>
+<td class="org-right"><b>Updated:</b></td>
+<td class="org-left"><i>2024-02-11</i></td>
+</tr>
+
+<tr>
+<td class="org-right"><b>Generated:</b></td>
+<td class="org-left"><i>2024-02-11</i></td>
+</tr>
+</tbody>
+</table>
+<p align="center">
+Copyright &copy; 2024 Mitch Richling. All rights reserved.
+</p>
+
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#storclcplx">1. Store &amp; Recall Complex Numbers</a>
+<ul>
+<li><a href="#orgdfaa917">1.1. Usage</a></li>
+<li><a href="#org295992b">1.2. Stack Diagrams</a></li>
+<li><a href="#orgf04c867">1.3. Resources Used</a></li>
+<li><a href="#orge15e523">1.4. Program Listing</a></li>
+</ul>
+</li>
+<li><a href="#newton">2. Newton's Method for Functions of a Complex Variable</a>
+<ul>
+<li><a href="#org3c73edc">2.1. Usage</a></li>
+<li><a href="#org86ceca7">2.2. Stack Diagrams</a></li>
+<li><a href="#org8cd5ffc">2.3. Resources Used</a></li>
+<li><a href="#org95282e6">2.4. Program Listing</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-storclcplx" class="outline-2">
+<h2 id="storclcplx"><span class="section-number-2">1.</span> Store &amp; Recall Complex Numbers</h2>
+<div class="outline-text-2" id="text-storclcplx">
+<p>
+The official user guide has a pair of example programs capable of storing and recalling complex values using a matrix for storage.  The programs here are
+similar except that they use registrars for storage &#x2013; storing the real and complex parts in consecutive storage registers.
+</p>
+
+<p>
+With respect to the stack, these programs attempt to behave like the built in <code>STO</code> &amp; <code>RCL</code> functions:
+</p>
+<ul class="org-ul">
+<li>They both preserve the stack contents</li>
+<li>The <code>STO CLPX</code> program leaves the item to be stored in the X stack position</li>
+</ul>
+
+<p>
+If the calculator is not already in complex mode, then it will be placed in complex mode by the program.
+</p>
+</div>
+
+<div id="outline-container-orgdfaa917" class="outline-3">
+<h3 id="orgdfaa917"><span class="section-number-3">1.1.</span> Usage</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Inputs:
+<ul class="org-ul">
+<li><code>STO CPLX</code>: The number to store is on stack level Y, and the first register index is on stack level X.  <br />
+The real part of Y is stored at the register indicated by the index in X, and the complex part of Y is stored in the next consecutive register.</li>
+<li><code>RCL CPLX</code>: The first register index is on stack level X.</li>
+</ul></li>
+<li>The result stack:
+<ul class="org-ul">
+<li><code>STO CPLX</code>: The stack is shifted down so the register index is in stack position T.</li>
+<li><code>RCL CPLX</code>: The register index in stack position X is replaced by the recalled complex number, and the other stack levels are left unchanged.</li>
+</ul></li>
+<li>Error Conditions
+<ul class="org-ul">
+<li>Given register is out of bounds: An <code>Error 3</code> will be produced &amp; the stack contents will be invalidated.</li>
+<li>Given register plus one is out of bounds: An <code>Error 3</code> will be produced, the stack contents will be invalidated, and the value in the given register will be invalidated.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org295992b" class="outline-3">
+<h3 id="org295992b"><span class="section-number-3">1.2.</span> Stack Diagrams</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-center">
+<p>
+<b><code>STO_CPLX</code></b> &#x2013; Store Complex Number
+</p>
+</div>
+<table border="2" cellspacing="0" cellpadding="3em" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-center" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-center">&#xa0;</td>
+<td class="org-left"><b>Before</b></td>
+<td class="org-left"><b>After</b></td>
+</tr>
+
+<tr>
+<td class="org-center"><b>T:</b></td>
+<td class="org-left">t</td>
+<td class="org-left">Reg Index</td>
+</tr>
+
+<tr>
+<td class="org-center"><b>Z:</b></td>
+<td class="org-left">z</td>
+<td class="org-left">t</td>
+</tr>
+
+<tr>
+<td class="org-center"><b>Y:</b></td>
+<td class="org-left">Cplx Number</td>
+<td class="org-left">z</td>
+</tr>
+
+<tr>
+<td class="org-center"><b>X:</b></td>
+<td class="org-left">Reg Index</td>
+<td class="org-left">Cplx Number</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-center">
+<p>
+<b><code>RCL_CPLX</code></b> &#x2013; Recall Complex Number
+</p>
+</div>
+<table border="2" cellspacing="0" cellpadding="3em" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-center" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-center">&#xa0;</td>
+<td class="org-left"><b>Before</b></td>
+<td class="org-left"><b>After</b></td>
+</tr>
+
+<tr>
+<td class="org-center"><b>T:</b></td>
+<td class="org-left">t</td>
+<td class="org-left">t</td>
+</tr>
+
+<tr>
+<td class="org-center"><b>Z:</b></td>
+<td class="org-left">z</td>
+<td class="org-left">z</td>
+</tr>
+
+<tr>
+<td class="org-center"><b>Y:</b></td>
+<td class="org-left">y</td>
+<td class="org-left">y</td>
+</tr>
+
+<tr>
+<td class="org-center"><b>X:</b></td>
+<td class="org-left">Reg Index</td>
+<td class="org-left">Cplx Number</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgf04c867" class="outline-3">
+<h3 id="orgf04c867"><span class="section-number-3">1.3.</span> Resources Used</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Registers Used: 
+<ul class="org-ul">
+<li>Two consecutive registers are used.</li>
+<li>The first has its index on level X of the stack</li>
+</ul></li>
+<li>Internal Labels: 
+<ul class="org-ul">
+<li>E RCL_CPLX</li>
+<li>D STO_CPLX</li>
+</ul></li>
+<li>External Labels: 
+<ul class="org-ul">
+<li>None</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge15e523" class="outline-3">
+<h3 id="orge15e523"><span class="section-number-3">1.4.</span> Program Listing</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-center">
+<p>
+<code>STO_CPLX</code> &#x2013; Store Complex Number
+</p>
+</div>
+<table border="2" cellspacing="0" cellpadding="1em" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-center" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Key Codes</b></td>
+<td class="org-right">&nbsp;&nbsp;&nbsp; <b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-left"><b>Comments</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>D</span></td>
+<td class="org-right"><code>42,21,14</code></td>
+<td class="org-right">x y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
+<td class="org-right"><code>44 25</code></td>
+<td class="org-right">x y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
+<td class="org-right"><code>33</code></td>
+<td class="org-right">y z t x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</span></td>
+<td class="org-right"><code>44 24</code></td>
+<td class="org-right">y z t x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ISG</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
+<td class="org-right"><code>42, 6,25</code></td>
+<td class="org-right">y z t x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CLX</span></td>
+<td class="org-right"><code>43 35</code></td>
+<td class="org-right">y z t x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">NOP</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im</span></td>
+<td class="org-right"><code>42 30</code></td>
+<td class="org-right">~y z t x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</span></td>
+<td class="org-right"><code>44 24</code></td>
+<td class="org-right">~y z t x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im</span></td>
+<td class="org-right"><code>42 30</code></td>
+<td class="org-right">y z t x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">Ret</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
+<td class="org-right"><code>43 32</code></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+<div class="org-center">
+<p>
+<code>RCL_CPLX</code> &#x2013; Recall Complex Number
+</p>
+</div>
+<table border="2" cellspacing="0" cellpadding="1em" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-center" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Key Codes</b></td>
+<td class="org-right">&nbsp;&nbsp;&nbsp; <b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-left"><b>Comments</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
+<td class="org-right"><code>42,21,15</code></td>
+<td class="org-right">x y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
+<td class="org-right"><code>44 25</code></td>
+<td class="org-right">x y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
+<td class="org-right"><code>33</code></td>
+<td class="org-right">y z t x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</span></td>
+<td class="org-right"><code>45 24</code></td>
+<td class="org-right">Cr y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ISG</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
+<td class="org-right"><code>42,6,25</code></td>
+<td class="org-right">Cr y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CLX</span></td>
+<td class="org-right"><code>43 35</code></td>
+<td class="org-right">Cr y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">NOP</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im</span></td>
+<td class="org-right"><code>42 30</code></td>
+<td class="org-right">~Cr y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CLX</span></td>
+<td class="org-right"><code>43 35</code></td>
+<td class="org-right">~Cr y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">Disable stack</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</span></td>
+<td class="org-right"><code>45 24</code></td>
+<td class="org-right">~C y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im</span></td>
+<td class="org-right"><code>42 30</code></td>
+<td class="org-right">C y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">Ret</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
+<td class="org-right"><code>43 32</code></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-newton" class="outline-2">
+<h2 id="newton"><span class="section-number-2">2.</span> Newton's Method for Functions of a Complex Variable</h2>
+<div class="outline-text-2" id="text-newton">
+<p>
+Attempts to find a root of a function of a complex variable using Newtons method.  Newton's method is iterative taking an initial guess, and generating
+successive guesses that, if we are fortunate, converge to a root.  In what follows, the function is referred to as \(f(x)\) and the initial guess is referred to as
+\(x_0\).  The final guess is referred to as \(x_1\).
+</p>
+
+<p>
+If the calculator is not already in complex mode, then it will be placed in complex mode by the program.
+</p>
+</div>
+
+<div id="outline-container-org3c73edc" class="outline-3">
+<h3 id="org3c73edc"><span class="section-number-3">2.1.</span> Usage</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Running the program
+<ul class="org-ul">
+<li>Stack Arguments: 
+<ul class="org-ul">
+<li>X best guess for root (\(x_0\))</li>
+</ul></li>
+<li>Function to solve:
+<ul class="org-ul">
+<li>Must be <code>LBL A</code></li>
+<li>When called, \(x\) will be on every level of the stack</li>
+<li>Returns \(f(x)\) to stack level Y and \(f'(x)\) to stack level X.</li>
+</ul></li>
+</ul></li>
+<li>Exit Information
+<ul class="org-ul">
+<li>Exit Stack State: 
+<ul class="org-ul">
+<li>Z: \(f(x_1)\)   Function value at \(x_1\)</li>
+<li>Y: \(|f(x_1)|\) Function magnitude at \(x_1\)</li>
+<li>X: \(x_1\)      Root guess</li>
+</ul></li>
+<li>Exit Register State: 
+<ul class="org-ul">
+<li>R8 \(\Re(x_1)\)</li>
+<li>R9 \(\Im(x_1)\)</li>
+</ul></li>
+<li>Non-normal Exits:
+<ul class="org-ul">
+<li><b>Program might not converge:</b>  In this case it will run forever.  If the program is interrupted it is highly likely, but not guaranteed, the last guess will
+be stored in registers 8 &amp; 9.</li>
+<li><b>Evaluation error:</b> If the function causes an error during evaluation, the program will stop.  The last guess will be stored in R8 &amp; R9.</li>
+<li><b>Zero Derivative:</b> If the derivative is zero, then an "Error 0" will occur.   The last guess will be stored in R8 &amp; R9.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org86ceca7" class="outline-3">
+<h3 id="org86ceca7"><span class="section-number-3">2.2.</span> Stack Diagrams</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-center">
+<p>
+<code>NEWTON</code> &#x2013; Newton's Method for a Function of a Complex Variable
+</p>
+</div>
+<table border="2" cellspacing="0" cellpadding="3em" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-center" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-center">&#xa0;</td>
+<td class="org-left"><b>Before</b></td>
+<td class="org-left"><b>After</b></td>
+</tr>
+
+<tr>
+<td class="org-center"><b>T:</b></td>
+<td class="org-left">t</td>
+<td class="org-left">?</td>
+</tr>
+
+<tr>
+<td class="org-center"><b>Z:</b></td>
+<td class="org-left">z</td>
+<td class="org-left">\(f(x_1)\)</td>
+</tr>
+
+<tr>
+<td class="org-center"><b>Y:</b></td>
+<td class="org-left">y</td>
+<td class="org-left">\(\vert f(x_1)\vert\)</td>
+</tr>
+
+<tr>
+<td class="org-center"><b>X:</b></td>
+<td class="org-left">x0</td>
+<td class="org-left">\(x_1\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org8cd5ffc" class="outline-3">
+<h3 id="org8cd5ffc"><span class="section-number-3">2.3.</span> Resources Used</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Registers Used: 
+<ul class="org-ul">
+<li>R8 Real component of root guess</li>
+<li>R9 Complex component of root guess</li>
+</ul></li>
+<li>Internal Labels: 
+<ul class="org-ul">
+<li>D Program label</li>
+<li>1 Main loop target</li>
+</ul></li>
+<li>External Labels: 
+<ul class="org-ul">
+<li>A function to solve</li>
+<li>E RCL_CPLX</li>
+<li>D STO_CPLX</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org95282e6" class="outline-3">
+<h3 id="org95282e6"><span class="section-number-3">2.4.</span> Program Listing</h3>
+<div class="outline-text-3" id="text-2-4">
+<div class="org-center">
+<p>
+<code>NEWTON</code> &#x2013; Newton's Method for a Function of a Complex Variable
+</p>
+</div>
+<table border="2" cellspacing="0" cellpadding="1em" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-center" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Key Codes</b></td>
+<td class="org-right">&nbsp;&nbsp;&nbsp; <b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-left"><b>Comments</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
+<td class="org-right"><code>42,21,13</code></td>
+<td class="org-right">x0 ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
+<td class="org-right"><code>8</code></td>
+<td class="org-right">8 x0 ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>D</span></td>
+<td class="org-right"><code>32 14</code></td>
+<td class="org-right">x0 ? ? 8</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">STO_CPLX</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
+<td class="org-right"><code>42,21, 1</code></td>
+<td class="org-right">? ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
+<td class="org-right"><code>8</code></td>
+<td class="org-right">8 ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
+<td class="org-right"><code>32 15</code></td>
+<td class="org-right">x0 ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">RCL_CPLX</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
+<td class="org-right"><code>36</code></td>
+<td class="org-right">x0 x0 ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">x0=Previous iterate</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
+<td class="org-right"><code>36</code></td>
+<td class="org-right">x0 x0 x0 ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
+<td class="org-right"><code>36</code></td>
+<td class="org-right">x0 x0 x0 x0</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></td>
+<td class="org-right"><code>32 11</code></td>
+<td class="org-right">df f ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">Function to solve</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
+<td class="org-right"><code>34</code></td>
+<td class="org-right">f df ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">f=f(x0), df=f'(x0)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
+<td class="org-right"><code>36</code></td>
+<td class="org-right">f f df ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
+<td class="org-right"><code>36</code></td>
+<td class="org-right">f f f df</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
+<td class="org-right"><code>8</code></td>
+<td class="org-right">8 f f df</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
+<td class="org-right"><code>32 15</code></td>
+<td class="org-right">x0 f f df</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">RCL_CPLX</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
+<td class="org-right"><code>43 33</code></td>
+<td class="org-right">df x0 f f</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
+<td class="org-right"><code>43 33</code></td>
+<td class="org-right">f df x0 f</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
+<td class="org-right"><code>34</code></td>
+<td class="org-right">df f x0 f</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
+<td class="org-right"><code>10</code></td>
+<td class="org-right">f÷df x0 f f</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
+<td class="org-right"><code>34</code></td>
+<td class="org-right">x0 f÷df f f</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
+<td class="org-right"><code>36</code></td>
+<td class="org-right">x0 x0 f÷df f</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
+<td class="org-right"><code>33</code></td>
+<td class="org-right">x0 f÷df f x0</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
+<td class="org-right"><code>34</code></td>
+<td class="org-right">f÷df x0 f x0</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>-</span></td>
+<td class="org-right"><code>30</code></td>
+<td class="org-right">x1 f x0 x0</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">x1=Current iterate</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
+<td class="org-right"><code>8</code></td>
+<td class="org-right">8 x1 f x0</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>D</span></td>
+<td class="org-right"><code>32 14</code></td>
+<td class="org-right">x1 f x0 8</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">STO_CPLX</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
+<td class="org-right"><code>34</code></td>
+<td class="org-right">f x1 x0 8</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
+<td class="org-right"><code>36</code></td>
+<td class="org-right">f f  x1 x0</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ABS</span></td>
+<td class="org-right"><code>43 16</code></td>
+<td class="org-right">fM f x1 x0</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">fM=abs(f(x1))</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
+<td class="org-right"><code>1</code></td>
+<td class="org-right">1 fM f x1</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>EEX</span></td>
+<td class="org-right"><code>26</code></td>
+<td class="org-right">1 fM f x1</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span></td>
+<td class="org-right"><code>7</code></td>
+<td class="org-right">1e7 fM f x1</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>CHS</span></td>
+<td class="org-right"><code>16</code></td>
+<td class="org-right">e fM f x1</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">e=Epsilon</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>TEST</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
+<td class="org-right"><code>43,30, 8</code></td>
+<td class="org-right">e fM f x1</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">y&gt;x?</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GTO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
+<td class="org-right"><code>22 1</code></td>
+<td class="org-right">e fM f x1</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
+<td class="org-right"><code>43 33</code></td>
+<td class="org-right">x1 e fM f</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
+<td class="org-right"><code>34</code></td>
+<td class="org-right">e x1 fM f</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
+<td class="org-right"><code>33</code></td>
+<td class="org-right">x1 fM f e</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
+<td class="org-right"><code>43 32</code></td>
+<td class="org-right">x1 fM f e</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+</div>
+</body>
+</html>

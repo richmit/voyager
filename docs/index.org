@@ -1,0 +1,138 @@
+# -*- Mode:Org; Coding:utf-8; fill-column:158 -*-
+# ######################################################################################################################################################.H.S.##
+# FILE:        readme.org
+#+TITLE:       HP Voyager Programs
+#+SUBTITLE:    Programs for the HP-12C, HP-15C, & HP-16C
+#+AUTHOR:      Mitch Richling
+#+EMAIL:       http://www.mitchr.me/
+#+DATE:        2024-02-03
+#+DESCRIPTION: Various programs for HP Voyager series calculators
+#+KEYWORDS:    Hewlett Packard RPN RPL
+#+LANGUAGE:    en
+#+OPTIONS:     num:t toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t skip:nil d:nil todo:t pri:nil H:5 p:t author:t html-scripts:nil
+#+SEQ_TODO:    TODO:NEW(t)                         TODO:WORK(w)    TODO:HOLD(h)    | TODO:FUTURE(f)   TODO:DONE(d)    TODO:CANCELED(c)
+#+PROPERTY: header-args :eval never-export
+#+HTML_HEAD: <style>body { width: 95%; margin: 2% auto; font-size: 18px; line-height: 1.4em; font-family: Georgia, serif; color: black; background-color: white; }</style>
+# Change max-width to get wider output -- also note #content style below
+#+HTML_HEAD: <style>body { min-width: 500px; max-width: 1024px; }</style>
+#+HTML_HEAD: <style>h1,h2,h3,h4,h5,h6 { color: #A5573E; line-height: 1em; font-family: Helvetica, sans-serif; }</style>
+#+HTML_HEAD: <style>h1,h2,h3 { line-height: 1.4em; }</style>
+#+HTML_HEAD: <style>h1.title { font-size: 3em; }</style>
+#+HTML_HEAD: <style>.subtitle { font-size: 0.6em; }</style>
+#+HTML_HEAD: <style>h4,h5,h6 { font-size: 1em; }</style>
+#+HTML_HEAD: <style>.org-src-container { border: 1px solid #ccc; box-shadow: 3px 3px 3px #eee; font-family: Lucida Console, monospace; font-size: 80%; margin: 0px; padding: 0px 0px; position: relative; }</style>
+#+HTML_HEAD: <style>.org-src-container>pre { line-height: 1.2em; padding-top: 1.5em; margin: 0.5em; background-color: #404040; color: white; overflow: auto; }</style>
+#+HTML_HEAD: <style>.org-src-container>pre:before { display: block; position: absolute; background-color: #b3b3b3; top: 0; right: 0; padding: 0 0.2em 0 0.4em; border-bottom-left-radius: 8px; border: 0; color: white; font-size: 100%; font-family: Helvetica, sans-serif;}</style>
+#+HTML_HEAD: <style>pre.example { white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -o-pre-wrap; font-family: Lucida Console, monospace; font-size: 80%; background: #404040; color: white; display: block; padding: 0em; border: 2px solid black; }</style>
+#+HTML_HEAD: <style>blockquote { margin-bottom: 0.5em; padding: 0.5em; background-color: #FFF8DC; border-left: 2px solid #A5573E; border-left-color: rgb(255, 228, 102); display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 5em; margin-inline-end: 5em; } </style>
+# Change the following to get wider output -- also note body style above
+#+HTML_HEAD: <style>#content { max-width: 60em; }</style>
+#+HTML_LINK_HOME: https://www.mitchr.me/
+#+HTML_LINK_UP: https://www.mitchr.me/FIXME
+# ######################################################################################################################################################.H.E.##
+
+#+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
+|          <r> | <l>                                 |
+|    *Author:* | /{{{author}}}/                      |
+|   *Updated:* | /{{{modification-time(%Y-%m-%d)}}}/ |
+| *Generated:* | /{{{time(%Y-%m-%d)}}}/              |
+#+ATTR_HTML: :align center
+Copyright \copy {{{time(%Y)}}} Mitch Richling. All rights reserved.
+
+#+TOC: headlines 5
+
+#+MACRO: WBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>$1</span>@@
+#+MACRO: BBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>$1</span>@@
+#+MACRO: YBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>$1</span>@@
+#+MACRO: SPC @@html:&nbsp;&nbsp;&nbsp;@@
+#+MACRO: WFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>$1</div>@@
+#+MACRO: BFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>$1</div>@@
+#+MACRO: YFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>$1</div>@@
+
+* Introduction
+:PROPERTIES:
+:CUSTOM_ID: introduction
+:END:
+
+Just a few programs for HP's Voyager series.  I'm posting these in the hope that others may find them useful.
+
+*WARNING:* The voyagers have no I/O capability, so the programs here were transcribed by hand.  While I have tried to avoid errors in transcription, the likelihood
+that mistakes have been made is very real.  If you discover an error, please contact me to let me know.
+
+*Note:* This is very much a work in progress.  I hope to add my other programs as I find the time.
+
+
+- [[file:hp15.org][Programs For the HP-15C]]
+- [[file:hp16.org][Programs For the HP-16C]]
+
+* Voyager Series Notes
+** Keyboards
+:PROPERTIES:
+:CUSTOM_ID: keys
+:END:
+
+*** HP-15C
+:PROPERTIES:
+:CUSTOM_ID: keyshp15c
+:END:
+
+#+BEGIN_CENTER
+HP-15C Unhifted Keys
+#+END_CENTER
+#+ATTR_HTML: :border 12 solid #fff :frame box :rules all :align center
+|       <c>       |       <c>       |       <c>        |       <c>       |       <c>       |        <c>        |      <c>      |      <c>      |      <c>       |      <c>      |
+| {{{WFBT(√X)}}}  | {{{WFBT(E↑X)}}} | {{{WFBT(10↑X)}}} | {{{WFBT(Y↑X)}}} | {{{WFBT(1/X)}}} |  {{{WFBT(CHS)}}}  | {{{WFBT(7)}}} | {{{WFBT(8)}}} | {{{WFBT(9)}}}  | {{{WFBT(÷)}}} |
+| {{{WFBT(SST)}}} | {{{WFBT(GTO)}}} | {{{WFBT(SIN)}}}  | {{{WFBT(COS)}}} | {{{WFBT(TAN)}}} |  {{{WFBT(EEX)}}}  | {{{WFBT(4)}}} | {{{WFBT(5)}}} | {{{WFBT(6)}}}  | {{{WFBT(×)}}} |
+| {{{WFBT(R/S)}}} | {{{WFBT(GSB)}}} |  {{{WFBT(R↓)}}}  | {{{WFBT(x≷y)}}} |  {{{WFBT(←)}}}  | {{{WFBT(ENTER)}}} | {{{WFBT(1)}}} | {{{WFBT(2)}}} | {{{WFBT(3)}}}  | {{{WFBT(-)}}} |
+| {{{WFBT(ON)}}}  |  {{{YFBT(f)}}}  |  {{{BFBT(g)}}}   | {{{WFBT(STO)}}} | {{{WFBT(RCL)}}} | {{{WFBT(ENTER)}}} | {{{WFBT(0)}}} | {{{WFBT(.)}}} | {{{WFBT(Σ+)}}} | {{{WFBT(+)}}} |
+#+BEGIN_CENTER
+HP-15C f Shifted Keys
+#+END_CENTER
+#+ATTR_HTML: :border 12 solid #fff :frame box :rules all :align center
+|       <c>       |        <c>        |         <c>          |         <c>         |          <c>           |        <c>         |       <c>       |        <c>        |       <c>        |        <c>        |
+|  {{{YFBT(A)}}}  |   {{{YFBT(B)}}}   |    {{{YFBT(C)}}}     |    {{{YFBT(D)}}}    |     {{{YFBT(E)}}}      | {{{YFBT(MATRIX)}}} | {{{YFBT(FIX)}}} |  {{{YFBT(SCI)}}}  | {{{YFBT(ENG)}}}  | {{{YFBT(SOLVE)}}} |
+| {{{YFBT(LBL)}}} |  {{{YFBT(HYP)}}}  |   {{{YFBT(DIM)}}}    |   {{{YFBT((i))}}}   |     {{{YFBT(I)}}}      | {{{YFBT(RESULT)}}} | {{{YFBT(X≷)}}}  |  {{{YFBT(DSE)}}}  | {{{YFBT(ISG)}}}  |   {{{YFBT(∫)}}}   |
+| {{{YFBT(PSE)}}} | {{{YFBT(CLR Σ)}}} | {{{YFBT(CLR PRGM)}}} | {{{YFBT(CLR REG)}}} | {{{YFBT(CLR PREFIX)}}} |  {{{YFBT(RAN#)}}}  | {{{YFBT(→R)}}}  | {{{YFBT(→H.MS)}}} | {{{YFBT(→RAD)}}} | {{{YFBT(Re≷Im)}}} |
+|                 |                   |                      |  {{{YFBT(FRAC)}}}   |    {{{YFBT(USER)}}}    |                    | {{{YFBT(x!)}}}  |  {{{YFBT(ŷ,r)}}}  | {{{YFBT(L.R.)}}} | {{{YFBT(Py,x)}}}  |
+#+BEGIN_CENTER
+HP-15C g Shifted Keys
+#+END_CENTER
+#+ATTR_HTML: :border 12 solid #fff :frame box :rules all :align center
+|       <c>       |       <c>        |       <c>        |       <c>        |       <c>        |       <c>        |       <c>       |       <c>       |       <c>        |       <c>        |
+| {{{BFBT(X↑2)}}} |  {{{BFBT(LN)}}}  | {{{BFBT(LOG)}}}  |  {{{BFBT(%)}}}   |  {{{BFBT(Δ%)}}}  | {{{BFBT(ABS)}}}  | {{{BFBT(DEG)}}} | {{{BFBT(RAD)}}} | {{{BFBT(GRAD)}}} | {{{BFBT(X≤Y)}}}  |
+| {{{BFBT(BST)}}} | {{{BFBT(AHYP)}}} | {{{BFBT(ASIN)}}} | {{{BFBT(ACOS)}}} | {{{BFBT(ATAN)}}} |  {{{BFBT(π)}}}   | {{{BFBT(SF)}}}  | {{{BFBT(CF)}}}  |  {{{BFBT(F?)}}}  | {{{BFBT(X=0)}}}  |
+| {{{BFBT(R/R)}}} | {{{BFBT(RTN)}}}  |  {{{BFBT(R↑)}}}  | {{{BFBT(RNS)}}}  | {{{BFBT(CLX)}}}  | {{{BFBT(LSTX)}}} | {{{BFBT(→P)}}}  | {{{BFBT(→H)}}}  | {{{BFBT(→DEG)}}} | {{{BFBT(TEST)}}} |
+|                 |                  |                  | {{{BFBT(INT)}}}  | {{{BFBT(MEM)}}}  | {{{BFBT(LSTX)}}} |  {{{BFBT(x̄)}}}  |  {{{BFBT(s)}}}  |  {{{BFBT(Σ-)}}}  | {{{BFBT(Cy,x)}}} |
+
+*** HP-16C
+:PROPERTIES:
+:CUSTOM_ID: keyshp16c
+:END:
+
+#+BEGIN_CENTER
+HP-16C Unhifted Keys
+#+END_CENTER
+#+ATTR_HTML: :border 12 solid #fff :frame box :rules all :align center
+|       <c>       |       <c>       |       <c>       |       <c>       |       <c>       |        <c>        |      <c>      |      <c>      |       <c>       |      <c>      |
+|  {{{WFBT(A)}}}  |  {{{WFBT(B)}}}  |  {{{WFBT(C)}}}  |  {{{WFBT(D)}}}  |  {{{WFBT(E)}}}  |   {{{WFBT(F)}}}   | {{{WFBT(7)}}} | {{{WFBT(8)}}} |  {{{WFBT(9)}}}  | {{{WFBT(÷)}}} |
+| {{{WFBT(GSB)}}} | {{{WFBT(GTO)}}} | {{{WFBT(HEX)}}} | {{{WFBT(DEC)}}} | {{{WFBT(OCT)}}} |  {{{WFBT(BIN)}}}  | {{{WFBT(4)}}} | {{{WFBT(5)}}} |  {{{WFBT(6)}}}  | {{{WFBT(×)}}} |
+| {{{WFBT(R/S)}}} | {{{WFBT(SST)}}} | {{{WFBT(R↓)}}}  | {{{WFBT(x≷y)}}} | {{{WFBT(BSP)}}} | {{{WFBT(ENTER)}}} | {{{WFBT(1)}}} | {{{WFBT(2)}}} |  {{{WFBT(3)}}}  | {{{WFBT(-)}}} |
+| {{{WFBT(ON)}}}  |  {{{YFBT(f)}}}  |  {{{BFBT(g)}}}  | {{{WFBT(STO)}}} | {{{WFBT(RCL)}}} | {{{WFBT(ENTER)}}} | {{{WFBT(0)}}} | {{{WFBT(.)}}} | {{{WFBT(CHS)}}} | {{{WFBT(+)}}} |
+#+BEGIN_CENTER
+HP-16C f Shifted Keys
+#+END_CENTER
+#+ATTR_HTML: :border 12 solid #fff :frame box :rules all :align center
+|        <c>        |       <c>       |         <c>          |         <c>         |          <c>           |         <c>         |        <c>        |        <c>         |        <c>        |       <c>       |
+|  {{{YFBT(SL)}}}   | {{{YFBT(SR)}}}  |    {{{YFBT(RL)}}}    |   {{{YFBT(RR)}}}    |    {{{YFBT(RLn)}}}     |   {{{YFBT(RRn)}}}   | {{{YFBT(MASKL)}}} | {{{YFBT(MASKR)}}}  |  {{{YFBT(RMD)}}}  | {{{YFBT(XOR)}}} |
+| {{{YFBT(X≷(i))}}} | {{{YFBT(X≷I)}}} | {{{YFBT(SHO HEX)}}}  | {{{YFBT(SHO DEC)}}} |  {{{YFBT(SHO OCT)}}}   | {{{YFBT(SHO BIN)}}} |  {{{YFBT(SB)}}}   |   {{{YFBT(CB)}}}   |  {{{YFBT(B?)}}}   | {{{YFBT(AND)}}} |
+|  {{{YFBT((i))}}}  |  {{{YFBT(I)}}}  | {{{YFBT(CLR PRGM)}}} | {{{YFBT(CLR REG)}}} | {{{YFBT(CLR PREFIX)}}} | {{{YFBT(WINDOW)}}}  |  {{{YFBT(1'S)}}}  |  {{{YFBT(2'S)}}}   | {{{YFBT(UNSGN)}}} | {{{YFBT(NOT)}}} |
+|                   |                 |                      |  {{{YFBT(WSIZE)}}}  |   {{{YFBT(FLOAT)}}}    | {{{YFBT(WINDOW)}}}  |  {{{YFBT(MEM)}}}  | {{{YFBT(STATUS)}}} |  {{{YFBT(EEX)}}}  | {{{YFBT(OR)}}}  |
+#+BEGIN_CENTER
+HP-16C g Shifted Keys
+#+END_CENTER
+#+ATTR_HTML: :border 12 solid #fff :frame box :rules all :align center
+|       <c>       |       <c>       |       <c>       |       <c>       |       <c>        |       <c>        |       <c>       |       <c>       |       <c>        |        <c>        |
+| {{{BFBT(LJ)}}}  | {{{BFBT(ASR)}}} | {{{BFBT(RLC)}}} | {{{BFBT(RRC)}}} | {{{BFBT(RLCn)}}} | {{{BFBT(RRCn)}}} | {{{BFBT(#B)}}}  | {{{BFBT(ABS)}}} | {{{BFBT(DBLR)}}} | {{{BFBT(DBLR÷)}}} |
+| {{{BFBT(RTN)}}} | {{{BFBT(LBL)}}} | {{{BFBT(DSZ)}}} | {{{BFBT(ISZ)}}} |  {{{BFBT(√X)}}}  | {{{BFBT(1/X)}}}  | {{{BFBT(SF)}}}  | {{{BFBT(CF)}}}  |  {{{BFBT(F?)}}}  | {{{BFBT(DBL×)}}}  |
+| {{{BFBT(P/R)}}} | {{{BFBT(BST)}}} | {{{BFBT(R↑)}}}  | {{{BFBT(PSE)}}} | {{{BFBT(CLX)}}}  | {{{BFBT(LSTX)}}} | {{{BFBT(X≤Y)}}} | {{{BFBT(X<0)}}} | {{{BFBT(X>Y)}}}  |  {{{BFBT(X>0)}}}  |
+|                 |                 |                 |  {{{BFBT(◄)}}}  |  {{{BFBT(►)}}}   | {{{BFBT(LSTX)}}} | {{{BFBT(X≠Y)}}} | {{{BFBT(X≠0)}}} | {{{BFBT(X=Y)}}}  |  {{{BFBT(X=0)}}}  |

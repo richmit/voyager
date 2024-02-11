@@ -1,0 +1,258 @@
+# -*- Mode:Org; Coding:utf-8; fill-column:158 -*-
+# ######################################################################################################################################################.H.S.##
+# FILE:        readme.org
+#+TITLE:       HP Voyager Programs
+#+SUBTITLE:    For HP-15C
+#+AUTHOR:      Mitch Richling
+#+EMAIL:       http://www.mitchr.me/
+#+DATE:        2024-02-03
+#+DESCRIPTION: Various programs for HP Voyager series calculators
+#+KEYWORDS:    Hewlett Packard RPN RPL
+#+LANGUAGE:    en
+#+OPTIONS:     num:t toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t skip:nil d:nil todo:t pri:nil H:5 p:t author:t html-scripts:nil
+#+SEQ_TODO:    TODO:NEW(t)                         TODO:WORK(w)    TODO:HOLD(h)    | TODO:FUTURE(f)   TODO:DONE(d)    TODO:CANCELED(c)
+#+PROPERTY: header-args :eval never-export
+#+HTML_HEAD: <style>body { width: 95%; margin: 2% auto; font-size: 18px; line-height: 1.4em; font-family: Georgia, serif; color: black; background-color: white; }</style>
+# Change max-width to get wider output -- also note #content style below
+#+HTML_HEAD: <style>body { min-width: 500px; max-width: 1024px; }</style>
+#+HTML_HEAD: <style>h1,h2,h3,h4,h5,h6 { color: #A5573E; line-height: 1em; font-family: Helvetica, sans-serif; }</style>
+#+HTML_HEAD: <style>h1,h2,h3 { line-height: 1.4em; }</style>
+#+HTML_HEAD: <style>h1.title { font-size: 3em; }</style>
+#+HTML_HEAD: <style>.subtitle { font-size: 0.6em; }</style>
+#+HTML_HEAD: <style>h4,h5,h6 { font-size: 1em; }</style>
+#+HTML_HEAD: <style>.org-src-container { border: 1px solid #ccc; box-shadow: 3px 3px 3px #eee; font-family: Lucida Console, monospace; font-size: 80%; margin: 0px; padding: 0px 0px; position: relative; }</style>
+#+HTML_HEAD: <style>.org-src-container>pre { line-height: 1.2em; padding-top: 1.5em; margin: 0.5em; background-color: #404040; color: white; overflow: auto; }</style>
+#+HTML_HEAD: <style>.org-src-container>pre:before { display: block; position: absolute; background-color: #b3b3b3; top: 0; right: 0; padding: 0 0.2em 0 0.4em; border-bottom-left-radius: 8px; border: 0; color: white; font-size: 100%; font-family: Helvetica, sans-serif;}</style>
+#+HTML_HEAD: <style>pre.example { white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -o-pre-wrap; font-family: Lucida Console, monospace; font-size: 80%; background: #404040; color: white; display: block; padding: 0em; border: 2px solid black; }</style>
+#+HTML_HEAD: <style>blockquote { margin-bottom: 0.5em; padding: 0.5em; background-color: #FFF8DC; border-left: 2px solid #A5573E; border-left-color: rgb(255, 228, 102); display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 5em; margin-inline-end: 5em; } </style>
+# Change the following to get wider output -- also note body style above
+#+HTML_HEAD: <style>#content { max-width: 60em; }</style>
+#+HTML_LINK_HOME: https://www.mitchr.me/
+#+HTML_LINK_UP: index.html
+# ######################################################################################################################################################.H.E.##
+
+#+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
+|          <r> | <l>                                 |
+|    *Author:* | /{{{author}}}/                      |
+|   *Updated:* | /{{{modification-time(%Y-%m-%d)}}}/ |
+| *Generated:* | /{{{time(%Y-%m-%d)}}}/              |
+#+ATTR_HTML: :align center
+Copyright \copy {{{time(%Y)}}} Mitch Richling. All rights reserved.
+
+#+TOC: headlines 5
+
+#+MACRO: WBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>$1</span>@@
+#+MACRO: BBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>$1</span>@@
+#+MACRO: YBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>$1</span>@@
+#+MACRO: SPC @@html:&nbsp;&nbsp;&nbsp;@@
+#+MACRO: WFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>$1</div>@@
+#+MACRO: BFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>$1</div>@@
+#+MACRO: YFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>$1</div>@@
+
+* Store & Recall Complex Numbers
+:PROPERTIES:
+:CUSTOM_ID: storclcplx
+:END:
+
+The official user guide has a pair of example programs capable of storing and recalling complex values using a matrix for storage.  The programs here are
+similar except that they use registrars for storage -- storing the real and complex parts in consecutive storage registers.
+
+With respect to the stack, these programs attempt to behave like the built in =STO= & =RCL= functions:
+ - They both preserve the stack contents
+ - The =STO CLPX= program leaves the item to be stored in the X stack position
+
+If the calculator is not already in complex mode, then it will be placed in complex mode by the program.
+
+** Usage
+
+- Inputs:
+ - =STO CPLX=: The number to store is on stack level Y, and the first register index is on stack level X.  \\
+               The real part of Y is stored at the register indicated by the index in X, and the complex part of Y is stored in the next consecutive register.
+ - =RCL CPLX=: The first register index is on stack level X.  
+- The result stack:
+ - =STO CPLX=: The stack is shifted down so the register index is in stack position T.
+ - =RCL CPLX=: The register index in stack position X is replaced by the recalled complex number, and the other stack levels are left unchanged.
+- Error Conditions
+ - Given register is out of bounds: An =Error 3= will be produced & the stack contents will be invalidated.
+ - Given register plus one is out of bounds: An =Error 3= will be produced, the stack contents will be invalidated, and the value in the given register will be invalidated.
+
+** Stack Diagrams
+
+#+BEGIN_CENTER
+*=STO_CPLX=* -- Store Complex Number
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 3em
+| <c>  | <l>         | <l>         |
+|      | *Before*    | *After*     |
+| *T:* | t           | Reg Index   |
+| *Z:* | z           | t           |
+| *Y:* | Cplx Number | z           |
+| *X:* | Reg Index   | Cplx Number |
+
+#+BEGIN_CENTER
+*=RCL_CPLX=* -- Recall Complex Number
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 3em
+| <c>  | <l>       | <l>         |
+|      | *Before*  | *After*     |
+| *T:* | t         | t           |
+| *Z:* | z         | z           |
+| *Y:* | y         | y           |
+| *X:* | Reg Index | Cplx Number |
+
+** Resources Used
+
+- Registers Used: 
+  - Two consecutive registers are used.
+  - The first has its index on level X of the stack
+- Internal Labels: 
+  - E RCL_CPLX
+  - D STO_CPLX
+- External Labels: 
+  - None
+
+** Program Listing
+
+#+BEGIN_CENTER
+=STO_CPLX= -- Store Complex Number
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 1em
+| <l>                                      |         <r> |                        <r> |    <c>    | <l>        |
+| *Keystrokes* {{{SPC}}}                   | *Key Codes* | {{{SPC}}} *Stack Contents* | {{{SPC}}} | *Comments* |
+| {{{YBT(f)}}} {{{YBT(LBL)}}} {{{YBT(D)}}} |  =42,21,14= |                    x y z t |           |            |
+| {{{WBT(STO)}}} {{{YBT(I)}}}              |     =44 25= |                    x y z t |           |            |
+| {{{WBT(R↓)}}}                            |        =33= |                    y z t x |           |            |
+| {{{WBT(STO)}}} {{{YBT((i))}}}            |     =44 24= |                    y z t x |           |            |
+| {{{YBT(f)}}} {{{YBT(ISG)}}} {{{YBT(I)}}} |  =42, 6,25= |                    y z t x |           |            |
+| {{{BBT(g)}}} {{{BBT(CLX)}}}              |     =43 35= |                    y z t x |           | NOP        |
+| {{{YBT(f)}}} {{{YBT(Re≷Im)}}}            |     =42 30= |                   ~y z t x |           |            |
+| {{{WBT(STO)}}} {{{YBT((i))}}}            |     =44 24= |                   ~y z t x |           |            |
+| {{{YBT(f)}}} {{{YBT(Re≷Im)}}}            |     =42 30= |                    y z t x |           | Ret        |
+| {{{BBT(g)}}} {{{BBT(RTN)}}}              |     =43 32= |                            |           |            |
+#+BEGIN_CENTER
+=RCL_CPLX= -- Recall Complex Number
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 1em
+| <l>                                      |         <r> |                        <r> |    <c>    | <l>           |
+| *Keystrokes* {{{SPC}}}                   | *Key Codes* | {{{SPC}}} *Stack Contents* | {{{SPC}}} | *Comments*    |
+| {{{YBT(f)}}} {{{YBT(LBL)}}} {{{YBT(E)}}} |  =42,21,15= |                    x y z t |           |               |
+| {{{WBT(STO)}}} {{{YBT(I)}}}              |     =44 25= |                    x y z t |           |               |
+| {{{WBT(R↓)}}}                            |        =33= |                    y z t x |           |               |
+| {{{WBT(RCL)}}} {{{YBT((i))}}}            |     =45 24= |                   Cr y z t |           |               |
+| {{{YBT(f)}}} {{{YBT(ISG)}}} {{{YBT(I)}}} |   =42,6,25= |                   Cr y z t |           |               |
+| {{{BBT(g)}}} {{{BBT(CLX)}}}              |     =43 35= |                   Cr y z t |           | NOP           |
+| {{{YBT(f)}}} {{{YBT(Re≷Im)}}}            |     =42 30= |                  ~Cr y z t |           |               |
+| {{{BBT(g)}}} {{{BBT(CLX)}}}              |     =43 35= |                  ~Cr y z t |           | Disable stack |
+| {{{WBT(RCL)}}} {{{YBT((i))}}}            |     =45 24= |                   ~C y z t |           |               |
+| {{{YBT(f)}}} {{{YBT(Re≷Im)}}}            |     =42 30= |                    C y z t |           | Ret           |
+| {{{BBT(g)}}} {{{BBT(RTN)}}}              |     =43 32= |                            |           |               |
+
+* Newton's Method for Functions of a Complex Variable
+:PROPERTIES:
+:CUSTOM_ID: newton
+:END:
+
+Attempts to find a root of a function of a complex variable using Newtons method.  Newton's method is iterative taking an initial guess, and generating
+successive guesses that, if we are fortunate, converge to a root.  In what follows, the function is referred to as $f(x)$ and the initial guess is referred to as
+$x_0$.  The final guess is referred to as $x_1$.
+
+If the calculator is not already in complex mode, then it will be placed in complex mode by the program.
+
+** Usage
+
+- Running the program
+  - Stack Arguments: 
+    - X best guess for root ($x_0$)
+  - Function to solve:
+    - Must be =LBL A=
+    - When called, $x$ will be on every level of the stack
+    - Returns $f(x)$ to stack level Y and $f'(x)$ to stack level X.
+- Exit Information
+  - Exit Stack State: 
+    - Z: $f(x_1)$   Function value at $x_1$
+    - Y: $|f(x_1)|$ Function magnitude at $x_1$
+    - X: $x_1$      Root guess
+  - Exit Register State: 
+    - R8 $\Re(x_1)$
+    - R9 $\Im(x_1)$  
+  - Non-normal Exits:
+   - *Program might not converge:*  In this case it will run forever.  If the program is interrupted it is highly likely, but not guaranteed, the last guess will
+     be stored in registers 8 & 9.
+   - *Evaluation error:* If the function causes an error during evaluation, the program will stop.  The last guess will be stored in R8 & R9.
+   - *Zero Derivative:* If the derivative is zero, then an "Error 0" will occur.   The last guess will be stored in R8 & R9.
+
+** Stack Diagrams
+
+#+BEGIN_CENTER
+=NEWTON= -- Newton's Method for a Function of a Complex Variable
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 3em
+| <c>  | <l>      | <l>                 |
+|      | *Before* | *After*             |
+| *T:* | t        | ?                   |
+| *Z:* | z        | $f(x_1)$            |
+| *Y:* | y        | $\vert f(x_1)\vert$ |
+| *X:* | x0       | $x_1$               |
+
+** Resources Used
+
+- Registers Used: 
+  - R8 Real component of root guess
+  - R9 Complex component of root guess
+- Internal Labels: 
+  - D Program label
+  - 1 Main loop target
+- External Labels: 
+  - A function to solve
+  - E RCL_CPLX
+  - D STO_CPLX
+
+** Program Listing
+
+#+BEGIN_CENTER
+=NEWTON= -- Newton's Method for a Function of a Complex Variable
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 1em
+| <l>                                       |         <r> |                        <r> |    <c>    | <l>                 |
+| *Keystrokes* {{{SPC}}}                    | *Key Codes* | {{{SPC}}} *Stack Contents* | {{{SPC}}} | *Comments*          |
+| {{{YBT(f)}}} {{{YBT(LBL)}}} {{{YBT(C)}}}  |  =42,21,13= |                   x0 ? ? ? |           |                     |
+| {{{WBT(8)}}}                              |         =8= |                   8 x0 ? ? |           |                     |
+| {{{WBT(GSB)}}} {{{YBT(D)}}}               |     =32 14= |                   x0 ? ? 8 |           | STO_CPLX            |
+| {{{YBT(f)}}} {{{YBT(LBL)}}} {{{WBT(1)}}}  |  =42,21, 1= |                    ? ? ? ? |           |                     |
+| {{{WBT(8)}}}                              |         =8= |                    8 ? ? ? |           |                     |
+| {{{WBT(GSB)}}} {{{YBT(E)}}}               |     =32 15= |                   x0 ? ? ? |           | RCL_CPLX            |
+| {{{WBT(ENTER)}}}                          |        =36= |                  x0 x0 ? ? |           | x0=Previous iterate |
+| {{{WBT(ENTER)}}}                          |        =36= |                 x0 x0 x0 ? |           |                     |
+| {{{WBT(ENTER)}}}                          |        =36= |                x0 x0 x0 x0 |           |                     |
+| {{{WBT(GSB)}}} {{{YBT(A)}}}               |     =32 11= |                   df f ? ? |           | Function to solve   |
+| {{{WBT(x≷y)}}}                            |        =34= |                   f df ? ? |           | f=f(x0), df=f'(x0)  |
+| {{{WBT(ENTER)}}}                          |        =36= |                   f f df ? |           |                     |
+| {{{WBT(ENTER)}}}                          |        =36= |                   f f f df |           |                     |
+| {{{WBT(8)}}}                              |         =8= |                   8 f f df |           |                     |
+| {{{WBT(GSB)}}} {{{YBT(E)}}}               |     =32 15= |                  x0 f f df |           | RCL_CPLX            |
+| {{{BBT(g)}}} {{{BBT(R↑)}}}                |     =43 33= |                  df x0 f f |           |                     |
+| {{{BBT(g)}}} {{{BBT(R↑)}}}                |     =43 33= |                  f df x0 f |           |                     |
+| {{{WBT(x≷y)}}}                            |        =34= |                  df f x0 f |           |                     |
+| {{{WBT(÷)}}}                              |        =10= |                f÷df x0 f f |           |                     |
+| {{{WBT(x≷y)}}}                            |        =34= |                x0 f÷df f f |           |                     |
+| {{{WBT(ENTER)}}}                          |        =36= |               x0 x0 f÷df f |           |                     |
+| {{{WBT(R↓)}}}                             |        =33= |               x0 f÷df f x0 |           |                     |
+| {{{WBT(x≷y)}}}                            |        =34= |               f÷df x0 f x0 |           |                     |
+| {{{WBT(-)}}}                              |        =30= |                 x1 f x0 x0 |           | x1=Current iterate  |
+| {{{WBT(8)}}}                              |         =8= |                  8 x1 f x0 |           |                     |
+| {{{WBT(GSB)}}} {{{YBT(D)}}}               |     =32 14= |                  x1 f x0 8 |           | STO_CPLX            |
+| {{{WBT(x≷y)}}}                            |        =34= |                  f x1 x0 8 |           |                     |
+| {{{WBT(ENTER)}}}                          |        =36= |                 f f  x1 x0 |           |                     |
+| {{{BBT(g)}}} {{{BBT(ABS)}}}               |     =43 16= |                 fM f x1 x0 |           | fM=abs(f(x1))       |
+| {{{WBT(1)}}}                              |         =1= |                  1 fM f x1 |           |                     |
+| {{{WBT(EEX)}}}                            |        =26= |                  1 fM f x1 |           |                     |
+| {{{WBT(7)}}}                              |         =7= |                1e7 fM f x1 |           |                     |
+| {{{WBT(CHS)}}}                            |        =16= |                  e fM f x1 |           | e=Epsilon           |
+| {{{BBT(g)}}} {{{BBT(TEST)}}} {{{WBT(8)}}} |  =43,30, 8= |                  e fM f x1 |           | y>x?                |
+| {{{WBT(GTO)}}} {{{WBT(1)}}}               |      =22 1= |                  e fM f x1 |           |                     |
+| {{{BBT(g)}}} {{{BBT(R↑)}}}                |     =43 33= |                  x1 e fM f |           |                     |
+| {{{WBT(x≷y)}}}                            |        =34= |                  e x1 fM f |           |                     |
+| {{{WBT(R↓)}}}                             |        =33= |                  x1 fM f e |           |                     |
+| {{{BBT(g)}}} {{{BBT(RTN)}}}               |     =43 32= |                  x1 fM f e |           |                     |
+
+
