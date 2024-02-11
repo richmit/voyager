@@ -28,7 +28,7 @@
 # Change the following to get wider output -- also note body style above
 #+HTML_HEAD: <style>#content { max-width: 60em; }</style>
 #+HTML_LINK_HOME: https://www.mitchr.me/
-#+HTML_LINK_UP: https://www.mitchr.me/FIXME
+#+HTML_LINK_UP: https://richmit.github.io/voyager/
 # ######################################################################################################################################################.H.E.##
 
 #+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
