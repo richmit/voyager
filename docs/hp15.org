@@ -64,6 +64,9 @@ With respect to the stack, these programs attempt to behave like the built in =S
 If the calculator is not already in complex mode, then it will be placed in complex mode by the program.
 
 ** Usage
+:PROPERTIES:
+:CUSTOM_ID: storclcplxUsage
+:END:
 
 - Inputs:
  - =STO CPLX=: The number to store is on stack level Y, and the first register index is on stack level X.  \\
@@ -77,6 +80,9 @@ If the calculator is not already in complex mode, then it will be placed in comp
  - Given register plus one is out of bounds: An =Error 3= will be produced, the stack contents will be invalidated, and the value in the given register will be invalidated.
 
 ** Stack Diagrams
+:PROPERTIES:
+:CUSTOM_ID: storclcplxStk
+:END:
 
 #+BEGIN_CENTER
 *=STO_CPLX=* -- Store Complex Number
@@ -101,6 +107,9 @@ If the calculator is not already in complex mode, then it will be placed in comp
 | *X:* | Reg Index | Cplx Number |
 
 ** Resources Used
+:PROPERTIES:
+:CUSTOM_ID: storclcplxRes
+:END:
 
 - Registers Used: 
   - Two consecutive registers are used.
@@ -112,6 +121,9 @@ If the calculator is not already in complex mode, then it will be placed in comp
   - None
 
 ** Program Listing
+:PROPERTIES:
+:CUSTOM_ID: storclcplxCode
+:END:
 
 #+BEGIN_CENTER
 =STO_CPLX= -- Store Complex Number
@@ -182,6 +194,9 @@ If the calculator is not already in complex mode, then it will be placed in comp
    - *Zero Derivative:* If the derivative is zero, then an "Error 0" will occur.   The last guess will be stored in R8 & R9.
 
 ** Stack Diagrams
+:PROPERTIES:
+:CUSTOM_ID: newtonStk
+:END:
 
 #+BEGIN_CENTER
 =NEWTON= -- Newton's Method for a Function of a Complex Variable
@@ -195,6 +210,9 @@ If the calculator is not already in complex mode, then it will be placed in comp
 | *X:* | x0       | $x_1$               |
 
 ** Resources Used
+:PROPERTIES:
+:CUSTOM_ID: newtonRes
+:END:
 
 - Registers Used: 
   - R8 Real component of root guess
@@ -208,6 +226,9 @@ If the calculator is not already in complex mode, then it will be placed in comp
   - D STO_CPLX
 
 ** Program Listing
+:PROPERTIES:
+:CUSTOM_ID: newtonCode
+:END:
 
 #+BEGIN_CENTER
 =NEWTON= -- Newton's Method for a Function of a Complex Variable
@@ -256,3 +277,12 @@ If the calculator is not already in complex mode, then it will be placed in comp
 | {{{BBT(g)}}} {{{BBT(RTN)}}}               |     =43 32= |                  x1 fM f e |           |                     |
 
 
+* Meta Data
+
+The primary URL for this page: https://richmit.github.io/voyager/hp15.html
+
+The org mode file for this page: https://github.com/richmit/voyager/blob/main/docs/hp15.org
+
+The HTML file for this page: https://github.com/richmit/voyager/blob/main/docs/hp15.html
+
+The github repository housing this content: https://github.com/richmit/voyager/

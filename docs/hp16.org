@@ -195,3 +195,12 @@ I have one "big" program on my HP-16C & DM-16L calculators with 7 entry points:
 | {{{YBT(f)}}} {{{YBT(AND)}}}              |       42 20 |              LSSB(x) y y y |           | Ret when x≠0                                                              |
 | {{{BBT(g)}}} {{{BBT(RTN)}}}              |       43 21 |                            |           |                                                                           |
 
+* Meta Data
+
+The primary URL for this page: https://richmit.github.io/voyager/hp16.html
+
+The org mode file for this page: https://github.com/richmit/voyager/blob/main/docs/hp16.org
+
+The HTML file for this page: https://github.com/richmit/voyager/blob/main/docs/hp16.html
+
+The github repository housing this content: https://github.com/richmit/voyager/

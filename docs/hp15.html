@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-11 Sun 12:19 -->
+<!-- 2024-02-11 Sun 12:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -286,20 +286,21 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 <ul>
 <li><a href="#storclcplx">1. Store &amp; Recall Complex Numbers</a>
 <ul>
-<li><a href="#orgdad1d42">1.1. Usage</a></li>
-<li><a href="#orgc25b45c">1.2. Stack Diagrams</a></li>
-<li><a href="#orgb25ed5f">1.3. Resources Used</a></li>
-<li><a href="#org96b1a36">1.4. Program Listing</a></li>
+<li><a href="#storclcplxUsage">1.1. Usage</a></li>
+<li><a href="#storclcplxStk">1.2. Stack Diagrams</a></li>
+<li><a href="#storclcplxRes">1.3. Resources Used</a></li>
+<li><a href="#storclcplxCode">1.4. Program Listing</a></li>
 </ul>
 </li>
 <li><a href="#newton">2. Newton's Method for Functions of a Complex Variable</a>
 <ul>
-<li><a href="#org8492726">2.1. Usage</a></li>
-<li><a href="#orgf88aee0">2.2. Stack Diagrams</a></li>
-<li><a href="#org67a54ee">2.3. Resources Used</a></li>
-<li><a href="#org2ff3e23">2.4. Program Listing</a></li>
+<li><a href="#org12617ba">2.1. Usage</a></li>
+<li><a href="#newtonStk">2.2. Stack Diagrams</a></li>
+<li><a href="#newtonRes">2.3. Resources Used</a></li>
+<li><a href="#newtonCode">2.4. Program Listing</a></li>
 </ul>
 </li>
+<li><a href="#org05e690e">3. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -325,9 +326,9 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </p>
 </div>
 
-<div id="outline-container-orgdad1d42" class="outline-3">
-<h3 id="orgdad1d42"><span class="section-number-3">1.1.</span> Usage</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-storclcplxUsage" class="outline-3">
+<h3 id="storclcplxUsage"><span class="section-number-3">1.1.</span> Usage</h3>
+<div class="outline-text-3" id="text-storclcplxUsage">
 <ul class="org-ul">
 <li>Inputs:
 <ul class="org-ul">
@@ -349,9 +350,9 @@ The real part of Y is stored at the register indicated by the index in X, and th
 </div>
 </div>
 
-<div id="outline-container-orgc25b45c" class="outline-3">
-<h3 id="orgc25b45c"><span class="section-number-3">1.2.</span> Stack Diagrams</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-storclcplxStk" class="outline-3">
+<h3 id="storclcplxStk"><span class="section-number-3">1.2.</span> Stack Diagrams</h3>
+<div class="outline-text-3" id="text-storclcplxStk">
 <div class="org-center">
 <p>
 <b><code>STO_CPLX</code></b> &#x2013; Store Complex Number
@@ -450,9 +451,9 @@ The real part of Y is stored at the register indicated by the index in X, and th
 </div>
 </div>
 
-<div id="outline-container-orgb25ed5f" class="outline-3">
-<h3 id="orgb25ed5f"><span class="section-number-3">1.3.</span> Resources Used</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-storclcplxRes" class="outline-3">
+<h3 id="storclcplxRes"><span class="section-number-3">1.3.</span> Resources Used</h3>
+<div class="outline-text-3" id="text-storclcplxRes">
 <ul class="org-ul">
 <li>Registers Used: 
 <ul class="org-ul">
@@ -472,9 +473,9 @@ The real part of Y is stored at the register indicated by the index in X, and th
 </div>
 </div>
 
-<div id="outline-container-org96b1a36" class="outline-3">
-<h3 id="org96b1a36"><span class="section-number-3">1.4.</span> Program Listing</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-storclcplxCode" class="outline-3">
+<h3 id="storclcplxCode"><span class="section-number-3">1.4.</span> Program Listing</h3>
+<div class="outline-text-3" id="text-storclcplxCode">
 <div class="org-center">
 <p>
 <code>STO_CPLX</code> &#x2013; Store Complex Number
@@ -719,8 +720,8 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </p>
 </div>
 
-<div id="outline-container-org8492726" class="outline-3">
-<h3 id="org8492726"><span class="section-number-3">2.1.</span> Usage</h3>
+<div id="outline-container-org12617ba" class="outline-3">
+<h3 id="org12617ba"><span class="section-number-3">2.1.</span> Usage</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Running the program
@@ -761,9 +762,9 @@ be stored in registers 8 &amp; 9.</li>
 </div>
 </div>
 
-<div id="outline-container-orgf88aee0" class="outline-3">
-<h3 id="orgf88aee0"><span class="section-number-3">2.2.</span> Stack Diagrams</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-newtonStk" class="outline-3">
+<h3 id="newtonStk"><span class="section-number-3">2.2.</span> Stack Diagrams</h3>
+<div class="outline-text-3" id="text-newtonStk">
 <div class="org-center">
 <p>
 <code>NEWTON</code> &#x2013; Newton's Method for a Function of a Complex Variable
@@ -814,9 +815,9 @@ be stored in registers 8 &amp; 9.</li>
 </div>
 </div>
 
-<div id="outline-container-org67a54ee" class="outline-3">
-<h3 id="org67a54ee"><span class="section-number-3">2.3.</span> Resources Used</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-newtonRes" class="outline-3">
+<h3 id="newtonRes"><span class="section-number-3">2.3.</span> Resources Used</h3>
+<div class="outline-text-3" id="text-newtonRes">
 <ul class="org-ul">
 <li>Registers Used: 
 <ul class="org-ul">
@@ -838,9 +839,9 @@ be stored in registers 8 &amp; 9.</li>
 </div>
 </div>
 
-<div id="outline-container-org2ff3e23" class="outline-3">
-<h3 id="org2ff3e23"><span class="section-number-3">2.4.</span> Program Listing</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-newtonCode" class="outline-3">
+<h3 id="newtonCode"><span class="section-number-3">2.4.</span> Program Listing</h3>
+<div class="outline-text-3" id="text-newtonCode">
 <div class="org-center">
 <p>
 <code>NEWTON</code> &#x2013; Newton's Method for a Function of a Complex Variable
@@ -1183,6 +1184,28 @@ be stored in registers 8 &amp; 9.</li>
 </tbody>
 </table>
 </div>
+</div>
+</div>
+
+
+<div id="outline-container-org05e690e" class="outline-2">
+<h2 id="org05e690e"><span class="section-number-2">3.</span> Meta Data</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15.html">https://richmit.github.io/voyager/hp15.html</a>
+</p>
+
+<p>
+The org mode file for this page: <a href="https://github.com/richmit/voyager/blob/main/docs/hp15.org">https://github.com/richmit/voyager/blob/main/docs/hp15.org</a>
+</p>
+
+<p>
+The HTML file for this page: <a href="https://github.com/richmit/voyager/blob/main/docs/hp15.html">https://github.com/richmit/voyager/blob/main/docs/hp15.html</a>
+</p>
+
+<p>
+The github repository housing this content: <a href="https://github.com/richmit/voyager/">https://github.com/richmit/voyager/</a>
+</p>
 </div>
 </div>
 </div>
