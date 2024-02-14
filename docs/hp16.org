@@ -41,13 +41,7 @@ Copyright \copy {{{time(%Y)}}} Mitch Richling. All rights reserved.
 
 #+TOC: headlines 5
 
-#+MACRO: WBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>$1</span>@@
-#+MACRO: BBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>$1</span>@@
-#+MACRO: YBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>$1</span>@@
-#+MACRO: SPC @@html:&nbsp;&nbsp;&nbsp;@@
-#+MACRO: WFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>$1</div>@@
-#+MACRO: BFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>$1</div>@@
-#+MACRO: YFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>$1</div>@@
+#+INCLUDE: emacs.org
 
 * Introduction
 :PROPERTIES:
@@ -143,57 +137,57 @@ I have one "big" program on my HP-16C & DM-16L calculators with 7 entry points:
 ** Program Listing
 
 #+ATTR_HTML: :align center :cellpadding 1em
-| <l>                                      |         <r> |                        <r> |    <c>    | <l>                                                                       |
-| *Keystrokes* {{{SPC}}}                   | *Key Codes* | {{{SPC}}} *Stack Contents* | {{{SPC}}} | *Comments*                                                                |
-| {{{BBT(g)}}} {{{BBT(LBL)}}} {{{WBT(A)}}} |    43,22, A |                    n y z t |           | {{{WBT(A)}}} *=SLn=*=* -- Shift Left n bits                               |
-| {{{WBT(GSB)}}} {{{WBT(2)}}}              |          21 |               2  2^x y z ? |           |                                                                           |
-| {{{WBT(×)}}}                             |          20 |               SLn(x) z ? ? |           | Ret                                                                       |
-| {{{BBT(g)}}} {{{BBT(RTN)}}}              |       43 21 |                            |           |                                                                           |
-| {{{BBT(g)}}} {{{BBT(LBL)}}} {{{WBT(B)}}} |    43,22, b |                    n y z t |           | {{{WBT(B)}}} *=SRn=*=* -- Shift Right n bits                              |
-| {{{WBT(GSB)}}} {{{WBT(2)}}}              |       21  2 |                  2^x y z ? |           |                                                                           |
-| {{{WBT(÷)}}}                             |          10 |               SRn(x) z ? ? |           | Ret                                                                       |
-| {{{BBT(g)}}} {{{BBT(RTN)}}}              |       43 21 |                            |           |                                                                           |
-| {{{BBT(g)}}} {{{BBT(LBL)}}} {{{WBT(C)}}} |    43,22, C |                    x y z t |           | {{{WBT(C)}}} *=CTZ=*=* -- Count Trailing Zeros                            |
-| {{{BBT(g)}}} {{{BBT(x=0)}}}              |       43 40 |                    x y z t |           |                                                                           |
-| {{{WBT(÷)}}}                             |       10  0 |                      y z t |           | Ret when x=0                                                              |
-| {{{WBT(GSB)}}} {{{WBT(1)}}}              |       21  1 |                 LSSB y ? ? |           |                                                                           |
-| {{{WBT(GSB)}}} {{{WBT(E)}}}              |       21  E |               CTZ(x) y ? ? |           | Ret when x≠0                                                              |
-| {{{BBT(g)}}} {{{BBT(RTN)}}}              |       43 21 |                            |           |                                                                           |
-| {{{BBT(g)}}} {{{BBT(LBL)}}} {{{WBT(E)}}} |    43,22, E |                    x y z t |           | {{{WBT(E)}}} *=iLog=*=* -- Integer logarithm: $\mathrm{floor}(\log_2(x))$ |
-| {{{BBT(g)}}} {{{BBT(x=0)}}}              |       43 49 |                    x y z t |           |                                                                           |
-| {{{WBT(÷)}}}                             |          10 |                    0 y z t |           | Ret when x=0                                                              |
-| {{{BBT(g)}}} {{{BBT(LJ)}}}               |       43  A |                  c ljx y z |           |                                                                           |
-| {{{WBT(X≷Y)}}}                           |          34 |                  ljx c y z |           |                                                                           |
-| {{{WBT(R↓)}}}                            |          33 |                  c y z ljx |           |                                                                           |
-| {{{WBT(GSB)}}} {{{WBT(F)}}}              |          21 |             F  wsize c y ? |           |                                                                           |
-| {{{WBT(1)}}}                             |        1  1 |                  wsize c y |           |                                                                           |
-| {{{WBT(-)}}}                             |          30 |              wsize-1 c y y |           |                                                                           |
-| {{{WBT(X≷Y)}}}                           |          34 |              c wsize-1 y y |           |                                                                           |
-| {{{WBT(-)}}}                             |          30 |              iLog(x) y y y |           | Ret when x≠0                                                              |
-| {{{BBT(g)}}} {{{BBT(RTN)}}}              |       43 21 |                            |           |                                                                           |
-| {{{BBT(g)}}} {{{BBT(LBL)}}} {{{WBT(F)}}} |    43,22, F |                    x y z t |           | {{{WBT(F)}}} *=WSIZE=*=* -- Recall the WSIZE value                        |
-| {{{WBT(1)}}}                             |        1  1 |                      x y z |           |                                                                           |
-| {{{BBT(g)}}} {{{BBT(LJ)}}}               |       43  A |                ws-1 1s x y |           |                                                                           |
-| {{{WBT(X≷Y)}}}                           |          34 |                1s ws-1 x y |           |                                                                           |
-| {{{WBT(R↓)}}}                            |          33 |                ws-1 x y 1s |           |                                                                           |
-| {{{WBT(1)}}}                             |           1 |                 1 ws-1 x y |           |                                                                           |
-| {{{WBT(+)}}}                             |          40 |                wsize x y y |           | Ret                                                                       |
-| {{{BBT(g)}}} {{{BBT(RTN)}}}              |       43 21 |                            |           |                                                                           |
-| {{{BBT(g)}}} {{{BBT(LBL)}}} {{{WBT(2)}}} |    43,22, 2 |                    x y z t |           | {{{WBT(2)}}} *=2^x=*=* -- Compute $2^x$                                   |
-| {{{WBT(1)}}}                             |           1 |                    1 x y z |           |                                                                           |
-| {{{WBT(X≷Y)}}}                           |          34 |                    x 1 y z |           |                                                                           |
-| {{{YBT(f)}}} {{{YBT(f RLn)}}}            |          42 |               e  2^X y z z |           | Ret                                                                       |
-| {{{BBT(g)}}} {{{BBT(RTN)}}}              |       43 21 |                            |           |                                                                           |
-| {{{BBT(g)}}} {{{BBT(LBL)}}} {{{WBT(1)}}} |    43,22, 1 |                    x y z t |           | {{{WBT(1)}}} *=LSSB=*=* -- Clear all but least significant set bit        |
-| {{{BBT(g)}}} {{{BBT(x=0)}}}              |       43 40 |                    x y z t |           |                                                                           |
-| {{{BBT(g)}}} {{{BBT(RTN)}}}              |       43 21 |                    0 y z t |           | Ret when x=0                                                              |
-| {{{WBT(ENTER)}}}                         |          36 |                    x x y z |           |                                                                           |
-| {{{WBT(ENTER)}}}                         |          36 |                    x x x y |           |                                                                           |
-| {{{WBT(1)}}}                             |           1 |                    1 x x y |           |                                                                           |
-| {{{WBT(-)}}}                             |          30 |                    x-1 x y |           |                                                                           |
-| {{{YBT(f)}}} {{{YBT(NOT)}}}              |       42 30 |             NOT(x-1) x y y |           |                                                                           |
-| {{{YBT(f)}}} {{{YBT(AND)}}}              |       42 20 |              LSSB(x) y y y |           | Ret when x≠0                                                              |
-| {{{BBT(g)}}} {{{BBT(RTN)}}}              |       43 21 |                            |           |                                                                           |
+| <l>                    |          <r> |                        <r> |    <c>    | <l>                                                                       |
+| *Keystrokes* {{{SPC}}} |  *Key Codes* | {{{SPC}}} *Stack Contents* | {{{SPC}}} | *Comments*                                                                |
+| {{{c16(  g LBL A  )}}} |   =43,22, A= |                    n y z t |           | {{{WBT(A)}}} *=SLn=* -- Shift Left n bits                                 |
+| {{{c16(  GSB 2    )}}} |         =21= |               2  2^x y z ? |           |                                                                           |
+| {{{c16(  ×        )}}} |         =20= |               SLn(x) z ? ? |           | Ret                                                                       |
+| {{{c16(  g RTN    )}}} |      =43 21= |                            |           |                                                                           |
+| {{{c16(  g LBL B  )}}} |   =43,22, b= |                    n y z t |           | {{{WBT(B)}}} *=SRn=* -- Shift Right n bits                                |
+| {{{c16(  GSB 2    )}}} |      =21  2= |                  2^x y z ? |           |                                                                           |
+| {{{c16(  ÷        )}}} |         =10= |               SRn(x) z ? ? |           | Ret                                                                       |
+| {{{c16(  g RTN    )}}} |      =43 21= |                            |           |                                                                           |
+| {{{c16(  g LBL C  )}}} |   =43,22, C= |                    x y z t |           | {{{WBT(C)}}} *=CTZ=* -- Count Trailing Zeros                              |
+| {{{c16(  g X=0    )}}} |      =43 40= |                    x y z t |           |                                                                           |
+| {{{c16(  ÷        )}}} |      =10  0= |                      y z t |           | Ret when x=0                                                              |
+| {{{c16(  GSB 1    )}}} |      =21  1= |                 LSSB y ? ? |           |                                                                           |
+| {{{c16(  GSB E    )}}} |      =21  E= |               CTZ(x) y ? ? |           | Ret when x≠0                                                              |
+| {{{c16(  g RTN    )}}} |      =43 21= |                            |           |                                                                           |
+| {{{c16(  g LBL E  )}}} |   =43,22, E= |                    x y z t |           | {{{WBT(E)}}} *=iLog=* -- Integer logarithm: $\mathrm{floor}(\log_2(x))$   |
+| {{{c16(  g X=0    )}}} |      =43 49= |                    x y z t |           |                                                                           |
+| {{{c16(  ÷        )}}} |         =10= |                    0 y z t |           | Ret when x=0                                                              |
+| {{{c16(  g LJ     )}}} |      =43  A= |                  c ljx y z |           |                                                                           |
+| {{{c16(  X≷Y      )}}} |         =34= |                  ljx c y z |           |                                                                           |
+| {{{c16(  R↓       )}}} |         =33= |                  c y z ljx |           |                                                                           |
+| {{{c16(  GSB F    )}}} |         =21= |             F  wsize c y ? |           |                                                                           |
+| {{{c16(  1        )}}} |       =1  1= |                  wsize c y |           |                                                                           |
+| {{{c16(  -        )}}} |         =30= |              wsize-1 c y y |           |                                                                           |
+| {{{c16(  X≷Y      )}}} |         =34= |              c wsize-1 y y |           |                                                                           |
+| {{{c16(  -        )}}} |         =30= |              iLog(x) y y y |           | Ret when x≠0                                                              |
+| {{{c16(  g RTN    )}}} |      =43 21= |                            |           |                                                                           |
+| {{{c16(  g LBL F  )}}} |   =43,22, F= |                    x y z t |           | {{{WBT(F)}}} *=WSIZE=* -- Recall the WSIZE value                          |
+| {{{c16(  1        )}}} |       =1  1= |                      x y z |           |                                                                           |
+| {{{c16(  g LJ     )}}} |      =43  A= |                ws-1 1s x y |           |                                                                           |
+| {{{c16(  X≷Y      )}}} |         =34= |                1s ws-1 x y |           |                                                                           |
+| {{{c16(  R↓       )}}} |         =33= |                ws-1 x y 1s |           |                                                                           |
+| {{{c16(  1        )}}} |          =1= |                 1 ws-1 x y |           |                                                                           |
+| {{{c16(  +        )}}} |         =40= |                wsize x y y |           | Ret                                                                       |
+| {{{c16(  g RTN    )}}} |      =43 21= |                            |           |                                                                           |
+| {{{c16(  g LBL 2  )}}} |   =43,22, 2= |                    x y z t |           | {{{WBT(2)}}} *=2^x=* -- Compute $2^x$                                     |
+| {{{c16(  1        )}}} |          =1= |                    1 x y z |           |                                                                           |
+| {{{c16(  X≷Y      )}}} |         =34= |                    x 1 y z |           |                                                                           |
+| {{{c16(  f RLn    )}}} |         =42= |               e  2^X y z z |           | Ret                                                                       |
+| {{{c16(  g RTN    )}}} |      =43 21= |                            |           |                                                                           |
+| {{{c16(  g LBL 1  )}}} |   =43,22, 1= |                    x y z t |           | {{{WBT(1)}}} *=LSSB=* -- Clear all but least significant set bit          |
+| {{{c16(  g X=0    )}}} |      =43 40= |                    x y z t |           |                                                                           |
+| {{{c16(  g RTN    )}}} |      =43 21= |                    0 y z t |           | Ret when x=0                                                              |
+| {{{c16(  ENTER    )}}} |         =36= |                    x x y z |           |                                                                           |
+| {{{c16(  ENTER    )}}} |         =36= |                    x x x y |           |                                                                           |
+| {{{c16(  1        )}}} |          =1= |                    1 x x y |           |                                                                           |
+| {{{c16(  -        )}}} |         =30= |                    x-1 x y |           |                                                                           |
+| {{{c16(  f NOT    )}}} |      =42 30= |             NOT(x-1) x y y |           |                                                                           |
+| {{{c16(  f AND    )}}} |      =42 20= |              LSSB(x) y y y |           | Ret when x≠0                                                              |
+| {{{c16(  g RTN    )}}} |      =43 21= |                            |           |                                                                           |
 
 * Meta Data
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-11 Sun 12:26 -->
+<!-- 2024-02-13 Tue 14:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -267,12 +267,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-11</i></td>
+<td class="org-left"><i>2024-02-13</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-11</i></td>
+<td class="org-left"><i>2024-02-13</i></td>
 </tr>
 </tbody>
 </table>
@@ -294,13 +294,13 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 </li>
 <li><a href="#newton">2. Newton's Method for Functions of a Complex Variable</a>
 <ul>
-<li><a href="#org12617ba">2.1. Usage</a></li>
+<li><a href="#org180a613">2.1. Usage</a></li>
 <li><a href="#newtonStk">2.2. Stack Diagrams</a></li>
 <li><a href="#newtonRes">2.3. Resources Used</a></li>
 <li><a href="#newtonCode">2.4. Program Listing</a></li>
 </ul>
 </li>
-<li><a href="#org05e690e">3. Meta Data</a></li>
+<li><a href="#orgf347260">3. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -455,17 +455,17 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <h3 id="storclcplxRes"><span class="section-number-3">1.3.</span> Resources Used</h3>
 <div class="outline-text-3" id="text-storclcplxRes">
 <ul class="org-ul">
-<li>Registers Used: 
+<li>Registers Used:
 <ul class="org-ul">
 <li>Two consecutive registers are used.</li>
 <li>The first has its index on level X of the stack</li>
 </ul></li>
-<li>Internal Labels: 
+<li>Internal Labels:
 <ul class="org-ul">
 <li>E RCL_CPLX</li>
 <li>D STO_CPLX</li>
 </ul></li>
-<li>External Labels: 
+<li>External Labels:
 <ul class="org-ul">
 <li>None</li>
 </ul></li>
@@ -720,13 +720,13 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </p>
 </div>
 
-<div id="outline-container-org12617ba" class="outline-3">
-<h3 id="org12617ba"><span class="section-number-3">2.1.</span> Usage</h3>
+<div id="outline-container-org180a613" class="outline-3">
+<h3 id="org180a613"><span class="section-number-3">2.1.</span> Usage</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Running the program
 <ul class="org-ul">
-<li>Stack Arguments: 
+<li>Stack Arguments:
 <ul class="org-ul">
 <li>X best guess for root (\(x_0\))</li>
 </ul></li>
@@ -739,13 +739,13 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </ul></li>
 <li>Exit Information
 <ul class="org-ul">
-<li>Exit Stack State: 
+<li>Exit Stack State:
 <ul class="org-ul">
 <li>Z: \(f(x_1)\)   Function value at \(x_1\)</li>
 <li>Y: \(|f(x_1)|\) Function magnitude at \(x_1\)</li>
 <li>X: \(x_1\)      Root guess</li>
 </ul></li>
-<li>Exit Register State: 
+<li>Exit Register State:
 <ul class="org-ul">
 <li>R8 \(\Re(x_1)\)</li>
 <li>R9 \(\Im(x_1)\)</li>
@@ -819,17 +819,17 @@ be stored in registers 8 &amp; 9.</li>
 <h3 id="newtonRes"><span class="section-number-3">2.3.</span> Resources Used</h3>
 <div class="outline-text-3" id="text-newtonRes">
 <ul class="org-ul">
-<li>Registers Used: 
+<li>Registers Used:
 <ul class="org-ul">
 <li>R8 Real component of root guess</li>
 <li>R9 Complex component of root guess</li>
 </ul></li>
-<li>Internal Labels: 
+<li>Internal Labels:
 <ul class="org-ul">
 <li>D Program label</li>
 <li>1 Main loop target</li>
 </ul></li>
-<li>External Labels: 
+<li>External Labels:
 <ul class="org-ul">
 <li>A function to solve</li>
 <li>E RCL_CPLX</li>
@@ -1188,8 +1188,8 @@ be stored in registers 8 &amp; 9.</li>
 </div>
 
 
-<div id="outline-container-org05e690e" class="outline-2">
-<h2 id="org05e690e"><span class="section-number-2">3.</span> Meta Data</h2>
+<div id="outline-container-orgf347260" class="outline-2">
+<h2 id="orgf347260"><span class="section-number-2">3.</span> Meta Data</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15.html">https://richmit.github.io/voyager/hp15.html</a>

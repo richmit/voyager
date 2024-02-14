@@ -41,13 +41,8 @@ Copyright \copy {{{time(%Y)}}} Mitch Richling. All rights reserved.
 
 #+TOC: headlines 5
 
-#+MACRO: WBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>$1</span>@@
-#+MACRO: BBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>$1</span>@@
-#+MACRO: YBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>$1</span>@@
-#+MACRO: SPC @@html:&nbsp;&nbsp;&nbsp;@@
-#+MACRO: WFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>$1</div>@@
-#+MACRO: BFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>$1</div>@@
-#+MACRO: YFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>$1</div>@@
+#+INCLUDE: emacs.org
+
 
 * Introduction
 :PROPERTIES:
@@ -65,13 +60,53 @@ that mistakes have been made is very real.  If you discover an error, please con
 - [[file:hp15.org][Programs For the HP-15C]]
 - [[file:hp16.org][Programs For the HP-16C]]
 
-* Voyager Series Notes
-** Keyboards
+* Keyboards & Program Instruction Mnemonics
 :PROPERTIES:
 :CUSTOM_ID: keys
 :END:
 
-*** HP-15C
+The keyboards below use *Unicode text* for the labels -- the boxes are just HTML background boxes.  The key labels are the ones I use for programs linked from
+this page.  Note that some of my key liable choices don't look exactly like what is on the physical calculator.  For example I use "E↑X" instead of $e^x$.  In
+some cases I did this for readability, in others I did it because I was more accustomed to the HP-42S mnemonic.
+
+The HTML program listings are generated from =org-mode= files (in the repo with the same name but with a =.org= extension).  The macros and code used to
+translate mnemonics to buttons is located in the =emacs.org= (also in the repo).
+
+** HP-12C Platinum
+:PROPERTIES:
+:CUSTOM_ID: keyshp12c
+:END:
+
+#+BEGIN_CENTER
+HP-12C Unhifted Keys
+#+END_CENTER
+#+ATTR_HTML: :border 12 solid #fff :frame box :rules all :align center
+|       <c>       |       <c>       |      <c>       |       <c>       |       <c>       |        <c>        |      <c>      |      <c>      |      <c>       |      <c>      |
+|  {{{WFBT(n)}}}  |  {{{WFBT(i)}}}  | {{{WFBT(PV)}}} | {{{WFBT(PMT)}}} | {{{WFBT(FV)}}}  |  {{{WFBT(CHS)}}}  | {{{WFBT(7)}}} | {{{WFBT(8)}}} | {{{WFBT(9)}}}  | {{{WFBT(÷)}}} |
+| {{{WFBT(Y↑X)}}} | {{{WFBT(1/X)}}} | {{{WFBT(%T)}}} | {{{WFBT(Δ%)}}}  |  {{{WFBT(%)}}}  |  {{{WFBT(EEX)}}}  | {{{WFBT(4)}}} | {{{WFBT(5)}}} | {{{WFBT(6)}}}  | {{{WFBT(×)}}} |
+| {{{WFBT(R/S)}}} | {{{WFBT(SST)}}} | {{{WFBT(R↓)}}} | {{{WFBT(x≷y)}}} | {{{WFBT(CLX)}}} | {{{WFBT(ENTER)}}} | {{{WFBT(1)}}} | {{{WFBT(2)}}} | {{{WFBT(3)}}}  | {{{WFBT(-)}}} |
+| {{{WFBT(ON)}}}  |  {{{YFBT(f)}}}  | {{{BFBT(g)}}}  | {{{WFBT(STO)}}} | {{{WFBT(RCL)}}} | {{{WFBT(ENTER)}}} | {{{WFBT(0)}}} | {{{WFBT(.)}}} | {{{WFBT(Σ+)}}} | {{{WFBT(+)}}} |
+#+BEGIN_CENTER
+HP-12C f Shifted Keys
+#+END_CENTER
+#+ATTR_HTML: :border 12 solid #fff :frame box :rules all :align center
+|          <c>           |         <c>          |         <c>          |           <c>           |         <c>         |          <c>           |        <c>        |        <c>        |        <c>        |      <c>      |
+|   {{{YFBT(AMORT)}}}    |   {{{YFBT(INT)}}}    |   {{{YFBT(NPV)}}}    |     {{{YFBT(RND)}}}     |   {{{YFBT(IRR)}}}   |    {{{YFBT(RPN)}}}     | {{{YFBT(FIX_7)}}} | {{{YFBT(FIX_8)}}} | {{{YFBT(FIX_9)}}} | {{{RFBT(∅)}}} |
+| {{{YFBT(BOND_PRICE)}}} | {{{YFBT(BOND_YTM)}}} | {{{YFBT(DEPR_SL)}}}  | {{{YFBT(DEPR_SOYD)}}}   | {{{YFBT(DEPR_DB)}}} |    {{{YFBT(ALG)}}}     | {{{YFBT(FIX_4)}}} | {{{YFBT(FIX_5)}}} | {{{YFBT(FIX_6)}}} | {{{RFBT(∅)}}} |
+|    {{{YFBT(P/R)}}}     |  {{{YFBT(CLR_Σ)}}}   | {{{YFBT(CLR_PRGM)}}} |   {{{YFBT(CLR_FIN)}}}   | {{{YFBT(CLR_REG)}}} | {{{YFBT(CLR_PREFIX)}}} | {{{YFBT(FIX_1)}}} | {{{YFBT(FIX_2)}}} | {{{YFBT(FIX_3)}}} | {{{RFBT(∅)}}} |
+|    {{{YFBT(OFF)}}}     |    {{{YFBT( )}}}     |    {{{YFBT( )}}}     |    {{{YFBT(FRAC)}}}     |  {{{YFBT(USER)}}}   | {{{YFBT(CLR_PREFIX)}}} | {{{YFBT(FIX_0)}}} |   {{{RFBT(∅)}}}   |   {{{RFBT(∅)}}}   | {{{RFBT(∅)}}} |
+#+BEGIN_CENTER
+HP-12C g Shifted Keys
+#+END_CENTER
+#+ATTR_HTML: :border 12 solid #fff :frame box :rules all :align center
+|       <c>       |       <c>       |       <c>       |       <c>        |       <c>        |        <c>        |       <c>        |       <c>        |       <c>       |       <c>        |
+| {{{BFBT(12×)}}} | {{{BFBT(12÷)}}} | {{{BFBT(CFo)}}} | {{{BFBT(Cfj)}}}  |  {{{BFBT(Nj)}}}  | {{{BFBT(DATE)}}}  | {{{BFBT(BEG)}}}  | {{{BFBT(END)}}}  | {{{BFBT(MEM)}}} |  {{{BFBT(↶)}}}   |
+| {{{BFBT(√X)}}}  | {{{BFBT(E↑X)}}} | {{{BFBT(LN)}}}  | {{{BFBT(FRAC)}}} | {{{BFBT(INTG)}}} | {{{BFBT(ΔDAYS)}}} | {{{BFBT(D.MY)}}} | {{{BFBT(M.DY)}}} | {{{BFBT(x̄w)}}}  | {{{BFBT(X↑2)}}}  |
+| {{{BFBT(PSE)}}} | {{{BFBT(BST)}}} | {{{BFBT(GTO)}}} | {{{BFBT(X≤Y)}}}  | {{{BFBT(X=0)}}}  |   {{{BFBT(=)}}}   | {{{BFBT(x̂̂\,r)}}} | {{{BFBT(ŷ\,r)}}} | {{{BFBT(n!)}}}  |  {{{BFBT(←)}}}   |
+|  {{{RFBT(∅)}}}  |  {{{RFBT(∅)}}}  |  {{{RFBT(∅)}}}  |  {{{BFBT(()}}}   |  {{{BFBT())}}}   |   {{{BFBT(=)}}}   |  {{{BFBT(x̄)}}}   |  {{{BFBT(s)}}}   | {{{BFBT(Σ-)}}}  | {{{BFBT(LSTX)}}} |
+
+
+** HP-15C
 :PROPERTIES:
 :CUSTOM_ID: keyshp15c
 :END:
@@ -92,8 +127,8 @@ HP-15C f Shifted Keys
 |       <c>       |        <c>        |         <c>          |         <c>         |          <c>           |        <c>         |       <c>       |        <c>        |       <c>        |        <c>        |
 |  {{{YFBT(A)}}}  |   {{{YFBT(B)}}}   |    {{{YFBT(C)}}}     |    {{{YFBT(D)}}}    |     {{{YFBT(E)}}}      | {{{YFBT(MATRIX)}}} | {{{YFBT(FIX)}}} |  {{{YFBT(SCI)}}}  | {{{YFBT(ENG)}}}  | {{{YFBT(SOLVE)}}} |
 | {{{YFBT(LBL)}}} |  {{{YFBT(HYP)}}}  |   {{{YFBT(DIM)}}}    |   {{{YFBT((i))}}}   |     {{{YFBT(I)}}}      | {{{YFBT(RESULT)}}} | {{{YFBT(X≷)}}}  |  {{{YFBT(DSE)}}}  | {{{YFBT(ISG)}}}  |   {{{YFBT(∫)}}}   |
-| {{{YFBT(PSE)}}} | {{{YFBT(CLR Σ)}}} | {{{YFBT(CLR PRGM)}}} | {{{YFBT(CLR REG)}}} | {{{YFBT(CLR PREFIX)}}} |  {{{YFBT(RAN#)}}}  | {{{YFBT(→R)}}}  | {{{YFBT(→H.MS)}}} | {{{YFBT(→RAD)}}} | {{{YFBT(Re≷Im)}}} |
-|                 |                   |                      |  {{{YFBT(FRAC)}}}   |    {{{YFBT(USER)}}}    |                    | {{{YFBT(x!)}}}  |  {{{YFBT(ŷ,r)}}}  | {{{YFBT(L.R.)}}} | {{{YFBT(Py,x)}}}  |
+| {{{YFBT(PSE)}}} | {{{YFBT(CLR_Σ)}}} | {{{YFBT(CLR_PRGM)}}} | {{{YFBT(CLR_REG)}}} | {{{YFBT(CLR_PREFIX)}}} |  {{{YFBT(RAN#)}}}  | {{{YFBT(→R)}}}  | {{{YFBT(→H.MS)}}} | {{{YFBT(→RAD)}}} | {{{YFBT(Re≷Im)}}} |
+|  {{{RFBT(∅)}}}  |   {{{RFBT(∅)}}}   |    {{{RFBT(∅)}}}     |  {{{YFBT(FRAC)}}}   |    {{{YFBT(USER)}}}    |  {{{YFBT(RAN#)}}}  | {{{YFBT(x!)}}}  |  {{{YFBT(ŷ\,r)}}} | {{{YFBT(L.R.)}}} | {{{YFBT(Py,x)}}}  |
 #+BEGIN_CENTER
 HP-15C g Shifted Keys
 #+END_CENTER
@@ -102,9 +137,9 @@ HP-15C g Shifted Keys
 | {{{BFBT(X↑2)}}} |  {{{BFBT(LN)}}}  | {{{BFBT(LOG)}}}  |  {{{BFBT(%)}}}   |  {{{BFBT(Δ%)}}}  | {{{BFBT(ABS)}}}  | {{{BFBT(DEG)}}} | {{{BFBT(RAD)}}} | {{{BFBT(GRAD)}}} | {{{BFBT(X≤Y)}}}  |
 | {{{BFBT(BST)}}} | {{{BFBT(AHYP)}}} | {{{BFBT(ASIN)}}} | {{{BFBT(ACOS)}}} | {{{BFBT(ATAN)}}} |  {{{BFBT(π)}}}   | {{{BFBT(SF)}}}  | {{{BFBT(CF)}}}  |  {{{BFBT(F?)}}}  | {{{BFBT(X=0)}}}  |
 | {{{BFBT(R/R)}}} | {{{BFBT(RTN)}}}  |  {{{BFBT(R↑)}}}  | {{{BFBT(RNS)}}}  | {{{BFBT(CLX)}}}  | {{{BFBT(LSTX)}}} | {{{BFBT(→P)}}}  | {{{BFBT(→H)}}}  | {{{BFBT(→DEG)}}} | {{{BFBT(TEST)}}} |
-|                 |                  |                  | {{{BFBT(INT)}}}  | {{{BFBT(MEM)}}}  | {{{BFBT(LSTX)}}} |  {{{BFBT(x̄)}}}  |  {{{BFBT(s)}}}  |  {{{BFBT(Σ-)}}}  | {{{BFBT(Cy,x)}}} |
+|  {{{RFBT(∅)}}}  |  {{{RFBT(∅)}}}   |  {{{RFBT(∅)}}}   | {{{BFBT(INT)}}}  | {{{BFBT(MEM)}}}  | {{{BFBT(LSTX)}}} |  {{{BFBT(x̄)}}}  |  {{{BFBT(s)}}}  |  {{{BFBT(Σ-)}}}  | {{{BFBT(Cy,x)}}} |
 
-*** HP-16C
+** HP-16C
 :PROPERTIES:
 :CUSTOM_ID: keyshp16c
 :END:
@@ -124,9 +159,9 @@ HP-16C f Shifted Keys
 #+ATTR_HTML: :border 12 solid #fff :frame box :rules all :align center
 |        <c>        |       <c>       |         <c>          |         <c>         |          <c>           |         <c>         |        <c>        |        <c>         |        <c>        |       <c>       |
 |  {{{YFBT(SL)}}}   | {{{YFBT(SR)}}}  |    {{{YFBT(RL)}}}    |   {{{YFBT(RR)}}}    |    {{{YFBT(RLn)}}}     |   {{{YFBT(RRn)}}}   | {{{YFBT(MASKL)}}} | {{{YFBT(MASKR)}}}  |  {{{YFBT(RMD)}}}  | {{{YFBT(XOR)}}} |
-| {{{YFBT(X≷(i))}}} | {{{YFBT(X≷I)}}} | {{{YFBT(SHO HEX)}}}  | {{{YFBT(SHO DEC)}}} |  {{{YFBT(SHO OCT)}}}   | {{{YFBT(SHO BIN)}}} |  {{{YFBT(SB)}}}   |   {{{YFBT(CB)}}}   |  {{{YFBT(B?)}}}   | {{{YFBT(AND)}}} |
-|  {{{YFBT((i))}}}  |  {{{YFBT(I)}}}  | {{{YFBT(CLR PRGM)}}} | {{{YFBT(CLR REG)}}} | {{{YFBT(CLR PREFIX)}}} | {{{YFBT(WINDOW)}}}  |  {{{YFBT(1'S)}}}  |  {{{YFBT(2'S)}}}   | {{{YFBT(UNSGN)}}} | {{{YFBT(NOT)}}} |
-|                   |                 |                      |  {{{YFBT(WSIZE)}}}  |   {{{YFBT(FLOAT)}}}    | {{{YFBT(WINDOW)}}}  |  {{{YFBT(MEM)}}}  | {{{YFBT(STATUS)}}} |  {{{YFBT(EEX)}}}  | {{{YFBT(OR)}}}  |
+| {{{YFBT(X≷(i))}}} | {{{YFBT(X≷I)}}} | {{{YFBT(SHO_HEX)}}}  | {{{YFBT(SHO_DEC)}}} |  {{{YFBT(SHO_OCT)}}}   | {{{YFBT(SHO_BIN)}}} |  {{{YFBT(SB)}}}   |   {{{YFBT(CB)}}}   |  {{{YFBT(B?)}}}   | {{{YFBT(AND)}}} |
+|  {{{YFBT((i))}}}  |  {{{YFBT(I)}}}  | {{{YFBT(CLR_PRGM)}}} | {{{YFBT(CLR_REG)}}} | {{{YFBT(CLR_PREFIX)}}} | {{{YFBT(WINDOW)}}}  |  {{{YFBT(1'S)}}}  |  {{{YFBT(2'S)}}}   | {{{YFBT(UNSGN)}}} | {{{YFBT(NOT)}}} |
+|   {{{RFBT(∅)}}}   |  {{{RFBT(∅)}}}  |    {{{RFBT(∅)}}}     |  {{{YFBT(WSIZE)}}}  |   {{{YFBT(FLOAT)}}}    | {{{YFBT(WINDOW)}}}  |  {{{YFBT(MEM)}}}  | {{{YFBT(STATUS)}}} |  {{{YFBT(EEX)}}}  | {{{YFBT(OR)}}}  |
 #+BEGIN_CENTER
 HP-16C g Shifted Keys
 #+END_CENTER
@@ -135,7 +170,7 @@ HP-16C g Shifted Keys
 | {{{BFBT(LJ)}}}  | {{{BFBT(ASR)}}} | {{{BFBT(RLC)}}} | {{{BFBT(RRC)}}} | {{{BFBT(RLCn)}}} | {{{BFBT(RRCn)}}} | {{{BFBT(#B)}}}  | {{{BFBT(ABS)}}} | {{{BFBT(DBLR)}}} | {{{BFBT(DBLR÷)}}} |
 | {{{BFBT(RTN)}}} | {{{BFBT(LBL)}}} | {{{BFBT(DSZ)}}} | {{{BFBT(ISZ)}}} |  {{{BFBT(√X)}}}  | {{{BFBT(1/X)}}}  | {{{BFBT(SF)}}}  | {{{BFBT(CF)}}}  |  {{{BFBT(F?)}}}  | {{{BFBT(DBL×)}}}  |
 | {{{BFBT(P/R)}}} | {{{BFBT(BST)}}} | {{{BFBT(R↑)}}}  | {{{BFBT(PSE)}}} | {{{BFBT(CLX)}}}  | {{{BFBT(LSTX)}}} | {{{BFBT(X≤Y)}}} | {{{BFBT(X<0)}}} | {{{BFBT(X>Y)}}}  |  {{{BFBT(X>0)}}}  |
-|                 |                 |                 |  {{{BFBT(◄)}}}  |  {{{BFBT(►)}}}   | {{{BFBT(LSTX)}}} | {{{BFBT(X≠Y)}}} | {{{BFBT(X≠0)}}} | {{{BFBT(X=Y)}}}  |  {{{BFBT(X=0)}}}  |
+|  {{{RFBT(∅)}}}  |  {{{RFBT(∅)}}}  |  {{{RFBT(∅)}}}  |  {{{BFBT(◄)}}}  |  {{{BFBT(►)}}}   | {{{BFBT(LSTX)}}} | {{{BFBT(X≠Y)}}} | {{{BFBT(X≠0)}}} | {{{BFBT(X=Y)}}}  |  {{{BFBT(X=0)}}}  |
 
 * Meta Data
 

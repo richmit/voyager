@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-11 Sun 12:26 -->
+<!-- 2024-02-13 Tue 14:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -208,6 +208,38 @@
 <style>pre.example { white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -o-pre-wrap; font-family: Lucida Console, monospace; font-size: 80%; background: #404040; color: white; display: block; padding: 0em; border: 2px solid black; }</style>
 <style>blockquote { margin-bottom: 0.5em; padding: 0.5em; background-color: #FFF8DC; border-left: 2px solid #A5573E; border-left-color: rgb(255, 228, 102); display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 5em; margin-inline-end: 5em; } </style>
 <style>#content { max-width: 60em; }</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -235,12 +267,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-11</i></td>
+<td class="org-left"><i>2024-02-13</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-11</i></td>
+<td class="org-left"><i>2024-02-13</i></td>
 </tr>
 </tbody>
 </table>
@@ -253,17 +285,14 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#org674b665">2. Voyager Series Notes</a>
+<li><a href="#keys">2. Keyboards &amp; Program Instruction Mnemonics</a>
 <ul>
-<li><a href="#keys">2.1. Keyboards</a>
-<ul>
-<li><a href="#keyshp15c">2.1.1. HP-15C</a></li>
-<li><a href="#keyshp16c">2.1.2. HP-16C</a></li>
+<li><a href="#keyshp12c">2.1. HP-12C Platinum</a></li>
+<li><a href="#keyshp15c">2.2. HP-15C</a></li>
+<li><a href="#keyshp16c">2.3. HP-16C</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgb5b4580">3. Meta Data</a></li>
+<li><a href="#org54cc5dd">3. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -292,18 +321,280 @@ that mistakes have been made is very real.  If you discover an error, please con
 </div>
 </div>
 
-<div id="outline-container-org674b665" class="outline-2">
-<h2 id="org674b665"><span class="section-number-2">2.</span> Voyager Series Notes</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-keys" class="outline-3">
-<h3 id="keys"><span class="section-number-3">2.1.</span> Keyboards</h3>
-<div class="outline-text-3" id="text-keys">
+<div id="outline-container-keys" class="outline-2">
+<h2 id="keys"><span class="section-number-2">2.</span> Keyboards &amp; Program Instruction Mnemonics</h2>
+<div class="outline-text-2" id="text-keys">
+<p>
+The keyboards below use <b>Unicode text</b> for the labels &#x2013; the boxes are just HTML background boxes.  The key labels are the ones I use for programs linked from
+this page.  Note that some of my key liable choices don't look exactly like what is on the physical calculator.  For example I use "E↑X" instead of \(e^x\).  In
+some cases I did this for readability, in others I did it because I was more accustomed to the HP-42S mnemonic.
+</p>
+
+<p>
+The HTML program listings are generated from <code>org-mode</code> files (in the repo with the same name but with a <code>.org</code> extension).  The macros and code used to
+translate mnemonics to buttons is located in the <code>emacs.org</code> (also in the repo).
+</p>
 </div>
 
-<div id="outline-container-keyshp15c" class="outline-4">
-<h4 id="keyshp15c"><span class="section-number-4">2.1.1.</span> HP-15C</h4>
-<div class="outline-text-4" id="text-keyshp15c">
+<div id="outline-container-keyshp12c" class="outline-3">
+<h3 id="keyshp12c"><span class="section-number-3">2.1.</span> HP-12C Platinum</h3>
+<div class="outline-text-3" id="text-keyshp12c">
+<div class="org-center">
+<p>
+HP-12C Unhifted Keys
+</p>
+</div>
+<table border="12 solid #fff" cellspacing="0" cellpadding="6" rules="all" frame="box" align="center">
+
+
+<colgroup>
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>n&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>i&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>PV&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>PMT&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>FV&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>CHS&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷&zwj;</div></td>
+</tr>
+
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Y↑X&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1/X&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>%T&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Δ%&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>%&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>EEX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×&zwj;</div></td>
+</tr>
+
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R/S&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>SST&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>CLX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>-&zwj;</div></td>
+</tr>
+
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ON&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+&zwj;</div></td>
+</tr>
+</tbody>
+</table>
+<div class="org-center">
+<p>
+HP-12C f Shifted Keys
+</p>
+</div>
+<table border="12 solid #fff" cellspacing="0" cellpadding="6" rules="all" frame="box" align="center">
+
+
+<colgroup>
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>AMORT&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>INT&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>NPV&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RND&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>IRR&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RPN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX_7&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX_8&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX_9&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+</tr>
+
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>BOND_PRICE&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>BOND_YTM&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>DEPR_SL&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>DEPR_SOYD&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>DEPR_DB&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ALG&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX_4&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX_5&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX_6&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+</tr>
+
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>P/R&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_PRGM&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_FIN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_REG&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_PREFIX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX_1&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX_2&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX_3&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+</tr>
+
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>OFF&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FRAC&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_PREFIX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX_0&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+</tr>
+</tbody>
+</table>
+<div class="org-center">
+<p>
+HP-12C g Shifted Keys
+</p>
+</div>
+<table border="12 solid #fff" cellspacing="0" cellpadding="6" rules="all" frame="box" align="center">
+
+
+<colgroup>
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>12×&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>12÷&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CFo&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Cfj&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Nj&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DATE&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>BEG&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>END&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>MEM&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>↶&zwj;</div></td>
+</tr>
+
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>√X&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>E↑X&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>FRAC&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>INTG&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ΔDAYS&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>D.MY&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>M.DY&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>x̄w&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X↑2&zwj;</div></td>
+</tr>
+
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>PSE&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>BST&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>GTO&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X≤Y&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X=0&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>=&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>x̂̂,r&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ŷ,r&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>n!&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>←&zwj;</div></td>
+</tr>
+
+<tr>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>(&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>)&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>=&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>x̄&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>s&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Σ-&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LSTX&zwj;</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-keyshp15c" class="outline-3">
+<h3 id="keyshp15c"><span class="section-number-3">2.2.</span> HP-15C</h3>
+<div class="outline-text-3" id="text-keyshp15c">
 <div class="org-center">
 <p>
 HP-15C Unhifted Keys
@@ -335,55 +626,55 @@ HP-15C Unhifted Keys
 </colgroup>
 <tbody>
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>√X</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>E↑X</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>10↑X</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Y↑X</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1/X</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>CHS</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>√X&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>E↑X&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>10↑X&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Y↑X&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1/X&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>CHS&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>SST</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GTO</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>SIN</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>COS</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>TAN</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>EEX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>SST&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GTO&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>SIN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>COS&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>TAN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>EEX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R/S</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>←</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>-</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R/S&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>←&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>-&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ON</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ON&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+&zwj;</div></td>
 </tr>
 </tbody>
 </table>
@@ -418,55 +709,55 @@ HP-15C f Shifted Keys
 </colgroup>
 <tbody>
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>D</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SCI</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ENG</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SOLVE</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>D&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FIX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SCI&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ENG&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SOLVE&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>HYP</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>DIM</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>X≷</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>DSE</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ISG</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>∫</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>HYP&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>DIM&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>X≷&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>DSE&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ISG&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>∫&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>PSE</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR Σ</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR PRGM</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR REG</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR PREFIX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RAN#</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→H.MS</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→RAD</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>PSE&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_PRGM&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_REG&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_PREFIX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RAN#&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→H.MS&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→RAD&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center">&#xa0;</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FRAC</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER</div></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>x!</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Py</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FRAC&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RAN#&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>x!&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Py&zwj;</div></td>
 </tr>
 </tbody>
 </table>
@@ -501,64 +792,64 @@ HP-15C g Shifted Keys
 </colgroup>
 <tbody>
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X↑2</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LOG</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>%</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Δ%</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ABS</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DEG</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RAD</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>GRAD</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X≤Y</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X↑2&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LOG&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>%&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Δ%&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ABS&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DEG&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RAD&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>GRAD&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X≤Y&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>BST</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>AHYP</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ASIN</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ACOS</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ATAN</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>π</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>SF</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CF</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>F?</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X=0</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>BST&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>AHYP&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ASIN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ACOS&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ATAN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>π&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>SF&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CF&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>F?&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X=0&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R/R</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RNS</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CLX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LSTX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→P</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→H</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→DEG</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>TEST</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R/R&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RNS&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CLX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LSTX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→P&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→H&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→DEG&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>TEST&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center">&#xa0;</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>INT</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>MEM</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LSTX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>x̄</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>s</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Σ-</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Cy</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>INT&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>MEM&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LSTX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>x̄&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>s&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Σ-&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Cy&zwj;</div></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-keyshp16c" class="outline-4">
-<h4 id="keyshp16c"><span class="section-number-4">2.1.2.</span> HP-16C</h4>
-<div class="outline-text-4" id="text-keyshp16c">
+<div id="outline-container-keyshp16c" class="outline-3">
+<h3 id="keyshp16c"><span class="section-number-3">2.3.</span> HP-16C</h3>
+<div class="outline-text-3" id="text-keyshp16c">
 <div class="org-center">
 <p>
 HP-16C Unhifted Keys
@@ -590,55 +881,55 @@ HP-16C Unhifted Keys
 </colgroup>
 <tbody>
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>A</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>B</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>C</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>D</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>E</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>F</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>A&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>B&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>C&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>D&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>E&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>F&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GTO</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>HEX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>DEC</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>OCT</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>BIN</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GTO&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>HEX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>DEC&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>OCT&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>BIN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R/S</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>SST</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>BSP</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>-</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R/S&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>SST&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>BSP&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>-&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ON</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>CHS</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ON&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>CHS&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+&zwj;</div></td>
 </tr>
 </tbody>
 </table>
@@ -673,55 +964,55 @@ HP-16C f Shifted Keys
 </colgroup>
 <tbody>
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SL</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SR</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RL</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RR</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RLn</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RRn</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MASKL</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MASKR</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RMD</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>XOR</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SL&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SR&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RL&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RR&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RLn&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RRn&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MASKL&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MASKR&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RMD&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>XOR&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>X≷(i)</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>X≷I</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SHO HEX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SHO DEC</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SHO OCT</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SHO BIN</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SB</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CB</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B?</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>AND</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>X≷(i)&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>X≷I&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SHO_HEX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SHO_DEC&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SHO_OCT&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SHO_BIN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>SB&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CB&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B?&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>AND&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR PRGM</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR REG</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR PREFIX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>WINDOW</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>1'S</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>2'S</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>UNSGN</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>NOT</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_PRGM&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_REG&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_PREFIX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>WINDOW&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>1'S&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>2'S&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>UNSGN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>NOT&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center">&#xa0;</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>WSIZE</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FLOAT</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>WINDOW</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MEM</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>STATUS</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>EEX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>OR</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>WSIZE&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>FLOAT&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>WINDOW&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MEM&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>STATUS&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>EEX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>OR&zwj;</div></td>
 </tr>
 </tbody>
 </table>
@@ -756,65 +1047,64 @@ HP-16C g Shifted Keys
 </colgroup>
 <tbody>
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LJ</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ASR</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RLC</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RRC</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RLCn</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RRCn</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>#B</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ABS</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DBLR</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DBLR÷</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LJ&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ASR&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RLC&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RRC&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RLCn&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RRCn&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>#B&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ABS&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DBLR&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DBLR÷&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LBL</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DSZ</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ISZ</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>√X</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>1/X</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>SF</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CF</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>F?</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DBL×</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LBL&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DSZ&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ISZ&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>√X&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>1/X&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>SF&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CF&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>F?&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DBL×&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>P/R</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>BST</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>PSE</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CLX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LSTX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X≤Y</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X<0</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X>Y</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X>0</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>P/R&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>BST&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>PSE&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CLX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LSTX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X≤Y&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X<0&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X>Y&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X>0&zwj;</div></td>
 </tr>
 
 <tr>
-<td class="org-center">&#xa0;</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>◄</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>►</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LSTX</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X≠Y</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X≠0</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X=Y</div></td>
-<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X=0</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>∅&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>◄&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>►&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LSTX&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X≠Y&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X≠0&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X=Y&zwj;</div></td>
+<td class="org-center"><div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>X=0&zwj;</div></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgb5b4580" class="outline-2">
-<h2 id="orgb5b4580"><span class="section-number-2">3.</span> Meta Data</h2>
+<div id="outline-container-org54cc5dd" class="outline-2">
+<h2 id="org54cc5dd"><span class="section-number-2">3.</span> Meta Data</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/index.html">https://richmit.github.io/voyager/index.html</a>
