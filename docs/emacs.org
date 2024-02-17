@@ -1,159 +1,94 @@
-
-* Introduction                                          :noexport:
+* Introduction                                                     :noexport:
 
 Note some things don't work or work strangely.  I'll fix them when I find the need:
- - Register & labels like .1: Need to be entered as STO . 1
- - Line number targets: Need to be entered as GTO 0 0 1
- - The linear regression prediction buttons need the comma escaped
- - I have no 12C programs, so that code is untested. 
+ - The linear regression prediction buttons need the comma escaped in the macros -- I can't fix that.
+ - I have no 12C programs, so that code is untested.
+ - I don't have keyboard layouts for 12C variants other than the 12cp.
 
 * Basic Formatting Macros                                          :noexport:
 
-#+MACRO: WBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>$1</span>@@
-#+MACRO: BBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>$1</span>@@
-#+MACRO: YBT @@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>$1</span>@@
 #+MACRO: SPC @@html:&nbsp;&nbsp;&nbsp;@@
-#+MACRO: WFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>$1&zwj;</div>@@
-#+MACRO: BFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>$1&zwj;</div>@@
-#+MACRO: YFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>$1&zwj;</div>@@
-#+MACRO: RFBT @@html:<div style='font-size:70%;text-align:center;width:7em;font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:red;background-color:white;border-radius:0.3em;'>$1&zwj;</div>@@
 
 
-* Code Formatting HP-15C                                           :noexport:
-
-#+MACRO: c15 (eval (VOY-15b $1))
+* Code Formatting Lisp Code                                        :noexport:
 
 #+begin_src elisp
-(defun VOY-15b (code-line)
-  (let ((code-toks (split-string code-line)))
+(defun VOY-buttoner (calc code-line)
+  (let ((code-toks (cl-loop for ctok in (split-string code-line)
+                            for tok = (cond ((string-match-p "^\\.[0-9]$" ctok) (split-string ctok "" 't))
+                                            ((string-match-p "^[0-9]+$" ctok)   (split-string ctok "" 't))
+                                            ('t                                 ctok)
+                                            )
+                            append (if (listp tok) tok (list tok))))
+        (bfs "@@html:<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:%s;background-color:#644117;border-radius:0.3em;'>%s</span>@@")
+        (wkey (cond ((string-equal calc "15c")  '("√x"         "eˣ"       "10ˣ"      "yˣ"        "1/x"        "CHS"        "7"     "8"      "9"     "÷"
+                                                  "SST"        "GTO"      "SIN"      "COS"       "TAN"        "EEX"        "4"     "5"      "6"     "×"
+                                                  "R/S"        "GSB"      "R↓"       "x≷y"       "←"          "ENTER"      "1"     "2"      "3"     "-"
+                                                  "ON"                               "STO"       "RCL"        "ENTER"      "0"     "."      "Σ+"    "+"      ))
+                    ((string-equal calc "16c")  '("A"          "B"        "C"        "D"         "E"          "F"          "7"     "8"      "9"     "÷"      
+                                                  "GSB"        "GTO"      "HEX"      "DEC"       "OCT"        "BIN"        "4"     "5"      "6"     "×"      
+                                                  "R/S"        "SST"      "R↓"       "x≷y"       "BSP"        "ENTER"      "1"     "2"      "3"     "-"      
+                                                  "ON"                               "STO"       "RCL"        "ENTER"      "0"     "."      "CHS"   "+"      ))
+                    ((string-equal calc "12cp") '("n"          "i"        "PV"       "PMT"       "FV"         "CHS"        "7"     "8"      "9"     "÷"      
+                                                  "yˣ"         "1/x"      "%T"       "Δ%"        "%"          "EEX"        "4"     "5"      "6"     "×"      
+                                                  "R/S"        "SST"      "R↓"       "x≷y"       "CLx"        "ENTER"      "1"     "2"      "3"     "-"      
+                                                  "ON"                               "STO"       "RCL"        "ENTER"      "0"     "."      "Σ+"    "+"      ))))
+        (ykey (cond ((string-equal calc "15c")  '("A"          "B"        "C"        "D"         "E"          "MATRIX"     "FIX"   "SCI"    "ENG"   "SOLVE"  
+                                                  "LBL"        "HYP"      "DIM"      "(i)"       "I"          "RESULT"     "x≷"    "DSE"    "ISG"   "∫"      
+                                                  "PSE"        "CLR_Σ"    "CLR_PRGM" "CLR_REG"   "CLR_PREFIX" "RAN#"       "→R"    "→H.MS"  "→RAD"  "Re≷Im"  
+                                                               "f"                   "FRAC"      "USER"       "RAN#"       "x!"    "ŷ,r"    "L.R."  "Py,x"   ))
+                    ((string-equal calc "16c")  '("SL"         "SR"       "RL"       "RR"        "RLn"        "RRn"        "MASKL" "MASKR"  "RMD"   "XOR"    
+                                                  "x≷(i)"      "x≷I"      "SHO_HEX"  "SHO_DEC"   "SHO_OCT"    "SHO_BIN"    "SB"    "CB"     "B?"    "AND"    
+                                                  "(i)"        "I"        "CLR_PRGM" "CLR_REG"   "CLR_PREFIX" "WINDOW"     "1'S"   "2'S"    "UNSGN" "NOT"    
+                                                               "f"                   "WSIZE"     "FLOAT"      "WINDOW"     "MEM"   "STATUS" "EEX"   "OR"     ))
+                    ((string-equal calc "12cp") '("AMORT"      "INT"      "NPV"      "RND"       "IRR"        "RPN"        "FIX_7" "FIX_8"  "FIX_9"          
+                                                  "BOND_PRICE" "BOND_YTM" "DEPR_SL"  "DEPR_SOYD" "DEPR_DB"    "ALG"        "FIX_4" "FIX_5"  "FIX_6"          
+                                                  "P/R"        "CLR_Σ"    "CLR_PRGM" "CLR_FIN"   "CLR_REG"    "CLR_PREFIX" "FIX_1" "FIX_2"  "FIX_3"          
+                                                  "OFF"        "f"                                            "CLR_PREFIX" "FIX_0"                           ))))
+        (bkey (cond ((string-equal calc "15c")  '("x²"         "LN"       "LOG"      "%"         "Δ%"         "ABS"        "DEG"   "RAD"    "GRAD"  "x≤y"    
+                                                  "BST"        "AHYP"     "ASIN"     "ACOS"      "ATAN"       "π"          "SF"    "CF"     "F?"    "x=0"    
+                                                  "R/S"        "RTN"      "R↑"       "RNS"       "CLx"        "LSTx"       "→P"    "→H"     "→DEG"  "TEST"   
+                                                                          "g"        "INT"       "MEM"        "LSTx"       "x̄"     "s"      "Σ-"    "Cy,x"   ))
+                    ((string-equal calc "16c")  '("LJ"         "ASR"      "RLC"      "RRC"       "RLCn"       "RRCn"       "#B"    "ABS"    "DBLR"  "DBLR÷"  
+                                                  "RTN"        "LBL"      "DSZ"      "ISZ"       "√x"         "1/x"        "SF"    "CF"     "F?"    "DBLR×"  
+                                                  "P/R"        "BST"      "R↑"       "PSE"       "CLx"        "LSTx"       "x≤y"   "x<0"    "x>y"   "x>0"    
+                                                                          "g"        "◄"         "►"          "LSTx"       "x≠y"   "x≠0"    "x=y"   "x=0"    ))
+                    ((string-equal calc "12cp") '("12×"        "12÷"      "CFo"      "Cfj"       "Nj"         "DATE"       "BEG"   "END"    "MEM"   "↶"      
+                                                  "√x"         "eˣ"       "LN"       "FRAC"      "INTG"       "ΔDAYS"      "D.MY"  "M.DY"   "x̄w"    "x²"     
+                                                  "PSE"        "BST"      "GTO"      "x≤y"       "x=0"        "="          "x̂̂,r"   "ŷ,r"    "n!"    "←"      
+                                                                          "g"        "("         ")"          "="          "x̄"     "s"      "Σ-"    "LSTx"   )))))
     (string-join (mapcar (lambda (x)
-                           (let* ((wpos (cl-position x '("√X" "E↑X" "10↑X" "Y↑X" "1/X" "CHS" "7" "8" "9" "÷" "SST" "GTO" "SIN" "COS" "TAN" "EEX" "4" "5" "6" "×" "R/S" "GSB" "R↓"
-                                                         "x≷y" "←" "ENTER" "1" "2" "3" "-" "ON" "STO" "RCL" "ENTER" "0" "." "Σ+" "+" )
-                                                     :test #'string-equal))
-                                  (ypos (cl-position x '("A" "B" "C" "D" "E" "MATRIX" "FIX" "SCI" "ENG" "SOLVE" "LBL" "HYP" "DIM" "(i)" "I" "RESULT" "X≷" "DSE" "ISG" "∫"
-                                                         "PSE" "CLR_Σ" "CLR_PRGM" "CLR_REG" "CLR_PREFIX" "RAN#" "→R" "→H.MS" "→RAD" "Re≷Im" "f" "FRAC" "USER" "x!" "ŷ,r" "L.R." "Py,x" )
-                                                     :test #'string-equal))
-                                  (bpos (cl-position x '("X↑2" "LN" "LOG" "%" "Δ%" "ABS" "DEG" "RAD" "GRAD" "X≤Y" "BST" "AHYP" "ASIN" "ACOS" "ATAN" "π" "SF" "CF" "F?" "X=0"
-                                                         "R/R" "RTN" "R↑" "RNS" "CLX" "LSTX" "→P" "→H" "→DEG" "TEST" "g" "INT" "MEM" "LSTX" "x̄" "s" "Σ-" "Cy,x" )
-                                                     :test #'string-equal))
-                                  (mac (if wpos "WBT" (if ypos "YBT" (if bpos "BBT" (error "Unknown token(%s): %s" x code-line))))))
-                             (format "{{{%s(%s)}}}" mac x)))
-                         code-toks) 
+                           (let* ((wpos (cl-position x wkey :test #'string-equal))
+                                  (ypos (cl-position x ykey :test #'string-equal))
+                                  (bpos (cl-position x bkey :test #'string-equal))
+                                  (colr (if wpos "white" (if ypos "yellow" (if bpos "cyan" (error "Unknown token(%s): %s" x code-line))))))
+                             (format bfs colr x)))
+                         code-toks)
                  " ")))
 #+end_src
 
 #+RESULTS:
 #+begin_example
-VOY-15b
+VOY-buttoner
 #+end_example
 
 
-#+begin_src elisp
-(VOY-15b "GSB B")
-#+end_src
+* Code Formatting Macros                                           :noexport:
 
-#+RESULTS:
-#+begin_example
-{{{WBT(GSB)}}} {{{YBT(B)}}}
-#+end_example
+#+MACRO: c15 (eval (VOY-buttoner "15c" $1))
+#+MACRO: c16 (eval (VOY-buttoner "16c" $1))
+#+MACRO: c12 (eval (VOY-buttoner "12cp" $1))
 
-Here are a couple examples:
+* Formatting Tests                                                 :noexport:
 
-{{{c15(LBL B)}}}
-
-{{{c15(GSB B)}}}
-
-{{{c15(GSB B)}}}
-
-* Code Formatting HP-16C                                           :noexport:
-
-#+MACRO: c16 (eval (VOY-16b $1))
-
-#+begin_src elisp
-(defun VOY-16b (code-line)
-  (let ((code-toks (split-string code-line)))
-    (string-join (mapcar (lambda (x)
-                           (let* ((wpos (cl-position x '("A" "B" "C" "D" "E" "F" "7" "8" "9" "÷" "GSB" "GTO" "HEX" "DEC" "OCT" "BIN" "4" "5" "6" "×" 
-                                                         "R/S" "SST" "R↓" "X≷Y" "BSP" "ENTER" "1" "2" "3" "-" "ON"   "STO" "RCL" "ENTER" "0" "." "CHS" "+")
-                                                     :test #'string-equal))
-                                  (ypos (cl-position x '("SL" "SR" "RL" "RR" "RLn" "RRn" "MASKL" "MASKR" "RMD" "XOR" "X≷(i)" "X≷I" "SHO_HEX" "SHO_DEC" "SHO_OCT" "SHO_BIN" "SB" "CB" "B?" "AND" 
-                                                         "(i)" "I" "CLR_PRGM" "CLR_REG" "CLR_PREFIX" "WINDOW" "1'S" "2'S" "UNSGN" "NOT"  "f"  "WSIZE" "FLOAT" "WINDOW" "MEM" "STATUS" "EEX" "OR")
-                                                     :test #'string-equal))
-                                  (bpos (cl-position x '("LJ" "ASR" "RLC" "RRC" "RLCn" "RRCn" "#B" "ABS" "DBLR" "DBLR÷" "RTN" "LBL" "DSZ" "ISZ" "√X" "1/X" "SF" "CF" "F?" "DBL×" 
-                                                         "P/R" "BST" "R↑" "PSE" "CLX" "LSTX" "X≤Y" "X<0" "X>Y" "X>0"  "g" "◄" "►" "LSTX" "X≠Y" "X≠0" "X=Y" "X=0")
-                                                     :test #'string-equal))
-                                  (mac (if wpos "WBT" (if ypos "YBT" (if bpos "BBT" (error "Unknown token(%s): %s" x code-line))))))
-                             (format "{{{%s(%s)}}}" mac x)))
-                         code-toks) 
-                 " ")))
-#+end_src
-
-#+RESULTS:
-#+begin_example
-VOY-16b
-#+end_example
-
-#+begin_src elisp
-(VOY-16b "GSB B")
-#+end_src
-
-#+RESULTS:
-#+begin_example
-{{{WBT(GSB)}}} {{{WBT(B)}}}
-#+end_example
-
-Here are some examples:
-
-{{{c16(g LBL B)}}}
-
-{{{c16(GSB B)}}}
-
-{{{c16(STO (i))}}}
-
-
-* Code Formatting HP-12C                                           :noexport:
-
-#+MACRO: c12 (eval (VOY-12b $1))
-
-#+begin_src elisp
-(defun VOY-12b (code-line)
-  (let ((code-toks (split-string code-line)))
-    (string-join (mapcar (lambda (x)
-                           (let* ((wpos (cl-position x '("n" "i" "PV" "PMT" "FV" "CHS" "7" "8" "9" "÷" "Y↑X" "1/X" "%T" "Δ%" "%" "EEX" "4" "5" "6" "×"
-                                                         "R/S" "SST" "R↓" "x≷y" "CLX" "ENTER" "1" "2" "3" "-" "ON" "f" "g" "STO" "RCL" "ENTER" "0" "." "Σ+" "+")
-                                                     :test #'string-equal))
-                                  (ypos (cl-position x '("AMORT" "INT" "NPV" "RND" "IRR" "RPN" "FIX_7" "FIX_8" "FIX_9" "BOND_PRICE" "BOND_YTM" "DEPR_SL" "DEPR_SOYD" "DEPR_DB" "ALG" "FIX_4" "FIX_5" "FIX_6"
-                                                         "P/R" "CLR_Σ" "CLR_PRGM" "CLR_FIN" "CLR_REG" "CLR_PREFIX" "FIX_1" "FIX_2" "FIX_3" "OFF" "" "" "FRAC" "USER" "CLR_PREFIX" "FIX_0")
-                                                     :test #'string-equal))
-                                  (bpos (cl-position x '("12×" "12÷" "CFo" "Cfj" "Nj" "DATE" "BEG" "END" "MEM" "↶" "√X" "E↑X" "LN" "FRAC" "INTG" "ΔDAYS" "D.MY" "M.DY" "x̄w" "X↑2"
-                                                         "PSE" "BST" "GTO" "X≤Y" "X=0" "=" "x̂̂,r" "ŷ,r" "n!" "←" "" "" "" "(" ")" "=" "x̄" "s" "Σ-" "LSTX")
-                                                     :test #'string-equal))
-                                  (mac (if wpos "WBT" (if ypos "YBT" (if bpos "BBT" (error "Unknown token(%s): %s" x code-line))))))
-                             (format "{{{%s(%s)}}}" mac x)))
-                         code-toks) 
-                 " ")))
-#+end_src
-
-#+RESULTS:
-#+begin_example
-VOY-12b
-#+end_example
-
-#+begin_src elisp
-(VOY-12b "g BEG")
-#+end_src
-
-#+RESULTS:
-#+begin_example
-{{{WBT(g)}}} {{{BBT(BEG)}}}
-#+end_example
-
-Here are some examples:
-
-{{{c12(g BEG)}}}
-
-
-{{{c12(STO 1)}}}
+| 15c  | {{{c15(LBL B)}}}   |
+| 15c  | {{{c15(GSB B)}}}   |
+| 15c  | {{{c15(GSB B)}}}   |
+| 16c  | {{{c16(g LBL B)}}} |
+| 16c  | {{{c16(GSB B)}}}   |
+| 16c  | {{{c16(STO (i))}}} |
+| 12cp | {{{c12(g BEG)}}}   |
+| 12cp | {{{c12(STO 1)}}}   |
 
 * Meta Data                                                        :noexport:
 
