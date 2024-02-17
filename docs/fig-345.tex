@@ -1,0 +1,36 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{tikz}
+\begin{document}
+
+\noindent
+\begin{tikzpicture}[x=5.0cm,y=5.0cm]
+
+  \coordinate [label=left:{\Huge $A$}]   (A) at (1,1);
+  \coordinate [label=right:{\Huge $B$}]  (B) at (4,1);
+  \coordinate [label=above:{\Huge $C$}]  (C) at (4,3);
+
+  \draw[ultra thick] (A) -- (B);
+  \draw[ultra thick] (A) -- (C);
+  \draw[ultra thick] (B) -- (C);
+
+  \coordinate [label=right:{\Huge $a$}] (alpha) at (4.1,2.0);
+  \coordinate [label=left:{\Huge $b$}]  (alpha) at (2.3,2.0);
+  \coordinate [label=below:{\Huge $c$}] (alpha) at (2.5,0.9);
+
+  \draw (1.5,1)  arc[radius=0.5, start angle=0, end angle=35.0];
+  \coordinate [label=right:{\Huge $\alpha$}]  (alpha) at (1.2,1.1);
+
+  \coordinate [label=left:{\Huge $\beta=90$}]  (beta) at (3.95,1.4);
+
+ \draw (4,1) rectangle (3.7,1.3);
+
+  \draw (4,2.5)  arc[radius=0.5, start angle=270, end angle=214];
+  \coordinate [label=right:{\Huge $\gamma$}]  (gamma) at (3.8,2.7);
+
+\end{tikzpicture}
+
+\end{document}
+
+
+
+

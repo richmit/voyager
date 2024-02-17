@@ -62,6 +62,9 @@ that mistakes have been made is very real.  If you discover an error, please con
 - [[file:hp15.org][Programs For the HP-15C]]
 - [[file:hp16.org][Programs For the HP-16C]]
 
+Also see some [[file:hp15-tips.org][Tips & Tricks for the HP-15C]].
+
+
 * Keyboards & Program Instruction Mnemonics
 :PROPERTIES:
 :CUSTOM_ID: keys

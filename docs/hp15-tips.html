@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-02-17 Sat 15:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=1024, initial-scale=1" />
+<title>HP-15C Tips &amp; Tricks</title>
+<meta name="author" content="Mitch Richling" />
+<meta name="description" content="Various tips and tricks for the HP-15C" />
+<meta name="keywords" content="Hewlett Packard RPN RPL" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<style>body { width: 95%; margin: 2% auto; font-size: 18px; line-height: 1.4em; font-family: Georgia, serif; color: black; background-color: white; }</style>
+<style>body { min-width: 500px; max-width: 1024px; }</style>
+<style>h1,h2,h3,h4,h5,h6 { color: #A5573E; line-height: 1em; font-family: Helvetica, sans-serif; }</style>
+<style>h1,h2,h3 { line-height: 1.4em; }</style>
+<style>h1.title { font-size: 3em; }</style>
+<style>.subtitle { font-size: 0.6em; }</style>
+<style>h4,h5,h6 { font-size: 1em; }</style>
+<style>.org-src-container { border: 1px solid #ccc; box-shadow: 3px 3px 3px #eee; font-family: Lucida Console, monospace; font-size: 80%; margin: 0px; padding: 0px 0px; position: relative; }</style>
+<style>.org-src-container>pre { line-height: 1.2em; padding-top: 1.5em; margin: 0.5em; background-color: #404040; color: white; overflow: auto; }</style>
+<style>.org-src-container>pre:before { display: block; position: absolute; background-color: #b3b3b3; top: 0; right: 0; padding: 0 0.2em 0 0.4em; border-bottom-left-radius: 8px; border: 0; color: white; font-size: 100%; font-family: Helvetica, sans-serif;}</style>
+<style>pre.example { white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -o-pre-wrap; font-family: Lucida Console, monospace; font-size: 80%; background: #404040; color: white; display: block; padding: 0em; border: 2px solid black; }</style>
+<style>blockquote { margin-bottom: 0.5em; padding: 0.5em; background-color: #FFF8DC; border-left: 2px solid #A5573E; border-left-color: rgb(255, 228, 102); display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 5em; margin-inline-end: 5em; } </style>
+<style>#content { max-width: 60em; }</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="https://richmit.github.io/voyager/"> UP </a>
+ |
+ <a accesskey="H" href="https://www.mitchr.me/"> HOME </a>
+</div><div id="content" class="content">
+<h1 class="title">HP-15C Tips &amp; Tricks</h1>
+<table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right"><b>Author:</b></td>
+<td class="org-left"><i>Mitch Richling</i></td>
+</tr>
+
+<tr>
+<td class="org-right"><b>Updated:</b></td>
+<td class="org-left"><i>2024-02-15</i></td>
+</tr>
+
+<tr>
+<td class="org-right"><b>Generated:</b></td>
+<td class="org-left"><i>2024-02-17</i></td>
+</tr>
+</tbody>
+</table>
+<p align="center">
+Copyright &copy; 2024 Mitch Richling. All rights reserved.
+</p>
+
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#triangles">2. Triangles</a>
+<ul>
+<li><a href="#triHypAngle">2.1. Right Triangle: Known Hypotenuse &amp; angle</a>
+<ul>
+<li><a href="#triHypAngleC">2.1.1. Complex Mode</a></li>
+<li><a href="#triHypAngleR">2.1.2. Real Mode</a></li>
+</ul>
+</li>
+<li><a href="#triLegs">2.2. Right Triangle: Known Legs (the 2D <code>HYPOT</code> function)</a>
+<ul>
+<li><a href="#triLegsC">2.2.1. Complex Mode</a></li>
+<li><a href="#triLegsR">2.2.2. Real Mode</a></li>
+</ul>
+</li>
+<li><a href="#SAS">2.3. General Triangle: SAS (Side Angle Side)</a></li>
+</ul>
+</li>
+<li><a href="#lines">3. Lines</a>
+<ul>
+<li><a href="#linEq2">3.1. Equation of line given two points</a></li>
+<li><a href="#linInterp">3.2. Interpolation &amp; extrapolation (applied to Fahrenheit/Celsius Conversion)</a></li>
+<li><a href="#logInterp">3.3. Logarithmic Interpolation (Non-Linear Interpolation)</a></li>
+</ul>
+</li>
+<li><a href="#vec2d">4. 2D vectors</a>
+<ul>
+<li><a href="#vec2dSums">4.1. Vector Sums</a></li>
+<li><a href="#vec2dAngles">4.2. Angle between vectors</a></li>
+</ul>
+</li>
+<li><a href="#hypot">5. General  <code>HYPOT</code> Function</a></li>
+<li><a href="#meta">6. Meta Data</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-introduction" class="outline-2">
+<h2 id="introduction"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-introduction">
+<p>
+This document contains computational recipes for the HP-15C.  Most of these items fall into of the following categories:
+</p>
+
+<ul class="org-ul">
+<li>Some tricky behavior of the 15C</li>
+<li>An efficient way to preform some computation on the 15C</li>
+<li>Illustrate a neat way to solve a problem &#x2013; not necessarily 15C specific</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-triangles" class="outline-2">
+<h2 id="triangles"><span class="section-number-2">2.</span> Triangles</h2>
+<div class="outline-text-2" id="text-triangles">
+</div>
+
+<div id="outline-container-triHypAngle" class="outline-3">
+<h3 id="triHypAngle"><span class="section-number-3">2.1.</span> Right Triangle: Known Hypotenuse &amp; angle</h3>
+<div class="outline-text-3" id="text-triHypAngle">
+<p>
+This item illustrates the different behavior of <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R</span> and <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→P</span> when complex mode (flag 9 set) is enabled.
+</p>
+
+
+<div id="org8b80932" class="figure">
+<p><img src="fig-right.png" alt="fig-right.png" width="30%" align="center" />
+</p>
+</div>
+
+<p>
+With \(b=5\) and \(\alpha=30\).
+</p>
+</div>
+
+<div id="outline-container-triHypAngleC" class="outline-4">
+<h4 id="triHypAngleC"><span class="section-number-4">2.1.1.</span> Complex Mode</h4>
+<div class="outline-text-4" id="text-triHypAngleC">
+<p>
+If the calculator is in complex mode (Flag 9 set):
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DEG</span></td>
+<td class="org-left">Put calculator in degree mode (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R</span></td>
+<td class="org-left">Enter complex number \(5\angle30\) (length of \(b\) and \(\alpha\) angle)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+\(c\) is on the real stack at <b><code>X</code></b>, and \(a\) is on the complex stack at <b><code>X</code></b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-triHypAngleR" class="outline-4">
+<h4 id="triHypAngleR"><span class="section-number-4">2.1.2.</span> Real Mode</h4>
+<div class="outline-text-4" id="text-triHypAngleR">
+<p>
+If the calculator is not in complex mode (Flag 9 clear):
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DEG</span></td>
+<td class="org-left">Put calculator in degree mode (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R</span></td>
+<td class="org-left">Enter \(\alpha\) and \(b\) on the stack, and convert to rectangular</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+\(c\) is on the stack at <b><code>X</code></b>, and \(a\) is on the stack at <b><code>Y</code></b>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-triLegs" class="outline-3">
+<h3 id="triLegs"><span class="section-number-3">2.2.</span> Right Triangle: Known Legs (the 2D <code>HYPOT</code> function)</h3>
+<div class="outline-text-3" id="text-triLegs">
+<p>
+Like the <a href="#triHypAngle">previous item</a>, this one also illustrates the different behavior of <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R</span> and <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→P</span> when complex mode (flag 9 set)
+is enabled.  In addition, this item illustrates the most efficient way to compute the 2D <code>HYPOT</code> function.
+</p>
+
+<p>
+The \(\mathrm{HYPOT}(x,y)\) function computes \(\sqrt{x^2+y^2}\).  The function is so named because its value is the length of the hypotenuse of a triangle with
+leg lengths of \(x\) &amp; \(y\).  A slight modification to the techniques below gives us a method to compute \(\mathrm{HYPOT}\) with the fewest keystrokes.  What is
+the modification?  For \(\mathrm{HYPOT}(x,y)\) we don't need to insure the calculator is in degree mode &#x2013; i.e. to compute \(\mathrm{HYPOT}(x,y)\) we can skip the
+first step in each of the procedures below.  For how to compute the generalized \(\mathrm{HYPOT}\) function, see <a href="#hypot">HYPOT</a> below.
+</p>
+
+
+<div id="orgb627691" class="figure">
+<p><img src="fig-345.png" alt="fig-345.png" width="30%" align="center" />
+</p>
+</div>
+
+<p>
+With \(c=4\) and \(b=3\).
+</p>
+</div>
+
+<div id="outline-container-triLegsC" class="outline-4">
+<h4 id="triLegsC"><span class="section-number-4">2.2.1.</span> Complex Mode</h4>
+<div class="outline-text-4" id="text-triLegsC">
+<p>
+If the calculator is in complex mode (Flag 9 set):
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DEG</span></td>
+<td class="org-left">Put calculator in degree mode (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
+<td class="org-left">Enter complex number \(4+3i\)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→P</span></td>
+<td class="org-left">Convert to polar form.</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+\(b\) is the real stack at <b><code>X</code></b>, and \(\alpha\) is on the complex stack at <b><code>X</code></b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-triLegsR" class="outline-4">
+<h4 id="triLegsR"><span class="section-number-4">2.2.2.</span> Real Mode</h4>
+<div class="outline-text-4" id="text-triLegsR">
+<p>
+If the calculator is not in complex mode (Flag 9 clear):
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DEG</span></td>
+<td class="org-left">Put calculator in degree mode (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→P</span></td>
+<td class="org-left">Enter \(b\) &amp; \(c\) on the stack, and convert to polar</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+\(b\) is the stack at <b><code>X</code></b>, and \(\alpha\) is on the stack at <b><code>Y</code></b>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-SAS" class="outline-3">
+<h3 id="SAS"><span class="section-number-3">2.3.</span> General Triangle: SAS (Side Angle Side)</h3>
+<div class="outline-text-3" id="text-SAS">
+<p>
+The way the HP-15C works with complex numbers exposes the real &amp; imaginary parts to the user for individual manipulation.  For example the HP-15C has no <code>Re</code>,
+<code>Im</code>, or <code>conj</code> functions because are simply unnecessary.  This design choice makes it simple to change the sign of the real part of a complex number on the
+HP-15C with a single keystroke!  Most calculators require several keystrokes to achieve the same task. For example, on the HP-42S we might use a sequence like
+<code>[COMPLEX] [X&lt;&gt;Y] [CHS] [X&lt;&gt;Y] [COMPLEX]</code> to change the sign of the real part of a complex number.
+</p>
+
+<p>
+In the sequence below we change the sign of the real part of a complex number with a single keystroke (step 4 below).  We do this to transform the complex
+number's argument to the supplementary angle.
+</p>
+
+
+<div id="org42caf98" class="figure">
+<p><img src="fig-sas.png" alt="fig-sas.png" width="30%" align="center" />
+</p>
+</div>
+
+<p>
+With \(b=5\), \(\alpha=30\), and \(c=4\).
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DEG</span></td>
+<td class="org-left">Put calculator in degree mode (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R</span></td>
+<td class="org-left">Enter complex number \(5\angle30\) (length of \(b\) and \(\alpha\) angle)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>-</span></td>
+<td class="org-left">Subtract \(4+0i\) (the length of \(c\)).  Gives side \(a\) as a complex number</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>CHS</span></td>
+<td class="org-left">Changing the real part sign transforms the complex angle to the supplementary angle.</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→P</span></td>
+<td class="org-left">Convert to polar form.</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+\(a\) will be on the real stack at <b><code>X</code></b>, and \(\beta\) will be on the complex stack at <b><code>X</code></b>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-lines" class="outline-2">
+<h2 id="lines"><span class="section-number-2">3.</span> Lines</h2>
+<div class="outline-text-2" id="text-lines">
+</div>
+
+<div id="outline-container-linEq2" class="outline-3">
+<h3 id="linEq2"><span class="section-number-3">3.1.</span> Equation of line given two points</h3>
+<div class="outline-text-3" id="text-linEq2">
+<p>
+The mathematical idea behind how this works is that linear regression with only two points produces the equation of the interpolating line.
+</p>
+
+<p>
+This works on any calculator that can do linear regression, but the process is particularly efficient on the 15C.  For example, the entire process on the
+HP-15C requires only 7 keystrokes beyond data entry; however, on the fx-5800P (my favorite algebraic scientific calculator) it takes 7 keystrokes (<code>[mode] [4]
+[function] [5] [1] [2] [EXE]</code>) just to clear the statistics registers!!
+</p>
+
+<p>
+Find the equation of the line passing through \((2,3)\) and \((5,2)\) in slope-intercept form (i.e. \(y=mx+b\)).
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span></td>
+<td class="org-left">Clear statistical registers (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter first point (note y goes in first)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter second point</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.</span></td>
+<td class="org-left">Compute the line</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The value for \(m\) is in <b><code>Y</code></b>, and value for \(b\) is in <b><code>X</code></b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-linInterp" class="outline-3">
+<h3 id="linInterp"><span class="section-number-3">3.2.</span> Interpolation &amp; extrapolation (applied to Fahrenheit/Celsius Conversion)</h3>
+<div class="outline-text-3" id="text-linInterp">
+<p>
+This item is a continuation of the <a href="#linEq2">previous one</a>, but this time we interested in computed values on the line instead of the equation &#x2013; i.e. we are
+interested in linear interpolation!  Like in the <a href="#linEq2">previous topic</a>, this concept works with any calculator capable of linear regression; however,
+the process is so cumbersome on many modern calculators that it's simply not worth the effort.  This is where the HP-15C shines.
+</p>
+
+<p>
+Suppose we have several Fahrenheit values we need to convert to Celsius.  We know the two values have a linear relationship, and we also the corresponding
+values in each system for water freezing and boiling points.  In particular 0 Celsius corresponds to 32 degrees Fahrenheit, and 100 Celsius corresponds to 212
+Fahrenheit. We wish to convert 68, 70, &amp; 72 degrees Fahrenheit to Celsius.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span></td>
+<td class="org-left">Clear statistical registers (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter first known point</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter second known point</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span></td>
+<td class="org-left">The celsius value is on the stack at <b><code>X</code></b></td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span></td>
+<td class="org-left">The celsius value is on the stack at <b><code>X</code></b></td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span></td>
+<td class="org-left">The celsius value is on the stack at <b><code>X</code></b></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-logInterp" class="outline-3">
+<h3 id="logInterp"><span class="section-number-3">3.3.</span> Logarithmic Interpolation (Non-Linear Interpolation)</h3>
+<div class="outline-text-3" id="text-logInterp">
+<p>
+Most modern calculators can do several types of regression (at least logarithmic, exponential, power, and linear).  The HP-15C can do only one, and that's
+linear regression.  Still, with a little extra effort, we can preform these other types of regressions via logarithmic transformation of the input data.
+Additionally we can extend this technique to a whole host of non-linear regression techniques rarely supported by calculators.  For me the most common
+non-linear regression I preform is logarithmic.
+</p>
+
+<p>
+Suppose we have two points, \((x_1, y_1)\) and \((x_2, y_2)\), that we know are on a curve of the form \(y=m\cdot\ln(x)+b\).  As a practical example, it might be
+the case that we have two voltage/current points on a diode V-I curve and we wish to know the coefficients in the Shockley diode equation.  We can find this
+equation using the method <a href="#linEq2">used previously</a> for finding the equation of a line given two points &#x2013; we simply enter the natural logarithm of the \(x\)
+data.
+</p>
+
+<p>
+For this example, let us suppose \((x_1, y_1)=(2,3)\) and \((x_2, y_2)=(5,2)\)
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span></td>
+<td class="org-left">Clear statistical registers (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter first point (note y goes in first)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter second point</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.</span></td>
+<td class="org-left">Compute the coefficients</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The value for \(m\) is in <b><code>Y</code></b>, and value for \(b\) is in <b><code>X</code></b>.
+</p>
+
+<p>
+This method is quite general. We can replace \(\ln\) with any function, \(g(x)\), so long as \(g(x)\) is monotone on the interval \([x_1, x_2]\).  For example, we
+could fit \(y=m\cdot\sin(x)+b\) to the points \((0,1)\) &amp; \((1.5, 2)\) &#x2013; because \(\sin\) is monotone on \([0, 1.4]\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-vec2d" class="outline-2">
+<h2 id="vec2d"><span class="section-number-2">4.</span> 2D vectors</h2>
+<div class="outline-text-2" id="text-vec2d">
+</div>
+
+<div id="outline-container-vec2dSums" class="outline-3">
+<h3 id="vec2dSums"><span class="section-number-3">4.1.</span> Vector Sums</h3>
+<div class="outline-text-3" id="text-vec2dSums">
+<p>
+The obvious approach to summing a series of 2D vectors is to use complex number arithmetic.  That approach works just fine, but we can use the HP-15C's
+statistical capabilities to do the same computation with fewer keystrokes when working with more than 2 vectors.
+</p>
+
+<p>
+Sum the following four vectors: \((2,3), (5,2), (7,7), (3,5)\).  In what follows we use the statistical registers in reverse because entry is less error prone.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span></td>
+<td class="org-left">Clear statistical registers (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter first vector</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter second vector</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter third vector</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter fourth vector</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span></td>
+<td class="org-left">Sum of the \(y\) components</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span></td>
+<td class="org-left">Sum of the \(x\) components</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The sum of the \(x\) components will be in <b><code>X</code></b>, and \(y\) sum will be in <b><code>Y</code></b> .
+</p>
+</div>
+</div>
+
+<div id="outline-container-vec2dAngles" class="outline-3">
+<h3 id="vec2dAngles"><span class="section-number-3">4.2.</span> Angle between vectors</h3>
+<div class="outline-text-3" id="text-vec2dAngles">
+<p>
+This item is more about pointing out that we can find the angle between two vectors in 2D using complex arithmetic instead of the traditional vector angle
+formula.  This works on any calculator supporting both polar &amp; rectangular complex arithmetic.
+</p>
+
+<p>
+Find the angle between the vectors \((2,3)\) and \((3,2)\).
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DEG</span></td>
+<td class="org-left">Put calculator in degree mode (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
+<td class="org-left">Enter complex number \(2+3i\) for the first vector</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
+<td class="org-left">Enter complex number \(3+2i\) for the first vector</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→P</span></td>
+<td class="org-left">Divide and convert to polar form</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The angle is on the complex stack at <b><code>X</code></b>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-hypot" class="outline-2">
+<h2 id="hypot"><span class="section-number-2">5.</span> General  <code>HYPOT</code> Function</h2>
+<div class="outline-text-2" id="text-hypot">
+<p>
+The \(\mathrm{HYPOT}(x,y)\) function may be generalized to \(n\mathrm{-vectors}\) like so:
+</p>
+
+<p>
+\[\mathrm{HYPOT}(\vec{x})=\sqrt{\sum_{i=1}^n x_i}\]
+</p>
+
+<p>
+Note this is nothing more than the Euclidean Norm (2-norm) usually written \(\left\Vert\vec{x}\right\Vert_2\) or simply \(\left\Vert\vec{x}\right\Vert\).
+</p>
+
+<p>
+The most efficient way to compute this function when \(n=2\) is provided in a <a href="#triLegs">previous topic</a>.
+</p>
+
+<p>
+When \(n=3\) the best sequence is
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\(x_1\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×</span> \(x_2\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+</span> \(x_3\)  <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>√x</span></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+When \(n>3\) the best sequence is
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span> ( \(x_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span> &#x2026;) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>√x</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-meta" class="outline-2">
+<h2 id="meta"><span class="section-number-2">6.</span> Meta Data</h2>
+<div class="outline-text-2" id="text-meta">
+<p>
+The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15-tips.html">https://richmit.github.io/voyager/hp15-tips.html</a>
+</p>
+
+<p>
+The org mode file for this page: <a href="https://github.com/richmit/voyager/blob/main/docs/hp15-tips.org">https://github.com/richmit/voyager/blob/main/docs/hp15-tips.org</a>
+</p>
+
+<p>
+The HTML file for this page: <a href="https://github.com/richmit/voyager/blob/main/docs/hp15-tips.html">https://github.com/richmit/voyager/blob/main/docs/hp15-tips.html</a>
+</p>
+
+<p>
+The github repository housing this content: <a href="https://github.com/richmit/voyager/">https://github.com/richmit/voyager/</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{tikz}
+\begin{document}
+
+\noindent
+\begin{tikzpicture}[x=5.0cm,y=5.0cm]
+
+  \coordinate [label=left:{\Huge $A$}]   (A) at (1,1);
+  \coordinate [label=right:{\Huge $B$}]  (B) at (4,1);
+  \coordinate [label=above:{\Huge $C$}]  (C) at (3,4);
+
+  \draw[ultra thick] (A) -- (B);
+  \draw[ultra thick] (A) -- (C);
+  \draw[ultra thick] (B) -- (C);
+
+  \coordinate [label=right:{\Huge $a$}] (alpha) at (3.6,2.5); % BC
+  \coordinate [label=left:{\Huge $b$}]  (alpha) at (1.9,2.5); % AC
+  \coordinate [label=below:{\Huge $c$}] (alpha) at (2.5,0.9); % AB
+
+  \draw (1.5,1)  arc[radius=0.5, start angle=0, end angle=56.01];
+  \coordinate [label=right:{\Huge $\alpha$}]  (alpha) at (1.2,1.1);
+
+  \draw (3.5,1)  arc[radius=0.5, start angle=180, end angle=108.43];
+  \coordinate [label=right:{\Huge $\beta$}]  (beta) at (3.75,1.1);
+
+  \draw (3,3.5)  arc[radius=0.5, start angle=270, end angle=288.43];
+  \draw (3,3.5)  arc[radius=0.5, start angle=270, end angle=236.31];
+  \coordinate [label=below:{\Huge $\gamma$}]  (gamma) at (2.95,3.7);
+
+\end{tikzpicture}
+
+\end{document}
+
+
+
+
