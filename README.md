@@ -2,6 +2,6 @@
 
 Just a few programs for HP's Voyager series.  I'm posting these in the hope that others may find them useful.
 
-You can learn more about this library on the [project web page](https://richmit.github.io/voyager/):
+You can learn more about this library on the [project web page](https://richmit.github.io/voyager/).
 
 Have fun.
