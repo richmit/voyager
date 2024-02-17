@@ -130,7 +130,7 @@ If the calculator is not already in complex mode, then it will be placed in comp
 | {{{c15(  R↓      )}}}  |        =33= |                    y z t x |           |            |
 | {{{c15(  STO (i) )}}}  |     =44 24= |                    y z t x |           |            |
 | {{{c15(  f ISG I )}}}  |  =42, 6,25= |                    y z t x |           |            |
-| {{{c15(  g CLX   )}}}  |     =43 35= |                    y z t x |           | NOP        |
+| {{{c15(  g CLx   )}}}  |     =43 35= |                    y z t x |           | NOP        |
 | {{{c15(  f Re≷Im )}}}  |     =42 30= |                   ~y z t x |           |            |
 | {{{c15(  STO (i) )}}}  |     =44 24= |                   ~y z t x |           |            |
 | {{{c15(  f Re≷Im )}}}  |     =42 30= |                    y z t x |           | Ret        |
@@ -146,9 +146,9 @@ If the calculator is not already in complex mode, then it will be placed in comp
 | {{{c15(  R↓      )}}}  |        =33= |                    y z t x |           |               |
 | {{{c15(  RCL (i) )}}}  |     =45 24= |                   Cr y z t |           |               |
 | {{{c15(  f ISG I )}}}  |   =42,6,25= |                   Cr y z t |           |               |
-| {{{c15(  g CLX   )}}}  |     =43 35= |                   Cr y z t |           | NOP           |
+| {{{c15(  g CLx   )}}}  |     =43 35= |                   Cr y z t |           | NOP           |
 | {{{c15(  f Re≷Im )}}}  |     =42 30= |                  ~Cr y z t |           |               |
-| {{{c15(  g CLX   )}}}  |     =43 35= |                  ~Cr y z t |           | Disable stack |
+| {{{c15(  g CLx   )}}}  |     =43 35= |                  ~Cr y z t |           | Disable stack |
 | {{{c15(  RCL (i) )}}}  |     =45 24= |                   ~C y z t |           |               |
 | {{{c15(  f Re≷Im )}}}  |     =42 30= |                    C y z t |           | Ret           |
 | {{{c15(  g RTN   )}}}  |     =43 32= |                            |           |               |
@@ -170,7 +170,7 @@ If the calculator is not already in complex mode, then it will be placed in comp
   - Stack Arguments:
     - X best guess for root ($x_0$)
   - Function to solve:
-    - Must be =LBL A=
+    - Must be =LBL 1=
     - When called, $x$ will be on every level of the stack
     - Returns $f(x)$ to stack level Y and $f'(x)$ to stack level X.
 - Exit Information
@@ -213,9 +213,9 @@ If the calculator is not already in complex mode, then it will be placed in comp
   - R9 Complex component of root guess
 - Internal Labels:
   - D Program label
-  - 1 Main loop target
+  - .1 Main loop target
 - External Labels:
-  - A function to solve
+  - 1 function to solve
   - E RCL_CPLX
   - D STO_CPLX
 
@@ -233,13 +233,13 @@ If the calculator is not already in complex mode, then it will be placed in comp
 | {{{c15(  f LBL C  )}}} |  =42,21,13= |                   x0 ? ? ? |           |                     |
 | {{{c15(  8        )}}} |         =8= |                   8 x0 ? ? |           |                     |
 | {{{c15(  GSB D    )}}} |     =32 14= |                   x0 ? ? 8 |           | STO_CPLX            |
-| {{{c15(  f LBL 1  )}}} |  =42,21, 1= |                    ? ? ? ? |           |                     |
+| {{{c15(  f LBL .1 )}}} |  =42,21,.1= |                    ? ? ? ? |           |                     |
 | {{{c15(  8        )}}} |         =8= |                    8 ? ? ? |           |                     |
 | {{{c15(  GSB E    )}}} |     =32 15= |                   x0 ? ? ? |           | RCL_CPLX            |
 | {{{c15(  ENTER    )}}} |        =36= |                  x0 x0 ? ? |           | x0=Previous iterate |
 | {{{c15(  ENTER    )}}} |        =36= |                 x0 x0 x0 ? |           |                     |
 | {{{c15(  ENTER    )}}} |        =36= |                x0 x0 x0 x0 |           |                     |
-| {{{c15(  GSB A    )}}} |     =32 11= |                   df f ? ? |           | Function to solve   |
+| {{{c15(  GSB 1    )}}} |     =32  1= |                   df f ? ? |           | Function to solve   |
 | {{{c15(  x≷y      )}}} |        =34= |                   f df ? ? |           | f=f(x0), df=f'(x0)  |
 | {{{c15(  ENTER    )}}} |        =36= |                   f f df ? |           |                     |
 | {{{c15(  ENTER    )}}} |        =36= |                   f f f df |           |                     |
@@ -264,12 +264,249 @@ If the calculator is not already in complex mode, then it will be placed in comp
 | {{{c15(  7        )}}} |         =7= |                1e7 fM f x1 |           |                     |
 | {{{c15(  CHS      )}}} |        =16= |                  e fM f x1 |           | e=Epsilon           |
 | {{{c15(  g TEST 8 )}}} |  =43,30, 8= |                  e fM f x1 |           | y>x?                |
-| {{{c15(  GTO 1    )}}} |      =22 1= |                  e fM f x1 |           |                     |
+| {{{c15(  GTO .1   )}}} |     =22 .1= |                  e fM f x1 |           |                     |
 | {{{c15(  g R↑     )}}} |     =43 33= |                  x1 e fM f |           |                     |
 | {{{c15(  x≷y      )}}} |        =34= |                  e x1 fM f |           |                     |
 | {{{c15(  R↓       )}}} |        =33= |                  x1 fM f e |           |                     |
 | {{{c15(  g RTN    )}}} |     =43 32= |                  x1 fM f e |           |                     |
 
+* Matrix Helpers
+:PROPERTIES:
+:CUSTOM_ID: mat
+:END:
+
+These programs don't do anything the HP-15C can't already do.  They simply reduce the number of keystrokes required.
+
+** Fill a Matrix
+:PROPERTIES:
+:CUSTOM_ID: matFill
+:END:
+
+*** Usage
+:PROPERTIES:
+:CUSTOM_ID: matFillUsage
+:END:
+
+This program provides a fast way to fill a matrix.
+
+Filling a matrix on the HP-15C takes roughly $13+2\cdot n\cdot m$ keystrokes beyond data entry where $m$ is the number of rows and $n$ is the number of
+columns.  This program reduces that to $5+n\cdot m$.  Saving us 12 keystrokes for a 2x2, 17 for a 3x3, and 24 for a 4x4 -- all representing a more than 50%
+reduction in effort.  This program also puts the descriptor of the matrix filled on the stack -- potentially saving 3 more keystrokes.
+
+ - Operation
+   - Run the program with the following inputs: A matrix descriptor or number 0 (stack level Z), number of rows (stack level Y), and number of columns (stack level X).
+     If Z is the number 0, then the {{{c15(A)}}} matrix is filled.
+   - Next the number 1.1 will appear on the display -- indicating it's time to enter the value matrix element $(1,1)$.
+   - Enter the value for the matrix position and press {{{c15(R/S)}}}.
+   - Repeat until all the matrix elements have been entered.
+
+*** Stack Diagrams
+:PROPERTIES:
+:CUSTOM_ID: matFillStk
+:END:
+
+#+BEGIN_CENTER
+*=FILL_MAT=* -- Store Complex Number
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 3em
+| <c>  | <l>      | <l>     |
+|      | *Before* | *After* |
+| *T:* | t        | ?       |
+| *Z:* | Matrix   | ?       |
+| *Y:* | rows     | ?       |
+| *X:* | cols     | Matrix  |
+
+*** Resources Used
+:PROPERTIES:
+:CUSTOM_ID: matFillRes
+:END:
+
+- Registers Used:
+  - R0 Matrix indexing
+  - R1 Matrix indexing
+  - I  Matrix descripter
+- Internal Labels:
+  - 7 Program label
+  - .2 Main loop target
+
+*** Program Listing
+:PROPERTIES:
+:CUSTOM_ID: matFillCode
+:END:
+
+#+BEGIN_CENTER
+=FILL_MAT= -- Fill a Matrix
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 1em
+| <l>                          |         <r> |                        <r> |    <c>    | <l>                              |
+| *Keystrokes* {{{SPC}}}       | *Key Codes* | {{{SPC}}} *Stack Contents* | {{{SPC}}} | *Comments*                       |
+| {{{c15(  f LBL 7        )}}} |  =42,21, 7= |                 n m Aor0 t |           |                                  |
+| {{{c15(  RCL MATRIX A   )}}} |  =45,16,11= |                 A n m Aor0 |           |                                  |
+| {{{c15(  STO I          )}}} |     =44 25= |                 A n m Aor0 |           |                                  |
+| {{{c15(  g R↑           )}}} |     =43 33= |                 Aor0 A n m |           |                                  |
+| {{{c15(  g TEST 0       )}}} |  =43,30, 0= |                 Aor0 A n m |           |                                  |
+| {{{c15(  STO I          )}}} |     =44 25= |                    A A n m |           | Sto given matrix descriptor in I |
+| {{{c15(  R↓             )}}} |        =33= |                 A n m Aor0 |           |                                  |
+| {{{c15(  R↓             )}}} |        =33= |                 n m Aor0 A |           |                                  |
+| {{{c15(  f DIM I        )}}} |  =42,23,25= |                 n m Aor0 A |           | Dim given matrix                 |
+| {{{c15(  f MATRIX 1     )}}} |  =42,16, 1= |                 n m Aor0 A |           | Set R0 & R1 to 1                 |
+| {{{c15(  LBL .2         )}}} |  =42,21,.2= |                 n m Aor0 A |           |                                  |
+| {{{c15(  RCL 0          )}}} |     =45  0= |                 i n m Aor0 |           |                                  |
+| {{{c15(  RCL 1          )}}} |     =45  1= |                    j i n m |           |                                  |
+| {{{c15(  1              )}}} |         =1= |                    1 j i n |           |                                  |
+| {{{c15(  0              )}}} |         =0= |                   10 j i n |           |                                  |
+| {{{c15(  ÷              )}}} |        =10= |                 j/10 i n n |           |                                  |
+| {{{c15(  +              )}}} |        =40= |               j/10+i n n n |           |                                  |
+| {{{c15(  R/S            )}}} |        =31= |               j/10+i n n n |           |                                  |
+| {{{c15(  f USER STO (i) )}}} | =u   44 24= |               j/10+i n n n |           |                                  |
+| {{{c15(  GTO .2         )}}} |     =22 .2= |               j/10+i n n n |           |                                  |
+| {{{c15(  RCL I          )}}} |     =45 25= |               A j/10+i n n |           | Recall filled matrix to stack    |
+| {{{c15(  g RTN          )}}} |     =43 32= |               A j/10+i n n |           |                                  |
+
+** Solve a System
+:PROPERTIES:
+:CUSTOM_ID: matSlv
+:END:
+
+*** Usage
+:PROPERTIES:
+:CUSTOM_ID: matSlvUsage
+:END:
+
+This program solves the system $AX=B$ for $X$.  
+
+- Program start conditions
+  - The $A$ matrix is assumed to be in {{{c15(A)}}}
+  - The $B$ matrix in {{{c15(B)}}}.  
+- Program end conditions
+  - Both {{{c15(A)}}} & {{{c15(B)}}} are left unchanged!
+  - The LU factorization of $A$ will in {{{c15(E)}}}
+  - The system solution, $X$, will be in {{{c15(C)}}} -- note this might not be a valid solution if $A$ is singular (i.e. $\vert A\vert=0$).
+  - $\mathrm{abs}(\vert A\vert)$ will be in stack position X
+  - The matrix descriptor for {{{c15(C)}}} will be in stack position Y.
+  - Both =R0= & =R1= will contain 1 in expectation {{{c15(USER)}}} mode will be used to visit the elements of {{{c15(C)}}} and/or {{{c15(E)}}}.
+  - The screen is always flashing after this program runs.  I don't know why.
+
+*** Resources Used
+:PROPERTIES:
+:CUSTOM_ID: matSlvRes
+:END:
+
+- Internal Labels:
+  - 8 Program label
+
+*** Program Listing
+:PROPERTIES:
+:CUSTOM_ID: matSlvCode
+:END:
+
+#+BEGIN_CENTER
+=DET_A= -- Determinant of A with LU in E
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 1em
+| <l>                          |         <r> |                        <r> |    <c>    | <l>                            |
+| *Keystrokes* {{{SPC}}}       | *Key Codes* | {{{SPC}}} *Stack Contents* | {{{SPC}}} | *Comments*                     |
+| {{{c15(f LBL 8          )}}} |  =42,21, 8= |                    x y z t |           |                                |
+| {{{c15(GSB 9            )}}} |      =32 9= |                  DET x y z |           |                                |
+| {{{c15(g ABS            )}}} |     =43 16= |             ABS(DET) x y z |           |                                |
+| {{{c15(1                )}}} |         =1= |             1 ABS(DET) x y |           |                                |
+| {{{c15(EEX              )}}} |        =26= |             1 ABS(DET) x y |           |                                |
+| {{{c15(7                )}}} |         =7= |           1e7 ABS(DET) x y |           |                                |
+| {{{c15(CHS              )}}} |        =16= |           eps ABS(DET) x y |           |                                |
+| {{{c15(x≷y              )}}} |        =34= |          ABS(DET) eps  x y |           |                                |
+| {{{c15(g TEST 8         )}}} |   =43,30 8= |          ABS(DET) eps  x y |           | x>y                            |
+| {{{c15(g RTN            )}}} |     =43 32= |          ABS(DET) eps  x y |           |                                |
+| {{{c15(RCL MATRIX B     )}}} |  =45,16,12= |               B ABS(DET) x |           |                                |
+| {{{c15(RCL MATRIX E     )}}} |  =45,16,15= |           E B ABS(DET) x y |           | E has LU from {{{c15(LBL 9)}}} |
+| {{{c15(f RESULT C       )}}} |  =42,26,13= |             E B ABS(DET) x |           |                                |
+| {{{c15(÷                )}}} |        =10= |             C ABS(DET) x x |           |                                |
+| {{{c15(f RESULT E       )}}} |  =42,26,15= |             C ABS(DET) x x |           | Set result back to E           |
+| {{{c15(x≷y              )}}} |        =34= |             ABS(DET) C x x |           |                                |
+| {{{c15(f MATRIX 1       )}}} |  =42,16, 1= |             ABS(DET) C x x |           |                                |
+| {{{c15(g RTN            )}}} |     =43 32= |             ABS(DET) C x x |           | Ret when A is singular         |
+
+** Determinant
+:PROPERTIES:
+:CUSTOM_ID: matDet
+:END:
+
+*** Usage
+:PROPERTIES:
+:CUSTOM_ID: matDetUsage
+:END:
+
+This program simply computes the determinant of the {{{c15(A)}}} matrix putting it in stack position X, and places the LU factorization in the {{{c15(E)}}}
+matrix.  I preform this operation frequently, so the 7 keystrokes it saves me adds up. =:)=
+
+*** Resources Used
+:PROPERTIES:
+:CUSTOM_ID: matDetRes
+:END:
+
+- Internal Labels:
+  - 9 Program label
+
+*** Program Listing
+:PROPERTIES:
+:CUSTOM_ID: matDetCode
+:END:
+
+#+BEGIN_CENTER
+=DET_A= -- Determinant of A with LU in E
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 1em
+| <l>                          |         <r> |                        <r> |    <c>    | <l>        |
+| *Keystrokes* {{{SPC}}}       | *Key Codes* | {{{SPC}}} *Stack Contents* | {{{SPC}}} | *Comments* |
+| {{{c15(f LBL 9          )}}} |    42,21, 9 |                    x y z t |           |            |
+| {{{c15(f RESULT E       )}}} |    42,26,15 |                    x y z t |           |            |
+| {{{c15(RCL MATRIX A     )}}} |    45,16,11 |                    A x y z |           |            |
+| {{{c15(f MATRIX 9       )}}} |    42,16, 9 |               DET(A) x y z |           |            |
+| {{{c15(g RTN            )}}} |       43 32 |               DET(A) x y z |           |            |
+
+* Summary Resource Use
+** Labels
+#+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
+|      <c>       | <l>                                    |                                                        |      <c>       | <l>                      |
+| {{{c15(LBL)}}} | Use                                    |                                                        | {{{c15(LBL)}}} | Use                      |
+|----------------+----------------------------------------+--------------------------------------------------------+----------------+--------------------------|
+|      =0=       | Unspecified                            |                                                        |      =.0=      | Unspecified              |
+|      =1=       | Solver/Integrator/[[#newton][Newton]]  | {{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}} |      =.1=      | Used in {{{c15(LBL C)}}} |
+|      =2=       | Solver/Integrator                      |                                                        |      =.2=      | Used in {{{c15(LBL 7)}}} |
+|      =3=       | Solver/Integrator                      |                                                        |      =.3=      | Unused                   |
+|      =4=       | Unused                                 |                                                        |      =.4=      | Unused                   |
+|      =5=       | Unused                                 |                                                        |      =.5=      | Unused                   |
+|      =6=       | Unused                                 |                                                        |      =.6=      | Unused                   |
+|      =7=       | [[#matFill][Fill A Matrix]]            |                                                        |      =.7=      | Unused                   |
+|      =8=       | [[#matSlv][Solve Linear System]]       |                                                        |      =.8=      | Unused                   |
+|      =9=       | [[#matDet][Determinant]]               |                                                        |      =.9=      | Unused                   |
+|----------------+----------------------------------------+--------------------------------------------------------+----------------+--------------------------|
+|      =A=       | Unused                                 |                                                        |                |                          |
+|      =B=       | Unused                                 |                                                        |                |                          |
+|      =C=       | [[#newton][Complex Newton's Method]]   |                                                        |                |                          |
+|      =D=       | [[#storclcplx][Store Complex Number]]  |                                                        |                |                          |
+|      =E=       | [[#storclcplx][Recall Complex Number]] |                                                        |                |                          |
+
+** Registers
+#+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
+|     <c>     | <l>                            | <l>                                     |
+|  Registers  | Use In Programs                | Interactive Use                         |
+|-------------+--------------------------------+-----------------------------------------|
+|  =0= - =1=  | Always for matrix indexes      | Whatever, but usually as matrix indexes |
+|  =2= - =7=  | Always for statistics          | Whatever, but usually for statistics    |
+|  =8= - =9=  | User visible program registers | Whatever, but usually for programs      |
+| =.0= - =.6= | Whatever                       | Whatever                                |
+| =.7= - =.9= | Unit conversion factors        | Unit conversion factors                 |
+
+** Matrix Registers
+#+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
+|        <c>        | <l>                                       |
+| {{{c15(MATRIX)}}} | Use                                       |
+|-------------------+-------------------------------------------|
+|        =A=        | Norms, LHS of matrix equations & products |
+|        =B=        | RHS of matrix equations & products        |
+|        =C=        | Unspecified                               |
+|        =D=        | Result for matrix equations               |
+|        =E=        | Result for norms & products               |
 
 * Meta Data
 
@@ -280,5 +517,3 @@ The org mode file for this page: https://github.com/richmit/voyager/blob/main/do
 The HTML file for this page: https://github.com/richmit/voyager/blob/main/docs/hp15.html
 
 The github repository housing this content: https://github.com/richmit/voyager/
-
-
