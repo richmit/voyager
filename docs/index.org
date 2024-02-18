@@ -49,18 +49,27 @@ Copyright \copy {{{time(%Y)}}} Mitch Richling. All rights reserved.
 :CUSTOM_ID: introduction
 :END:
 
-Just a few programs for HP's Voyager series.  I'm posting these in the hope that others may find them useful.
+Here you will find resources related to the HP Voyager series calculators.  
+
+** Programs
+:PROPERTIES:
+:CUSTOM_ID: introProg
+:END:
 
 *WARNING:* The voyagers have no I/O capability, so the programs here were transcribed by hand.  While I have tried to avoid errors in transcription, the likelihood
 that mistakes have been made is very real.  If you discover an error, please contact me to let me know.
-
-*Note:* This is very much a work in progress.  I hope to add my other programs as I find the time.
 
 
 - [[file:hp15.org][Programs For the HP-15C]]
 - [[file:hp16.org][Programs For the HP-16C]]
 
-Also see some [[file:hp15-tips.org][Tips & Tricks for the HP-15C]].
+* Tips & Tricks
+:PROPERTIES:
+:CUSTOM_ID: introTips
+:END:
+
+
+ - [[file:hp15-tips.org][Tips & Tricks for the HP-15C]]
 
 
 * Keyboards & Program Instruction Mnemonics
