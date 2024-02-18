@@ -47,7 +47,7 @@ Copyright \copy {{{time(%Y)}}} Mitch Richling. All rights reserved.
 :CUSTOM_ID: introduction
 :END:
 
-This document contains computational recipes for the HP-15C.  Most of these items fall into of the following categories:
+This document contains computational recipes for the HP-15C.  Most of these items fall into one of the following categories:
 
  - Some tricky behavior of the 15C
  - An efficient way to preform some computation on the 15C
@@ -94,18 +94,19 @@ If the calculator is not in complex mode (Flag 9 clear):
 
 $c$ is on the stack at *=X=*, and $a$ is on the stack at *=Y=*.
 
-** Right Triangle: Known Legs (the 2D =HYPOT= function)
+** Right Triangle: Known Legs (the 2D HYPOT function)
 :PROPERTIES:
 :CUSTOM_ID: triLegs
 :END:
 
 Like the [[#triHypAngle][previous item]], this one also illustrates the different behavior of {{{c15(→R)}}} and {{{c15(→P)}}} when complex mode (flag 9 set)
-is enabled.  In addition, this item illustrates the most efficient way to compute the 2D =HYPOT= function.
+is enabled.  In addition, this item illustrates the most efficient way to compute the 2D $\mathrm{HYPOT}$ function.
 
-The $\mathrm{HYPOT}(x,y)$ function computes $\sqrt{x^2+y^2}$.  The function is so named because its value is the length of the hypotenuse of a triangle with
-leg lengths of $x$ & $y$.  A slight modification to the techniques below gives us a method to compute $\mathrm{HYPOT}$ with the fewest keystrokes.  What is
-the modification?  For $\mathrm{HYPOT}(x,y)$ we don't need to insure the calculator is in degree mode -- i.e. to compute $\mathrm{HYPOT}(x,y)$ we can skip the
-first step in each of the procedures below.  For how to compute the generalized $\mathrm{HYPOT}$ function, see [[#hypot][HYPOT]] below.
+The 2D $\mathrm{HYPOT}$ function is defined as $\mathrm{HYPOT}(x,y)=\sqrt{x^2+y^2}$.  The function is so named because its value is the length of the
+hypotenuse of a triangle with leg lengths of $x$ & $y$.  A slight modification to the triangle solution technique below gives us a method to compute
+$\mathrm{HYPOT}$ with the fewest keystrokes.  In particular, when computing $\mathrm{HYPOT}(x,y)$ we don't need to insure the calculator is in degree mode --
+i.e. to compute $\mathrm{HYPOT}(x,y)$ we can skip the first step in each of the procedures below.  For how to compute the generalized $\mathrm{HYPOT}$
+function, see [[#hypot][HYPOT]] below.
 
 #+ATTR_HTML: :width 30% :align center
 file:fig-345.png
@@ -143,7 +144,7 @@ $b$ is the stack at *=X=*, and $\alpha$ is on the stack at *=Y=*.
 :END:
 
 The way the HP-15C works with complex numbers exposes the real & imaginary parts to the user for individual manipulation.  For example the HP-15C has no =Re=,
-=Im=, or =conj= functions because are simply unnecessary.  This design choice makes it simple to change the sign of the real part of a complex number on the
+=Im=, or =conj= functions because they are simply unnecessary.  This design choice makes it simple to change the sign of the real part of a complex number on the
 HP-15C with a single keystroke!  Most calculators require several keystrokes to achieve the same task. For example, on the HP-42S we might use a sequence like
 =[COMPLEX] [X<>Y] [CHS] [X<>Y] [COMPLEX]= to change the sign of the real part of a complex number.
 

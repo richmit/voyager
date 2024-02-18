@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-17 Sat 15:25 -->
+<!-- 2024-02-18 Sun 16:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP-15C Tips &amp; Tricks</title>
@@ -264,12 +264,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-15</i></td>
+<td class="org-left"><i>2024-02-18</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-17</i></td>
+<td class="org-left"><i>2024-02-18</i></td>
 </tr>
 </tbody>
 </table>
@@ -290,7 +290,7 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 <li><a href="#triHypAngleR">2.1.2. Real Mode</a></li>
 </ul>
 </li>
-<li><a href="#triLegs">2.2. Right Triangle: Known Legs (the 2D <code>HYPOT</code> function)</a>
+<li><a href="#triLegs">2.2. Right Triangle: Known Legs (the 2D HYPOT function)</a>
 <ul>
 <li><a href="#triLegsC">2.2.1. Complex Mode</a></li>
 <li><a href="#triLegsR">2.2.2. Real Mode</a></li>
@@ -322,7 +322,7 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 <h2 id="introduction"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-introduction">
 <p>
-This document contains computational recipes for the HP-15C.  Most of these items fall into of the following categories:
+This document contains computational recipes for the HP-15C.  Most of these items fall into one of the following categories:
 </p>
 
 <ul class="org-ul">
@@ -346,7 +346,7 @@ This item illustrates the different behavior of <span style='font-family:sans-se
 </p>
 
 
-<div id="org8b80932" class="figure">
+<div id="orgf6f54fb" class="figure">
 <p><img src="fig-right.png" alt="fig-right.png" width="30%" align="center" />
 </p>
 </div>
@@ -426,22 +426,23 @@ If the calculator is not in complex mode (Flag 9 clear):
 </div>
 
 <div id="outline-container-triLegs" class="outline-3">
-<h3 id="triLegs"><span class="section-number-3">2.2.</span> Right Triangle: Known Legs (the 2D <code>HYPOT</code> function)</h3>
+<h3 id="triLegs"><span class="section-number-3">2.2.</span> Right Triangle: Known Legs (the 2D HYPOT function)</h3>
 <div class="outline-text-3" id="text-triLegs">
 <p>
 Like the <a href="#triHypAngle">previous item</a>, this one also illustrates the different behavior of <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R</span> and <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→P</span> when complex mode (flag 9 set)
-is enabled.  In addition, this item illustrates the most efficient way to compute the 2D <code>HYPOT</code> function.
+is enabled.  In addition, this item illustrates the most efficient way to compute the 2D \(\mathrm{HYPOT}\) function.
 </p>
 
 <p>
-The \(\mathrm{HYPOT}(x,y)\) function computes \(\sqrt{x^2+y^2}\).  The function is so named because its value is the length of the hypotenuse of a triangle with
-leg lengths of \(x\) &amp; \(y\).  A slight modification to the techniques below gives us a method to compute \(\mathrm{HYPOT}\) with the fewest keystrokes.  What is
-the modification?  For \(\mathrm{HYPOT}(x,y)\) we don't need to insure the calculator is in degree mode &#x2013; i.e. to compute \(\mathrm{HYPOT}(x,y)\) we can skip the
-first step in each of the procedures below.  For how to compute the generalized \(\mathrm{HYPOT}\) function, see <a href="#hypot">HYPOT</a> below.
+The 2D \(\mathrm{HYPOT}\) function is defined as \(\mathrm{HYPOT}(x,y)=\sqrt{x^2+y^2}\).  The function is so named because its value is the length of the
+hypotenuse of a triangle with leg lengths of \(x\) &amp; \(y\).  A slight modification to the triangle solution technique below gives us a method to compute
+\(\mathrm{HYPOT}\) with the fewest keystrokes.  In particular, when computing \(\mathrm{HYPOT}(x,y)\) we don't need to insure the calculator is in degree mode &#x2013;
+i.e. to compute \(\mathrm{HYPOT}(x,y)\) we can skip the first step in each of the procedures below.  For how to compute the generalized \(\mathrm{HYPOT}\)
+function, see <a href="#hypot">HYPOT</a> below.
 </p>
 
 
-<div id="orgb627691" class="figure">
+<div id="orgd6401d0" class="figure">
 <p><img src="fig-345.png" alt="fig-345.png" width="30%" align="center" />
 </p>
 </div>
@@ -530,7 +531,7 @@ If the calculator is not in complex mode (Flag 9 clear):
 <div class="outline-text-3" id="text-SAS">
 <p>
 The way the HP-15C works with complex numbers exposes the real &amp; imaginary parts to the user for individual manipulation.  For example the HP-15C has no <code>Re</code>,
-<code>Im</code>, or <code>conj</code> functions because are simply unnecessary.  This design choice makes it simple to change the sign of the real part of a complex number on the
+<code>Im</code>, or <code>conj</code> functions because they are simply unnecessary.  This design choice makes it simple to change the sign of the real part of a complex number on the
 HP-15C with a single keystroke!  Most calculators require several keystrokes to achieve the same task. For example, on the HP-42S we might use a sequence like
 <code>[COMPLEX] [X&lt;&gt;Y] [CHS] [X&lt;&gt;Y] [COMPLEX]</code> to change the sign of the real part of a complex number.
 </p>
@@ -541,7 +542,7 @@ number's argument to the supplementary angle.
 </p>
 
 
-<div id="org42caf98" class="figure">
+<div id="orgf50dde1" class="figure">
 <p><img src="fig-sas.png" alt="fig-sas.png" width="30%" align="center" />
 </p>
 </div>
