@@ -78,8 +78,7 @@ that mistakes have been made is very real.  If you discover an error, please con
 :END:
 
 The keyboards below use *Unicode text* for the labels -- the boxes are just HTML background boxes.  The key labels are the ones I use for programs linked from
-this page.  Note that some of my key liable choices don't look exactly like what is on the physical calculator.  For example I use "eˣ" instead of $e^x$.  In
-some cases I did this for readability, in others I did it because I was more accustomed to the HP-42S mnemonic.
+this page.  Note that some of my key label choices don't look exactly like what is on the physical calculator.
 
 The HTML program listings are generated from =org-mode= files (in the repo with the same name but with a =.org= extension).  The macros and code used to
 translate mnemonics to buttons is located in the =emacs.org= (also in the repo).
