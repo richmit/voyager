@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-18 Sun 16:27 -->
+<!-- 2024-02-19 Mon 13:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP-15C Tips &amp; Tricks</title>
@@ -264,12 +264,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-18</i></td>
+<td class="org-left"><i>2024-02-19</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-18</i></td>
+<td class="org-left"><i>2024-02-19</i></td>
 </tr>
 </tbody>
 </table>
@@ -346,7 +346,7 @@ This item illustrates the different behavior of <span style='font-family:sans-se
 </p>
 
 
-<div id="orgf6f54fb" class="figure">
+<div id="org3b893d1" class="figure">
 <p><img src="fig-right.png" alt="fig-right.png" width="30%" align="center" />
 </p>
 </div>
@@ -442,7 +442,7 @@ function, see <a href="#hypot">HYPOT</a> below.
 </p>
 
 
-<div id="orgd6401d0" class="figure">
+<div id="orge8f9aa8" class="figure">
 <p><img src="fig-345.png" alt="fig-345.png" width="30%" align="center" />
 </p>
 </div>
@@ -542,7 +542,7 @@ number's argument to the supplementary angle.
 </p>
 
 
-<div id="orgf50dde1" class="figure">
+<div id="org5c8d8c6" class="figure">
 <p><img src="fig-sas.png" alt="fig-sas.png" width="30%" align="center" />
 </p>
 </div>
@@ -608,8 +608,8 @@ The mathematical idea behind how this works is that linear regression with only 
 
 <p>
 This works on any calculator that can do linear regression, but the process is particularly efficient on the 15C.  For example, the entire process on the
-HP-15C requires only 7 keystrokes beyond data entry; however, on the fx-5800P (my favorite algebraic scientific calculator) it takes 7 keystrokes (<code>[mode] [4]
-[function] [5] [1] [2] [EXE]</code>) just to clear the statistics registers!!
+HP-15C requires only 7 keystrokes beyond data entry; however, on the fx-5800P (my favorite algebraic scientific calculator) it takes 18 keystrokes (<code>[mode]
+[4] [function] [5] [1] [2] [EXE] x1 [EXE] x2 [EXE] [UP] [UP] [RIGHT] y1 [EXE] y2 [EXE] [FUNCTION] [6] [2] [1]</code>).
 </p>
 
 <p>
@@ -657,15 +657,17 @@ The value for \(m\) is in <b><code>Y</code></b>, and value for \(b\) is in <b><c
 <h3 id="linInterp"><span class="section-number-3">3.2.</span> Interpolation &amp; extrapolation (applied to Fahrenheit/Celsius Conversion)</h3>
 <div class="outline-text-3" id="text-linInterp">
 <p>
-This item is a continuation of the <a href="#linEq2">previous one</a>, but this time we interested in computed values on the line instead of the equation &#x2013; i.e. we are
-interested in linear interpolation!  Like in the <a href="#linEq2">previous topic</a>, this concept works with any calculator capable of linear regression; however,
-the process is so cumbersome on many modern calculators that it's simply not worth the effort.  This is where the HP-15C shines.
+This item is a continuation of the <a href="#linEq2">previous one</a>, but this time we are interested in computed values on the line instead of the equation &#x2013; i.e. we
+are interested in linear interpolation!  Like in the <a href="#linEq2">previous topic</a>, this concept works with any calculator capable of linear regression;
+however, the process is so cumbersome on many modern calculators that it's simply not worth the effort.  On the Casio fx-5800P it takes 18 keystrokes (see:
+<a href="#linEq2">previous topic</a>) to set up the interpolation, and 7 keystrokes ([FUNCTION] [7] [2] [DOWN] [DOWN] [DOWN] [ŷ]) to compute an interpolated value. Compare
+this to 7 keystrokes to set up the line, and 2 keystrokes to compute a value on the HP-15C. This is where the HP-15C shines.
 </p>
 
 <p>
-Suppose we have several Fahrenheit values we need to convert to Celsius.  We know the two values have a linear relationship, and we also the corresponding
-values in each system for water freezing and boiling points.  In particular 0 Celsius corresponds to 32 degrees Fahrenheit, and 100 Celsius corresponds to 212
-Fahrenheit. We wish to convert 68, 70, &amp; 72 degrees Fahrenheit to Celsius.
+Suppose we have several Fahrenheit values we need to convert to Celsius.  We know the two values have a linear relationship, and we also remember the
+corresponding values in each system for the freezing and boiling points of water.  In particular 0 Celsius corresponds to 32 degrees Fahrenheit, and 100
+Celsius corresponds to 212 Fahrenheit. We wish to convert 68, 70, &amp; 72 degrees Fahrenheit to Celsius.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
