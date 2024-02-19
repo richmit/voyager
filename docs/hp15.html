@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-17 Sat 15:25 -->
+<!-- 2024-02-18 Sun 18:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -267,12 +267,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-17</i></td>
+<td class="org-left"><i>2024-02-18</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-17</i></td>
+<td class="org-left"><i>2024-02-18</i></td>
 </tr>
 </tbody>
 </table>
@@ -294,7 +294,7 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 </li>
 <li><a href="#newton">2. Newton's Method for Functions of a Complex Variable</a>
 <ul>
-<li><a href="#org0af6c47">2.1. Usage</a></li>
+<li><a href="#org639273c">2.1. Usage</a></li>
 <li><a href="#newtonStk">2.2. Stack Diagrams</a></li>
 <li><a href="#newtonRes">2.3. Resources Used</a></li>
 <li><a href="#newtonCode">2.4. Program Listing</a></li>
@@ -326,14 +326,14 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 </li>
 </ul>
 </li>
-<li><a href="#orgbfd3149">4. Summary Resource Use</a>
+<li><a href="#orgd019d92">4. Summary Resource Use</a>
 <ul>
-<li><a href="#org1f5a0cc">4.1. Labels</a></li>
-<li><a href="#org72bffa8">4.2. Registers</a></li>
-<li><a href="#org4fd4b46">4.3. Matrix Registers</a></li>
+<li><a href="#orgf0db3c4">4.1. Labels</a></li>
+<li><a href="#orgbccaebb">4.2. Registers</a></li>
+<li><a href="#org5734742">4.3. Matrix Registers</a></li>
 </ul>
 </li>
-<li><a href="#orgaab2a13">5. Meta Data</a></li>
+<li><a href="#orgc721ccc">5. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -753,8 +753,8 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </p>
 </div>
 
-<div id="outline-container-org0af6c47" class="outline-3">
-<h3 id="org0af6c47"><span class="section-number-3">2.1.</span> Usage</h3>
+<div id="outline-container-org639273c" class="outline-3">
+<h3 id="org639273c"><span class="section-number-3">2.1.</span> Usage</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Running the program
@@ -1592,7 +1592,7 @@ This program solves the system \(AX=B\) for \(X\).
 <div class="outline-text-4" id="text-matSlvCode">
 <div class="org-center">
 <p>
-<code>DET_A</code> &#x2013; Determinant of A with LU in E
+<code>LIN_SLV</code> &#x2013; Solve \(AX=B\) with solution in C, LU in E, and ABS(DET) on stack
 </p>
 </div>
 <table border="2" cellspacing="0" cellpadding="1em" rules="groups" frame="hsides" align="center">
@@ -1871,12 +1871,12 @@ matrix.  I preform this operation frequently, so the 7 keystrokes it saves me ad
 </div>
 </div>
 
-<div id="outline-container-orgbfd3149" class="outline-2">
-<h2 id="orgbfd3149"><span class="section-number-2">4.</span> Summary Resource Use</h2>
+<div id="outline-container-orgd019d92" class="outline-2">
+<h2 id="orgd019d92"><span class="section-number-2">4.</span> Summary Resource Use</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org1f5a0cc" class="outline-3">
-<h3 id="org1f5a0cc"><span class="section-number-3">4.1.</span> Labels</h3>
+<div id="outline-container-orgf0db3c4" class="outline-3">
+<h3 id="orgf0db3c4"><span class="section-number-3">4.1.</span> Labels</h3>
 <div class="outline-text-3" id="text-4-1">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -2027,8 +2027,8 @@ matrix.  I preform this operation frequently, so the 7 keystrokes it saves me ad
 </div>
 </div>
 
-<div id="outline-container-org72bffa8" class="outline-3">
-<h3 id="org72bffa8"><span class="section-number-3">4.2.</span> Registers</h3>
+<div id="outline-container-orgbccaebb" class="outline-3">
+<h3 id="orgbccaebb"><span class="section-number-3">4.2.</span> Registers</h3>
 <div class="outline-text-3" id="text-4-2">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -2082,8 +2082,8 @@ matrix.  I preform this operation frequently, so the 7 keystrokes it saves me ad
 </div>
 </div>
 
-<div id="outline-container-org4fd4b46" class="outline-3">
-<h3 id="org4fd4b46"><span class="section-number-3">4.3.</span> Matrix Registers</h3>
+<div id="outline-container-org5734742" class="outline-3">
+<h3 id="org5734742"><span class="section-number-3">4.3.</span> Matrix Registers</h3>
 <div class="outline-text-3" id="text-4-3">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -2130,8 +2130,8 @@ matrix.  I preform this operation frequently, so the 7 keystrokes it saves me ad
 </div>
 </div>
 
-<div id="outline-container-orgaab2a13" class="outline-2">
-<h2 id="orgaab2a13"><span class="section-number-2">5.</span> Meta Data</h2>
+<div id="outline-container-orgc721ccc" class="outline-2">
+<h2 id="orgc721ccc"><span class="section-number-2">5.</span> Meta Data</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15.html">https://richmit.github.io/voyager/hp15.html</a>

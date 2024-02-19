@@ -401,7 +401,7 @@ This program solves the system $AX=B$ for $X$.
 :END:
 
 #+BEGIN_CENTER
-=DET_A= -- Determinant of A with LU in E
+=LIN_SLV= -- Solve $AX=B$ with solution in C, LU in E, and ABS(DET) on stack
 #+END_CENTER
 #+ATTR_HTML: :align center :cellpadding 1em
 | <l>                          |         <r> |                        <r> |    <c>    | <l>                            |
