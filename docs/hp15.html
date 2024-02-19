@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-18 Sun 18:16 -->
+<!-- 2024-02-19 Mon 13:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -267,12 +267,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-18</i></td>
+<td class="org-left"><i>2024-02-19</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-18</i></td>
+<td class="org-left"><i>2024-02-19</i></td>
 </tr>
 </tbody>
 </table>
@@ -294,7 +294,7 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 </li>
 <li><a href="#newton">2. Newton's Method for Functions of a Complex Variable</a>
 <ul>
-<li><a href="#org639273c">2.1. Usage</a></li>
+<li><a href="#org7f40935">2.1. Usage</a></li>
 <li><a href="#newtonStk">2.2. Stack Diagrams</a></li>
 <li><a href="#newtonRes">2.3. Resources Used</a></li>
 <li><a href="#newtonCode">2.4. Program Listing</a></li>
@@ -326,14 +326,14 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 </li>
 </ul>
 </li>
-<li><a href="#orgd019d92">4. Summary Resource Use</a>
+<li><a href="#org4ac8d61">4. Summary Resource Use</a>
 <ul>
-<li><a href="#orgf0db3c4">4.1. Labels</a></li>
-<li><a href="#orgbccaebb">4.2. Registers</a></li>
-<li><a href="#org5734742">4.3. Matrix Registers</a></li>
+<li><a href="#orgeb87c34">4.1. Labels</a></li>
+<li><a href="#org837f1d2">4.2. Registers</a></li>
+<li><a href="#orga57f609">4.3. Matrix Registers</a></li>
 </ul>
 </li>
-<li><a href="#orgc721ccc">5. Meta Data</a></li>
+<li><a href="#orga285737">5. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -753,8 +753,8 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </p>
 </div>
 
-<div id="outline-container-org639273c" class="outline-3">
-<h3 id="org639273c"><span class="section-number-3">2.1.</span> Usage</h3>
+<div id="outline-container-org7f40935" class="outline-3">
+<h3 id="org7f40935"><span class="section-number-3">2.1.</span> Usage</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Running the program
@@ -1565,11 +1565,12 @@ This program solves the system \(AX=B\) for \(X\).
 <ul class="org-ul">
 <li>Both <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> &amp; <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span> are left unchanged!</li>
 <li>The LU factorization of \(A\) will in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></li>
-<li>The system solution, \(X\), will be in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span> &#x2013; note this might not be a valid solution if \(A\) is singular (i.e. \(\vert A\vert=0\)).</li>
-<li>\(\mathrm{abs}(\vert A\vert)\) will be in stack position X</li>
+<li>The system solution, \(X\), will be in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span> &#x2013; note this might not be a valid solution if \(A\) is singular so check \(\vert A\vert\)</li>
+<li>\(\vert A\vert\) will be in stack position X</li>
 <li>The matrix descriptor for <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span> will be in stack position Y.</li>
 <li>Both <code>R0</code> &amp; <code>R1</code> will contain 1 in expectation <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER</span> mode will be used to visit the elements of <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span> and/or <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span>.</li>
-<li>The screen is always flashing after this program runs.  I don't know why.</li>
+<li>Matrix <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> will be selected as the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix.</li>
+<li>The screen is always flashing after this program runs on the HP-15CE.  I don't know why.</li>
 </ul></li>
 </ul>
 </div>
@@ -1583,6 +1584,10 @@ This program solves the system \(AX=B\) for \(X\).
 <ul class="org-ul">
 <li>8 Program label</li>
 </ul></li>
+<li>External Labels:
+<ul class="org-ul">
+<li>9 Subroutine to compute determinant</li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -1592,7 +1597,7 @@ This program solves the system \(AX=B\) for \(X\).
 <div class="outline-text-4" id="text-matSlvCode">
 <div class="org-center">
 <p>
-<code>LIN_SLV</code> &#x2013; Solve \(AX=B\) with solution in C, LU in E, and ABS(DET) on stack
+<code>LIN_SLV</code> &#x2013; Solve \(AX=B\)
 </p>
 </div>
 <table border="2" cellspacing="0" cellpadding="1em" rules="groups" frame="hsides" align="center">
@@ -1635,73 +1640,9 @@ This program solves the system \(AX=B\) for \(X\).
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ABS</span></td>
-<td class="org-right"><code>43 16</code></td>
-<td class="org-right">ABS(DET) x y z</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
-<td class="org-right"><code>1</code></td>
-<td class="org-right">1 ABS(DET) x y</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>EEX</span></td>
-<td class="org-right"><code>26</code></td>
-<td class="org-right">1 ABS(DET) x y</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span></td>
-<td class="org-right"><code>7</code></td>
-<td class="org-right">1e7 ABS(DET) x y</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>CHS</span></td>
-<td class="org-right"><code>16</code></td>
-<td class="org-right">eps ABS(DET) x y</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
-<td class="org-right"><code>34</code></td>
-<td class="org-right">ABS(DET) eps  x y</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>TEST</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
-<td class="org-right"><code>43,30 8</code></td>
-<td class="org-right">ABS(DET) eps  x y</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">x&gt;y</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
-<td class="org-right"><code>43 32</code></td>
-<td class="org-right">ABS(DET) eps  x y</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span></td>
 <td class="org-right"><code>45,16,12</code></td>
-<td class="org-right">B ABS(DET) x</td>
+<td class="org-right">B DET(A) x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1709,7 +1650,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
 <td class="org-right"><code>45,16,15</code></td>
-<td class="org-right">E B ABS(DET) x y</td>
+<td class="org-right">E B DET(A) x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">E has LU from <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</span></td>
 </tr>
@@ -1717,7 +1658,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
 <td class="org-right"><code>42,26,13</code></td>
-<td class="org-right">E B ABS(DET) x</td>
+<td class="org-right">E B DET(A) x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1725,7 +1666,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
 <td class="org-right"><code>10</code></td>
-<td class="org-right">C ABS(DET) x x</td>
+<td class="org-right">C DET(A) x x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1733,7 +1674,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
 <td class="org-right"><code>42,26,15</code></td>
-<td class="org-right">C ABS(DET) x x</td>
+<td class="org-right">C DET(A) x x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Set result back to E</td>
 </tr>
@@ -1741,7 +1682,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
 <td class="org-right"><code>34</code></td>
-<td class="org-right">ABS(DET) C x x</td>
+<td class="org-right">DET(A) C x x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1749,7 +1690,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
 <td class="org-right"><code>42,16, 1</code></td>
-<td class="org-right">ABS(DET) C x x</td>
+<td class="org-right">DET(A) C x x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1757,7 +1698,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
 <td class="org-right"><code>43 32</code></td>
-<td class="org-right">ABS(DET) C x x</td>
+<td class="org-right">DET(A) C x x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Ret when A is singular</td>
 </tr>
@@ -1776,8 +1717,8 @@ This program solves the system \(AX=B\) for \(X\).
 <h4 id="matDetUsage"><span class="section-number-4">3.3.1.</span> Usage</h4>
 <div class="outline-text-4" id="text-matDetUsage">
 <p>
-This program simply computes the determinant of the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> matrix putting it in stack position X, and places the LU factorization in the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span>
-matrix.  I preform this operation frequently, so the 7 keystrokes it saves me adds up. <code>:)</code>
+This program simply computes the determinant of the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> matrix.  The determinant is left in stack position X, and the LU factorization is stored in the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span>
+matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix will be set as <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span>.  I preform this operation frequently, so the 7 keystrokes it saves me adds up. <code>:)</code>
 </p>
 </div>
 </div>
@@ -1799,7 +1740,7 @@ matrix.  I preform this operation frequently, so the 7 keystrokes it saves me ad
 <div class="outline-text-4" id="text-matDetCode">
 <div class="org-center">
 <p>
-<code>DET_A</code> &#x2013; Determinant of A with LU in E
+<code>DET_A</code> &#x2013; Determinant of A
 </p>
 </div>
 <table border="2" cellspacing="0" cellpadding="1em" rules="groups" frame="hsides" align="center">
@@ -1871,12 +1812,12 @@ matrix.  I preform this operation frequently, so the 7 keystrokes it saves me ad
 </div>
 </div>
 
-<div id="outline-container-orgd019d92" class="outline-2">
-<h2 id="orgd019d92"><span class="section-number-2">4.</span> Summary Resource Use</h2>
+<div id="outline-container-org4ac8d61" class="outline-2">
+<h2 id="org4ac8d61"><span class="section-number-2">4.</span> Summary Resource Use</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgf0db3c4" class="outline-3">
-<h3 id="orgf0db3c4"><span class="section-number-3">4.1.</span> Labels</h3>
+<div id="outline-container-orgeb87c34" class="outline-3">
+<h3 id="orgeb87c34"><span class="section-number-3">4.1.</span> Labels</h3>
 <div class="outline-text-3" id="text-4-1">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -2027,8 +1968,8 @@ matrix.  I preform this operation frequently, so the 7 keystrokes it saves me ad
 </div>
 </div>
 
-<div id="outline-container-orgbccaebb" class="outline-3">
-<h3 id="orgbccaebb"><span class="section-number-3">4.2.</span> Registers</h3>
+<div id="outline-container-org837f1d2" class="outline-3">
+<h3 id="org837f1d2"><span class="section-number-3">4.2.</span> Registers</h3>
 <div class="outline-text-3" id="text-4-2">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -2082,8 +2023,8 @@ matrix.  I preform this operation frequently, so the 7 keystrokes it saves me ad
 </div>
 </div>
 
-<div id="outline-container-org5734742" class="outline-3">
-<h3 id="org5734742"><span class="section-number-3">4.3.</span> Matrix Registers</h3>
+<div id="outline-container-orga57f609" class="outline-3">
+<h3 id="orga57f609"><span class="section-number-3">4.3.</span> Matrix Registers</h3>
 <div class="outline-text-3" id="text-4-3">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -2130,8 +2071,8 @@ matrix.  I preform this operation frequently, so the 7 keystrokes it saves me ad
 </div>
 </div>
 
-<div id="outline-container-orgc721ccc" class="outline-2">
-<h2 id="orgc721ccc"><span class="section-number-2">5.</span> Meta Data</h2>
+<div id="outline-container-orga285737" class="outline-2">
+<h2 id="orga285737"><span class="section-number-2">5.</span> Meta Data</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15.html">https://richmit.github.io/voyager/hp15.html</a>

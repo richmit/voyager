@@ -381,11 +381,12 @@ This program solves the system $AX=B$ for $X$.
 - Program end conditions
   - Both {{{c15(A)}}} & {{{c15(B)}}} are left unchanged!
   - The LU factorization of $A$ will in {{{c15(E)}}}
-  - The system solution, $X$, will be in {{{c15(C)}}} -- note this might not be a valid solution if $A$ is singular (i.e. $\vert A\vert=0$).
-  - $\mathrm{abs}(\vert A\vert)$ will be in stack position X
+  - The system solution, $X$, will be in {{{c15(C)}}} -- note this might not be a valid solution if $A$ is singular so check $\vert A\vert$
+  - $\vert A\vert$ will be in stack position X
   - The matrix descriptor for {{{c15(C)}}} will be in stack position Y.
   - Both =R0= & =R1= will contain 1 in expectation {{{c15(USER)}}} mode will be used to visit the elements of {{{c15(C)}}} and/or {{{c15(E)}}}.
-  - The screen is always flashing after this program runs.  I don't know why.
+  - Matrix {{{c15(E)}}} will be selected as the {{{c15(RESULT)}}} matrix.
+  - The screen is always flashing after this program runs on the HP-15CE.  I don't know why.
 
 *** Resources Used
 :PROPERTIES:
@@ -394,6 +395,8 @@ This program solves the system $AX=B$ for $X$.
 
 - Internal Labels:
   - 8 Program label
+- External Labels:
+  - 9 Subroutine to compute determinant
 
 *** Program Listing
 :PROPERTIES:
@@ -401,29 +404,21 @@ This program solves the system $AX=B$ for $X$.
 :END:
 
 #+BEGIN_CENTER
-=LIN_SLV= -- Solve $AX=B$ with solution in C, LU in E, and ABS(DET) on stack
+=LIN_SLV= -- Solve $AX=B$
 #+END_CENTER
 #+ATTR_HTML: :align center :cellpadding 1em
 | <l>                          |         <r> |                        <r> |    <c>    | <l>                            |
 | *Keystrokes* {{{SPC}}}       | *Key Codes* | {{{SPC}}} *Stack Contents* | {{{SPC}}} | *Comments*                     |
 | {{{c15(f LBL 8          )}}} |  =42,21, 8= |                    x y z t |           |                                |
 | {{{c15(GSB 9            )}}} |      =32 9= |                  DET x y z |           |                                |
-| {{{c15(g ABS            )}}} |     =43 16= |             ABS(DET) x y z |           |                                |
-| {{{c15(1                )}}} |         =1= |             1 ABS(DET) x y |           |                                |
-| {{{c15(EEX              )}}} |        =26= |             1 ABS(DET) x y |           |                                |
-| {{{c15(7                )}}} |         =7= |           1e7 ABS(DET) x y |           |                                |
-| {{{c15(CHS              )}}} |        =16= |           eps ABS(DET) x y |           |                                |
-| {{{c15(x≷y              )}}} |        =34= |          ABS(DET) eps  x y |           |                                |
-| {{{c15(g TEST 8         )}}} |   =43,30 8= |          ABS(DET) eps  x y |           | x>y                            |
-| {{{c15(g RTN            )}}} |     =43 32= |          ABS(DET) eps  x y |           |                                |
-| {{{c15(RCL MATRIX B     )}}} |  =45,16,12= |               B ABS(DET) x |           |                                |
-| {{{c15(RCL MATRIX E     )}}} |  =45,16,15= |           E B ABS(DET) x y |           | E has LU from {{{c15(LBL 9)}}} |
-| {{{c15(f RESULT C       )}}} |  =42,26,13= |             E B ABS(DET) x |           |                                |
-| {{{c15(÷                )}}} |        =10= |             C ABS(DET) x x |           |                                |
-| {{{c15(f RESULT E       )}}} |  =42,26,15= |             C ABS(DET) x x |           | Set result back to E           |
-| {{{c15(x≷y              )}}} |        =34= |             ABS(DET) C x x |           |                                |
-| {{{c15(f MATRIX 1       )}}} |  =42,16, 1= |             ABS(DET) C x x |           |                                |
-| {{{c15(g RTN            )}}} |     =43 32= |             ABS(DET) C x x |           | Ret when A is singular         |
+| {{{c15(RCL MATRIX B     )}}} |  =45,16,12= |                 B DET(A) x |           |                                |
+| {{{c15(RCL MATRIX E     )}}} |  =45,16,15= |               E B DET(A) x |           | E has LU from {{{c15(LBL 9)}}} |
+| {{{c15(f RESULT C       )}}} |  =42,26,13= |               E B DET(A) x |           |                                |
+| {{{c15(÷                )}}} |        =10= |               C DET(A) x x |           |                                |
+| {{{c15(f RESULT E       )}}} |  =42,26,15= |               C DET(A) x x |           | Set result back to E           |
+| {{{c15(x≷y              )}}} |        =34= |               DET(A) C x x |           |                                |
+| {{{c15(f MATRIX 1       )}}} |  =42,16, 1= |               DET(A) C x x |           |                                |
+| {{{c15(g RTN            )}}} |     =43 32= |               DET(A) C x x |           | Ret when A is singular         |
 
 ** Determinant
 :PROPERTIES:
@@ -435,8 +430,8 @@ This program solves the system $AX=B$ for $X$.
 :CUSTOM_ID: matDetUsage
 :END:
 
-This program simply computes the determinant of the {{{c15(A)}}} matrix putting it in stack position X, and places the LU factorization in the {{{c15(E)}}}
-matrix.  I preform this operation frequently, so the 7 keystrokes it saves me adds up. =:)=
+This program simply computes the determinant of the {{{c15(A)}}} matrix.  The determinant is left in stack position X, and the LU factorization is stored in the {{{c15(E)}}}
+matrix.  Note the {{{c15(RESULT)}}} matrix will be set as {{{c15(E)}}}.  I preform this operation frequently, so the 7 keystrokes it saves me adds up. =:)=
 
 *** Resources Used
 :PROPERTIES:
@@ -452,7 +447,7 @@ matrix.  I preform this operation frequently, so the 7 keystrokes it saves me ad
 :END:
 
 #+BEGIN_CENTER
-=DET_A= -- Determinant of A with LU in E
+=DET_A= -- Determinant of A
 #+END_CENTER
 #+ATTR_HTML: :align center :cellpadding 1em
 | <l>                          |         <r> |                        <r> |    <c>    | <l>        |
