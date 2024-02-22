@@ -540,21 +540,21 @@ This program solves the system $AX=B$ for $X$.  $A$ & $B$ are complex matrices i
 #+ATTR_HTML: :align center :cellpadding 1em
 | <l>                            |         <r> |    <c>    |                 <r> |    <c>    | <l>        |
 | *Keystrokes* {{{SPC}}}         | *Key Codes* | {{{SPC}}} |    *Stack Contents* | {{{SPC}}} | *Comments* |
-| {{{c15(  f LBL 5          )}}} |    42,21, 5 |           |             x y z t |           |            |
-| {{{c15(  GSB 6            )}}} |       32  6 |           |             x y z t |           |            |
-| {{{c15(  RCL MATRIX B     )}}} |    45,16,12 |           |  Bc ABS(DET(A)) x y |           |            |
-| {{{c15(  f Py\,x          )}}} |       42 40 |           |  Bp ABS(DET(A)) x y |           |            |
-| {{{c15(  RCL MATRIX E     )}}} |    45,16,15 |           | E~ Bp ABS(DET(A)) x |           |            |
-| {{{c15(  f RESULT C       )}}} |    42,26,13 |           | E~ Bp ABS(DET(A)) x |           |            |
-| {{{c15(  ÷                )}}} |          10 |           |  Cp ABS(DET(A)) x x |           |            |
-| {{{c15(  g Cy\,x          )}}} |       43 40 |           |  Cc ABS(DET(A)) x x |           |            |
-| {{{c15(  f RESULT E       )}}} |    42,26,15 |           |  Cc ABS(DET(A)) x x |           |            |
-| {{{c15(  x≷y              )}}} |          34 |           |  ABS(DET(A)) Cc x x |           |            |
-| {{{c15(  f MATRIX 1       )}}} |    42,16, 1 |           |  ABS(DET(A)) Cc x x |           |            |
-| {{{c15(  RCL MATRIX B     )}}} |    45,16,12 |           | Bp ABS(DET(A)) Cc x |           |            |
-| {{{c15(  g Cy\,x          )}}} |       43 40 |           | Bc ABS(DET(A)) Cc x |           |            |
-| {{{c15(  R↓               )}}} |          33 |           | ABS(DET(A)) Cc x Bc |           |            |
-| {{{c15(  g RTN            )}}} |       43 32 |           |  ABS(DET(A)) Cc x x |           |            |
+| {{{c15(  f LBL 5          )}}} |  =42,21, 5= |           |             x y z t |           |            |
+| {{{c15(  GSB 6            )}}} |     =32  6= |           |             x y z t |           |            |
+| {{{c15(  RCL MATRIX B     )}}} |  =45,16,12= |           |  Bc ABS(DET(A)) x y |           |            |
+| {{{c15(  f Py\,x          )}}} |     =42 40= |           |  Bp ABS(DET(A)) x y |           |            |
+| {{{c15(  RCL MATRIX E     )}}} |  =45,16,15= |           | E~ Bp ABS(DET(A)) x |           |            |
+| {{{c15(  f RESULT C       )}}} |  =42,26,13= |           | E~ Bp ABS(DET(A)) x |           |            |
+| {{{c15(  ÷                )}}} |        =10= |           |  Cp ABS(DET(A)) x x |           |            |
+| {{{c15(  g Cy\,x          )}}} |     =43 40= |           |  Cc ABS(DET(A)) x x |           |            |
+| {{{c15(  f RESULT E       )}}} |  =42,26,15= |           |  Cc ABS(DET(A)) x x |           |            |
+| {{{c15(  x≷y              )}}} |        =34= |           |  ABS(DET(A)) Cc x x |           |            |
+| {{{c15(  f MATRIX 1       )}}} |  =42,16, 1= |           |  ABS(DET(A)) Cc x x |           |            |
+| {{{c15(  RCL MATRIX B     )}}} |  =45,16,12= |           | Bp ABS(DET(A)) Cc x |           |            |
+| {{{c15(  g Cy\,x          )}}} |     =43 40= |           | Bc ABS(DET(A)) Cc x |           |            |
+| {{{c15(  R↓               )}}} |        =33= |           | ABS(DET(A)) Cc x Bc |           |            |
+| {{{c15(  g RTN            )}}} |     =43 32= |           |  ABS(DET(A)) Cc x x |           |            |
 
 ** Complex Determinant Magnitude
 :PROPERTIES:
@@ -596,20 +596,21 @@ unchanged. Note the {{{c15(RESULT)}}} matrix will be set as {{{c15(E)}}}.
 #+ATTR_HTML: :align center :cellpadding 1em
 | <l>                         |         <r> |    <c>    |                   <r> |    <c>    | <l>                          |
 | *Keystrokes* {{{SPC}}}      | *Key Codes* | {{{SPC}}} |      *Stack Contents* | {{{SPC}}} | *Comments*                   |
-| {{{c15(  f LBL 6       )}}} |    42,21, 6 |           |               x y z t |           |                              |
-| {{{c15(  f RESULT E    )}}} |    42,26,15 |           |               x y z t |           |                              |
-| {{{c15(  RCL MATRIX A  )}}} |    45,16,11 |           |              Ac x y z |           |                              |
-| {{{c15(  f Py\,x       )}}} |       42 40 |           |              Ap x y z |           |                              |
-| {{{c15(  f MATRIX 2    )}}} |    42,16, 2 |           |              A~ x y z |           |                              |
-| {{{c15(  f RESULT E    )}}} |    42,26,15 |           |              A~ x y z |           |                              |
-| {{{c15(  f MATRIX 9    )}}} |    42,16, 9 |           | SQ(ABS(DET(A))) x y z |           |                              |
-| {{{c15(  g ABS         )}}} |       43 16 |           | SQ(ABS(DET(A))) x y z |           | If roundoff made it negative |
-| {{{c15(  √x            )}}} |          11 |           |     ABS(DET(A)) x y z |           |                              |
-| {{{c15(  RCL MATRIX A  )}}} |    45,16,11 |           |    A~ ABS(DET(A)) x y |           | Restore A to Ac form         |
-| {{{c15(  f MATRIX 3    )}}} |    42,16, 3 |           |    Ap ABS(DET(A)) x y |           |                              |
-| {{{c15(  g Cy\,x       )}}} |       43 40 |           |    Ac ABS(DET(A)) x y |           |                              |
-| {{{c15(  R↓            )}}} |          33 |           |    ABS(DET(A)) x y Ac |           |                              |
-| {{{c15(  g RTN         )}}} |       43 32 |           |    ABS(DET(A)) Cc x x |           |                              |
+| {{{c15(  f LBL 6       )}}} |  =42,21, 6= |           |               x y z t |           |                              |
+| {{{c15(  f RESULT E    )}}} |  =42,26,15= |           |               x y z t |           |                              |
+| {{{c15(  RCL MATRIX A  )}}} |  =45,16,11= |           |              Ac x y z |           |                              |
+| {{{c15(  f Py\,x       )}}} |     =42 40= |           |              Ap x y z |           |                              |
+| {{{c15(  f MATRIX 2    )}}} |  =42,16, 2= |           |              A~ x y z |           |                              |
+| {{{c15(  f RESULT E    )}}} |  =42,26,15= |           |              A~ x y z |           |                              |
+| {{{c15(  f MATRIX 9    )}}} |  =42,16, 9= |           | SQ(ABS(DET(A))) x y z |           |                              |
+| {{{c15(  g ABS         )}}} |     =43 16= |           | SQ(ABS(DET(A))) x y z |           | If roundoff made it negative |
+| {{{c15(  √x            )}}} |        =11= |           |     ABS(DET(A)) x y z |           |                              |
+| {{{c15(  RCL MATRIX A  )}}} |  =45,16,11= |           |    A~ ABS(DET(A)) x y |           | Restore A to Ac form         |
+| {{{c15(  f MATRIX 3    )}}} |  =42,16, 3= |           |    Ap ABS(DET(A)) x y |           |                              |
+| {{{c15(  g Cy\,x       )}}} |     =43 40= |           |    Ac ABS(DET(A)) x y |           |                              |
+| {{{c15(  R↓            )}}} |        =33= |           |    ABS(DET(A)) x y Ac |           |                              |
+| {{{c15(  g RTN         )}}} |     =43 32= |           |    ABS(DET(A)) Cc x x |           |                              |
+#+TBLFM: $2=43 32
 
 
 * Summary Resource Use
