@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-19 Mon 13:28 -->
+<!-- 2024-02-22 Thu 17:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -267,12 +267,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-19</i></td>
+<td class="org-left"><i>2024-02-22</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-19</i></td>
+<td class="org-left"><i>2024-02-22</i></td>
 </tr>
 </tbody>
 </table>
@@ -294,7 +294,7 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 </li>
 <li><a href="#newton">2. Newton's Method for Functions of a Complex Variable</a>
 <ul>
-<li><a href="#org7f40935">2.1. Usage</a></li>
+<li><a href="#org12ade2d">2.1. Usage</a></li>
 <li><a href="#newtonStk">2.2. Stack Diagrams</a></li>
 <li><a href="#newtonRes">2.3. Resources Used</a></li>
 <li><a href="#newtonCode">2.4. Program Listing</a></li>
@@ -310,30 +310,44 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 <li><a href="#matFillCode">3.1.4. Program Listing</a></li>
 </ul>
 </li>
-<li><a href="#matSlv">3.2. Solve a System</a>
+<li><a href="#matSlv">3.2. Solve a Real Linear System</a>
 <ul>
 <li><a href="#matSlvUsage">3.2.1. Usage</a></li>
 <li><a href="#matSlvRes">3.2.2. Resources Used</a></li>
 <li><a href="#matSlvCode">3.2.3. Program Listing</a></li>
 </ul>
 </li>
-<li><a href="#matDet">3.3. Determinant</a>
+<li><a href="#matDet">3.3. Real Determinant</a>
 <ul>
 <li><a href="#matDetUsage">3.3.1. Usage</a></li>
 <li><a href="#matDetRes">3.3.2. Resources Used</a></li>
 <li><a href="#matDetCode">3.3.3. Program Listing</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#org4ac8d61">4. Summary Resource Use</a>
+<li><a href="#cmatSlv">3.4. Solve a Complex Linear System</a>
 <ul>
-<li><a href="#orgeb87c34">4.1. Labels</a></li>
-<li><a href="#org837f1d2">4.2. Registers</a></li>
-<li><a href="#orga57f609">4.3. Matrix Registers</a></li>
+<li><a href="#cmatSlvUsage">3.4.1. Usage</a></li>
+<li><a href="#matSlvRes">3.4.2. Resources Used</a></li>
+<li><a href="#matSlvCode">3.4.3. Program Listing</a></li>
 </ul>
 </li>
-<li><a href="#orga285737">5. Meta Data</a></li>
+<li><a href="#cmatDet">3.5. Complex Determinant Magnitude</a>
+<ul>
+<li><a href="#cmatDetUsage">3.5.1. Usage</a></li>
+<li><a href="#cmatDetRes">3.5.2. Resources Used</a></li>
+<li><a href="#cmatDetCode">3.5.3. Program Listing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org81f04c7">4. Summary Resource Use</a>
+<ul>
+<li><a href="#orge0c2e20">4.1. Labels</a></li>
+<li><a href="#orgd300e06">4.2. Registers</a></li>
+<li><a href="#orgd4e902c">4.3. Matrix Registers</a></li>
+</ul>
+</li>
+<li><a href="#org46070ca">5. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -488,11 +502,6 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <h3 id="storclcplxRes"><span class="section-number-3">1.3.</span> Resources Used</h3>
 <div class="outline-text-3" id="text-storclcplxRes">
 <ul class="org-ul">
-<li>Registers Used:
-<ul class="org-ul">
-<li>Two consecutive registers are used.</li>
-<li>The first has its index on level X of the stack</li>
-</ul></li>
 <li>Internal Labels:
 <ul class="org-ul">
 <li>E RCL_CPLX</li>
@@ -502,9 +511,19 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <ul class="org-ul">
 <li>None</li>
 </ul></li>
+<li>Registers Used:
+<ul class="org-ul">
+<li>Two consecutive registers are used.</li>
+<li>The first has its index on level X of the stack</li>
+</ul></li>
+<li>Matrices:
+<ul class="org-ul">
+<li>None</li>
+</ul></li>
 </ul>
 </div>
 </div>
+
 
 <div id="outline-container-storclcplxCode" class="outline-3">
 <h3 id="storclcplxCode"><span class="section-number-3">1.4.</span> Program Listing</h3>
@@ -522,6 +541,8 @@ The real part of Y is stored at the register indicated by the index in X, and th
 
 <col  class="org-right" />
 
+<col  class="org-center" />
+
 <col  class="org-right" />
 
 <col  class="org-center" />
@@ -532,7 +553,8 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
 <td class="org-right"><b>Key Codes</b></td>
-<td class="org-right">&nbsp;&nbsp;&nbsp; <b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Stack Contents</b></td>
 <td class="org-center">&nbsp;&nbsp;&nbsp;</td>
 <td class="org-left"><b>Comments</b></td>
 </tr>
@@ -540,6 +562,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>D</span></td>
 <td class="org-right"><code>42,21,14</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -548,6 +571,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
 <td class="org-right"><code>44 25</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -556,6 +580,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
 <td class="org-right"><code>33</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">y z t x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -564,6 +589,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</span></td>
 <td class="org-right"><code>44 24</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">y z t x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -572,6 +598,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ISG</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
 <td class="org-right"><code>42, 6,25</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">y z t x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -580,6 +607,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CLx</span></td>
 <td class="org-right"><code>43 35</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">y z t x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">NOP</td>
@@ -588,6 +616,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im</span></td>
 <td class="org-right"><code>42 30</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">~y z t x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -596,6 +625,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</span></td>
 <td class="org-right"><code>44 24</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">~y z t x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -604,6 +634,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im</span></td>
 <td class="org-right"><code>42 30</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">y z t x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Ret</td>
@@ -612,6 +643,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
 <td class="org-right"><code>43 32</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">&#xa0;</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -631,6 +663,8 @@ The real part of Y is stored at the register indicated by the index in X, and th
 
 <col  class="org-right" />
 
+<col  class="org-center" />
+
 <col  class="org-right" />
 
 <col  class="org-center" />
@@ -641,7 +675,8 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
 <td class="org-right"><b>Key Codes</b></td>
-<td class="org-right">&nbsp;&nbsp;&nbsp; <b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Stack Contents</b></td>
 <td class="org-center">&nbsp;&nbsp;&nbsp;</td>
 <td class="org-left"><b>Comments</b></td>
 </tr>
@@ -649,6 +684,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
 <td class="org-right"><code>42,21,15</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -657,6 +693,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
 <td class="org-right"><code>44 25</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -665,6 +702,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
 <td class="org-right"><code>33</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">y z t x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -673,6 +711,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</span></td>
 <td class="org-right"><code>45 24</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">Cr y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -681,6 +720,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ISG</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
 <td class="org-right"><code>42,6,25</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">Cr y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -689,6 +729,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CLx</span></td>
 <td class="org-right"><code>43 35</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">Cr y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">NOP</td>
@@ -697,6 +738,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im</span></td>
 <td class="org-right"><code>42 30</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">~Cr y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -705,6 +747,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CLx</span></td>
 <td class="org-right"><code>43 35</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">~Cr y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Disable stack</td>
@@ -713,6 +756,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</span></td>
 <td class="org-right"><code>45 24</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">~C y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -721,6 +765,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im</span></td>
 <td class="org-right"><code>42 30</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">C y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Ret</td>
@@ -729,6 +774,7 @@ The real part of Y is stored at the register indicated by the index in X, and th
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
 <td class="org-right"><code>43 32</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">&#xa0;</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -753,8 +799,8 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </p>
 </div>
 
-<div id="outline-container-org7f40935" class="outline-3">
-<h3 id="org7f40935"><span class="section-number-3">2.1.</span> Usage</h3>
+<div id="outline-container-org12ade2d" class="outline-3">
+<h3 id="org12ade2d"><span class="section-number-3">2.1.</span> Usage</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Running the program
@@ -852,11 +898,6 @@ be stored in registers 8 &amp; 9.</li>
 <h3 id="newtonRes"><span class="section-number-3">2.3.</span> Resources Used</h3>
 <div class="outline-text-3" id="text-newtonRes">
 <ul class="org-ul">
-<li>Registers Used:
-<ul class="org-ul">
-<li>R8 Real component of root guess</li>
-<li>R9 Complex component of root guess</li>
-</ul></li>
 <li>Internal Labels:
 <ul class="org-ul">
 <li>D Program label</li>
@@ -868,9 +909,19 @@ be stored in registers 8 &amp; 9.</li>
 <li>E RCL_CPLX</li>
 <li>D STO_CPLX</li>
 </ul></li>
+<li>Registers Used:
+<ul class="org-ul">
+<li>R8 Real component of root guess</li>
+<li>R9 Complex component of root guess</li>
+</ul></li>
+<li>Matrices:
+<ul class="org-ul">
+<li>None</li>
+</ul></li>
 </ul>
 </div>
 </div>
+
 
 <div id="outline-container-newtonCode" class="outline-3">
 <h3 id="newtonCode"><span class="section-number-3">2.4.</span> Program Listing</h3>
@@ -888,6 +939,8 @@ be stored in registers 8 &amp; 9.</li>
 
 <col  class="org-right" />
 
+<col  class="org-center" />
+
 <col  class="org-right" />
 
 <col  class="org-center" />
@@ -898,7 +951,8 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
 <td class="org-right"><b>Key Codes</b></td>
-<td class="org-right">&nbsp;&nbsp;&nbsp; <b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Stack Contents</b></td>
 <td class="org-center">&nbsp;&nbsp;&nbsp;</td>
 <td class="org-left"><b>Comments</b></td>
 </tr>
@@ -906,6 +960,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
 <td class="org-right"><code>42,21,13</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x0 ? ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -914,6 +969,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
 <td class="org-right"><code>8</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">8 x0 ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -922,6 +978,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>D</span></td>
 <td class="org-right"><code>32 14</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x0 ? ? 8</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">STO_CPLX</td>
@@ -930,6 +987,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
 <td class="org-right"><code>42,21,.1</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">? ? ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -938,6 +996,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
 <td class="org-right"><code>8</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">8 ? ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -946,6 +1005,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
 <td class="org-right"><code>32 15</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x0 ? ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">RCL_CPLX</td>
@@ -954,6 +1014,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
 <td class="org-right"><code>36</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x0 x0 ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">x0=Previous iterate</td>
@@ -962,6 +1023,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
 <td class="org-right"><code>36</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x0 x0 x0 ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -970,6 +1032,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
 <td class="org-right"><code>36</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x0 x0 x0 x0</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -978,6 +1041,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
 <td class="org-right"><code>32  1</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">df f ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Function to solve</td>
@@ -986,6 +1050,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
 <td class="org-right"><code>34</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">f df ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">f=f(x0), df=f'(x0)</td>
@@ -994,6 +1059,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
 <td class="org-right"><code>36</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">f f df ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1002,6 +1068,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
 <td class="org-right"><code>36</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">f f f df</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1010,6 +1077,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
 <td class="org-right"><code>8</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">8 f f df</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1018,6 +1086,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
 <td class="org-right"><code>32 15</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x0 f f df</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">RCL_CPLX</td>
@@ -1026,6 +1095,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
 <td class="org-right"><code>43 33</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">df x0 f f</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1034,6 +1104,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
 <td class="org-right"><code>43 33</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">f df x0 f</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1042,6 +1113,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
 <td class="org-right"><code>34</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">df f x0 f</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1050,6 +1122,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
 <td class="org-right"><code>10</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">f÷df x0 f f</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1058,6 +1131,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
 <td class="org-right"><code>34</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x0 f÷df f f</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1066,6 +1140,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
 <td class="org-right"><code>36</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x0 x0 f÷df f</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1074,6 +1149,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
 <td class="org-right"><code>33</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x0 f÷df f x0</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1082,6 +1158,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
 <td class="org-right"><code>34</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">f÷df x0 f x0</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1090,6 +1167,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>-</span></td>
 <td class="org-right"><code>30</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x1 f x0 x0</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">x1=Current iterate</td>
@@ -1098,6 +1176,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
 <td class="org-right"><code>8</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">8 x1 f x0</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1106,6 +1185,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>D</span></td>
 <td class="org-right"><code>32 14</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x1 f x0 8</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">STO_CPLX</td>
@@ -1114,6 +1194,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
 <td class="org-right"><code>34</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">f x1 x0 8</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1122,6 +1203,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
 <td class="org-right"><code>36</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">f f  x1 x0</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1130,6 +1212,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ABS</span></td>
 <td class="org-right"><code>43 16</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">fM f x1 x0</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">fM=abs(f(x1))</td>
@@ -1138,6 +1221,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
 <td class="org-right"><code>1</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">1 fM f x1</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1146,6 +1230,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>EEX</span></td>
 <td class="org-right"><code>26</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">1 fM f x1</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1154,6 +1239,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span></td>
 <td class="org-right"><code>7</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">1e7 fM f x1</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1162,6 +1248,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>CHS</span></td>
 <td class="org-right"><code>16</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">e fM f x1</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">e=Epsilon</td>
@@ -1170,6 +1257,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>TEST</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
 <td class="org-right"><code>43,30, 8</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">e fM f x1</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">y&gt;x?</td>
@@ -1178,6 +1266,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GTO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
 <td class="org-right"><code>22 .1</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">e fM f x1</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1186,6 +1275,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
 <td class="org-right"><code>43 33</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x1 e fM f</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1194,6 +1284,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
 <td class="org-right"><code>34</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">e x1 fM f</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1202,6 +1293,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
 <td class="org-right"><code>33</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x1 fM f e</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1210,6 +1302,7 @@ be stored in registers 8 &amp; 9.</li>
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
 <td class="org-right"><code>43 32</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x1 fM f e</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1316,16 +1409,24 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <h4 id="matFillRes"><span class="section-number-4">3.1.3.</span> Resources Used</h4>
 <div class="outline-text-4" id="text-matFillRes">
 <ul class="org-ul">
+<li>Internal Labels:
+<ul class="org-ul">
+<li>7 Program label</li>
+<li>.2 Main loop target</li>
+</ul></li>
+<li>External Labels:
+<ul class="org-ul">
+<li>None</li>
+</ul></li>
 <li>Registers Used:
 <ul class="org-ul">
 <li>R0 Matrix indexing</li>
 <li>R1 Matrix indexing</li>
 <li>I  Matrix descripter</li>
 </ul></li>
-<li>Internal Labels:
+<li>Matrices:
 <ul class="org-ul">
-<li>7 Program label</li>
-<li>.2 Main loop target</li>
+<li>None</li>
 </ul></li>
 </ul>
 </div>
@@ -1347,6 +1448,8 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 
 <col  class="org-right" />
 
+<col  class="org-center" />
+
 <col  class="org-right" />
 
 <col  class="org-center" />
@@ -1357,7 +1460,8 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
 <td class="org-right"><b>Key Codes</b></td>
-<td class="org-right">&nbsp;&nbsp;&nbsp; <b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Stack Contents</b></td>
 <td class="org-center">&nbsp;&nbsp;&nbsp;</td>
 <td class="org-left"><b>Comments</b></td>
 </tr>
@@ -1365,6 +1469,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span></td>
 <td class="org-right"><code>42,21, 7</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">n m Aor0 t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1373,6 +1478,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></td>
 <td class="org-right"><code>45,16,11</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">A n m Aor0</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1381,6 +1487,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
 <td class="org-right"><code>44 25</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">A n m Aor0</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1389,6 +1496,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
 <td class="org-right"><code>43 33</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">Aor0 A n m</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1397,6 +1505,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>TEST</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span></td>
 <td class="org-right"><code>43,30, 0</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">Aor0 A n m</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1405,6 +1514,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
 <td class="org-right"><code>44 25</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">A A n m</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Sto given matrix descriptor in I</td>
@@ -1413,6 +1523,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
 <td class="org-right"><code>33</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">A n m Aor0</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1421,6 +1532,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
 <td class="org-right"><code>33</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">n m Aor0 A</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1429,6 +1541,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>DIM</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
 <td class="org-right"><code>42,23,25</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">n m Aor0 A</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Dim given matrix</td>
@@ -1437,6 +1550,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
 <td class="org-right"><code>42,16, 1</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">n m Aor0 A</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Set R0 &amp; R1 to 1</td>
@@ -1445,6 +1559,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span></td>
 <td class="org-right"><code>42,21,.2</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">n m Aor0 A</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1453,6 +1568,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span></td>
 <td class="org-right"><code>45  0</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">i n m Aor0</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1461,6 +1577,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
 <td class="org-right"><code>45  1</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">j i n m</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1469,6 +1586,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
 <td class="org-right"><code>1</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">1 j i n</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1477,6 +1595,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span></td>
 <td class="org-right"><code>0</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">10 j i n</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1485,6 +1604,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
 <td class="org-right"><code>10</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">j/10 i n n</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1493,6 +1613,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+</span></td>
 <td class="org-right"><code>40</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">j/10+i n n n</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1501,6 +1622,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R/S</span></td>
 <td class="org-right"><code>31</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">j/10+i n n n</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1509,6 +1631,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</span></td>
 <td class="org-right"><code>u   44 24</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">j/10+i n n n</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1517,6 +1640,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GTO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span></td>
 <td class="org-right"><code>22 .2</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">j/10+i n n n</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1525,6 +1649,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
 <td class="org-right"><code>45 25</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">A j/10+i n n</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Recall filled matrix to stack</td>
@@ -1533,6 +1658,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
 <td class="org-right"><code>43 32</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">A j/10+i n n</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1544,7 +1670,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 </div>
 
 <div id="outline-container-matSlv" class="outline-3">
-<h3 id="matSlv"><span class="section-number-3">3.2.</span> Solve a System</h3>
+<h3 id="matSlv"><span class="section-number-3">3.2.</span> Solve a Real Linear System</h3>
 <div class="outline-text-3" id="text-matSlv">
 </div>
 
@@ -1588,6 +1714,17 @@ This program solves the system \(AX=B\) for \(X\).
 <ul class="org-ul">
 <li>9 Subroutine to compute determinant</li>
 </ul></li>
+<li>Registers:
+<ul class="org-ul">
+<li>None</li>
+</ul></li>
+<li>Matrices:
+<ul class="org-ul">
+<li>A</li>
+<li>B</li>
+<li>C</li>
+<li>E</li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -1608,6 +1745,8 @@ This program solves the system \(AX=B\) for \(X\).
 
 <col  class="org-right" />
 
+<col  class="org-center" />
+
 <col  class="org-right" />
 
 <col  class="org-center" />
@@ -1618,7 +1757,8 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
 <td class="org-right"><b>Key Codes</b></td>
-<td class="org-right">&nbsp;&nbsp;&nbsp; <b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Stack Contents</b></td>
 <td class="org-center">&nbsp;&nbsp;&nbsp;</td>
 <td class="org-left"><b>Comments</b></td>
 </tr>
@@ -1626,6 +1766,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
 <td class="org-right"><code>42,21, 8</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1634,6 +1775,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</span></td>
 <td class="org-right"><code>32 9</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">DET x y z</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1642,6 +1784,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span></td>
 <td class="org-right"><code>45,16,12</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">B DET(A) x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1650,6 +1793,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
 <td class="org-right"><code>45,16,15</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">E B DET(A) x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">E has LU from <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</span></td>
@@ -1658,6 +1802,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
 <td class="org-right"><code>42,26,13</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">E B DET(A) x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1666,6 +1811,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
 <td class="org-right"><code>10</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">C DET(A) x x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1674,6 +1820,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
 <td class="org-right"><code>42,26,15</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">C DET(A) x x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Set result back to E</td>
@@ -1682,6 +1829,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
 <td class="org-right"><code>34</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">DET(A) C x x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1690,6 +1838,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
 <td class="org-right"><code>42,16, 1</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">DET(A) C x x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1698,6 +1847,7 @@ This program solves the system \(AX=B\) for \(X\).
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
 <td class="org-right"><code>43 32</code></td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">DET(A) C x x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Ret when A is singular</td>
@@ -1709,7 +1859,7 @@ This program solves the system \(AX=B\) for \(X\).
 </div>
 
 <div id="outline-container-matDet" class="outline-3">
-<h3 id="matDet"><span class="section-number-3">3.3.</span> Determinant</h3>
+<h3 id="matDet"><span class="section-number-3">3.3.</span> Real Determinant</h3>
 <div class="outline-text-3" id="text-matDet">
 </div>
 
@@ -1731,6 +1881,19 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 <ul class="org-ul">
 <li>9 Program label</li>
 </ul></li>
+<li>External Labels:
+<ul class="org-ul">
+<li>N/A</li>
+</ul></li>
+<li>Registers:
+<ul class="org-ul">
+<li>N/A</li>
+</ul></li>
+<li>Matrices:
+<ul class="org-ul">
+<li>A</li>
+<li>E</li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -1751,6 +1914,8 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 
 <col  class="org-right" />
 
+<col  class="org-center" />
+
 <col  class="org-right" />
 
 <col  class="org-center" />
@@ -1761,14 +1926,379 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 <tr>
 <td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
 <td class="org-right"><b>Key Codes</b></td>
-<td class="org-right">&nbsp;&nbsp;&nbsp; <b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Stack Contents</b></td>
 <td class="org-center">&nbsp;&nbsp;&nbsp;</td>
 <td class="org-left"><b>Comments</b></td>
 </tr>
 
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</span></td>
-<td class="org-right">42,21, 9</td>
+<td class="org-right"><code>42,21, 9</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">x y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
+<td class="org-right"><code>42,26,15</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">x y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></td>
+<td class="org-right"><code>45,16,11</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">A x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</span></td>
+<td class="org-right"><code>42,16, 9</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">DET(A) x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
+<td class="org-right"><code>43 32</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">DET(A) x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-cmatSlv" class="outline-3">
+<h3 id="cmatSlv"><span class="section-number-3">3.4.</span> Solve a Complex Linear System</h3>
+<div class="outline-text-3" id="text-cmatSlv">
+<p>
+<i><b>WARNING</b></i>: This program is memory hungry in that it stores the LU factorization of \(\tilde{A}\) in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> and the solution in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span>.  On an
+original HP-15C this is hard to fit even for a 2x2 system.  On the HP-15CE or the DM-15L things are better especially when using a large memory setting.
+</p>
+</div>
+
+<div id="outline-container-cmatSlvUsage" class="outline-4">
+<h4 id="cmatSlvUsage"><span class="section-number-4">3.4.1.</span> Usage</h4>
+<div class="outline-text-4" id="text-cmatSlvUsage">
+<p>
+This program solves the system \(AX=B\) for \(X\).  \(A\) &amp; \(B\) are complex matrices in <code>C</code> format.
+</p>
+
+<ul class="org-ul">
+<li>Program start conditions
+<ul class="org-ul">
+<li>The \(A\) matrix is assumed to be in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span>.</li>
+<li>The \(B\) matrix in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span>.</li>
+</ul></li>
+<li>Program end conditions
+<ul class="org-ul">
+<li>Both <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> &amp; <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span> are left unchanged!</li>
+<li>The LU factorization of \(\tilde{A}\) will in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></li>
+<li>The system solution, \(X\), will be in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span> &#x2013; note this might not be a valid solution if \(A\) is singular so check \(\mathrm{abs}(\vert A\vert)\)</li>
+<li>\(\mathrm{abs}(\vert A\vert)\) will be in stack position X</li>
+<li>The matrix descriptor for <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span> will be in stack position Y.</li>
+<li>Both <code>R0</code> &amp; <code>R1</code> will contain 1 in expectation <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER</span> mode will be used to visit the elements of <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span> and/or <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span>.</li>
+<li>Matrix <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> will be selected as the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix.</li>
+<li>The screen is always flashing after this program runs on the HP-15CE.  I don't know why.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-matSlvRes" class="outline-4">
+<h4 id="matSlvRes"><span class="section-number-4">3.4.2.</span> Resources Used</h4>
+<div class="outline-text-4" id="text-matSlvRes">
+<ul class="org-ul">
+<li>Internal Labels:
+<ul class="org-ul">
+<li>5 Program label (<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> is right under <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span> &#x2013; the label used for solving real complex systems)</li>
+</ul></li>
+<li>External Labels:
+<ul class="org-ul">
+<li>8</li>
+</ul></li>
+<li>Registers:
+<ul class="org-ul">
+<li>None</li>
+</ul></li>
+<li>Matrices:
+<ul class="org-ul">
+<li>A</li>
+<li>B</li>
+<li>C</li>
+<li>E</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-matSlvCode" class="outline-4">
+<h4 id="matSlvCode"><span class="section-number-4">3.4.3.</span> Program Listing</h4>
+<div class="outline-text-4" id="text-matSlvCode">
+<div class="org-center">
+<p>
+<code>CLIN_SLV</code> &#x2013;  &#x2013; Solve \(AX=B\) where \(A\) and \(B\) are complex matrices in <code>C</code> form
+</p>
+</div>
+<table border="2" cellspacing="0" cellpadding="1em" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-center" />
+
+<col  class="org-right" />
+
+<col  class="org-center" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Key Codes</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-left"><b>Comments</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span></td>
+<td class="org-right">42,21, 5</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">x y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GSB</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span></td>
+<td class="org-right">32  6</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">x y z t</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span></td>
+<td class="org-right">45,16,12</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Bc ABS(DET(A)) x y</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Py,x</span></td>
+<td class="org-right">42 40</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Bp ABS(DET(A)) x y</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
+<td class="org-right">45,16,15</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">E~ Bp ABS(DET(A)) x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
+<td class="org-right">42,26,13</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">E~ Bp ABS(DET(A)) x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
+<td class="org-right">10</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Cp ABS(DET(A)) x x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Cy,x</span></td>
+<td class="org-right">43 40</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Cc ABS(DET(A)) x x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
+<td class="org-right">42,26,15</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Cc ABS(DET(A)) x x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
+<td class="org-right">34</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">ABS(DET(A)) Cc x x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
+<td class="org-right">42,16, 1</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">ABS(DET(A)) Cc x x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span></td>
+<td class="org-right">45,16,12</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Bp ABS(DET(A)) Cc x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Cy,x</span></td>
+<td class="org-right">43 40</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Bc ABS(DET(A)) Cc x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
+<td class="org-right">33</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">ABS(DET(A)) Cc x Bc</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
+<td class="org-right">43 32</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">ABS(DET(A)) Cc x x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-cmatDet" class="outline-3">
+<h3 id="cmatDet"><span class="section-number-3">3.5.</span> Complex Determinant Magnitude</h3>
+<div class="outline-text-3" id="text-cmatDet">
+</div>
+
+<div id="outline-container-cmatDetUsage" class="outline-4">
+<h4 id="cmatDetUsage"><span class="section-number-4">3.5.1.</span> Usage</h4>
+<div class="outline-text-4" id="text-cmatDetUsage">
+<p>
+This program simply computes the Magnitude (absolute value) of the determinant of the complex matrix in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> (in <code>C</code> format).  The magnitude of the
+determinant is left in stack position X, and the LU factorization of \(\tilde{A}\) is stored in the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> matrix.  The matrix in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> is left
+unchanged. Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix will be set as <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span>.  
+</p>
+</div>
+</div>
+
+<div id="outline-container-cmatDetRes" class="outline-4">
+<h4 id="cmatDetRes"><span class="section-number-4">3.5.2.</span> Resources Used</h4>
+<div class="outline-text-4" id="text-cmatDetRes">
+<ul class="org-ul">
+<li>Internal Labels:
+<ul class="org-ul">
+<li>8 Program label (<span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span> is right under <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</span> &#x2013; the label used for real determinant)</li>
+</ul></li>
+<li>External Labels:
+<ul class="org-ul">
+<li>N/A</li>
+</ul></li>
+<li>Registers:
+<ul class="org-ul">
+<li>N/A</li>
+</ul></li>
+<li>Matrices:
+<ul class="org-ul">
+<li>A</li>
+<li>E</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-cmatDetCode" class="outline-4">
+<h4 id="cmatDetCode"><span class="section-number-4">3.5.3.</span> Program Listing</h4>
+<div class="outline-text-4" id="text-cmatDetCode">
+<div class="org-center">
+<p>
+<code>CDET_A</code> &#x2013; Magnutude of Determinant of Complex Matrix A
+</p>
+</div>
+<table border="2" cellspacing="0" cellpadding="1em" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-center" />
+
+<col  class="org-right" />
+
+<col  class="org-center" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Key Codes</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-left"><b>Comments</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span></td>
+<td class="org-right">42,21, 6</td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1777,6 +2307,7 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
 <td class="org-right">42,26,15</td>
+<td class="org-center">&#xa0;</td>
 <td class="org-right">x y z t</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1785,7 +2316,35 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></td>
 <td class="org-right">45,16,11</td>
-<td class="org-right">A x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Ac x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Py,x</span></td>
+<td class="org-right">42 40</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Ap x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span></td>
+<td class="org-right">42,16, 2</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">A~ x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
+<td class="org-right">42,26,15</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">A~ x y z</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1793,7 +2352,62 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</span></td>
 <td class="org-right">42,16, 9</td>
-<td class="org-right">DET(A) x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">SQ(ABS(DET(A))) x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>ABS</span></td>
+<td class="org-right">43 16</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">SQ(ABS(DET(A))) x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">If roundoff made it negative</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>√x</span></td>
+<td class="org-right">11</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">ABS(DET(A)) x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></td>
+<td class="org-right">45,16,11</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">A~ ABS(DET(A)) x y</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">Restore A to Ac form</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span></td>
+<td class="org-right">42,16, 3</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Ap ABS(DET(A)) x y</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>Cy,x</span></td>
+<td class="org-right">43 40</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Ac ABS(DET(A)) x y</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
+<td class="org-right">33</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">ABS(DET(A)) x y Ac</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1801,7 +2415,8 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
 <td class="org-right">43 32</td>
-<td class="org-right">DET(A) x y z</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">ABS(DET(A)) Cc x x</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1812,12 +2427,13 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 </div>
 </div>
 
-<div id="outline-container-org4ac8d61" class="outline-2">
-<h2 id="org4ac8d61"><span class="section-number-2">4.</span> Summary Resource Use</h2>
+
+<div id="outline-container-org81f04c7" class="outline-2">
+<h2 id="org81f04c7"><span class="section-number-2">4.</span> Summary Resource Use</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgeb87c34" class="outline-3">
-<h3 id="orgeb87c34"><span class="section-number-3">4.1.</span> Labels</h3>
+<div id="outline-container-orge0c2e20" class="outline-3">
+<h3 id="orge0c2e20"><span class="section-number-3">4.1.</span> Labels</h3>
 <div class="outline-text-3" id="text-4-1">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -1885,7 +2501,7 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 
 <tr>
 <td class="org-center"><code>5</code></td>
-<td class="org-left">Unused</td>
+<td class="org-left"><a href="#cmatSlv">Solve Complex Linear System</a></td>
 <td class="org-left">&#xa0;</td>
 <td class="org-center"><code>.5</code></td>
 <td class="org-left">Unused</td>
@@ -1893,7 +2509,7 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 
 <tr>
 <td class="org-center"><code>6</code></td>
-<td class="org-left">Unused</td>
+<td class="org-left"><a href="#cmatDet">Complex Determinant</a></td>
 <td class="org-left">&#xa0;</td>
 <td class="org-center"><code>.6</code></td>
 <td class="org-left">Unused</td>
@@ -1909,7 +2525,7 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 
 <tr>
 <td class="org-center"><code>8</code></td>
-<td class="org-left"><a href="#matSlv">Solve Linear System</a></td>
+<td class="org-left"><a href="#matSlv">Solve Real  Linear System</a></td>
 <td class="org-left">&#xa0;</td>
 <td class="org-center"><code>.8</code></td>
 <td class="org-left">Unused</td>
@@ -1917,7 +2533,7 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 
 <tr>
 <td class="org-center"><code>9</code></td>
-<td class="org-left"><a href="#matDet">Determinant</a></td>
+<td class="org-left"><a href="#matDet">Real Determinant</a></td>
 <td class="org-left">&#xa0;</td>
 <td class="org-center"><code>.9</code></td>
 <td class="org-left">Unused</td>
@@ -1968,8 +2584,8 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 </div>
 </div>
 
-<div id="outline-container-org837f1d2" class="outline-3">
-<h3 id="org837f1d2"><span class="section-number-3">4.2.</span> Registers</h3>
+<div id="outline-container-orgd300e06" class="outline-3">
+<h3 id="orgd300e06"><span class="section-number-3">4.2.</span> Registers</h3>
 <div class="outline-text-3" id="text-4-2">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -2023,8 +2639,8 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 </div>
 </div>
 
-<div id="outline-container-orga57f609" class="outline-3">
-<h3 id="orga57f609"><span class="section-number-3">4.3.</span> Matrix Registers</h3>
+<div id="outline-container-orgd4e902c" class="outline-3">
+<h3 id="orgd4e902c"><span class="section-number-3">4.3.</span> Matrix Registers</h3>
 <div class="outline-text-3" id="text-4-3">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -2071,8 +2687,8 @@ matrix.  Note the <span style='font-family:sans-serif;margin:0;padding:.1em .4em
 </div>
 </div>
 
-<div id="outline-container-orga285737" class="outline-2">
-<h2 id="orga285737"><span class="section-number-2">5.</span> Meta Data</h2>
+<div id="outline-container-org46070ca" class="outline-2">
+<h2 id="org46070ca"><span class="section-number-2">5.</span> Meta Data</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15.html">https://richmit.github.io/voyager/hp15.html</a>
