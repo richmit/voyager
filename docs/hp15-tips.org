@@ -254,12 +254,12 @@ statistical capabilities to do the same computation with fewer keystrokes when w
 Sum the following four vectors: $(2,3), (5,2), (7,7), (3,5)$.  In what follows we use the statistical registers in reverse because entry is less error prone.
 
 | {{{c15(f CLR_Σ)}}}      | Clear statistical registers (if necessary) |
-| {{{c15(2 ENTER 3 Σ+)}}} | Enter first vector                        |
-| {{{c15(5 ENTER 2 Σ+)}}} | Enter second vector                       |
-| {{{c15(7 ENTER 7 Σ+)}}} | Enter third vector                        |
-| {{{c15(3 ENTER 5 Σ+)}}} | Enter fourth vector                       |
-| {{{c15(RCL 3)}}}        | Sum of the $y$ components                 |
-| {{{c15(RCL 5)}}}        | Sum of the $x$ components                 |
+| {{{c15(2 ENTER 3 Σ+)}}} | Enter first vector                         |
+| {{{c15(5 ENTER 2 Σ+)}}} | Enter second vector                        |
+| {{{c15(7 ENTER 7 Σ+)}}} | Enter third vector                         |
+| {{{c15(3 ENTER 5 Σ+)}}} | Enter fourth vector                        |
+| {{{c15(RCL 3)}}}        | Sum of the $y$ components                  |
+| {{{c15(RCL 5)}}}        | Sum of the $x$ components                  |
  
 The sum of the $x$ components will be in *=X=*, and $y$ sum will be in *=Y=* .
 
