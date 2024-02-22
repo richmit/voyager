@@ -664,3 +664,31 @@ The org mode file for this page: https://github.com/richmit/voyager/blob/main/do
 The HTML file for this page: https://github.com/richmit/voyager/blob/main/docs/hp15.html
 
 The github repository housing this content: https://github.com/richmit/voyager/
+
+
+
+
+* Extract Complex Number from =C= format matrix                    :noexport:
+
+This is in devleopment...
+
+- 
+  - Matrix descripter in stack position X
+  - Array index in =R0= & =R1=
+
+=CPLX_ELT= -- Extract Complex Number from =C= format matrix
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 1em
+| <l>                    |         <r> |    <c>    |              <r> |    <c>    | <l>           |
+| *Keystrokes* {{{SPC}}} | *Key Codes* | {{{SPC}}} | *Stack Contents* | {{{SPC}}} | *Comments*    |
+| {{{c15(  f LBL 4 )}}}  |  =42,21, 4= |           |          M y z t |           |               |
+| {{{c15(  STO I   )}}}  |     =44 25= |           |          M y z t |           |               |
+| {{{c15(  g CLx   )}}}  |     =43 35= |           |          0 y z t |           | Disable stack |
+| {{{c15(  RCL (i) )}}}  |     =45 24= |           |         Cr y z t |           |               |
+| {{{c15(  f ISG 1 )}}}  |   =42,6, 1= |           |         Cr y z t |           |               |
+| {{{c15(  g CLx   )}}}  |     =43 35= |           |         Cr y z t |           | NOP           |
+| {{{c15(  f Re≷Im )}}}  |     =42 30= |           |        ~Cr y z t |           |               |
+| {{{c15(  g CLx   )}}}  |     =43 35= |           |        ~Cr y z t |           | Disable stack |
+| {{{c15(  RCL (i) )}}}  |     =45 24= |           |         ~C y z t |           |               |
+| {{{c15(  f Re≷Im )}}}  |     =42 30= |           |          C y z t |           | Ret           |
+| {{{c15(  g RTN   )}}}  |     =43 32= |           |          C y z t |           |               |
