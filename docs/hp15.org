@@ -368,7 +368,9 @@ reduction in effort.  This program also puts the descriptor of the matrix filled
 | {{{c15(  ÷              )}}} |        =10= |           |       j/10 i n n |           |                                  |
 | {{{c15(  +              )}}} |        =40= |           |     j/10+i n n n |           |                                  |
 | {{{c15(  R/S            )}}} |        =31= |           |     j/10+i n n n |           |                                  |
-| {{{c15(  f USER STO (i) )}}} | =u   44 24= |           |     j/10+i n n n |           |                                  |
+| {{{c15(  f USER         )}}} |           - |           |     j/10+i n n n |           | Enter USER mode                  |
+| {{{c15(  STO (i)        )}}} | =u   44 24= |           |     j/10+i n n n |           |                                  |
+| {{{c15(  f USER         )}}} |           - |           |     j/10+i n n n |           | Exit USER mode                   |
 | {{{c15(  GTO .2         )}}} |     =22 .2= |           |     j/10+i n n n |           |                                  |
 | {{{c15(  RCL I          )}}} |     =45 25= |           |     A j/10+i n n |           | Recall filled matrix to stack    |
 | {{{c15(  g RTN          )}}} |     =43 32= |           |     A j/10+i n n |           |                                  |
