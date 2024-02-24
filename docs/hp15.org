@@ -39,6 +39,40 @@
 #+ATTR_HTML: :align center
 Copyright \copy {{{time(%Y)}}} Mitch Richling. All rights reserved.
 
+
+* Introduction
+:PROPERTIES:
+:CUSTOM_ID: intro
+:END:
+
+The HP-15C was designed over 40 years ago.  By modern standards it is missing many features found in scientific calculators today; however, the HP-15C is far
+more efficient than modern machines.  
+#+BEGIN_QUOTE
+ - Fewer keystrokes ::
+   Calculations that require half a dozen keystrokes on the HP-15C might take a couple dozen keystrokes on a modern
+   calculator.  As an example, using statistical features to interpolate between two points requires about 8 keystrokes on the HP-15C but takes about 20 on a
+   typical scientific calculator.  
+ - All functionality directly available from the keyboard ::
+   Not only do modern machines require more keystrokes, but many of those keystrokes on the modern machine are menu selections or soft-keys.  On the HP-15C a
+   user never needs to look at the display to select a function, or scroll down a menu to find an option.  Everything is no more than a couple keystrokes
+   away.
+ - Great keyboard ::
+   The keyboard layout is design for speed.  Mechanically it doesn't bounce or cause double entries.  It has tactical feedback so a user can tell when a key
+   has been pressed by feel.  These features mean long time HP-15C users can stay focused on the problem at hand while touch typing problems into the
+   machine.
+#+END_QUOTE
+
+It is the HP-15C's ability to very quickly hammer out simple calculations that keeps it on my desk.  Most scientific calculations beyond the HP-15C's
+capabilities tend to be ones I would normally tackle with my laptop instead of using a more sophisticated calculator.  That said, I do occasionally us a Casio
+Classpad II, DM-42, Casio cg50, or HP-48GX.
+
+Most of the programs found here are all about efficiency: 
+  - Efficient replacements for STO/RCL with complex numbers
+  - Reducing the tedium of matrix computations.
+Only one is about new functionality:
+  - Newton's method for functions of a complex variable
+
+
 #+TOC: headlines 5
 
 #+INCLUDE: emacs.org
@@ -190,22 +224,6 @@ If the calculator is not already in complex mode, then it will be placed in comp
    - *Evaluation error:* If the function causes an error during evaluation, the program will stop.  The last guess will be stored in R8 & R9.
    - *Zero Derivative:* If the derivative is zero, then an "Error 0" will occur.   The last guess will be stored in R8 & R9.
 
-** Stack Diagrams
-:PROPERTIES:
-:CUSTOM_ID: newtonStk
-:END:
-
-#+BEGIN_CENTER
-=NEWTON= -- Newton's Method for a Function of a Complex Variable
-#+END_CENTER
-#+ATTR_HTML: :align center :cellpadding 3em
-| <c>  | <l>      | <l>                 |
-|      | *Before* | *After*             |
-| *T:* | t        | ?                   |
-| *Z:* | z        | $f(x_1)$            |
-| *Y:* | y        | $\vert f(x_1)\vert$ |
-| *X:* | x0       | $x_1$               |
-
 ** Resources Used
 :PROPERTIES:
 :CUSTOM_ID: newtonRes
@@ -281,7 +299,8 @@ If the calculator is not already in complex mode, then it will be placed in comp
 :CUSTOM_ID: mat
 :END:
 
-These programs don't do anything the HP-15C can't already do.  They simply reduce the number of keystrokes required.
+These programs don't do anything the HP-15C can't already do.  They serve two purposes: 1) Reduce the number of keystrokes required, and 2) Free the user from
+remembering the strange incantations required to work with complex matrices.
 
 ** Fill a Matrix
 :PROPERTIES:
@@ -306,22 +325,6 @@ reduction in effort.  This program also puts the descriptor of the matrix filled
    - Enter the value for the matrix position and press {{{c15(R/S)}}}.
    - Repeat until all the matrix elements have been entered.
 
-*** Stack Diagrams
-:PROPERTIES:
-:CUSTOM_ID: matFillStk
-:END:
-
-#+BEGIN_CENTER
-*=FILL_MAT=* -- Store Complex Number
-#+END_CENTER
-#+ATTR_HTML: :align center :cellpadding 3em
-| <c>  | <l>      | <l>     |
-|      | *Before* | *After* |
-| *T:* | t        | ?       |
-| *Z:* | Matrix   | ?       |
-| *Y:* | rows     | ?       |
-| *X:* | cols     | Matrix  |
-
 *** Resources Used
 :PROPERTIES:
 :CUSTOM_ID: matFillRes
@@ -329,7 +332,7 @@ reduction in effort.  This program also puts the descriptor of the matrix filled
 
 - Internal Labels:
   - 7 Program label
-  - .2 Main loop target
+  - .7 Main loop target
 - External Labels:
   - None
 - Registers Used:
@@ -348,34 +351,95 @@ reduction in effort.  This program also puts the descriptor of the matrix filled
 =FILL_MAT= -- Fill a Matrix
 #+END_CENTER
 #+ATTR_HTML: :align center :cellpadding 1em
-| <l>                          |         <r> |    <c>    |              <r> |    <c>    | <l>                              |
-| *Keystrokes* {{{SPC}}}       | *Key Codes* | {{{SPC}}} | *Stack Contents* | {{{SPC}}} | *Comments*                       |
-| {{{c15(  f LBL 7        )}}} |  =42,21, 7= |           |       n m Aor0 t |           |                                  |
-| {{{c15(  RCL MATRIX A   )}}} |  =45,16,11= |           |       A n m Aor0 |           |                                  |
-| {{{c15(  STO I          )}}} |     =44 25= |           |       A n m Aor0 |           |                                  |
-| {{{c15(  g R↑           )}}} |     =43 33= |           |       Aor0 A n m |           |                                  |
-| {{{c15(  g TEST 0       )}}} |  =43,30, 0= |           |       Aor0 A n m |           |                                  |
-| {{{c15(  STO I          )}}} |     =44 25= |           |          A A n m |           | Sto given matrix descriptor in I |
-| {{{c15(  R↓             )}}} |        =33= |           |       A n m Aor0 |           |                                  |
-| {{{c15(  R↓             )}}} |        =33= |           |       n m Aor0 A |           |                                  |
-| {{{c15(  f DIM I        )}}} |  =42,23,25= |           |       n m Aor0 A |           | Dim given matrix                 |
-| {{{c15(  f MATRIX 1     )}}} |  =42,16, 1= |           |       n m Aor0 A |           | Set R0 & R1 to 1                 |
-| {{{c15(  LBL .2         )}}} |  =42,21,.2= |           |       n m Aor0 A |           |                                  |
-| {{{c15(  RCL 0          )}}} |     =45  0= |           |       i n m Aor0 |           |                                  |
-| {{{c15(  RCL 1          )}}} |     =45  1= |           |          j i n m |           |                                  |
-| {{{c15(  1              )}}} |         =1= |           |          1 j i n |           |                                  |
-| {{{c15(  0              )}}} |         =0= |           |         10 j i n |           |                                  |
-| {{{c15(  ÷              )}}} |        =10= |           |       j/10 i n n |           |                                  |
-| {{{c15(  +              )}}} |        =40= |           |     j/10+i n n n |           |                                  |
-| {{{c15(  R/S            )}}} |        =31= |           |     j/10+i n n n |           |                                  |
-| {{{c15(  f USER         )}}} |           - |           |     j/10+i n n n |           | Enter USER mode                  |
-| {{{c15(  STO (i)        )}}} | =u   44 24= |           |     j/10+i n n n |           |                                  |
-| {{{c15(  f USER         )}}} |           - |           |     j/10+i n n n |           | Exit USER mode                   |
-| {{{c15(  GTO .2         )}}} |     =22 .2= |           |     j/10+i n n n |           |                                  |
-| {{{c15(  RCL I          )}}} |     =45 25= |           |     A j/10+i n n |           | Recall filled matrix to stack    |
-| {{{c15(  g RTN          )}}} |     =43 32= |           |     A j/10+i n n |           |                                  |
+| <l>                         |         <r> |    <c>    |              <r> |    <c>    | <l>                              |
+| *Keystrokes* {{{SPC}}}      | *Key Codes* | {{{SPC}}} | *Stack Contents* | {{{SPC}}} | *Comments*                       |
+| {{{c15( f LBL 7        )}}} |  =42,21, 7= |           |     n m MATor0 t |           |                                  |
+| {{{c15( RCL MATRIX A   )}}} |  =45,16,11= |           |     A n m MATor0 |           |                                  |
+| {{{c15( STO I          )}}} |     =44 25= |           |     A n m MATor0 |           |                                  |
+| {{{c15( g R↑           )}}} |     =43 33= |           |     MATor0 A n m |           |                                  |
+| {{{c15( g TEST 0       )}}} |  =43,30, 0= |           |     MATor0 A n m |           |                                  |
+| {{{c15( STO I          )}}} |     =44 25= |           |          A A n m |           | Sto given matrix descriptor in I |
+| {{{c15( R↓             )}}} |        =33= |           |     A n m MATor0 |           |                                  |
+| {{{c15( R↓             )}}} |        =33= |           |     n m MATor0 A |           |                                  |
+| {{{c15( f DIM I        )}}} |  =42,23,25= |           |     n m MATor0 A |           | Dim given matrix                 |
+| {{{c15( f MATRIX 1     )}}} |  =42,16, 1= |           |     n m MATor0 A |           | Set R0 & R1 to 1                 |
+| {{{c15( LBL .7         )}}} |  =42,21,.7= |           |          ? ? ? ? |           |                                  |
+| {{{c15( RCL 0          )}}} |     =45  0= |           |         i  ? ? ? |           |                                  |
+| {{{c15( RCL 1          )}}} |     =45  1= |           |          j i ? ? |           |                                  |
+| {{{c15( 1              )}}} |         =1= |           |          1 j i ? |           |                                  |
+| {{{c15( 0              )}}} |         =0= |           |         10 j i ? |           |                                  |
+| {{{c15( ÷              )}}} |        =10= |           |       j/10 i ? ? |           |                                  |
+| {{{c15( +              )}}} |        =40= |           |     j/10+i ? ? ? |           |                                  |
+| {{{c15( R/S            )}}} |        =31= |           |     j/10+i ? ? ? |           |                                  |
+| {{{c15( f USER STO (i) )}}} | =u   44 24= |           |     j/10+i ? ? ? |           |                                  |
+| {{{c15( f USER         )}}} |           - |           |     j/10+i ? ? ? |           | Exit USER mode                   |
+| {{{c15( GTO .7         )}}} |     =22 .7= |           |     j/10+i ? ? ? |           |                                  |
+| {{{c15( RCL I          )}}} |     =45 25= |           |     A j/10+i ? ? |           | Recall filled matrix to stack    |
+| {{{c15( g RTN          )}}} |     =43 32= |           |     A j/10+i ? ? |           |                                  |
 
-** Solve a Real Linear System
+** Dump a Matrix
+:PROPERTIES:
+:CUSTOM_ID: matDump
+:END:
+
+*** Usage
+:PROPERTIES:
+:CUSTOM_ID: matDumpUsage
+:END:
+
+This program provides a fast way print matrix contents.
+
+ - Operation
+   - Run the program with the matrix descriptor or the number 0 in stack level X.  If X is zero, then the {{{c15(RESULT)}}} matrix will be used.
+   - Press {{{c15(R/S)}}} untill all you have seen the elements you need
+     - Note the program will wrap around to the first element after the last one is displayed -- this is a feature.
+
+*** Resources Used
+:PROPERTIES:
+:CUSTOM_ID: matDumpRes
+:END:
+
+- Internal Labels:
+  - 4 Program label
+  - .4 Main loop target
+- External Labels:
+  - None
+- Flags:
+  - 9 -- CF used as NOP
+- Registers Used:
+  - R0 Matrix indexing
+  - R1 Matrix indexing
+  - I  Matrix descripter
+- Matrices:
+  - None
+
+*** Program Listing
+:PROPERTIES:
+:CUSTOM_ID: matFillCode
+:END:
+
+#+BEGIN_CENTER
+=DUMP_MAT= -- Dump a Matrix
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 1em
+| <l>                         |         <r> |    <c>    |               <r> |    <c>    | <l>              |
+| *Keystrokes* {{{SPC}}}      | *Key Codes* | {{{SPC}}} |  *Stack Contents* | {{{SPC}}} | *Comments*       |
+| {{{c15( f LBL 4        )}}} |  =42,21, 4= |           |      MATor0 y z t |           |                  |
+| {{{c15( RCL RESULT     )}}} |     =45 26= |           | RESULT MATor0 y z |           |                  |
+| {{{c15( STO I          )}}} |     =44 25= |           | RESULT MATor0 y z |           |                  |
+| {{{c15( R↓             )}}} |        =33= |           | MATor0 y z RESULT |           |                  |
+| {{{c15( g TEST 0       )}}} |  =43,30, 0= |           | MATor0 y z RESULT |           |                  |
+| {{{c15( STO I          )}}} |     =44 25= |           | MATor0 y z RESULT |           |                  |
+| {{{c15( f MATRIX 1     )}}} |  =42,16, 1= |           | MATor0 y z RESULT |           | Set R0 & R1 to 1 |
+| {{{c15( LBL .4         )}}} |  =42,21,.4= |           |           ? ? ? ? |           |                  |
+| {{{c15( f USER RCL (i) )}}} | =u   45 24= |           |      M(i,j) ? ? ? |           |                  |
+| {{{c15( f USER         )}}} |           - |           |      M(i,j) ? ? ? |           | Exit USER mode   |
+| {{{c15( g CF 9         )}}} |  =43, 5, 0= |           |      M(i,j) ? ? ? |           | NOP              |
+| {{{c15( R/S            )}}} |        =31= |           |      M(i,j) ? ? ? |           |                  |
+| {{{c15( GTO .4         )}}} |     =22 .4= |           |      M(i,j) ? ? ? |           |                  |
+| {{{c15( g RTN          )}}} |     =43 32= |           |               N/A |           | Never Get Here   |
+
+** Solve Linear System
 :PROPERTIES:
 :CUSTOM_ID: matSlv
 :END:
@@ -388,17 +452,27 @@ reduction in effort.  This program also puts the descriptor of the matrix filled
 This program solves the system $AX=B$ for $X$.  
 
 - Program start conditions
-  - The $A$ matrix is assumed to be in {{{c15(A)}}}
+  - The $A$ matrix is assumed to be in {{{c15(A)}}}.  
+    - It may be an $n\times n$ real matrix, or an  $n\times 2n$ complex matrix in =C= format.
+    - The program determines real vs. complex from the matrix size.
   - The $B$ matrix in {{{c15(B)}}}.  
+  - Flag 1 is set appropriately:
+    - Clear: Use more memory, but preserve contents of {{{c15(A)}}}.
+    - Set: Use less memory, but destroy contents of {{{c15(A)}}}.
 - Program end conditions
-  - Both {{{c15(A)}}} & {{{c15(B)}}} are left unchanged!
-  - The LU factorization of $A$ will in {{{c15(E)}}}
-  - The system solution, $X$, will be in {{{c15(C)}}} -- note this might not be a valid solution if $A$ is singular so check $\vert A\vert$
-  - $\vert A\vert$ will be in stack position X
+  - The system "solution", $X$, will be in {{{c15(C)}}}.  Note this might not be a valid solution if $A$ is singular!
+  - {{{c15(B)}}} is left unchanged!
   - The matrix descriptor for {{{c15(C)}}} will be in stack position Y.
-  - Both =R0= & =R1= will contain 1 in expectation {{{c15(USER)}}} mode will be used to visit the elements of {{{c15(C)}}} and/or {{{c15(E)}}}.
-  - Matrix {{{c15(E)}}} will be selected as the {{{c15(RESULT)}}} matrix.
-  - The screen is always flashing after this program runs on the HP-15CE.  I don't know why.
+  - Matrix {{{c15(C)}}} will be selected as the {{{c15(RESULT)}}} matrix.
+  - Both =R0= & =R1= will contain 1 in expectation {{{c15(USER)}}} mode will be used to visit the elements of {{{c15(C)}}}.
+  - If $A$ is a real matrix:
+    - Flag 0 will be clear
+    - $\vert A\vert$ is in stack position X
+    - The LU factorization of $A$ is in {{{c15(E)}}} when flag 1 is clear, and in {{{c15(A)}}} otherwise
+  - If $A$ is a complex matrix
+    - Flag 0 will be set
+    - $\mathrm{abs}(\vert A\vert)$ is in stack position X
+    - The LU factorization of $\tilde{A}$ is in {{{c15(E)}}} when flag 1 is clear, and in {{{c15(A)}}} otherwise
 
 *** Resources Used
 :PROPERTIES:
@@ -409,13 +483,16 @@ This program solves the system $AX=B$ for $X$.
   - 8 Program label
 - External Labels:
   - 9 Subroutine to compute determinant
+- Flags:
+  - 0 -- Status flag
+  - 1 -- Option flag
 - Registers:
   - None
 - Matrices:
   - A
   - B
   - C
-  - E
+  - E -- only when flag 1 is clear
 
 *** Program Listing
 :PROPERTIES:
@@ -426,20 +503,31 @@ This program solves the system $AX=B$ for $X$.
 =LIN_SLV= -- Solve $AX=B$
 #+END_CENTER
 #+ATTR_HTML: :align center :cellpadding 1em
-| <l>                          |         <r> |    <c>    |              <r> |    <c>    | <l>                            |
-| *Keystrokes* {{{SPC}}}       | *Key Codes* | {{{SPC}}} | *Stack Contents* | {{{SPC}}} | *Comments*                     |
-| {{{c15(f LBL 8          )}}} |  =42,21, 8= |           |          x y z t |           |                                |
-| {{{c15(GSB 9            )}}} |      =32 9= |           |        DET x y z |           |                                |
-| {{{c15(RCL MATRIX B     )}}} |  =45,16,12= |           |       B DET(A) x |           |                                |
-| {{{c15(RCL MATRIX E     )}}} |  =45,16,15= |           |     E B DET(A) x |           | E has LU from {{{c15(LBL 9)}}} |
-| {{{c15(f RESULT C       )}}} |  =42,26,13= |           |     E B DET(A) x |           |                                |
-| {{{c15(÷                )}}} |        =10= |           |     C DET(A) x x |           |                                |
-| {{{c15(f RESULT E       )}}} |  =42,26,15= |           |     C DET(A) x x |           | Set result back to E           |
-| {{{c15(x≷y              )}}} |        =34= |           |     DET(A) C x x |           |                                |
-| {{{c15(f MATRIX 1       )}}} |  =42,16, 1= |           |     DET(A) C x x |           |                                |
-| {{{c15(g RTN            )}}} |     =43 32= |           |     DET(A) C x x |           | Ret when A is singular         |
+| <l>                       |         <r> |    <c>    |                               <r> |    <c>    | <l>        |
+| *Keystrokes* {{{SPC}}}    | *Key Codes* | {{{SPC}}} |                  *Stack Contents* | {{{SPC}}} | *Comments* |
+| {{{c15( f LBL 8      )}}} |  =42,21, 8= |           |                           x y z t |           |            |
+| {{{c15( GSB 9        )}}} |     =32  9= |           |         DET(A)orABS(DET(A)) ? ? ? |           |            |
+| {{{c15( RCL MATRIX B )}}} |  =45,16,12= |           |     BorBc DET(A)orABS(DET(A)) ? ? |           |            |
+| {{{c15( g F? 0       )}}} |  =43, 6, 0= |           |     BorBc DET(A)orABS(DET(A)) ? ? |           |            |
+| {{{c15( f Py\,x      )}}} |     =42 40= |           |     BorBp DET(A)orABS(DET(A)) ? ? |           |            |
+| {{{c15( RCL MATRIX E )}}} |  =45,16,15= |           |   E BorBp DET(A)orABS(DET(A)) ? ? |           |            |
+| {{{c15( F? 1         )}}} |  =43, 6, 1= |           |   E BorBp DET(A)orABS(DET(A)) ? ? |           |            |
+| {{{c15( R↓           )}}} |        =33= |           |     BorBp DET(A)orABS(DET(A)) ? E |           |            |
+| {{{c15( F? 1         )}}} |  =43, 6, 1= |           |   0 BorBp DET(A)orABS(DET(A)) ? ? |           |            |
+| {{{c15( RCL MATRIX A )}}} |  =45,16,11= |           |   A BorBp DET(A)orABS(DET(A)) ? ? |           |            |
+| {{{c15( f RESULT C   )}}} |  =42,26,13= |           | EorA~ BorBp DET(A)orABS(DET(A)) ? |           |            |
+| {{{c15( ÷            )}}} |        =10= |           |     CorCp DET(A)orABS(DET(A)) ? ? |           |            |
+| {{{c15( g F? 0       )}}} |  =43, 6, 0= |           |     CorCp DET(A)orABS(DET(A)) ? ? |           |            |
+| {{{c15( g Cy\,x      )}}} |     =43 40= |           |     CorCc DET(A)orABS(DET(A)) ? ? |           |            |
+| {{{c15( x≷y          )}}} |        =34= |           |     DET(A)orABS(DET(A)) CorCc ? ? |           |            |
+| {{{c15( f MATRIX 1   )}}} |  =42,16, 1= |           |     DET(A)orABS(DET(A)) CorCc ? ? |           |            |
+| {{{c15( RCL MATRIX B )}}} |  =45,16,12= |           | BorBp DET(A)orABS(DET(A)) CorCc ? |           |            |
+| {{{c15( g F? 0       )}}} |  =43, 6, 0= |           | BorBp DET(A)orABS(DET(A)) CorCc ? |           |            |
+| {{{c15( g Cy\,x      )}}} |     =43 40= |           | BorBc DET(A)orABS(DET(A)) CorCc ? |           |            |
+| {{{c15( R↓           )}}} |        =33= |           | DET(A)orABS(DET(A)) CorCc ? BorBc |           |            |
+| {{{c15( g RTN        )}}} |     =43 32= |           | DET(A)orABS(DET(A)) CorCc ? BorBc |           |            |
 
-** Real Determinant
+** Matrix Determinants
 :PROPERTIES:
 :CUSTOM_ID: matDet
 :END:
@@ -449,8 +537,28 @@ This program solves the system $AX=B$ for $X$.
 :CUSTOM_ID: matDetUsage
 :END:
 
-This program simply computes the determinant of the {{{c15(A)}}} matrix.  The determinant is left in stack position X, and the LU factorization is stored in the {{{c15(E)}}}
-matrix.  Note the {{{c15(RESULT)}}} matrix will be set as {{{c15(E)}}}.  I preform this operation frequently, so the 7 keystrokes it saves me adds up. =:)=
+- Program start conditions
+  - The $A$ matrix is assumed to be in {{{c15(A)}}}.  
+    - It may be an $n\times n$ real matrix, or an  $n\times 2n$ complex matrix in =C= format.
+    - The program determines real vs. complex from the matrix size.
+  - flag 1 is set appropriately:
+    - Clear: Use more memory, but preserve contents of {{{c15(A)}}}.
+    - Set: Use less memory, but destroy contents of {{{c15(A)}}}.
+- Program end conditions
+  - The previous contents of the stack are lost
+  - If flag 1 is clear
+    - {{{c15(A)}}} is left unchanged!
+    - {{{c15(RESULT)}}} matrix set as {{{c15(E)}}}
+  - If flag 1 is set
+    - {{{c15(RESULT)}}} matrix set as {{{c15(A)}}}
+  - $A$ is a real matrix
+    - Flag 0 will be clear
+    - The $\vert A\vert$ is in stack position X
+    - The LU factorization of $A$ is in {{{c15(E)}}} when flag 1 is clear, and in {{{c15(A)}}} otherwise
+  - If $A$ is a complex matrix
+    - Flag 0 will be set
+    - $\mathrm{abs}(\vert A\vert)$ is in stack position X
+    - The LU factorization of $\tilde{A}$ is in {{{c15(E)}}} when flag 1 is clear, and in {{{c15(A)}}} otherwise
 
 *** Resources Used
 :PROPERTIES:
@@ -458,14 +566,18 @@ matrix.  Note the {{{c15(RESULT)}}} matrix will be set as {{{c15(E)}}}.  I prefo
 :END:
 
 - Internal Labels:
-  - 9 Program label
+  - 9 -- Program label
+  - .9 -- Conditional label
 - External Labels:
   - N/A
+- Flags:
+  - 0 -- exit flag
+  - 1 -- option flag
 - Registers:
   - N/A
 - Matrices:
   - A
-  - E
+  - E -- only when flag 1 is clear
 
 *** Program Listing
 :PROPERTIES:
@@ -476,165 +588,60 @@ matrix.  Note the {{{c15(RESULT)}}} matrix will be set as {{{c15(E)}}}.  I prefo
 =DET_A= -- Determinant of A
 #+END_CENTER
 #+ATTR_HTML: :align center :cellpadding 1em
-| <l>                          |         <r> |    <c>    |              <r> |    <c>    | <l>        |
-| *Keystrokes* {{{SPC}}}       | *Key Codes* | {{{SPC}}} | *Stack Contents* | {{{SPC}}} | *Comments* |
-| {{{c15(f LBL 9          )}}} |    =42,21, 9= |           |          x y z t |           |            |
-| {{{c15(f RESULT E       )}}} |    =42,26,15= |           |          x y z t |           |            |
-| {{{c15(RCL MATRIX A     )}}} |    =45,16,11= |           |          A x y z |           |            |
-| {{{c15(f MATRIX 9       )}}} |    =42,16, 9= |           |     DET(A) x y z |           |            |
-| {{{c15(g RTN            )}}} |       =43 32= |           |     DET(A) x y z |           |            |
+| <l>                       |         <r> |    <c>    |                   <r> |    <c>    | <l>                            |
+| *Keystrokes* {{{SPC}}}    | *Key Codes* | {{{SPC}}} |      *Stack Contents* | {{{SPC}}} | *Comments*                     |
+| {{{c15( f LBL 9      )}}} |  =42,21, 9= |           |               x y z t |           |                                |
+| {{{c15( f RESULT E   )}}} |  =42,26,15= |           |               x y z t |           |                                |
+| {{{c15( F? 1         )}}} |  =43, 6, 1= |           |               x y z t |           |                                |
+| {{{c15( f RESULT A   )}}} |  =42,26,11= |           |               x y z t |           |                                |
+| {{{c15( RCL DIM A    )}}} |  =45,23,11= |           |               n m x y |           |                                |
+| {{{c15( g TEST 5     )}}} |  =43,30, 5= |           |               n m x y |           |                                |
+| {{{c15( GTO .9       )}}} |     =22 .9= |           |               n m x y |           |                                |
+| {{{c15( g SF 0       )}}} |  =43, 4, 0=  |           |               n m x y |           |                                |
+| {{{c15( RCL MATRIX A )}}} |  =45,16,11= |           |               A n m x |           |                                |
+| {{{c15( f Py\,x      )}}} |     =42 40= |           |              Ap n m x |           |                                |
+| {{{c15( f MATRIX 2   )}}} |  =42,16, 2= |           |              A~ n m x |           |                                |
+| {{{c15( f MATRIX 9   )}}} |  =42,16, 9= |           | SQ(ABS(DET(A))) n m x |           |                                |
+| {{{c15( g ABS        )}}} |     =43 16= |           | SQ(ABS(DET(A))) n m x |           | If roundoff made it negative   |
+| {{{c15( √x           )}}} |        =11= |           |     ABS(DET(A)) n m x |           |                                |
+| {{{c15( F? 1         )}}} |  =43, 6, 1= |           |     ABS(DET(A)) n m x |           |                                |
+| {{{c15( g RTN        )}}} |     =43 32= |           |     ABS(DET(A)) n m x |           | Rtn when A cplx & flag 1 set   |
+| {{{c15( RCL MATRIX A )}}} |  =45,16,11= |           |    A~ ABS(DET(A)) n m |           | Restore A to Ac form           |
+| {{{c15( f MATRIX 3   )}}} |  =42,16, 3= |           |    Ap ABS(DET(A)) n m |           |                                |
+| {{{c15( g Cy\,x      )}}} |     =43 40= |           |    Ac ABS(DET(A)) n m |           |                                |
+| {{{c15( R↓           )}}} |        =33= |           |    ABS(DET(A)) x y Ac |           |                                |
+| {{{c15( g RTN        )}}} |     =43 32= |           |    ABS(DET(A)) Cc x x |           | Rtn when A cplx & flag 1 clear |
+| {{{c15( LBL .9       )}}} |  =42,29,.9= |           |               n m x y |           |                                |
+| {{{c15( g CF 0       )}}} |  =43, 5, 0= |           |               n m x y |           |                                |
+| {{{c15( RCL MATRIX A )}}} |  =45,16,11= |           |               A n m x |           |                                |
+| {{{c15( f MATRIX 9   )}}} |  =42,16, 9= |           |          DET(A) n m x |           |                                |
+| {{{c15( g RTN        )}}} |     =43 32= |           |          DET(A) n m x |           | Rtn when A real                |
 
-** Solve a Complex Linear System
-:PROPERTIES:
-:CUSTOM_ID: cmatSlv
-:END:
 
-/*WARNING*/: This program is memory hungry in that it stores the LU factorization of $\tilde{A}$ in {{{c15(E)}}} and the solution in {{{c15(C)}}}.  On an
-original HP-15C this is hard to fit even for a 2x2 system.  On the HP-15CE or the DM-15L things are better especially when using a large memory setting.
-
-*** Usage
-:PROPERTIES:
-:CUSTOM_ID: cmatSlvUsage
-:END:
-
-This program solves the system $AX=B$ for $X$.  $A$ & $B$ are complex matrices in =C= format.
-
-- Program start conditions
-  - The $A$ matrix is assumed to be in {{{c15(A)}}}.
-  - The $B$ matrix in {{{c15(B)}}}.  
-- Program end conditions
-  - Both {{{c15(A)}}} & {{{c15(B)}}} are left unchanged!
-  - The LU factorization of $\tilde{A}$ will in {{{c15(E)}}}
-  - The system solution, $X$, will be in {{{c15(C)}}} -- note this might not be a valid solution if $A$ is singular so check $\mathrm{abs}(\vert A\vert)$
-  - $\mathrm{abs}(\vert A\vert)$ will be in stack position X
-  - The matrix descriptor for {{{c15(C)}}} will be in stack position Y.
-  - Both =R0= & =R1= will contain 1 in expectation {{{c15(USER)}}} mode will be used to visit the elements of {{{c15(C)}}} and/or {{{c15(E)}}}.
-  - Matrix {{{c15(E)}}} will be selected as the {{{c15(RESULT)}}} matrix.
-  - The screen is always flashing after this program runs on the HP-15CE.  I don't know why.
-
-*** Resources Used
-:PROPERTIES:
-:CUSTOM_ID: matSlvRes
-:END:
-
-- Internal Labels:
-  - 5 Program label ({{{c15(5)}}} is right under {{{c15(8)}}} -- the label used for solving real complex systems)
-- External Labels:
-  - 8
-- Registers:
-  - None
-- Matrices:
-  - A
-  - B
-  - C
-  - E
-
-*** Program Listing
-:PROPERTIES:
-:CUSTOM_ID: matSlvCode
-:END:
-
-#+BEGIN_CENTER
-=CLIN_SLV= --  -- Solve $AX=B$ where $A$ and $B$ are complex matrices in =C= form
-#+END_CENTER
-#+ATTR_HTML: :align center :cellpadding 1em
-| <l>                            |         <r> |    <c>    |                 <r> |    <c>    | <l>        |
-| *Keystrokes* {{{SPC}}}         | *Key Codes* | {{{SPC}}} |    *Stack Contents* | {{{SPC}}} | *Comments* |
-| {{{c15(  f LBL 5          )}}} |  =42,21, 5= |           |             x y z t |           |            |
-| {{{c15(  GSB 6            )}}} |     =32  6= |           |             x y z t |           |            |
-| {{{c15(  RCL MATRIX B     )}}} |  =45,16,12= |           |  Bc ABS(DET(A)) x y |           |            |
-| {{{c15(  f Py\,x          )}}} |     =42 40= |           |  Bp ABS(DET(A)) x y |           |            |
-| {{{c15(  RCL MATRIX E     )}}} |  =45,16,15= |           | E~ Bp ABS(DET(A)) x |           |            |
-| {{{c15(  f RESULT C       )}}} |  =42,26,13= |           | E~ Bp ABS(DET(A)) x |           |            |
-| {{{c15(  ÷                )}}} |        =10= |           |  Cp ABS(DET(A)) x x |           |            |
-| {{{c15(  g Cy\,x          )}}} |     =43 40= |           |  Cc ABS(DET(A)) x x |           |            |
-| {{{c15(  f RESULT E       )}}} |  =42,26,15= |           |  Cc ABS(DET(A)) x x |           |            |
-| {{{c15(  x≷y              )}}} |        =34= |           |  ABS(DET(A)) Cc x x |           |            |
-| {{{c15(  f MATRIX 1       )}}} |  =42,16, 1= |           |  ABS(DET(A)) Cc x x |           |            |
-| {{{c15(  RCL MATRIX B     )}}} |  =45,16,12= |           | Bp ABS(DET(A)) Cc x |           |            |
-| {{{c15(  g Cy\,x          )}}} |     =43 40= |           | Bc ABS(DET(A)) Cc x |           |            |
-| {{{c15(  R↓               )}}} |        =33= |           | ABS(DET(A)) Cc x Bc |           |            |
-| {{{c15(  g RTN            )}}} |     =43 32= |           |  ABS(DET(A)) Cc x x |           |            |
-
-** Complex Determinant Magnitude
-:PROPERTIES:
-:CUSTOM_ID: cmatDet
-:END:
-
-*** Usage
-:PROPERTIES:
-:CUSTOM_ID: cmatDetUsage
-:END:
-
-This program simply computes the Magnitude (absolute value) of the determinant of the complex matrix in {{{c15(A)}}} (in =C= format).  The magnitude of the
-determinant is left in stack position X, and the LU factorization of $\tilde{A}$ is stored in the {{{c15(E)}}} matrix.  The matrix in {{{c15(A)}}} is left
-unchanged. Note the {{{c15(RESULT)}}} matrix will be set as {{{c15(E)}}}.  
-
-*** Resources Used
-:PROPERTIES:
-:CUSTOM_ID: cmatDetRes
-:END:
-
-- Internal Labels:
-  - 8 Program label ({{{c15(6)}}} is right under {{{c15(9)}}} -- the label used for real determinant)
-- External Labels:
-  - N/A
-- Registers:
-  - N/A
-- Matrices:
-  - A
-  - E
-
-*** Program Listing
-:PROPERTIES:
-:CUSTOM_ID: cmatDetCode
-:END:
-
-#+BEGIN_CENTER
-=CDET_A= -- Magnutude of Determinant of Complex Matrix A
-#+END_CENTER
-#+ATTR_HTML: :align center :cellpadding 1em
-| <l>                         |         <r> |    <c>    |                   <r> |    <c>    | <l>                          |
-| *Keystrokes* {{{SPC}}}      | *Key Codes* | {{{SPC}}} |      *Stack Contents* | {{{SPC}}} | *Comments*                   |
-| {{{c15(  f LBL 6       )}}} |  =42,21, 6= |           |               x y z t |           |                              |
-| {{{c15(  f RESULT E    )}}} |  =42,26,15= |           |               x y z t |           |                              |
-| {{{c15(  RCL MATRIX A  )}}} |  =45,16,11= |           |              Ac x y z |           |                              |
-| {{{c15(  f Py\,x       )}}} |     =42 40= |           |              Ap x y z |           |                              |
-| {{{c15(  f MATRIX 2    )}}} |  =42,16, 2= |           |              A~ x y z |           |                              |
-| {{{c15(  f RESULT E    )}}} |  =42,26,15= |           |              A~ x y z |           |                              |
-| {{{c15(  f MATRIX 9    )}}} |  =42,16, 9= |           | SQ(ABS(DET(A))) x y z |           |                              |
-| {{{c15(  g ABS         )}}} |     =43 16= |           | SQ(ABS(DET(A))) x y z |           | If roundoff made it negative |
-| {{{c15(  √x            )}}} |        =11= |           |     ABS(DET(A)) x y z |           |                              |
-| {{{c15(  RCL MATRIX A  )}}} |  =45,16,11= |           |    A~ ABS(DET(A)) x y |           | Restore A to Ac form         |
-| {{{c15(  f MATRIX 3    )}}} |  =42,16, 3= |           |    Ap ABS(DET(A)) x y |           |                              |
-| {{{c15(  g Cy\,x       )}}} |     =43 40= |           |    Ac ABS(DET(A)) x y |           |                              |
-| {{{c15(  R↓            )}}} |        =33= |           |    ABS(DET(A)) x y Ac |           |                              |
-| {{{c15(  g RTN         )}}} |     =43 32= |           |    ABS(DET(A)) Cc x x |           |                              |
-#+TBLFM: $2=43 32
 
 
 * Summary Resource Use
 ** Labels
 #+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
-|      <c>       | <l>                                       |                                                        |      <c>       | <l>                      |
-| {{{c15(LBL)}}} | Use                                       |                                                        | {{{c15(LBL)}}} | Use                      |
-|----------------+-------------------------------------------+--------------------------------------------------------+----------------+--------------------------|
-|      =0=       | Unspecified                               |                                                        |      =.0=      | Unspecified              |
-|      =1=       | Solver/Integrator/[[#newton][Newton]]     | {{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}} |      =.1=      | Used in {{{c15(LBL C)}}} |
-|      =2=       | Solver/Integrator                         |                                                        |      =.2=      | Used in {{{c15(LBL 7)}}} |
-|      =3=       | Solver/Integrator                         |                                                        |      =.3=      | Unused                   |
-|      =4=       | Unused                                    |                                                        |      =.4=      | Unused                   |
-|      =5=       | [[#cmatSlv][Solve Complex Linear System]] |                                                        |      =.5=      | Unused                   |
-|      =6=       | [[#cmatDet][Complex Determinant]]         |                                                        |      =.6=      | Unused                   |
-|      =7=       | [[#matFill][Fill A Matrix]]               |                                                        |      =.7=      | Unused                   |
-|      =8=       | [[#matSlv][Solve Real  Linear System]]    |                                                        |      =.8=      | Unused                   |
-|      =9=       | [[#matDet][Real Determinant]]             |                                                        |      =.9=      | Unused                   |
-|----------------+-------------------------------------------+--------------------------------------------------------+----------------+--------------------------|
-|      =A=       | Unused                                    |                                                        |                |                          |
-|      =B=       | Unused                                    |                                                        |                |                          |
-|      =C=       | [[#newton][Complex Newton's Method]]      |                                                        |                |                          |
-|      =D=       | [[#storclcplx][Store Complex Number]]     |                                                        |                |                          |
-|      =E=       | [[#storclcplx][Recall Complex Number]]    |                                                        |                |                          |
+|      <c>       | <l>                                    |                                                        |      <c>       | <l>                      |
+| {{{c15(LBL)}}} | Use                                    |                                                        | {{{c15(LBL)}}} | Use                      |
+|----------------+----------------------------------------+--------------------------------------------------------+----------------+--------------------------|
+|      =0=       | Unspecified                            |                                                        |      =.0=      | Unspecified              |
+|      =1=       | Solver/Integrator/[[#newton][Newton]]  | {{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}} |      =.1=      | Used in {{{c15(LBL C)}}} |
+|      =2=       | Solver/Integrator                      |                                                        |      =.2=      | Unused                   |
+|      =3=       | Solver/Integrator                      |                                                        |      =.3=      | Unused                   |
+|      =4=       | Unused                                 |                                                        |      =.4=      | Unused                   |
+|      =5=       | Unused                                 |                                                        |      =.5=      | Unused                   |
+|      =6=       | Unused                                 |                                                        |      =.6=      | Unused                   |
+|      =7=       | [[#matFill][Fill A Matrix]]            |                                                        |      =.7=      | Used in {{{c15(LBL 7)}}} |
+|      =8=       | [[#matSlv][Solve Real  Linear System]] |                                                        |      =.8=      | Unused                   |
+|      =9=       | [[#matDet][Real Determinant]]          |                                                        |      =.9=      | Used in {{{c15(LBL 9)}}} |
+|----------------+----------------------------------------+--------------------------------------------------------+----------------+--------------------------|
+|      =A=       | Unused                                 |                                                        |                |                          |
+|      =B=       | Unused                                 |                                                        |                |                          |
+|      =C=       | [[#newton][Complex Newton's Method]]   |                                                        |                |                          |
+|      =D=       | [[#storclcplx][Store Complex Number]]  |                                                        |                |                          |
+|      =E=       | [[#storclcplx][Recall Complex Number]] |                                                        |                |                          |
 
 ** Registers
 #+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
@@ -671,27 +678,3 @@ The github repository housing this content: https://github.com/richmit/voyager/
 
 
 
-* Extract Complex Number from =C= format matrix                    :noexport:
-
-This is in devleopment...
-
-- 
-  - Matrix descripter in stack position X
-  - Array index in =R0= & =R1=
-
-=CPLX_ELT= -- Extract Complex Number from =C= format matrix
-#+END_CENTER
-#+ATTR_HTML: :align center :cellpadding 1em
-| <l>                    |         <r> |    <c>    |              <r> |    <c>    | <l>           |
-| *Keystrokes* {{{SPC}}} | *Key Codes* | {{{SPC}}} | *Stack Contents* | {{{SPC}}} | *Comments*    |
-| {{{c15(  f LBL 4 )}}}  |  =42,21, 4= |           |          M y z t |           |               |
-| {{{c15(  STO I   )}}}  |     =44 25= |           |          M y z t |           |               |
-| {{{c15(  g CLx   )}}}  |     =43 35= |           |          0 y z t |           | Disable stack |
-| {{{c15(  RCL (i) )}}}  |     =45 24= |           |         Cr y z t |           |               |
-| {{{c15(  f ISG 1 )}}}  |   =42,6, 1= |           |         Cr y z t |           |               |
-| {{{c15(  g CLx   )}}}  |     =43 35= |           |         Cr y z t |           | NOP           |
-| {{{c15(  f Re≷Im )}}}  |     =42 30= |           |        ~Cr y z t |           |               |
-| {{{c15(  g CLx   )}}}  |     =43 35= |           |        ~Cr y z t |           | Disable stack |
-| {{{c15(  RCL (i) )}}}  |     =45 24= |           |         ~C y z t |           |               |
-| {{{c15(  f Re≷Im )}}}  |     =42 30= |           |          C y z t |           | Ret           |
-| {{{c15(  g RTN   )}}}  |     =43 32= |           |          C y z t |           |               |
