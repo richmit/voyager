@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-24 Sat 13:28 -->
+<!-- 2024-02-25 Sun 11:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -267,12 +267,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-24</i></td>
+<td class="org-left"><i>2024-02-25</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-24</i></td>
+<td class="org-left"><i>2024-02-25</i></td>
 </tr>
 </tbody>
 </table>
@@ -291,14 +291,11 @@ more efficient than modern machines.
 <blockquote>
 <dl class="org-dl">
 <dt>Fewer keystrokes</dt><dd>Calculations that require half a dozen keystrokes on the HP-15C might take a couple dozen keystrokes on a modern
-calculator.  As an example, using statistical features to interpolate between two points requires about 8 keystrokes on the HP-15C but takes about 20 on a
-typical scientific calculator.</dd>
-<dt>All functionality directly available from the keyboard</dt><dd>Not only do modern machines require more keystrokes, but many of those keystrokes on the modern machine are menu selections or soft-keys.  On the HP-15C a
-user never needs to look at the display to select a function, or scroll down a menu to find an option.  Everything is no more than a couple keystrokes
-away.</dd>
-<dt>Great keyboard</dt><dd>The keyboard layout is design for speed.  Mechanically it doesn't bounce or cause double entries.  It has tactical feedback so a user can tell when a key
-has been pressed by feel.  These features mean long time HP-15C users can stay focused on the problem at hand while touch typing problems into the
-machine.</dd>
+calculator.</dd>
+<dt>All functionality directly available from the keyboard</dt><dd>Not only do modern machines require more keystrokes, but many of those keystrokes are for navigating through menus.  On the HP-15C everything is no more
+than a couple keystrokes away.</dd>
+<dt>Great keyboard</dt><dd>The layout is designed for speed.  Mechanically it doesn't bounce or cause double entries.  It has tactical feedback to confirm key activation.  These
+features mean long time HP-15C users can stay focused on the problem at hand while touch typing problems into the machine.</dd>
 </dl>
 </blockquote>
 
@@ -338,7 +335,7 @@ Only one is about new functionality:
 </li>
 <li><a href="#newton">3. Newton's Method for Functions of a Complex Variable</a>
 <ul>
-<li><a href="#org35725e5">3.1. Usage</a></li>
+<li><a href="#org07baad2">3.1. Usage</a></li>
 <li><a href="#newtonRes">3.2. Resources Used</a></li>
 <li><a href="#newtonCode">3.3. Program Listing</a></li>
 </ul>
@@ -375,14 +372,14 @@ Only one is about new functionality:
 </li>
 </ul>
 </li>
-<li><a href="#orge9c077c">5. Summary Resource Use</a>
+<li><a href="#orgf890e1f">5. Summary Resource Use</a>
 <ul>
-<li><a href="#org3c3585c">5.1. Labels</a></li>
-<li><a href="#orga8a4013">5.2. Registers</a></li>
-<li><a href="#orgd3988af">5.3. Matrix Registers</a></li>
+<li><a href="#orgbf1635f">5.1. Labels</a></li>
+<li><a href="#orgdbcfa34">5.2. Registers</a></li>
+<li><a href="#orga9daf82">5.3. Matrix Registers</a></li>
 </ul>
 </li>
-<li><a href="#orgfa89bca">6. Meta Data</a></li>
+<li><a href="#org6404404">6. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -836,8 +833,8 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </p>
 </div>
 
-<div id="outline-container-org35725e5" class="outline-3">
-<h3 id="org35725e5"><span class="section-number-3">3.1.</span> Usage</h3>
+<div id="outline-container-org07baad2" class="outline-3">
+<h3 id="org07baad2"><span class="section-number-3">3.1.</span> Usage</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Running the program
@@ -1994,46 +1991,10 @@ This program solves the system \(AX=B\) for \(X\).
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
-<td class="org-right"><code>45,16,15</code></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span></td>
+<td class="org-right"><code>45 26</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">E BorBp DET(A)orABS(DET(A)) ? ?</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>F?</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
-<td class="org-right"><code>43, 6, 1</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">E BorBp DET(A)orABS(DET(A)) ? ?</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
-<td class="org-right"><code>33</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">BorBp DET(A)orABS(DET(A)) ? E</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>F?</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
-<td class="org-right"><code>43, 6, 1</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">0 BorBp DET(A)orABS(DET(A)) ? ?</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></td>
-<td class="org-right"><code>45,16,11</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">A BorBp DET(A)orABS(DET(A)) ? ?</td>
+<td class="org-right">LU~ BorBp DET(A)orABS(DET(A)) ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2042,7 +2003,7 @@ This program solves the system \(AX=B\) for \(X\).
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
 <td class="org-right"><code>42,26,13</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">EorA~ BorBp DET(A)orABS(DET(A)) ?</td>
+<td class="org-right">LU~ BorBp DET(A)orABS(DET(A)) ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2501,12 +2462,12 @@ This program solves the system \(AX=B\) for \(X\).
 
 
 
-<div id="outline-container-orge9c077c" class="outline-2">
-<h2 id="orge9c077c"><span class="section-number-2">5.</span> Summary Resource Use</h2>
+<div id="outline-container-orgf890e1f" class="outline-2">
+<h2 id="orgf890e1f"><span class="section-number-2">5.</span> Summary Resource Use</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org3c3585c" class="outline-3">
-<h3 id="org3c3585c"><span class="section-number-3">5.1.</span> Labels</h3>
+<div id="outline-container-orgbf1635f" class="outline-3">
+<h3 id="orgbf1635f"><span class="section-number-3">5.1.</span> Labels</h3>
 <div class="outline-text-3" id="text-5-1">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -2657,8 +2618,8 @@ This program solves the system \(AX=B\) for \(X\).
 </div>
 </div>
 
-<div id="outline-container-orga8a4013" class="outline-3">
-<h3 id="orga8a4013"><span class="section-number-3">5.2.</span> Registers</h3>
+<div id="outline-container-orgdbcfa34" class="outline-3">
+<h3 id="orgdbcfa34"><span class="section-number-3">5.2.</span> Registers</h3>
 <div class="outline-text-3" id="text-5-2">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -2712,8 +2673,8 @@ This program solves the system \(AX=B\) for \(X\).
 </div>
 </div>
 
-<div id="outline-container-orgd3988af" class="outline-3">
-<h3 id="orgd3988af"><span class="section-number-3">5.3.</span> Matrix Registers</h3>
+<div id="outline-container-orga9daf82" class="outline-3">
+<h3 id="orga9daf82"><span class="section-number-3">5.3.</span> Matrix Registers</h3>
 <div class="outline-text-3" id="text-5-3">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -2760,8 +2721,8 @@ This program solves the system \(AX=B\) for \(X\).
 </div>
 </div>
 
-<div id="outline-container-orgfa89bca" class="outline-2">
-<h2 id="orgfa89bca"><span class="section-number-2">6.</span> Meta Data</h2>
+<div id="outline-container-org6404404" class="outline-2">
+<h2 id="org6404404"><span class="section-number-2">6.</span> Meta Data</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15.html">https://richmit.github.io/voyager/hp15.html</a>

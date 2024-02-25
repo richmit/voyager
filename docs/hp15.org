@@ -50,16 +50,13 @@ more efficient than modern machines.
 #+BEGIN_QUOTE
  - Fewer keystrokes ::
    Calculations that require half a dozen keystrokes on the HP-15C might take a couple dozen keystrokes on a modern
-   calculator.  As an example, using statistical features to interpolate between two points requires about 8 keystrokes on the HP-15C but takes about 20 on a
-   typical scientific calculator.  
+   calculator.  
  - All functionality directly available from the keyboard ::
-   Not only do modern machines require more keystrokes, but many of those keystrokes on the modern machine are menu selections or soft-keys.  On the HP-15C a
-   user never needs to look at the display to select a function, or scroll down a menu to find an option.  Everything is no more than a couple keystrokes
-   away.
+   Not only do modern machines require more keystrokes, but many of those keystrokes are for navigating through menus.  On the HP-15C everything is no more
+   than a couple keystrokes away.
  - Great keyboard ::
-   The keyboard layout is design for speed.  Mechanically it doesn't bounce or cause double entries.  It has tactical feedback so a user can tell when a key
-   has been pressed by feel.  These features mean long time HP-15C users can stay focused on the problem at hand while touch typing problems into the
-   machine.
+   The layout is designed for speed.  Mechanically it doesn't bounce or cause double entries.  It has tactical feedback to confirm key activation.  These
+   features mean long time HP-15C users can stay focused on the problem at hand while touch typing problems into the machine.
 #+END_QUOTE
 
 It is the HP-15C's ability to very quickly hammer out simple calculations that keeps it on my desk.  Most scientific calculations beyond the HP-15C's
@@ -510,12 +507,8 @@ This program solves the system $AX=B$ for $X$.
 | {{{c15( RCL MATRIX B )}}} |  =45,16,12= |           |     BorBc DET(A)orABS(DET(A)) ? ? |           |            |
 | {{{c15( g F? 0       )}}} |  =43, 6, 0= |           |     BorBc DET(A)orABS(DET(A)) ? ? |           |            |
 | {{{c15( f Py\,x      )}}} |     =42 40= |           |     BorBp DET(A)orABS(DET(A)) ? ? |           |            |
-| {{{c15( RCL MATRIX E )}}} |  =45,16,15= |           |   E BorBp DET(A)orABS(DET(A)) ? ? |           |            |
-| {{{c15( F? 1         )}}} |  =43, 6, 1= |           |   E BorBp DET(A)orABS(DET(A)) ? ? |           |            |
-| {{{c15( R↓           )}}} |        =33= |           |     BorBp DET(A)orABS(DET(A)) ? E |           |            |
-| {{{c15( F? 1         )}}} |  =43, 6, 1= |           |   0 BorBp DET(A)orABS(DET(A)) ? ? |           |            |
-| {{{c15( RCL MATRIX A )}}} |  =45,16,11= |           |   A BorBp DET(A)orABS(DET(A)) ? ? |           |            |
-| {{{c15( f RESULT C   )}}} |  =42,26,13= |           | EorA~ BorBp DET(A)orABS(DET(A)) ? |           |            |
+| {{{c15( RCL RESULT   )}}} |     =45 26= |           |   LU~ BorBp DET(A)orABS(DET(A)) ? |           |            |
+| {{{c15( f RESULT C   )}}} |  =42,26,13= |           |   LU~ BorBp DET(A)orABS(DET(A)) ? |           |            |
 | {{{c15( ÷            )}}} |        =10= |           |     CorCp DET(A)orABS(DET(A)) ? ? |           |            |
 | {{{c15( g F? 0       )}}} |  =43, 6, 0= |           |     CorCp DET(A)orABS(DET(A)) ? ? |           |            |
 | {{{c15( g Cy\,x      )}}} |     =43 40= |           |     CorCc DET(A)orABS(DET(A)) ? ? |           |            |
