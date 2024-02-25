@@ -585,12 +585,12 @@ This program solves the system $AX=B$ for $X$.
 | *Keystrokes* {{{SPC}}}    | *Key Codes* | {{{SPC}}} |      *Stack Contents* | {{{SPC}}} | *Comments*                     |
 | {{{c15( f LBL 9      )}}} |  =42,21, 9= |           |               x y z t |           |                                |
 | {{{c15( f RESULT E   )}}} |  =42,26,15= |           |               x y z t |           |                                |
-| {{{c15( F? 1         )}}} |  =43, 6, 1= |           |               x y z t |           |                                |
+| {{{c15( g F? 1       )}}} |  =43, 6, 1= |           |               x y z t |           |                                |
 | {{{c15( f RESULT A   )}}} |  =42,26,11= |           |               x y z t |           |                                |
 | {{{c15( RCL DIM A    )}}} |  =45,23,11= |           |               n m x y |           |                                |
 | {{{c15( g TEST 5     )}}} |  =43,30, 5= |           |               n m x y |           |                                |
 | {{{c15( GTO .9       )}}} |     =22 .9= |           |               n m x y |           |                                |
-| {{{c15( g SF 0       )}}} |  =43, 4, 0=  |           |               n m x y |           |                                |
+| {{{c15( g SF 0       )}}} |  =43, 4, 0= |           |               n m x y |           |                                |
 | {{{c15( RCL MATRIX A )}}} |  =45,16,11= |           |               A n m x |           |                                |
 | {{{c15( f Py\,x      )}}} |     =42 40= |           |              Ap n m x |           |                                |
 | {{{c15( f MATRIX 2   )}}} |  =42,16, 2= |           |              A~ n m x |           |                                |
@@ -604,14 +604,11 @@ This program solves the system $AX=B$ for $X$.
 | {{{c15( g Cy\,x      )}}} |     =43 40= |           |    Ac ABS(DET(A)) n m |           |                                |
 | {{{c15( R↓           )}}} |        =33= |           |    ABS(DET(A)) x y Ac |           |                                |
 | {{{c15( g RTN        )}}} |     =43 32= |           |    ABS(DET(A)) Cc x x |           | Rtn when A cplx & flag 1 clear |
-| {{{c15( LBL .9       )}}} |  =42,29,.9= |           |               n m x y |           |                                |
+| {{{c15( LBL .9       )}}} |  =42,21,.9= |           |               n m x y |           |                                |
 | {{{c15( g CF 0       )}}} |  =43, 5, 0= |           |               n m x y |           |                                |
 | {{{c15( RCL MATRIX A )}}} |  =45,16,11= |           |               A n m x |           |                                |
 | {{{c15( f MATRIX 9   )}}} |  =42,16, 9= |           |          DET(A) n m x |           |                                |
 | {{{c15( g RTN        )}}} |     =43 32= |           |          DET(A) n m x |           | Rtn when A real                |
-
-
-
 
 * Summary Resource Use
 ** Labels
