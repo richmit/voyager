@@ -431,7 +431,7 @@ This program provides a fast way print matrix contents.
 | {{{c15( LBL .4         )}}} |  =42,21,.4= |           |           ? ? ? ? |           |                  |
 | {{{c15( f USER RCL (i) )}}} | =u   45 24= |           |      M(i,j) ? ? ? |           |                  |
 | {{{c15( f USER         )}}} |           - |           |      M(i,j) ? ? ? |           | Exit USER mode   |
-| {{{c15( g CF 9         )}}} |  =43, 5, 0= |           |      M(i,j) ? ? ? |           | NOP              |
+| {{{c15( g CF 9         )}}} |  =43, 5, 9= |           |      M(i,j) ? ? ? |           | NOP              |
 | {{{c15( R/S            )}}} |        =31= |           |      M(i,j) ? ? ? |           |                  |
 | {{{c15( GTO .4         )}}} |     =22 .4= |           |      M(i,j) ? ? ? |           |                  |
 | {{{c15( g RTN          )}}} |     =43 32= |           |               N/A |           | Never Get Here   |
