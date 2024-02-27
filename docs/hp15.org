@@ -384,12 +384,14 @@ reduction in effort.  This program also puts the descriptor of the matrix filled
 :CUSTOM_ID: matDumpUsage
 :END:
 
-This program provides a fast way print matrix contents.
+This program provides a fast way interate over the elements of a real or complex matrix.
 
  - Operation
-   - Run the program with the matrix descriptor or the number 0 in stack level X.  If X is zero, then the {{{c15(RESULT)}}} matrix will be used.
-   - Press {{{c15(R/S)}}} untill all you have seen the elements you need
+   - Run the program with the matrix descriptor or the number 0 in stack level X.  
+     - If X is zero, then the {{{c15(RESULT)}}} matrix will be used.
+   - Press {{{c15(R/S)}}} until all you have seen the elements you need
      - Note the program will wrap around to the first element after the last one is displayed -- this is a feature.
+     - If flag 8 is set, then *pairs* of elements are pulled from the matrix and placed on the stack as complex numbers
 
 *** Resources Used
 :PROPERTIES:
@@ -399,9 +401,11 @@ This program provides a fast way print matrix contents.
 - Internal Labels:
   - 4 Program label
   - .4 Main loop target
+  - .8 Complex if target
 - External Labels:
   - None
 - Flags:
+  - 8 -- Option flag (complex mode)
   - 9 -- CF used as NOP
 - Registers Used:
   - R0 Matrix indexing
@@ -429,11 +433,20 @@ This program provides a fast way print matrix contents.
 | {{{c15( STO I          )}}} |     =44 25= |           | MATor0 y z RESULT |           |                  |
 | {{{c15( f MATRIX 1     )}}} |  =42,16, 1= |           | MATor0 y z RESULT |           | Set R0 & R1 to 1 |
 | {{{c15( LBL .4         )}}} |  =42,21,.4= |           |           ? ? ? ? |           |                  |
-| {{{c15( f USER RCL (i) )}}} | =u   45 24= |           |      M(i,j) ? ? ? |           |                  |
-| {{{c15( f USER         )}}} |           - |           |      M(i,j) ? ? ? |           | Exit USER mode   |
-| {{{c15( g CF 9         )}}} |  =43, 5, 9= |           |      M(i,j) ? ? ? |           | NOP              |
-| {{{c15( R/S            )}}} |        =31= |           |      M(i,j) ? ? ? |           |                  |
-| {{{c15( GTO .4         )}}} |     =22 .4= |           |      M(i,j) ? ? ? |           |                  |
+| {{{c15( f USER RCL (i) )}}} | =u   45 24= |           |      M(i)_r ? ? ? |           |                  |
+| {{{c15( f USER         )}}} |           - |           |      M(i)_r ? ? ? |           | Exit USER mode   |
+| {{{c15( g CF 9         )}}} |  =43, 5, 9= |           |      M(i)_r ? ? ? |           | NOP              |
+| {{{c15( g F? 8         )}}} |  =43, 6, 8= |           |      M(i)_r ? ? ? |           |                  |
+| {{{c15( GTO .8         )}}} |     =22 .8= |           |      M(i)_r ? ? ? |           |                  |
+| {{{c15( R/S            )}}} |        =31= |           |      M(i)_r ? ? ? |           |                  |
+| {{{c15( GTO .4         )}}} |     =22 .4= |           |      M(i)_r ? ? ? |           |                  |
+| {{{c15( f LBL .8       )}}} |  =42,21,.8= |           |      M(i)_r ? ? ? |           |                  |
+| {{{c15( f USER RCL (i) )}}} | =u   45 24= |           |      M(i)_c ? ? ? |           |                  |
+| {{{c15( f USER         )}}} |           - |           |      M(i)_c ? ? ? |           | Exit USER mode   |
+| {{{c15( g CF 9         )}}} |  =43, 5, 9= |           |      M(i)_c ? ? ? |           |                  |
+| {{{c15( f I            )}}} |     =42 25= |           |      M(i)_r ? ? ? |           |                  |
+| {{{c15( R/S            )}}} |        =31= |           |      M(i)_r ? ? ? |           |                  |
+| {{{c15( GTO .4         )}}} |     =22 .4= |           |      M(i)_r ? ? ? |           |                  |
 | {{{c15( g RTN          )}}} |     =43 32= |           |               N/A |           | Never Get Here   |
 
 ** Solve Linear System
@@ -616,15 +629,15 @@ This program solves the system $AX=B$ for $X$.
 |      <c>       | <l>                                    |                                                        |      <c>       | <l>                      |
 | {{{c15(LBL)}}} | Use                                    |                                                        | {{{c15(LBL)}}} | Use                      |
 |----------------+----------------------------------------+--------------------------------------------------------+----------------+--------------------------|
-|      =0=       | Unspecified                            |                                                        |      =.0=      | Unspecified              |
+|      =0=       | Unused                                 |                                                        |      =.0=      | Unused                   |
 |      =1=       | Solver/Integrator/[[#newton][Newton]]  | {{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}}{{{SPC}}} |      =.1=      | Used in {{{c15(LBL C)}}} |
 |      =2=       | Solver/Integrator                      |                                                        |      =.2=      | Unused                   |
 |      =3=       | Solver/Integrator                      |                                                        |      =.3=      | Unused                   |
-|      =4=       | Unused                                 |                                                        |      =.4=      | Unused                   |
+|      =4=       | [[#matDump][Dump A Matrix]]            |                                                        |      =.4=      | Used in {{{c15(LBL 4)}}} |
 |      =5=       | Unused                                 |                                                        |      =.5=      | Unused                   |
 |      =6=       | Unused                                 |                                                        |      =.6=      | Unused                   |
 |      =7=       | [[#matFill][Fill A Matrix]]            |                                                        |      =.7=      | Used in {{{c15(LBL 7)}}} |
-|      =8=       | [[#matSlv][Solve Real  Linear System]] |                                                        |      =.8=      | Unused                   |
+|      =8=       | [[#matSlv][Solve Real  Linear System]] |                                                        |      =.8=      | Used in {{{c15(LBL 4)}}} |
 |      =9=       | [[#matDet][Real Determinant]]          |                                                        |      =.9=      | Used in {{{c15(LBL 9)}}} |
 |----------------+----------------------------------------+--------------------------------------------------------+----------------+--------------------------|
 |      =A=       | Unused                                 |                                                        |                |                          |
