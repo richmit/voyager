@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-26 Mon 23:04 -->
+<!-- 2024-02-27 Tue 13:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -267,12 +267,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-26</i></td>
+<td class="org-left"><i>2024-02-27</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-26</i></td>
+<td class="org-left"><i>2024-02-27</i></td>
 </tr>
 </tbody>
 </table>
@@ -335,7 +335,7 @@ Only one is about new functionality:
 </li>
 <li><a href="#newton">3. Newton's Method for Functions of a Complex Variable</a>
 <ul>
-<li><a href="#orgebdcd5f">3.1. Usage</a></li>
+<li><a href="#org815e687">3.1. Usage</a></li>
 <li><a href="#newtonRes">3.2. Resources Used</a></li>
 <li><a href="#newtonCode">3.3. Program Listing</a></li>
 </ul>
@@ -353,7 +353,7 @@ Only one is about new functionality:
 <ul>
 <li><a href="#matDumpUsage">4.2.1. Usage</a></li>
 <li><a href="#matDumpRes">4.2.2. Resources Used</a></li>
-<li><a href="#matFillCode">4.2.3. Program Listing</a></li>
+<li><a href="#matDumpCode">4.2.3. Program Listing</a></li>
 </ul>
 </li>
 <li><a href="#matSlv">4.3. Solve Linear System</a>
@@ -372,14 +372,14 @@ Only one is about new functionality:
 </li>
 </ul>
 </li>
-<li><a href="#orgf04624c">5. Summary Resource Use</a>
+<li><a href="#orgc966d44">5. Summary Resource Use</a>
 <ul>
-<li><a href="#orgdf6ca30">5.1. Labels</a></li>
-<li><a href="#org722d7aa">5.2. Registers</a></li>
-<li><a href="#orgeb4e813">5.3. Matrix Registers</a></li>
+<li><a href="#resSumLab">5.1. Labels</a></li>
+<li><a href="#resSumReg">5.2. Registers</a></li>
+<li><a href="#resSumMat">5.3. Matrix Registers</a></li>
 </ul>
 </li>
-<li><a href="#org6934cdf">6. Meta Data</a></li>
+<li><a href="#org540d196">6. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -833,8 +833,8 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </p>
 </div>
 
-<div id="outline-container-orgebdcd5f" class="outline-3">
-<h3 id="orgebdcd5f"><span class="section-number-3">3.1.</span> Usage</h3>
+<div id="outline-container-org815e687" class="outline-3">
+<h3 id="org815e687"><span class="section-number-3">3.1.</span> Usage</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Running the program
@@ -1312,23 +1312,32 @@ remembering the strange incantations required to work with complex matrices.
 <h4 id="matFillUsage"><span class="section-number-4">4.1.1.</span> Usage</h4>
 <div class="outline-text-4" id="text-matFillUsage">
 <p>
-This program provides a fast way to fill a matrix.
+This program provides a fast way to fill a matrix &#x2013; generally cuts keystroke overhead in half.
 </p>
 
 <p>
-Filling a matrix on the HP-15C takes roughly \(13+2\cdot n\cdot m\) keystrokes beyond data entry where \(m\) is the number of rows and \(n\) is the number of
-columns.  This program reduces that to \(5+n\cdot m\).  Saving us 12 keystrokes for a 2x2, 17 for a 3x3, and 24 for a 4x4 &#x2013; all representing a more than 50%
-reduction in effort.  This program also puts the descriptor of the matrix filled on the stack &#x2013; potentially saving 3 more keystrokes.
+When flag 8 is set, the real &amp; complex parts of the number in the X stack level are used to fill consecutive matrix elements resulting in a <code>C</code> format matrix.
+This behavior is handy if we need to do computation with the elements before we store them &#x2013; like converting them to rectangular form with <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R</span>.  On
+the other hand, if the complex matrix elements are known and in rectangular format, then it may be faster to clear flag 8 and enter the real and complex parts
+separately.
 </p>
 
 <ul class="org-ul">
 <li>Operation
 <ul class="org-ul">
-<li>Run the program with the following inputs: A matrix descriptor or number 0 (stack level Z), number of rows (stack level Y), and number of columns (stack level X).
-If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> matrix is filled.</li>
-<li>Next the number 1.1 will appear on the display &#x2013; indicating it's time to enter the value matrix element \((1,1)\).</li>
-<li>Enter the value for the matrix position and press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R/S</span>.</li>
+<li>Run the program with the following inputs: 
+<ul class="org-ul">
+<li><b><code>Z</code></b>: A matrix descriptor or number 0. If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> matrix is filled.</li>
+<li><b><code>Y</code></b>: number of rows</li>
+<li><b><code>X</code></b>: Number of columns</li>
+</ul></li>
+<li>Next the number <code>1.1</code> will appear on the display &#x2013; indicating it's time to enter the value matrix element \((1,1)\).</li>
+<li>Enter the value for the matrix position and press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R/S</span>.
+<ul class="org-ul">
+<li>If flag 8 is set, then the real and complex parts will be placed into the matrix in consecutive positions.</li>
+</ul></li>
 <li>Repeat until all the matrix elements have been entered.</li>
+<li>Note the program never ends &#x2013; it just wraps back to the start.</li>
 </ul></li>
 </ul>
 </div>
@@ -1342,6 +1351,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <ul class="org-ul">
 <li>7 Program label</li>
 <li>.7 Main loop target</li>
+<li>.6 Complex if target</li>
 </ul></li>
 <li>External Labels:
 <ul class="org-ul">
@@ -1355,7 +1365,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 </ul></li>
 <li>Matrices:
 <ul class="org-ul">
-<li>None</li>
+<li>Matrix on stack level X when the program starts, or matrix A if X was zero.</li>
 </ul></li>
 </ul>
 </div>
@@ -1561,7 +1571,7 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</span></td>
 <td class="org-right"><code>u   44 24</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">j/10+i ? ? ?</td>
+<td class="org-right">Xr ? ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1570,36 +1580,108 @@ If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padd
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER</span></td>
 <td class="org-right">-</td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">j/10+i ? ? ?</td>
+<td class="org-right">Xr ? ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">Exit USER mode</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CF</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</span></td>
+<td class="org-right"><code>43, 5, 9</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Xr ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">NOP</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>F?</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
+<td class="org-right"><code>43, 6, 8</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Xr ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GTO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span></td>
+<td class="org-right"><code>22 .6</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Xr ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GTO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span></td>
 <td class="org-right"><code>22 .7</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">j/10+i ? ? ?</td>
+<td class="org-right">Xr ? ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span></td>
-<td class="org-right"><code>45 25</code></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span></td>
+<td class="org-right"><code>42,21,.6</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">A j/10+i ? ?</td>
+<td class="org-right">Xr ? ? ?</td>
 <td class="org-center">&#xa0;</td>
-<td class="org-left">Recall filled matrix to stack</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im</span></td>
+<td class="org-right"><code>42 30</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Xc ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>(i)</span></td>
+<td class="org-right"><code>u   44 24</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Xc ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER</span></td>
+<td class="org-right">-</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Xc ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">Exit USER mode</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>CF</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</span></td>
+<td class="org-right"><code>43, 5, 9</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Xc ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">NOP</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GTO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span></td>
+<td class="org-right"><code>22 .7</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Xc ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
 <td class="org-right"><code>43 32</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">A j/10+i ? ?</td>
+<td class="org-right">? ? ? ?</td>
 <td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Never Get Here</td>
 </tr>
 </tbody>
 </table>
@@ -1663,15 +1745,16 @@ This program provides a fast way interate over the elements of a real or complex
 </ul></li>
 <li>Matrices:
 <ul class="org-ul">
-<li>None</li>
+<li>Matrix on stack level X when the program starts, or <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> if X was zero.</li>
 </ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-matFillCode" class="outline-4">
-<h4 id="matFillCode"><span class="section-number-4">4.2.3.</span> Program Listing</h4>
-<div class="outline-text-4" id="text-matFillCode">
+
+<div id="outline-container-matDumpCode" class="outline-4">
+<h4 id="matDumpCode"><span class="section-number-4">4.2.3.</span> Program Listing</h4>
+<div class="outline-text-4" id="text-matDumpCode">
 <div class="org-center">
 <p>
 <code>DUMP_MAT</code> &#x2013; Dump a Matrix
@@ -1871,7 +1954,7 @@ This program provides a fast way interate over the elements of a real or complex
 <td class="org-center">&#xa0;</td>
 <td class="org-right">M(i)_c ? ? ?</td>
 <td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">NOP</td>
 </tr>
 
 <tr>
@@ -2546,13 +2629,13 @@ This program solves the system \(AX=B\) for \(X\).
 </div>
 </div>
 
-<div id="outline-container-orgf04624c" class="outline-2">
-<h2 id="orgf04624c"><span class="section-number-2">5.</span> Summary Resource Use</h2>
+<div id="outline-container-orgc966d44" class="outline-2">
+<h2 id="orgc966d44"><span class="section-number-2">5.</span> Summary Resource Use</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgdf6ca30" class="outline-3">
-<h3 id="orgdf6ca30"><span class="section-number-3">5.1.</span> Labels</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-resSumLab" class="outline-3">
+<h3 id="resSumLab"><span class="section-number-3">5.1.</span> Labels</h3>
+<div class="outline-text-3" id="text-resSumLab">
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
 
@@ -2630,7 +2713,7 @@ This program solves the system \(AX=B\) for \(X\).
 <td class="org-left">Unused</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-center"><code>.6</code></td>
-<td class="org-left">Unused</td>
+<td class="org-left">Used in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span></td>
 </tr>
 
 <tr>
@@ -2702,9 +2785,14 @@ This program solves the system \(AX=B\) for \(X\).
 </div>
 </div>
 
-<div id="outline-container-org722d7aa" class="outline-3">
-<h3 id="org722d7aa"><span class="section-number-3">5.2.</span> Registers</h3>
-<div class="outline-text-3" id="text-5-2">
+<div id="outline-container-resSumReg" class="outline-3">
+<h3 id="resSumReg"><span class="section-number-3">5.2.</span> Registers</h3>
+<div class="outline-text-3" id="text-resSumReg">
+<p>
+How I normally use register storage.  
+</p>
+
+
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
 
@@ -2725,13 +2813,13 @@ This program solves the system \(AX=B\) for \(X\).
 <tbody>
 <tr>
 <td class="org-center"><code>0</code> - <code>1</code></td>
-<td class="org-left">Always for matrix indexes</td>
+<td class="org-left">Always for matrix indexes\(^1\)</td>
 <td class="org-left">Whatever, but usually as matrix indexes</td>
 </tr>
 
 <tr>
 <td class="org-center"><code>2</code> - <code>7</code></td>
-<td class="org-left">Always for statistics</td>
+<td class="org-left">Always for statistics\(^1\)</td>
 <td class="org-left">Whatever, but usually for statistics</td>
 </tr>
 
@@ -2749,17 +2837,28 @@ This program solves the system \(AX=B\) for \(X\).
 
 <tr>
 <td class="org-center"><code>.7</code> - <code>.9</code></td>
-<td class="org-left">Unit conversion factors</td>
+<td class="org-left">Unit conversion factors\(^2\)</td>
 <td class="org-left">Unit conversion factors</td>
 </tr>
 </tbody>
 </table>
+
+
+<ol class="org-ol">
+<li>I avoid using the matrix &amp; staticial registers in programs because I ocassionally use matrix &amp; statstical functions in solver programs.  For example, if I
+had used thes registers in the <a href="#newton">Complex Newton's Method</a> program then I wouldn't be able to do that.</li>
+<li>Conversions: in to cm, lb to kg, US gal to liters.  Keys <code>7</code> to <code>9</code> mirror unit conversion keys on another calculator. <code>;)</code></li>
+</ol>
 </div>
 </div>
 
-<div id="outline-container-orgeb4e813" class="outline-3">
-<h3 id="orgeb4e813"><span class="section-number-3">5.3.</span> Matrix Registers</h3>
-<div class="outline-text-3" id="text-5-3">
+<div id="outline-container-resSumMat" class="outline-3">
+<h3 id="resSumMat"><span class="section-number-3">5.3.</span> Matrix Registers</h3>
+<div class="outline-text-3" id="text-resSumMat">
+<p>
+How I normally use matrix storage.  These habits have strongly influenced the matrix helper routines.  
+</p>
+
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
 
@@ -2777,27 +2876,32 @@ This program solves the system \(AX=B\) for \(X\).
 <tbody>
 <tr>
 <td class="org-center"><code>A</code></td>
-<td class="org-left">Norms, LHS of matrix equations &amp; products</td>
+<td class="org-left">Determinants &amp; LHS of matrix equations (\(AX=B\))</td>
 </tr>
 
 <tr>
 <td class="org-center"><code>B</code></td>
-<td class="org-left">RHS of matrix equations &amp; products</td>
+<td class="org-left">RHS of matrix equations (\(AX=B\))</td>
 </tr>
 
 <tr>
 <td class="org-center"><code>C</code></td>
-<td class="org-left">Unspecified</td>
+<td class="org-left">Solution for \(AX=B\)</td>
 </tr>
 
 <tr>
 <td class="org-center"><code>D</code></td>
-<td class="org-left">Result for matrix equations</td>
+<td class="org-left">Unused</td>
 </tr>
 
 <tr>
 <td class="org-center"><code>E</code></td>
-<td class="org-left">Result for norms &amp; products</td>
+<td class="org-left">\(LU\) of \(A\) for determinants &amp; matrix equations when flag 1 is clear</td>
+</tr>
+
+<tr>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -2805,8 +2909,8 @@ This program solves the system \(AX=B\) for \(X\).
 </div>
 </div>
 
-<div id="outline-container-org6934cdf" class="outline-2">
-<h2 id="org6934cdf"><span class="section-number-2">6.</span> Meta Data</h2>
+<div id="outline-container-org540d196" class="outline-2">
+<h2 id="org540d196"><span class="section-number-2">6.</span> Meta Data</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15.html">https://richmit.github.io/voyager/hp15.html</a>
