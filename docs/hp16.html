@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-17 Sat 15:25 -->
+<!-- 2024-02-27 Tue 13:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -267,12 +267,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-14</i></td>
+<td class="org-left"><i>2024-02-27</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-17</i></td>
+<td class="org-left"><i>2024-02-27</i></td>
 </tr>
 </tbody>
 </table>
@@ -286,11 +286,11 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 <ul>
 <li><a href="#intro">1. Introduction</a>
 <ul>
-<li><a href="#org2664900">1.1. Stack Diagrams</a></li>
-<li><a href="#orgee04a9b">1.2. Program Listing</a></li>
+<li><a href="#stackDiag">1.1. Stack Diagrams</a></li>
+<li><a href="#theCode">1.2. Program Listing</a></li>
 </ul>
 </li>
-<li><a href="#org0437ad6">2. Meta Data</a></li>
+<li><a href="#meta">2. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -298,6 +298,12 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 <div id="outline-container-intro" class="outline-2">
 <h2 id="intro"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-intro">
+<p>
+Dedicated "computer scientist" calculators have never been popular with only a few models ever offered on the market. The HP-16C remains, more than 40 years
+after its introduction, the most powerful "computer scientist" calculator ever produced.  Unlike my <a href="hp15.html">programs for the HP-15C</a>, the code here is
+all about adding new functionality to the calculator.
+</p>
+
 <p>
 I have one "big" program on my HP-16C &amp; DM-16L calculators with 7 entry points:
 </p>
@@ -321,43 +327,43 @@ I have one "big" program on my HP-16C &amp; DM-16L calculators with 7 entry poin
 </thead>
 <tbody>
 <tr>
-<td class="org-left"><b><code>A</code></b></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>A</span></td>
 <td class="org-left"><b><code>SLn</code></b></td>
-<td class="org-left">Shift y left by x bits</td>
+<td class="org-left">Shift <code>Y</code> left by <code>X</code> bits</td>
 </tr>
 
 <tr>
-<td class="org-left"><b><code>B</code></b></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>B</span></td>
 <td class="org-left"><b><code>SRn</code></b></td>
-<td class="org-left">Shift y right by x bits</td>
+<td class="org-left">Shift <code>Y</code> right by <code>X</code> bits</td>
 </tr>
 
 <tr>
-<td class="org-left"><b><code>C</code></b></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>C</span></td>
 <td class="org-left"><b><code>ctz</code></b></td>
 <td class="org-left">Count Trailing Zeros</td>
 </tr>
 
 <tr>
-<td class="org-left"><b><code>E</code></b></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>E</span></td>
 <td class="org-left"><b><code>iLog</code></b></td>
 <td class="org-left">Integer logarithm: \(\mathrm{floor}(\log_2(x))\)</td>
 </tr>
 
 <tr>
-<td class="org-left"><b><code>F</code></b></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>F</span></td>
 <td class="org-left"><b><code>WSIZE</code></b></td>
 <td class="org-left">Recall the WSIZE value</td>
 </tr>
 
 <tr>
-<td class="org-left"><b><code>2</code></b></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span></td>
 <td class="org-left"><b><code>2^x</code></b></td>
 <td class="org-left">Compute \(2^x\)</td>
 </tr>
 
 <tr>
-<td class="org-left"><b><code>1</code></b></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
 <td class="org-left"><b><code>LSSB</code></b></td>
 <td class="org-left">Clear all but least significant set bit</td>
 </tr>
@@ -365,9 +371,9 @@ I have one "big" program on my HP-16C &amp; DM-16L calculators with 7 entry poin
 </table>
 </div>
 
-<div id="outline-container-org2664900" class="outline-3">
-<h3 id="org2664900"><span class="section-number-3">1.1.</span> Stack Diagrams</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-stackDiag" class="outline-3">
+<h3 id="stackDiag"><span class="section-number-3">1.1.</span> Stack Diagrams</h3>
+<div class="outline-text-3" id="text-stackDiag">
 <div class="org-center">
 <p>
 <b><code>SLn</code></b> &#x2013; Shift y left by x bits
@@ -700,9 +706,9 @@ I have one "big" program on my HP-16C &amp; DM-16L calculators with 7 entry poin
 </div>
 </div>
 
-<div id="outline-container-orgee04a9b" class="outline-3">
-<h3 id="orgee04a9b"><span class="section-number-3">1.2.</span> Program Listing</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-theCode" class="outline-3">
+<h3 id="theCode"><span class="section-number-3">1.2.</span> Program Listing</h3>
+<div class="outline-text-3" id="text-theCode">
 <table border="2" cellspacing="0" cellpadding="1em" rules="groups" frame="hsides" align="center">
 
 
@@ -1123,9 +1129,9 @@ I have one "big" program on my HP-16C &amp; DM-16L calculators with 7 entry poin
 </div>
 </div>
 
-<div id="outline-container-org0437ad6" class="outline-2">
-<h2 id="org0437ad6"><span class="section-number-2">2.</span> Meta Data</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-meta" class="outline-2">
+<h2 id="meta"><span class="section-number-2">2.</span> Meta Data</h2>
+<div class="outline-text-2" id="text-meta">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/hp16.html">https://richmit.github.io/voyager/hp16.html</a>
 </p>

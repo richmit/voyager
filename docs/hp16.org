@@ -48,20 +48,27 @@ Copyright \copy {{{time(%Y)}}} Mitch Richling. All rights reserved.
 :CUSTOM_ID: intro
 :END:
 
+Dedicated "computer scientist" calculators have never been popular with only a few models ever offered on the market. The HP-16C remains, more than 40 years
+after its introduction, the most powerful "computer scientist" calculator ever produced.  Unlike my [[file:hp15.org][programs for the HP-15C]], the code here is
+all about adding new functionality to the calculator.
+
 I have one "big" program on my HP-16C & DM-16L calculators with 7 entry points:
 
 #+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
-| *=LBL=* | *Function* | *Description*                                  |
-|---------+------------+------------------------------------------------|
-| *=A=*   | *=SLn=*    | Shift y left by x bits                         |
-| *=B=*   | *=SRn=*    | Shift y right by x bits                        |
-| *=C=*   | *=ctz=*    | Count Trailing Zeros                           |
-| *=E=*   | *=iLog=*   | Integer logarithm: $\mathrm{floor}(\log_2(x))$ |
-| *=F=*   | *=WSIZE=*  | Recall the WSIZE value                         |
-| *=2=*   | *=2^x=*    | Compute $2^x$                                  |
-| *=1=*   | *=LSSB=*   | Clear all but least significant set bit        |
+| *=LBL=*      | *Function* | *Description*                                  |
+|--------------+------------+------------------------------------------------|
+| {{{c16(A)}}} | *=SLn=*    | Shift =Y= left by =X= bits                     |
+| {{{c16(B)}}} | *=SRn=*    | Shift =Y= right by =X= bits                    |
+| {{{c16(C)}}} | *=ctz=*    | Count Trailing Zeros                           |
+| {{{c16(E)}}} | *=iLog=*   | Integer logarithm: $\mathrm{floor}(\log_2(x))$ |
+| {{{c16(F)}}} | *=WSIZE=*  | Recall the WSIZE value                         |
+| {{{c16(2)}}} | *=2^x=*    | Compute $2^x$                                  |
+| {{{c16(1)}}} | *=LSSB=*   | Clear all but least significant set bit        |
 
 ** Stack Diagrams
+:PROPERTIES:
+:CUSTOM_ID: stackDiag
+:END:
 
 #+BEGIN_CENTER
 *=SLn=* -- Shift y left by x bits
@@ -135,6 +142,9 @@ I have one "big" program on my HP-16C & DM-16L calculators with 7 entry points:
 | *X:* | x        | LSSB(x) |
 
 ** Program Listing
+:PROPERTIES:
+:CUSTOM_ID: theCode
+:END:
 
 #+ATTR_HTML: :align center :cellpadding 1em
 | <l>                    |          <r> |                        <r> |    <c>    | <l>                                                                       |
@@ -190,6 +200,9 @@ I have one "big" program on my HP-16C & DM-16L calculators with 7 entry points:
 | {{{c16(  g RTN    )}}} |      =43 21= |                            |           |                                                                           |
 
 * Meta Data
+:PROPERTIES:
+:CUSTOM_ID: meta
+:END:
 
 The primary URL for this page: https://richmit.github.io/voyager/hp16.html
 
