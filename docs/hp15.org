@@ -59,14 +59,18 @@ more efficient than modern machines.
    features mean long time HP-15C users can stay focused on the problem at hand while touch typing problems into the machine.
 #+END_QUOTE
 
-It is the HP-15C's ability to very quickly hammer out simple calculations that keeps it on my desk.  Most scientific calculations beyond the HP-15C's
-capabilities tend to be ones I would normally tackle with my laptop instead of using a more sophisticated calculator.  That said, I do occasionally us a Casio
-Classpad II, DM-42, Casio cg50, or HP-48GX.
+Most of the time I preform calculations with [[https://www.mitchr.me/SS/tools/index.html#mathNstats][specialized mathematical software]].  Still each day
+brings a plethora of little, ad-hoc engineering computations for which the HP-15C is simply the fastest way to hammer out an answer -- this is what keeps the HP-15C on my desk.
 
-Most of the programs found here are all about efficiency: 
+All that said, I occasionally use other machines: [[https://github.com/richmit/classpad2][Classpad II]], [[https://github.com/richmit/hp42][DM-42]], fx-CG50,
+HP-48GX, [[https://github.com/richmit/voyager][HP-16C/DM-16L]], & [[https://github.com/richmit/voyager][HP-12CP]].
+
+I recommend [[https://hp-15c.homepage.t-online.de/][Torsten Manz's excellent HP-15C simulator]] software on Windows & Linux.  
+
+- Most of the programs found here are all about efficiency: 
   - Efficient replacements for STO/RCL with complex numbers
   - Reducing the tedium of matrix computations.
-Only one is about new functionality:
+- Only one is about new functionality:
   - Newton's method for functions of a complex variable
 
 
@@ -318,10 +322,11 @@ separately.
 
  - Operation
    - Run the program with the following inputs: 
-     - *=Z=*: A matrix descriptor or number 0. If Z is the number 0, then the {{{c15(A)}}} matrix is filled.
+     - *=Z=*: A matrix descriptor or number 0 (a 0 indicates the {{{c15(A)}}} matrix should be used)
      - *=Y=*: number of rows
      - *=X=*: Number of columns
-   - Next the number =1.1= will appear on the display -- indicating it's time to enter the value matrix element $(1,1)$.
+   - The matrix element coordinate will appear on the display in =r.c= format.
+   - The previously entered element, if there was one, will be on level =Y= of the stack.
    - Enter the value for the matrix position and press {{{c15(R/S)}}}.
      - If flag 8 is set, then the real and complex parts will be placed into the matrix in consecutive positions.
    - Repeat until all the matrix elements have been entered.
@@ -366,13 +371,11 @@ separately.
 | {{{c15( R↓             )}}} |        =33= |           |     n m MATor0 A |           |                                  |
 | {{{c15( f DIM I        )}}} |  =42,23,25= |           |     n m MATor0 A |           | Dim given matrix                 |
 | {{{c15( f MATRIX 1     )}}} |  =42,16, 1= |           |     n m MATor0 A |           | Set R0 & R1 to 1                 |
-| {{{c15( LBL .7         )}}} |  =42,21,.7= |           |          ? ? ? ? |           |                                  |
-| {{{c15( RCL 0          )}}} |     =45  0= |           |         i  ? ? ? |           |                                  |
-| {{{c15( RCL 1          )}}} |     =45  1= |           |          j i ? ? |           |                                  |
-| {{{c15( 1              )}}} |         =1= |           |          1 j i ? |           |                                  |
-| {{{c15( 0              )}}} |         =0= |           |         10 j i ? |           |                                  |
-| {{{c15( ÷              )}}} |        =10= |           |       j/10 i ? ? |           |                                  |
-| {{{c15( +              )}}} |        =40= |           |     j/10+i ? ? ? |           |                                  |
+| {{{c15( LBL .7         )}}} |  =42,21,.7= |           |      ?orXp ? ? ? |           | Ep -- previously entered element |
+| {{{c15( .              )}}} |        =48= |           |      - ?orXp ? ? |           |                                  |
+| {{{c15( 1              )}}} |         =1= |           |      1 ?orXp ? ? |           |                                  |
+| {{{c15( RCL × 1        )}}} |  =45,20, 1= |           |   j/10 ?orXp ? ? |           |                                  |
+| {{{c15( RCL + 0        )}}} |  =45,40, 0= |           | j/10+i ?orXp ? ? |           |                                  |
 | {{{c15( R/S            )}}} |        =31= |           |     j/10+i ? ? ? |           |                                  |
 | {{{c15( f USER STO (i) )}}} | =u   44 24= |           |         Xr ? ? ? |           |                                  |
 | {{{c15( f USER         )}}} |           - |           |         Xr ? ? ? |           | Exit USER mode                   |
@@ -385,7 +388,8 @@ separately.
 | {{{c15( f USER STO (i) )}}} | =u   44 24= |           |         Xc ? ? ? |           |                                  |
 | {{{c15( f USER         )}}} |           - |           |         Xc ? ? ? |           | Exit USER mode                   |
 | {{{c15( g CF 9         )}}} |  =43, 5, 9= |           |         Xc ? ? ? |           | NOP                              |
-| {{{c15( GTO .7         )}}} |     =22 .7= |           |         Xc ? ? ? |           |                                  |
+| {{{c15( f Re≷Im        )}}} |     =42 30= |           |         Xr ? ? ? |           | So Xp will be in Y for R/S       |
+| {{{c15( GTO .7         )}}} |     =22 .7= |           |         Xr ? ? ? |           |                                  |
 | {{{c15( g RTN          )}}} |     =43 32= |           |          ? ? ? ? |           | Never Get Here                   |
 
 ** Dump a Matrix

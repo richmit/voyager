@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-27 Tue 13:45 -->
+<!-- 2024-03-04 Mon 13:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -267,12 +267,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-27</i></td>
+<td class="org-left"><i>2024-03-04</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-27</i></td>
+<td class="org-left"><i>2024-03-04</i></td>
 </tr>
 </tbody>
 </table>
@@ -300,23 +300,29 @@ features mean long time HP-15C users can stay focused on the problem at hand whi
 </blockquote>
 
 <p>
-It is the HP-15C's ability to very quickly hammer out simple calculations that keeps it on my desk.  Most scientific calculations beyond the HP-15C's
-capabilities tend to be ones I would normally tackle with my laptop instead of using a more sophisticated calculator.  That said, I do occasionally us a Casio
-Classpad II, DM-42, Casio cg50, or HP-48GX.
+Most of the time I preform calculations with <a href="https://www.mitchr.me/SS/tools/index.html#mathNstats">specialized mathematical software</a>.  Still each day
+brings a plethora of little, ad-hoc engineering computations for which the HP-15C is simply the fastest way to hammer out an answer &#x2013; this is what keeps the HP-15C on my desk.
 </p>
 
 <p>
-Most of the programs found here are all about efficiency: 
+All that said, I occasionally use other machines: <a href="https://github.com/richmit/classpad2">Classpad II</a>, <a href="https://github.com/richmit/hp42">DM-42</a>, fx-CG50,
+HP-48GX, <a href="https://github.com/richmit/voyager">HP-16C/DM-16L</a>, &amp; <a href="https://github.com/richmit/voyager">HP-12CP</a>.
 </p>
+
+<p>
+I recommend <a href="https://hp-15c.homepage.t-online.de/">Torsten Manz's excellent HP-15C simulator</a> software on Windows &amp; Linux.  
+</p>
+
+<ul class="org-ul">
+<li>Most of the programs found here are all about efficiency: 
 <ul class="org-ul">
 <li>Efficient replacements for STO/RCL with complex numbers</li>
 <li>Reducing the tedium of matrix computations.</li>
-</ul>
-<p>
-Only one is about new functionality:
-</p>
+</ul></li>
+<li>Only one is about new functionality:
 <ul class="org-ul">
 <li>Newton's method for functions of a complex variable</li>
+</ul></li>
 </ul>
 
 
@@ -335,7 +341,7 @@ Only one is about new functionality:
 </li>
 <li><a href="#newton">3. Newton's Method for Functions of a Complex Variable</a>
 <ul>
-<li><a href="#org815e687">3.1. Usage</a></li>
+<li><a href="#orgbbfe881">3.1. Usage</a></li>
 <li><a href="#newtonRes">3.2. Resources Used</a></li>
 <li><a href="#newtonCode">3.3. Program Listing</a></li>
 </ul>
@@ -372,14 +378,14 @@ Only one is about new functionality:
 </li>
 </ul>
 </li>
-<li><a href="#orgc966d44">5. Summary Resource Use</a>
+<li><a href="#org7e288c3">5. Summary Resource Use</a>
 <ul>
 <li><a href="#resSumLab">5.1. Labels</a></li>
 <li><a href="#resSumReg">5.2. Registers</a></li>
 <li><a href="#resSumMat">5.3. Matrix Registers</a></li>
 </ul>
 </li>
-<li><a href="#org540d196">6. Meta Data</a></li>
+<li><a href="#orgcd08121">6. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -833,8 +839,8 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </p>
 </div>
 
-<div id="outline-container-org815e687" class="outline-3">
-<h3 id="org815e687"><span class="section-number-3">3.1.</span> Usage</h3>
+<div id="outline-container-orgbbfe881" class="outline-3">
+<h3 id="orgbbfe881"><span class="section-number-3">3.1.</span> Usage</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Running the program
@@ -1327,11 +1333,12 @@ separately.
 <ul class="org-ul">
 <li>Run the program with the following inputs: 
 <ul class="org-ul">
-<li><b><code>Z</code></b>: A matrix descriptor or number 0. If Z is the number 0, then the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> matrix is filled.</li>
+<li><b><code>Z</code></b>: A matrix descriptor or number 0 (a 0 indicates the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> matrix should be used)</li>
 <li><b><code>Y</code></b>: number of rows</li>
 <li><b><code>X</code></b>: Number of columns</li>
 </ul></li>
-<li>Next the number <code>1.1</code> will appear on the display &#x2013; indicating it's time to enter the value matrix element \((1,1)\).</li>
+<li>The matrix element coordinate will appear on the display in <code>r.c</code> format.</li>
+<li>The previously entered element, if there was one, will be on level <code>Y</code> of the stack.</li>
 <li>Enter the value for the matrix position and press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R/S</span>.
 <ul class="org-ul">
 <li>If flag 8 is set, then the real and complex parts will be placed into the matrix in consecutive positions.</li>
@@ -1499,25 +1506,16 @@ separately.
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span></td>
 <td class="org-right"><code>42,21,.7</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">? ? ? ?</td>
+<td class="org-right">?orXp ? ? ?</td>
 <td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Ep &#x2013; previously entered element</td>
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span></td>
-<td class="org-right"><code>45  0</code></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</span></td>
+<td class="org-right"><code>48</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">i  ? ? ?</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
-<td class="org-right"><code>45  1</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">j i ? ?</td>
+<td class="org-right">- ?orXp ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1526,34 +1524,25 @@ separately.
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
 <td class="org-right"><code>1</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">1 j i ?</td>
+<td class="org-right">1 ?orXp ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span></td>
-<td class="org-right"><code>0</code></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span></td>
+<td class="org-right"><code>45,20, 1</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">10 j i ?</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
-<td class="org-right"><code>10</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">j/10 i ? ?</td>
+<td class="org-right">j/10 ?orXp ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+</span></td>
-<td class="org-right"><code>40</code></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span></td>
+<td class="org-right"><code>45,40, 0</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">j/10+i ? ? ?</td>
+<td class="org-right">j/10+i ?orXp ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1667,10 +1656,19 @@ separately.
 </tr>
 
 <tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>Re≷Im</span></td>
+<td class="org-right"><code>42 30</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">Xr ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">So Xp will be in Y for R/S</td>
+</tr>
+
+<tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>GTO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span></td>
 <td class="org-right"><code>22 .7</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">Xc ? ? ?</td>
+<td class="org-right">Xr ? ? ?</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2629,8 +2627,8 @@ This program solves the system \(AX=B\) for \(X\).
 </div>
 </div>
 
-<div id="outline-container-orgc966d44" class="outline-2">
-<h2 id="orgc966d44"><span class="section-number-2">5.</span> Summary Resource Use</h2>
+<div id="outline-container-org7e288c3" class="outline-2">
+<h2 id="org7e288c3"><span class="section-number-2">5.</span> Summary Resource Use</h2>
 <div class="outline-text-2" id="text-5">
 </div>
 <div id="outline-container-resSumLab" class="outline-3">
@@ -2909,8 +2907,8 @@ How I normally use matrix storage.  These habits have strongly influenced the ma
 </div>
 </div>
 
-<div id="outline-container-org540d196" class="outline-2">
-<h2 id="org540d196"><span class="section-number-2">6.</span> Meta Data</h2>
+<div id="outline-container-orgcd08121" class="outline-2">
+<h2 id="orgcd08121"><span class="section-number-2">6.</span> Meta Data</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15.html">https://richmit.github.io/voyager/hp15.html</a>
