@@ -343,6 +343,9 @@ separately.
   - .6 Complex if target
 - External Labels:
   - None
+- Flags:
+  - 8 -- Option flag (complex mode)
+  - 9 -- CF used as NOP
 - Registers Used:
   - R0 Matrix indexing
   - R1 Matrix indexing
