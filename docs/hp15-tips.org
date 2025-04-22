@@ -268,6 +268,11 @@ The sum of the $x$ components will be in *=X=*, and $y$ sum will be in *=Y=* .
 :CUSTOM_ID: vec2dAngles
 :END:
 
+*** Two Dimensional Case
+:PROPERTIES:
+:CUSTOM_ID: vec2dAngles2d
+:END:
+
 This item is more about pointing out that we can find the angle between two vectors in 2D using complex arithmetic instead of the traditional vector angle
 formula.  This works on any calculator supporting both polar & rectangular complex arithmetic.
 
@@ -279,6 +284,26 @@ Find the angle between the vectors $(2,3)$ and $(3,2)$.
 | {{{c15(÷ →P)}}}          | Divide and convert to polar form                 |
  
 The angle is on the complex stack at *=X=*.
+
+*** Higher Dimensional Case
+:PROPERTIES:
+:CUSTOM_ID: vec2dAnglesnd
+:END:
+
+When working with 3, or more, component vectors we can use the statstical registers.
+
+| {{{c15(f CLR_Σ)}}} ( $x_i$ {{{c15(ENTER)}}} $y_i$ {{{c15(f Σ+)}}} ...) {{{c15( RCL 7 RCL 4 RCL 6 × √x ÷ )}}}  |
+
+For example find the angle between the following two vectors: $(2,3,5)$ & $(6,7,8)$.
+
+| {{{c15(g DEG)}}}                      | Put calculator in degree mode (if necessary) |
+| {{{c15(f CLR_Σ)}}}                    | Clear statistical registers (if necessary)   |
+| {{{c15(2 ENTER 6 Σ+)}}}               | Enter first coordinates for each vector      |
+| {{{c15(3 ENTER 7 Σ+)}}}               | Enter second coordinates for each vector     |
+| {{{c15(5 ENTER 8 Σ+)}}}               | Enter last coordinates for each vector       |
+| {{{c15( RCL 7 RCL 4 RCL 6 × √x ÷ )}}} | Compute the angle                            |
+ 
+The angle will be in *=X=*.
 
 * General  =HYPOT= Function
 :PROPERTIES:
@@ -298,6 +323,43 @@ When $n=3$ the best sequence is
 
 When $n>3$ the best sequence is
 | {{{c15(f CLR_Σ)}}} ( $x_i$ {{{c15(f Σ+)}}} ...) {{{c15(RCL 4 √x)}}} |
+
+* HP 15c CE Stuff
+:PROPERTIES:
+:CUSTOM_ID: 15ce
+:END:
+
+I have one 15c from the mid 80's, and *three* 15 CE (collector's edition) units from 2023.  
+
+** Diagnostics & Easter Eggs
+:PROPERTIES:
+:CUSTOM_ID: 15ce-eggs
+:END:
+
+ - Turn the Calculator off.
+ - Hold {{{c15(g)}}} and {{{c15(ENTER)}}}, press {{{c15(ON)}}}.  Release {{{c15(ON)}}}, and then {{{c15(ENTER)}}} & {{{c15(g)}}}.
+ - On screen see =1.L 2.C 3.H=
+ - We can now do a few things:
+   - Press {{{c15(1)}}} to test the LCD
+   - Press {{{c15(2)}}} for a firmware checksum
+   - Press {{{c15(3)}}} to test the keyboard
+   - Press {{{c15(4)}}} for Easter Eggs!
+     - On screen see =15 15.2 16=
+     - At this point we can do three things:
+       - Press {{{c15(eˣ)}}} for the factory settings. Ordinary HP-15c CE mode with 96 registers.
+       - Press {{{c15(yˣ)}}} for the 2X memory mode with 192 registers.
+       - Press {{{c15(7)}}}  for the HP-16C mode. 
+
+** Voyager Save
+:PROPERTIES:
+:CUSTOM_ID: 15ce-save
+:END:
+
+ - Turn the Calculator off.
+ - Hold {{{c15(f)}}} and {{{c15(ENTER)}}}, press {{{c15(ON)}}}.  Release {{{c15(ON)}}}, and then {{{c15(ENTER)}}} & {{{c15(f)}}}.
+ - This will put the calculator in USB HID mode. 
+
+I have been keeping my CE in 2X memory mode because I find myself needing a bit more RAM for program and matrix storage.
 
 * Meta Data
 :PROPERTIES:

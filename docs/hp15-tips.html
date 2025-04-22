@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-21 Wed 09:49 -->
+<!-- 2025-04-22 Tue 15:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP-15C Tips &amp; Tricks</title>
@@ -11,7 +11,7 @@
 <meta name="description" content="Various tips and tricks for the HP-15C" />
 <meta name="keywords" content="Hewlett Packard RPN RPL" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -264,17 +264,17 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2024-02-21</i></td>
+<td class="org-left"><i>2025-04-22</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2024-02-21</i></td>
+<td class="org-left"><i>2025-04-22</i></td>
 </tr>
 </tbody>
 </table>
 <p align="center">
-Copyright &copy; 2024 Mitch Richling. All rights reserved.
+Copyright &copy; 2025 Mitch Richling. All rights reserved.
 </p>
 
 <div id="table-of-contents" role="doc-toc">
@@ -309,15 +309,25 @@ Copyright &copy; 2024 Mitch Richling. All rights reserved.
 <li><a href="#vec2d">4. 2D vectors</a>
 <ul>
 <li><a href="#vec2dSums">4.1. Vector Sums</a></li>
-<li><a href="#vec2dAngles">4.2. Angle between vectors</a></li>
+<li><a href="#vec2dAngles">4.2. Angle between vectors</a>
+<ul>
+<li><a href="#vec2dAngles2d">4.2.1. Two Dimensional Case</a></li>
+<li><a href="#vec2dAnglesnd">4.2.2. Higher Dimensional Case</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#hypot">5. General  <code>HYPOT</code> Function</a></li>
-<li><a href="#meta">6. Meta Data</a></li>
+<li><a href="#15ce">6. HP 15c CE Stuff</a>
+<ul>
+<li><a href="#15ce-eggs">6.1. Diagnostics &amp; Easter Eggs</a></li>
+<li><a href="#15ce-save">6.2. Voyager Save</a></li>
+</ul>
+</li>
+<li><a href="#meta">7. Meta Data</a></li>
 </ul>
 </div>
 </div>
-
 <div id="outline-container-introduction" class="outline-2">
 <h2 id="introduction"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-introduction">
@@ -332,12 +342,10 @@ This document contains computational recipes for the HP-15C.  Most of these item
 </ul>
 </div>
 </div>
-
 <div id="outline-container-triangles" class="outline-2">
 <h2 id="triangles"><span class="section-number-2">2.</span> Triangles</h2>
 <div class="outline-text-2" id="text-triangles">
 </div>
-
 <div id="outline-container-triHypAngle" class="outline-3">
 <h3 id="triHypAngle"><span class="section-number-3">2.1.</span> Right Triangle: Known Hypotenuse &amp; angle</h3>
 <div class="outline-text-3" id="text-triHypAngle">
@@ -346,7 +354,7 @@ This item illustrates the different behavior of <span style='font-family:sans-se
 </p>
 
 
-<div id="org7a5410b" class="figure">
+<div id="orgab3f328" class="figure">
 <p><img src="fig-right.png" alt="fig-right.png" width="30%" align="center" />
 </p>
 </div>
@@ -355,7 +363,6 @@ This item illustrates the different behavior of <span style='font-family:sans-se
 With \(b=5\) and \(\alpha=30\).
 </p>
 </div>
-
 <div id="outline-container-triHypAngleC" class="outline-4">
 <h4 id="triHypAngleC"><span class="section-number-4">2.1.1.</span> Complex Mode</h4>
 <div class="outline-text-4" id="text-triHypAngleC">
@@ -389,7 +396,6 @@ If the calculator is in complex mode (Flag 9 set):
 </p>
 </div>
 </div>
-
 <div id="outline-container-triHypAngleR" class="outline-4">
 <h4 id="triHypAngleR"><span class="section-number-4">2.1.2.</span> Real Mode</h4>
 <div class="outline-text-4" id="text-triHypAngleR">
@@ -424,7 +430,6 @@ If the calculator is not in complex mode (Flag 9 clear):
 </div>
 </div>
 </div>
-
 <div id="outline-container-triLegs" class="outline-3">
 <h3 id="triLegs"><span class="section-number-3">2.2.</span> Right Triangle: Known Legs (the 2D HYPOT function)</h3>
 <div class="outline-text-3" id="text-triLegs">
@@ -442,7 +447,7 @@ function, see <a href="#hypot">HYPOT</a> below.
 </p>
 
 
-<div id="org827e746" class="figure">
+<div id="orge579c28" class="figure">
 <p><img src="fig-345.png" alt="fig-345.png" width="30%" align="center" />
 </p>
 </div>
@@ -451,7 +456,6 @@ function, see <a href="#hypot">HYPOT</a> below.
 With \(c=4\) and \(b=3\).
 </p>
 </div>
-
 <div id="outline-container-triLegsC" class="outline-4">
 <h4 id="triLegsC"><span class="section-number-4">2.2.1.</span> Complex Mode</h4>
 <div class="outline-text-4" id="text-triLegsC">
@@ -490,7 +494,6 @@ If the calculator is in complex mode (Flag 9 set):
 </p>
 </div>
 </div>
-
 <div id="outline-container-triLegsR" class="outline-4">
 <h4 id="triLegsR"><span class="section-number-4">2.2.2.</span> Real Mode</h4>
 <div class="outline-text-4" id="text-triLegsR">
@@ -525,7 +528,6 @@ If the calculator is not in complex mode (Flag 9 clear):
 </div>
 </div>
 </div>
-
 <div id="outline-container-SAS" class="outline-3">
 <h3 id="SAS"><span class="section-number-3">2.3.</span> General Triangle: SAS (Side Angle Side)</h3>
 <div class="outline-text-3" id="text-SAS">
@@ -542,7 +544,7 @@ number's argument to the supplementary angle.
 </p>
 
 
-<div id="org99648df" class="figure">
+<div id="org0b2fa56" class="figure">
 <p><img src="fig-sas.png" alt="fig-sas.png" width="30%" align="center" />
 </p>
 </div>
@@ -593,12 +595,10 @@ With \(b=5\), \(\alpha=30\), and \(c=4\).
 </div>
 </div>
 </div>
-
 <div id="outline-container-lines" class="outline-2">
 <h2 id="lines"><span class="section-number-2">3.</span> Lines</h2>
 <div class="outline-text-2" id="text-lines">
 </div>
-
 <div id="outline-container-linEq2" class="outline-3">
 <h3 id="linEq2"><span class="section-number-3">3.1.</span> Equation of line given two points</h3>
 <div class="outline-text-3" id="text-linEq2">
@@ -652,7 +652,6 @@ The value for \(m\) is in <b><code>Y</code></b>, and value for \(b\) is in <b><c
 </p>
 </div>
 </div>
-
 <div id="outline-container-linInterp" class="outline-3">
 <h3 id="linInterp"><span class="section-number-3">3.2.</span> Interpolation &amp; extrapolation (applied to Fahrenheit/Celsius Conversion)</h3>
 <div class="outline-text-3" id="text-linInterp">
@@ -712,7 +711,6 @@ Celsius corresponds to 212 Fahrenheit. We wish to convert 68, 70, &amp; 72 degre
 </table>
 </div>
 </div>
-
 <div id="outline-container-logInterp" class="outline-3">
 <h3 id="logInterp"><span class="section-number-3">3.3.</span> Logarithmic Interpolation (Non-Linear Interpolation)</h3>
 <div class="outline-text-3" id="text-logInterp">
@@ -776,12 +774,10 @@ could fit \(y=m\cdot\sin(x)+b\) to the points \((0,1)\) &amp; \((1.5, 2)\) &#x20
 </div>
 </div>
 </div>
-
 <div id="outline-container-vec2d" class="outline-2">
 <h2 id="vec2d"><span class="section-number-2">4.</span> 2D vectors</h2>
 <div class="outline-text-2" id="text-vec2d">
 </div>
-
 <div id="outline-container-vec2dSums" class="outline-3">
 <h3 id="vec2dSums"><span class="section-number-3">4.1.</span> Vector Sums</h3>
 <div class="outline-text-3" id="text-vec2dSums">
@@ -845,10 +841,13 @@ The sum of the \(x\) components will be in <b><code>X</code></b>, and \(y\) sum 
 </p>
 </div>
 </div>
-
 <div id="outline-container-vec2dAngles" class="outline-3">
 <h3 id="vec2dAngles"><span class="section-number-3">4.2.</span> Angle between vectors</h3>
 <div class="outline-text-3" id="text-vec2dAngles">
+</div>
+<div id="outline-container-vec2dAngles2d" class="outline-4">
+<h4 id="vec2dAngles2d"><span class="section-number-4">4.2.1.</span> Two Dimensional Case</h4>
+<div class="outline-text-4" id="text-vec2dAngles2d">
 <p>
 This item is more about pointing out that we can find the angle between two vectors in 2D using complex arithmetic instead of the traditional vector angle
 formula.  This works on any calculator supporting both polar &amp; rectangular complex arithmetic.
@@ -894,8 +893,78 @@ The angle is on the complex stack at <b><code>X</code></b>.
 </p>
 </div>
 </div>
-</div>
+<div id="outline-container-vec2dAnglesnd" class="outline-4">
+<h4 id="vec2dAnglesnd"><span class="section-number-4">4.2.2.</span> Higher Dimensional Case</h4>
+<div class="outline-text-4" id="text-vec2dAnglesnd">
+<p>
+When working with 3, or more, component vectors we can use the statstical registers.
+</p>
 
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span> ( \(x_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> \(y_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span> &#x2026;) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>√x</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+For example find the angle between the following two vectors: \((2,3,5)\) &amp; \((6,7,8)\).
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>DEG</span></td>
+<td class="org-left">Put calculator in degree mode (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span></td>
+<td class="org-left">Clear statistical registers (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter first coordinates for each vector</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter second coordinates for each vector</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter last coordinates for each vector</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>√x</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
+<td class="org-left">Compute the angle</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The angle will be in <b><code>X</code></b>.
+</p>
+</div>
+</div>
+</div>
+</div>
 <div id="outline-container-hypot" class="outline-2">
 <h2 id="hypot"><span class="section-number-2">5.</span> General  <code>HYPOT</code> Function</h2>
 <div class="outline-text-2" id="text-hypot">
@@ -948,9 +1017,56 @@ When \(n>3\) the best sequence is
 </table>
 </div>
 </div>
+<div id="outline-container-15ce" class="outline-2">
+<h2 id="15ce"><span class="section-number-2">6.</span> HP 15c CE Stuff</h2>
+<div class="outline-text-2" id="text-15ce">
+<p>
+I have one 15c from the mid 80's, and <b>three</b> 15 CE (collector's edition) units from 2023.  
+</p>
+</div>
+<div id="outline-container-15ce-eggs" class="outline-3">
+<h3 id="15ce-eggs"><span class="section-number-3">6.1.</span> Diagnostics &amp; Easter Eggs</h3>
+<div class="outline-text-3" id="text-15ce-eggs">
+<ul class="org-ul">
+<li>Turn the Calculator off.</li>
+<li>Hold <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> and <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span>, press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ON</span>.  Release <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ON</span>, and then <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> &amp; <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span>.</li>
+<li>On screen see <code>1.L 2.C 3.H</code></li>
+<li>We can now do a few things:
+<ul class="org-ul">
+<li>Press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span> to test the LCD</li>
+<li>Press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> for a firmware checksum</li>
+<li>Press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> to test the keyboard</li>
+<li>Press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span> for Easter Eggs!
+<ul class="org-ul">
+<li>On screen see <code>15 15.2 16</code></li>
+<li>At this point we can do three things:
+<ul class="org-ul">
+<li>Press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>eˣ</span> for the factory settings. Ordinary HP-15c CE mode with 96 registers.</li>
+<li>Press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>yˣ</span> for the 2X memory mode with 192 registers.</li>
+<li>Press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span>  for the HP-16C mode.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-15ce-save" class="outline-3">
+<h3 id="15ce-save"><span class="section-number-3">6.2.</span> Voyager Save</h3>
+<div class="outline-text-3" id="text-15ce-save">
+<ul class="org-ul">
+<li>Turn the Calculator off.</li>
+<li>Hold <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> and <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span>, press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ON</span>.  Release <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ON</span>, and then <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> &amp; <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span>.</li>
+<li>This will put the calculator in USB HID mode.</li>
+</ul>
 
+<p>
+I have been keeping my CE in 2X memory mode because I find myself needing a bit more RAM for program and matrix storage.
+</p>
+</div>
+</div>
+</div>
 <div id="outline-container-meta" class="outline-2">
-<h2 id="meta"><span class="section-number-2">6.</span> Meta Data</h2>
+<h2 id="meta"><span class="section-number-2">7.</span> Meta Data</h2>
 <div class="outline-text-2" id="text-meta">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15-tips.html">https://richmit.github.io/voyager/hp15-tips.html</a>
