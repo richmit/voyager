@@ -65,11 +65,13 @@ Note some things don't work or work strangely.  I'll fix them when I find the ne
                              (format bfs colr x)))
                          code-toks)
                  " ")))
+(defun VOY-labeler (label)
+  (format "@@html:<span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>%s</span>@@" label))
 #+end_src
 
 #+RESULTS:
 #+begin_example
-VOY-buttoner
+VOY-labeler
 #+end_example
 
 
@@ -78,6 +80,13 @@ VOY-buttoner
 #+MACRO: c15 (eval (VOY-buttoner "15c" $1))
 #+MACRO: c16 (eval (VOY-buttoner "16c" $1))
 #+MACRO: c12 (eval (VOY-buttoner "12cp" $1))
+
+#+MACRO: lbl (eval (VOY-labeler $1))
+#+MACRO: reg (eval (VOY-labeler $1))
+#+MACRO: flg (eval (VOY-labeler $1))
+#+MACRO: mat (eval (VOY-labeler $1))
+
+#+MACRO: stk *=$1=*
 
 * Formatting Tests                                                 :noexport:
 
@@ -89,6 +98,10 @@ VOY-buttoner
 | 16c  | {{{c16(STO (i))}}} |
 | 12cp | {{{c12(g BEG)}}}   |
 | 12cp | {{{c12(STO 1)}}}   |
+
+| LBL    | abc {{{lbl(1)}}} bcd    |
+| LBL    | abc {{{lbl(A)}}} bcd    |
+| LBL    | abc {{{lbl(.1)}}} bcd   |
 
 * Meta Data                                                        :noexport:
 
