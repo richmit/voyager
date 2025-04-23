@@ -716,9 +716,7 @@ no storage registers or internal labels.  It requires 35 program lines consuming
 | <l>                    |         <r> |    <c>    |                        <r> |    <c>    | <l>                 |
 | *Keystrokes* {{{SPC}}} | *Key Codes* | {{{SPC}}} |           *Stack Contents* | {{{SPC}}} | *Comments*          |
 | {{{c15( f LBL B  )}}}  |  =42,21,12= |           |                    c b a ? |           |                     |
-| {{{c15( g R↑     )}}}  |     =43 33= |           |                    ? c b a |           |                     |
-| {{{c15( g ABS    )}}}  |     =43 16= |           |               abs(?) c b a |           |                     |
-| {{{c15( CLx      )}}}  |     =43 35= |           |                    0 c b a |           |                     |
+| {{{c15( 0        )}}}  |         =0= |           |                    0 c b a |           |                     |
 | {{{c15( +        )}}}  |        =40= |           |                    c b a a |           |                     |
 | {{{c15( g R↑     )}}}  |     =43 33= |           |                    a c b a |           |                     |
 | {{{c15( ÷        )}}}  |        =10= |           |                  c/a b a a |           |                     |
@@ -743,6 +741,7 @@ no storage registers or internal labels.  It requires 35 program lines consuming
 | {{{c15( 2        )}}}  |         =2= |           |          2 √D 4*c/a -b/a/2 |           |                     |
 | {{{c15( ÷        )}}}  |        =10= |           |   √D/2 4*c/a -b/a/2 -b/a/2 |           |                     |
 | {{{c15( g R↑     )}}}  |     =43 33= |           |   -b/a/2 √D/2 4*c/a -b/a/2 |           |                     |
+| {{{c15( +        )}}}  |        =40= |           |     R1 4*c/a -b/a/2 -b/a/2 |           |                     |
 | {{{c15( x≷y      )}}}  |        =34= |           |   √D/2 -b/a/2 4*c/a -b/a/2 |           |                     |
 | {{{c15( +        )}}}  |        =40= |           |            R1 4*c/a -b/a/2 |           |                     |
 | {{{c15( g LSTx   )}}}  |     =43 36= |           |       √D/2 R1 4*c/a -b/a/2 |           |                     |
