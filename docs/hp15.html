@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-24 Thu 09:49 -->
+<!-- 2025-04-24 Thu 14:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -330,7 +330,7 @@ HP-15C on my desk.
 </li>
 <li><a href="#newton">3. Newton's Method for Functions of a Complex Variable</a>
 <ul>
-<li><a href="#org1aefce8">3.1. Usage</a></li>
+<li><a href="#org3277c46">3.1. Usage</a></li>
 <li><a href="#newtonRes">3.2. Resources Used</a></li>
 <li><a href="#newtonCode">3.3. Program Listing</a></li>
 </ul>
@@ -374,7 +374,7 @@ HP-15C on my desk.
 <li><a href="#quadEquCode">5.3. Program Listing</a></li>
 </ul>
 </li>
-<li><a href="#org8328462">6. Summary Resource Use</a>
+<li><a href="#org7f40b32">6. Summary Resource Use</a>
 <ul>
 <li><a href="#resSumLab">6.1. Labels</a>
 <ul>
@@ -847,8 +847,8 @@ In what follows, the function we are solving is referred to as \(f(x)\) and the 
 If the calculator is not already in complex mode, then it will be placed in complex mode by the program.
 </p>
 </div>
-<div id="outline-container-org1aefce8" class="outline-3">
-<h3 id="org1aefce8"><span class="section-number-3">3.1.</span> Usage</h3>
+<div id="outline-container-org3277c46" class="outline-3">
+<h3 id="org3277c46"><span class="section-number-3">3.1.</span> Usage</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Running the program
@@ -2594,8 +2594,16 @@ singular.
 <h2 id="quadEqu"><span class="section-number-2">5.</span> Quadratic Equation</h2>
 <div class="outline-text-2" id="text-quadEqu">
 <p>
-Find the two roots of \[ax^2+bx+c=0\] The coefficients may be real or complex.  Complex mode will automatically be enabled if required.  This program consumes
-no storage registers or internal labels.  It requires 32 program lines consuming 33 bytes (if I counted correctly).
+Find the discriminant and both roots of 
+</p>
+
+<p>
+\[ax^2+bx+c=0\] 
+</p>
+
+<p>
+The coefficients may be real or complex.  Complex mode will automatically be enabled if required.  This program consumes no storage registers or internal
+labels.  It requires 31 program lines consuming 32 bytes (if I counted correctly).
 </p>
 </div>
 <div id="outline-container-quadEquUsage" class="outline-3">
@@ -2615,8 +2623,8 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <ul class="org-ul">
 <li>Exit Stack State:
 <ul class="org-ul">
-<li><b><code>T</code></b>: N/A</li>
-<li><b><code>Z</code></b>: N/A</li>
+<li><b><code>T</code></b>: Quadratic Discriminant</li>
+<li><b><code>Z</code></b>: Quadratic Discriminant</li>
 <li><b><code>Y</code></b>: Second Root</li>
 <li><b><code>X</code></b>: First Root</li>
 </ul></li>
@@ -2707,82 +2715,10 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span></td>
-<td class="org-right"><code>0</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">0 c b a</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+</span></td>
-<td class="org-right"><code>40</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">c b a a</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
-<td class="org-right"><code>43 33</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">a c b a</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
-<td class="org-right"><code>10</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">c/a b a a</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
-<td class="org-right"><code>34</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">b c/a a a</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
-<td class="org-right"><code>43 33</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">a b c/a a</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
-<td class="org-right"><code>10</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">b/a c/a a a</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
-<td class="org-right"><code>34</code></td>
-<td class="org-center">&#xa0;</td>
-<td class="org-right">c/a b/a a a</td>
-<td class="org-center">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span></td>
 <td class="org-right"><code>4</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">4 c/a b/a a</td>
+<td class="org-right">4 c b a</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2791,7 +2727,25 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×</span></td>
 <td class="org-right"><code>20</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">4*c/a b/a a a</td>
+<td class="org-right">4*c b a a</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
+<td class="org-right"><code>43 33</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">a 4*cb a</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
+<td class="org-right"><code>10</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">4*c/a b a a</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2799,6 +2753,24 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
 <td class="org-right"><code>34</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">b 4*c/a a a</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
+<td class="org-right"><code>43 33</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">a b 4*c/a a</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
+<td class="org-right"><code>10</code></td>
 <td class="org-center">&#xa0;</td>
 <td class="org-right">b/a 4*c/a a a</td>
 <td class="org-center">&#xa0;</td>
@@ -2878,10 +2850,37 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 </tr>
 
 <tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
+<td class="org-right"><code>34</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">4*c/a D -b/a/2 -b/a/2</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">Save off Discriminant</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R↓</span></td>
+<td class="org-right"><code>33</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">D -b/a/2 -b/a/2 4*c/a</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">Save off Discriminant</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
+<td class="org-right"><code>36</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">D D -b/a/2 -b/a/2</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">Save off Discriminant</td>
+</tr>
+
+<tr>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>TEST</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span></td>
 <td class="org-right"><code>43,30, 2</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">D 4*c/a -b/a/2 -b/a/2</td>
+<td class="org-right">D D -b/a/2 -b/a/2</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2890,7 +2889,7 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>SF</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
 <td class="org-right"><code>43, 4, 8</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">D 4*c/a -b/a/2 -b/a/2</td>
+<td class="org-right">D D -b/a/2 -b/a/2</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">D&lt;0 -&gt; complex mode</td>
 </tr>
@@ -2899,7 +2898,7 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>√x</span></td>
 <td class="org-right"><code>11</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">√D 4*c/a -b/a/2 -b/a/2</td>
+<td class="org-right">√D D -b/a/2 -b/a/2</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2908,7 +2907,7 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span></td>
 <td class="org-right"><code>2</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">2 √D 4*c/a -b/a/2</td>
+<td class="org-right">2 √D D -b/a/2</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2917,7 +2916,7 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>÷</span></td>
 <td class="org-right"><code>10</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">√D/2 4*c/a -b/a/2 -b/a/2</td>
+<td class="org-right">√D/2 D -b/a/2 -b/a/2</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2926,7 +2925,7 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
 <td class="org-right"><code>43 33</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">-b/a/2 √D/2 4*c/a -b/a/2</td>
+<td class="org-right">-b/a/2 √D/2 D -b/a/2</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2935,7 +2934,7 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>x≷y</span></td>
 <td class="org-right"><code>34</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">√D/2 -b/a/2 4*c/a -b/a/2</td>
+<td class="org-right">√D/2 -b/a/2 D -b/a/2</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2944,7 +2943,7 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>-</span></td>
 <td class="org-right"><code>30</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">R1 4*c/a -b/a/2</td>
+<td class="org-right">R1 D -b/a/2</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2953,7 +2952,7 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LSTx</span></td>
 <td class="org-right"><code>43 36</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">√D/2 R1 4*c/a -b/a/2</td>
+<td class="org-right">√D/2 R1 D -b/a/2</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2962,7 +2961,7 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>R↑</span></td>
 <td class="org-right"><code>43 33</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">-b/a/2 √D/2 R1 4*c/a</td>
+<td class="org-right">-b/a/2 √D/2 R1 D</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2971,7 +2970,7 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>+</span></td>
 <td class="org-right"><code>40</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">R2 R1 4*c/a 4*c/a</td>
+<td class="org-right">R2 R1 D D</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2980,7 +2979,7 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
 <td class="org-right"><code>43 32</code></td>
 <td class="org-center">&#xa0;</td>
-<td class="org-right">R2 R1 4*c/a 4*c/a</td>
+<td class="org-right">R2 R1 D D</td>
 <td class="org-center">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -2989,8 +2988,8 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 </div>
 </div>
 </div>
-<div id="outline-container-org8328462" class="outline-2">
-<h2 id="org8328462"><span class="section-number-2">6.</span> Summary Resource Use</h2>
+<div id="outline-container-org7f40b32" class="outline-2">
+<h2 id="org7f40b32"><span class="section-number-2">6.</span> Summary Resource Use</h2>
 <div class="outline-text-2" id="text-6">
 </div>
 <div id="outline-container-resSumLab" class="outline-3">

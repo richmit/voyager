@@ -662,8 +662,12 @@ singular.
 :CUSTOM_ID: quadEqu
 :END:
 
-Find the two roots of \[ax^2+bx+c=0\] The coefficients may be real or complex.  Complex mode will automatically be enabled if required.  This program consumes
-no storage registers or internal labels.  It requires 32 program lines consuming 33 bytes (if I counted correctly).
+Find the discriminant and both roots of 
+
+\[ax^2+bx+c=0\] 
+
+The coefficients may be real or complex.  Complex mode will automatically be enabled if required.  This program consumes no storage registers or internal
+labels.  It requires 31 program lines consuming 32 bytes (if I counted correctly).
 
 ** Usage
 :PROPERTIES:
@@ -677,8 +681,8 @@ no storage registers or internal labels.  It requires 32 program lines consuming
     - {{{stk(X)}}} $c$
 - Exit Information
   - Exit Stack State:
-    - {{{stk(T)}}}: N/A
-    - {{{stk(Z)}}}: N/A
+    - {{{stk(T)}}}: Quadratic Discriminant
+    - {{{stk(Z)}}}: Quadratic Discriminant
     - {{{stk(Y)}}}: Second Root
     - {{{stk(X)}}}: First Root
   - Exit Flag State:
@@ -713,40 +717,39 @@ no storage registers or internal labels.  It requires 32 program lines consuming
 =SOLVE_QUAD= -- Solve a quadratic equation
 #+END_CENTER
 #+ATTR_HTML: :align center :cellpadding 1em
-| <l>                    |         <r> |    <c>    |                        <r> |    <c>    | <l>                 |
-| *Keystrokes* {{{SPC}}} | *Key Codes* | {{{SPC}}} |           *Stack Contents* | {{{SPC}}} | *Comments*          |
-| {{{c15( f LBL B  )}}}  |  =42,21,12= |           |                    c b a ? |           |                     |
-| {{{c15( 0        )}}}  |         =0= |           |                    0 c b a |           |                     |
-| {{{c15( +        )}}}  |        =40= |           |                    c b a a |           |                     |
-| {{{c15( g R↑     )}}}  |     =43 33= |           |                    a c b a |           |                     |
-| {{{c15( ÷        )}}}  |        =10= |           |                  c/a b a a |           |                     |
-| {{{c15( x≷y      )}}}  |        =34= |           |                  b c/a a a |           |                     |
-| {{{c15( g R↑     )}}}  |     =43 33= |           |                  a b c/a a |           |                     |
-| {{{c15( ÷        )}}}  |        =10= |           |                b/a c/a a a |           |                     |
-| {{{c15( x≷y      )}}}  |        =34= |           |                c/a b/a a a |           |                     |
-| {{{c15( 4        )}}}  |         =4= |           |                4 c/a b/a a |           |                     |
-| {{{c15( ×        )}}}  |        =20= |           |              4*c/a b/a a a |           |                     |
-| {{{c15( x≷y      )}}}  |        =34= |           |              b/a 4*c/a a a |           |                     |
-| {{{c15( ENTER    )}}}  |        =36= |           |            b/a b/a 4*c/a a |           |                     |
-| {{{c15( CHS      )}}}  |        =16= |           |           -b/a b/a 4*c/a a |           |                     |
-| {{{c15( 2        )}}}  |         =2= |           |           2 -b/a b/a 4*c/a |           |                     |
-| {{{c15( ÷        )}}}  |        =10= |           |     -b/a/2 b/a 4*c/a 4*c/a |           |                     |
-| {{{c15( R↓       )}}}  |        =33= |           |     b/a 4*c/a 4*c/a -b/a/2 |           |                     |
-| {{{c15( g x²     )}}}  |     =43 11= |           | (b/a)^2 4*c/a 4*c/a -b/a/2 |           |                     |
-| {{{c15( -        )}}}  |        =30= |           |     -D 4*c/a -b/a/2 -b/a/2 |           |                     |
-| {{{c15( CHS      )}}}  |        =16= |           |      D 4*c/a -b/a/2 -b/a/2 |           |                     |
-| {{{c15( g TEST 2 )}}}  |  =43,30, 2= |           |      D 4*c/a -b/a/2 -b/a/2 |           |                     |
-| {{{c15( g SF 8   )}}}  |  =43, 4, 8= |           |      D 4*c/a -b/a/2 -b/a/2 |           | D<0 -> complex mode |
-| {{{c15( √x       )}}}  |        =11= |           |     √D 4*c/a -b/a/2 -b/a/2 |           |                     |
-| {{{c15( 2        )}}}  |         =2= |           |          2 √D 4*c/a -b/a/2 |           |                     |
-| {{{c15( ÷        )}}}  |        =10= |           |   √D/2 4*c/a -b/a/2 -b/a/2 |           |                     |
-| {{{c15( g R↑     )}}}  |     =43 33= |           |   -b/a/2 √D/2 4*c/a -b/a/2 |           |                     |
-| {{{c15( x≷y      )}}}  |        =34= |           |   √D/2 -b/a/2 4*c/a -b/a/2 |           |                     |
-| {{{c15( -        )}}}  |        =30= |           |            R1 4*c/a -b/a/2 |           |                     |
-| {{{c15( g LSTx   )}}}  |     =43 36= |           |       √D/2 R1 4*c/a -b/a/2 |           |                     |
-| {{{c15( g R↑     )}}}  |     =43 33= |           |       -b/a/2 √D/2 R1 4*c/a |           |                     |
-| {{{c15( +        )}}}  |        =40= |           |          R2 R1 4*c/a 4*c/a |           |                     |
-| {{{c15( g RTN    )}}}  |     =43 32= |           |          R2 R1 4*c/a 4*c/a |           |                     |
+| <l>                    |         <r> |    <c>    |                        <r> |    <c>    | <l>                   |
+| *Keystrokes* {{{SPC}}} | *Key Codes* | {{{SPC}}} |           *Stack Contents* | {{{SPC}}} | *Comments*            |
+| {{{c15( f LBL B  )}}}  |  =42,21,12= |           |                    c b a ? |           |                       |
+| {{{c15( 4        )}}}  |         =4= |           |                    4 c b a |           |                       |
+| {{{c15( ×        )}}}  |        =20= |           |                  4*c b a a |           |                       |
+| {{{c15( g R↑     )}}}  |     =43 33= |           |                   a 4*cb a |           |                       |
+| {{{c15( ÷        )}}}  |        =10= |           |                4*c/a b a a |           |                       |
+| {{{c15( x≷y      )}}}  |        =34= |           |                b 4*c/a a a |           |                       |
+| {{{c15( g R↑     )}}}  |     =43 33= |           |                a b 4*c/a a |           |                       |
+| {{{c15( ÷        )}}}  |        =10= |           |              b/a 4*c/a a a |           |                       |
+| {{{c15( ENTER    )}}}  |        =36= |           |            b/a b/a 4*c/a a |           |                       |
+| {{{c15( CHS      )}}}  |        =16= |           |           -b/a b/a 4*c/a a |           |                       |
+| {{{c15( 2        )}}}  |         =2= |           |           2 -b/a b/a 4*c/a |           |                       |
+| {{{c15( ÷        )}}}  |        =10= |           |     -b/a/2 b/a 4*c/a 4*c/a |           |                       |
+| {{{c15( R↓       )}}}  |        =33= |           |     b/a 4*c/a 4*c/a -b/a/2 |           |                       |
+| {{{c15( g x²     )}}}  |     =43 11= |           | (b/a)^2 4*c/a 4*c/a -b/a/2 |           |                       |
+| {{{c15( -        )}}}  |        =30= |           |     -D 4*c/a -b/a/2 -b/a/2 |           |                       |
+| {{{c15( CHS      )}}}  |        =16= |           |      D 4*c/a -b/a/2 -b/a/2 |           |                       |
+| {{{c15( x≷y      )}}}  |        =34= |           |      4*c/a D -b/a/2 -b/a/2 |           | Save off Discriminant |
+| {{{c15( R↓       )}}}  |        =33= |           |      D -b/a/2 -b/a/2 4*c/a |           | Save off Discriminant |
+| {{{c15( ENTER    )}}}  |        =36= |           |          D D -b/a/2 -b/a/2 |           | Save off Discriminant |
+| {{{c15( g TEST 2 )}}}  |  =43,30, 2= |           |          D D -b/a/2 -b/a/2 |           |                       |
+| {{{c15( g SF 8   )}}}  |  =43, 4, 8= |           |          D D -b/a/2 -b/a/2 |           | D<0 -> complex mode   |
+| {{{c15( √x       )}}}  |        =11= |           |         √D D -b/a/2 -b/a/2 |           |                       |
+| {{{c15( 2        )}}}  |         =2= |           |              2 √D D -b/a/2 |           |                       |
+| {{{c15( ÷        )}}}  |        =10= |           |       √D/2 D -b/a/2 -b/a/2 |           |                       |
+| {{{c15( g R↑     )}}}  |     =43 33= |           |       -b/a/2 √D/2 D -b/a/2 |           |                       |
+| {{{c15( x≷y      )}}}  |        =34= |           |       √D/2 -b/a/2 D -b/a/2 |           |                       |
+| {{{c15( -        )}}}  |        =30= |           |                R1 D -b/a/2 |           |                       |
+| {{{c15( g LSTx   )}}}  |     =43 36= |           |           √D/2 R1 D -b/a/2 |           |                       |
+| {{{c15( g R↑     )}}}  |     =43 33= |           |           -b/a/2 √D/2 R1 D |           |                       |
+| {{{c15( +        )}}}  |        =40= |           |                  R2 R1 D D |           |                       |
+| {{{c15( g RTN    )}}}  |     =43 32= |           |                  R2 R1 D D |           |                       |
 
 * Summary Resource Use
 ** Labels
