@@ -741,7 +741,6 @@ no storage registers or internal labels.  It requires 35 program lines consuming
 | {{{c15( 2        )}}}  |         =2= |           |          2 √D 4*c/a -b/a/2 |           |                     |
 | {{{c15( ÷        )}}}  |        =10= |           |   √D/2 4*c/a -b/a/2 -b/a/2 |           |                     |
 | {{{c15( g R↑     )}}}  |     =43 33= |           |   -b/a/2 √D/2 4*c/a -b/a/2 |           |                     |
-| {{{c15( +        )}}}  |        =40= |           |     R1 4*c/a -b/a/2 -b/a/2 |           |                     |
 | {{{c15( x≷y      )}}}  |        =34= |           |   √D/2 -b/a/2 4*c/a -b/a/2 |           |                     |
 | {{{c15( +        )}}}  |        =40= |           |            R1 4*c/a -b/a/2 |           |                     |
 | {{{c15( g LSTx   )}}}  |     =43 36= |           |       √D/2 R1 4*c/a -b/a/2 |           |                     |
