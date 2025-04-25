@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-22 Tue 15:57 -->
+<!-- 2025-04-25 Fri 14:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP-15C Tips &amp; Tricks</title>
@@ -264,12 +264,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2025-04-22</i></td>
+<td class="org-left"><i>2025-04-25</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2025-04-22</i></td>
+<td class="org-left"><i>2025-04-25</i></td>
 </tr>
 </tbody>
 </table>
@@ -318,13 +318,14 @@ Copyright &copy; 2025 Mitch Richling. All rights reserved.
 </ul>
 </li>
 <li><a href="#hypot">5. General  <code>HYPOT</code> Function</a></li>
-<li><a href="#15ce">6. HP 15c CE Stuff</a>
+<li><a href="#regression">6. Regression</a></li>
+<li><a href="#15ce">7. HP 15c CE Stuff</a>
 <ul>
-<li><a href="#15ce-eggs">6.1. Diagnostics &amp; Easter Eggs</a></li>
-<li><a href="#15ce-save">6.2. Voyager Save</a></li>
+<li><a href="#15ce-eggs">7.1. Diagnostics &amp; Easter Eggs</a></li>
+<li><a href="#15ce-save">7.2. Voyager Save</a></li>
 </ul>
 </li>
-<li><a href="#meta">7. Meta Data</a></li>
+<li><a href="#meta">8. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -354,7 +355,7 @@ This item illustrates the different behavior of <span style='font-family:sans-se
 </p>
 
 
-<div id="orgab3f328" class="figure">
+<div id="org5d087bb" class="figure">
 <p><img src="fig-right.png" alt="fig-right.png" width="30%" align="center" />
 </p>
 </div>
@@ -447,7 +448,7 @@ function, see <a href="#hypot">HYPOT</a> below.
 </p>
 
 
-<div id="orge579c28" class="figure">
+<div id="org9da25e1" class="figure">
 <p><img src="fig-345.png" alt="fig-345.png" width="30%" align="center" />
 </p>
 </div>
@@ -544,7 +545,7 @@ number's argument to the supplementary angle.
 </p>
 
 
-<div id="org0b2fa56" class="figure">
+<div id="orga11a412" class="figure">
 <p><img src="fig-sas.png" alt="fig-sas.png" width="30%" align="center" />
 </p>
 </div>
@@ -1017,15 +1018,124 @@ When \(n>3\) the best sequence is
 </table>
 </div>
 </div>
+<div id="outline-container-regression" class="outline-2">
+<h2 id="regression"><span class="section-number-2">6.</span> Regression</h2>
+<div class="outline-text-2" id="text-regression">
+<p>
+Almost all scientific calculators support at last four types of regression:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Regression Type</th>
+<th scope="col" class="org-left">Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">linear</td>
+<td class="org-left">y=ax+b$</td>
+</tr>
+
+<tr>
+<td class="org-left">exponential</td>
+<td class="org-left">y=be^{ax}$</td>
+</tr>
+
+<tr>
+<td class="org-left">logarithmic</td>
+<td class="org-left">y=aln(x)+b$</td>
+</tr>
+
+<tr>
+<td class="org-left">power</td>
+<td class="org-left">y=bx^{ax}$</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+These four regression types may be computed from simple summary statistics, and are thus suitable even for calculators with very limited RAM.
+Unfortunately the HP-15C only supports linear regression out of the box.  So we must do a bit more work to compute the others.  Luckily, it's
+not hard &#x2013; we just need to transform the data as we enter it, and transform answers we extract.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Regression Type</th>
+<th scope="col" class="org-left">Data Entry Procedure</th>
+<th scope="col" class="org-left">Regression Coefficients</th>
+<th scope="col" class="org-left">Predictiction</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">\(b\) <b><code>X</code></b> and \(a\) <b><code>Y</code></b>.</th>
+<th scope="col" class="org-left">\(y\) given \(x\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">linear</td>
+<td class="org-left">\(y_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> \(x_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.</span></td>
+<td class="org-left">\(x\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span></td>
+</tr>
+
+<tr>
+<td class="org-left">logarithmic</td>
+<td class="org-left">\(y_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> \(x_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.</span></td>
+<td class="org-left">\(x\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span></td>
+</tr>
+
+<tr>
+<td class="org-left">exponential</td>
+<td class="org-left">\(y_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> \(x_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>eˣ</span></td>
+<td class="org-left">\(x\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>eˣ</span></td>
+</tr>
+
+<tr>
+<td class="org-left">power</td>
+<td class="org-left">\(y_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> \(x_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>eˣ</span></td>
+<td class="org-left">\(x\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>eˣ</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div id="outline-container-15ce" class="outline-2">
-<h2 id="15ce"><span class="section-number-2">6.</span> HP 15c CE Stuff</h2>
+<h2 id="15ce"><span class="section-number-2">7.</span> HP 15c CE Stuff</h2>
 <div class="outline-text-2" id="text-15ce">
 <p>
 I have one 15c from the mid 80's, and <b>three</b> 15 CE (collector's edition) units from 2023.  
 </p>
 </div>
 <div id="outline-container-15ce-eggs" class="outline-3">
-<h3 id="15ce-eggs"><span class="section-number-3">6.1.</span> Diagnostics &amp; Easter Eggs</h3>
+<h3 id="15ce-eggs"><span class="section-number-3">7.1.</span> Diagnostics &amp; Easter Eggs</h3>
 <div class="outline-text-3" id="text-15ce-eggs">
 <ul class="org-ul">
 <li>Turn the Calculator off.</li>
@@ -1051,7 +1161,7 @@ I have one 15c from the mid 80's, and <b>three</b> 15 CE (collector's edition) u
 </div>
 </div>
 <div id="outline-container-15ce-save" class="outline-3">
-<h3 id="15ce-save"><span class="section-number-3">6.2.</span> Voyager Save</h3>
+<h3 id="15ce-save"><span class="section-number-3">7.2.</span> Voyager Save</h3>
 <div class="outline-text-3" id="text-15ce-save">
 <ul class="org-ul">
 <li>Turn the Calculator off.</li>
@@ -1066,7 +1176,7 @@ I have been keeping my CE in 2X memory mode because I find myself needing a bit 
 </div>
 </div>
 <div id="outline-container-meta" class="outline-2">
-<h2 id="meta"><span class="section-number-2">7.</span> Meta Data</h2>
+<h2 id="meta"><span class="section-number-2">8.</span> Meta Data</h2>
 <div class="outline-text-2" id="text-meta">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15-tips.html">https://richmit.github.io/voyager/hp15-tips.html</a>

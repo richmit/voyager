@@ -324,6 +324,34 @@ When $n=3$ the best sequence is
 When $n>3$ the best sequence is
 | {{{c15(f CLR_Σ)}}} ( $x_i$ {{{c15(f Σ+)}}} ...) {{{c15(RCL 4 √x)}}} |
 
+* Regression
+:PROPERTIES:
+:CUSTOM_ID: regression
+:END:
+
+Almost all scientific calculators support at last four types of regression:
+
+#+ATTR_HTML: :align center
+| Regression Type | Formula      |
+|-----------------+--------------|
+| linear          | y=ax+b$      |
+| exponential     | y=be^{ax}$   |
+| logarithmic     | y=a\ln(x)+b$ |
+| power           | y=bx^{ax}$   |
+
+These four regression types may be computed from simple summary statistics, and are thus suitable even for calculators with very limited RAM.
+Unfortunately the HP-15C only supports linear regression out of the box.  So we must do a bit more work to compute the others.  Luckily, it's
+not hard -- we just need to transform the data as we enter it, and transform answers we extract.
+
+#+ATTR_HTML: :align center
+| Regression Type | Data Entry Procedure                            | Regression Coefficients                | Predictiction               |
+|                 |                                                 | $b$ {{{stk(X)}}} and $a$ {{{stk(Y)}}}. | $y$ given $x$               |
+|-----------------+-------------------------------------------------+----------------------------------------+-----------------------------|
+| linear          | $y_i$ {{{c15(ENTER)}}} $x_i$ {{{c15(Σ+)}}}      | {{{c15(f L.R.)}}}                      | $x$ {{{c15(ŷ\,r)}}}         |
+| logarithmic     | $y_i$ {{{c15(ENTER)}}} $x_i$ {{{c15(g LN Σ+)}}} | {{{c15(f L.R.)}}}                      | $x$ {{{c15(g LN ŷ\,r)}}}    |
+| exponential     | $y_i$ {{{c15(g LN)}}} $x_i$ {{{c15(Σ+)}}}       | {{{c15(f L.R. eˣ)}}}                   | $x$ {{{c15(ŷ\,r eˣ )}}}     |
+| power           | $y_i$ {{{c15(g LN)}}} $x_i$ {{{c15(g LN Σ+)}}}  | {{{c15(f L.R. eˣ)}}}                   | $x$ {{{c15(g LN ŷ\,r eˣ)}}} |
+
 * HP 15c CE Stuff
 :PROPERTIES:
 :CUSTOM_ID: 15ce
