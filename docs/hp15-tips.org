@@ -80,7 +80,7 @@ If the calculator is in complex mode (Flag 9 set):
 | {{{c15(g DEG)}}}               | Put calculator in degree mode (if necessary)                        |
 | {{{c15(5 ENTER 30 f I f →R)}}} | Enter complex number $5\angle30$ (length of $b$ and $\alpha$ angle) |
 
-$c$ is on the real stack at *=X=*, and $a$ is on the complex stack at *=X=*.
+$c$ is on the real stack at {{{stk(X)}}}, and $a$ is on the complex stack at {{{stk(X)}}}.
 
 *** Real Mode
 :PROPERTIES:
@@ -92,7 +92,7 @@ If the calculator is not in complex mode (Flag 9 clear):
 | {{{c15(g DEG)}}}           | Put calculator in degree mode (if necessary)                    |
 | {{{c15(30 ENTER 5 f →R)}}} | Enter $\alpha$ and $b$ on the stack, and convert to rectangular |
 
-$c$ is on the stack at *=X=*, and $a$ is on the stack at *=Y=*.
+$c$ is on the stack at {{{stk(X)}}}, and $a$ is on the stack at {{{stk(Y)}}}.
 
 ** Right Triangle: Known Legs (the 2D HYPOT function)
 :PROPERTIES:
@@ -124,7 +124,7 @@ If the calculator is in complex mode (Flag 9 set):
 | {{{c15(4 ENTER 3 f I)}}} | Enter complex number $4+3i$                  |
 | {{{c15(g →P)}}}          | Convert to polar form.                       |
 
-$b$ is the real stack at *=X=*, and $\alpha$ is on the complex stack at *=X=*.
+$b$ is the real stack at {{{stk(X)}}}, and $\alpha$ is on the complex stack at {{{stk(X)}}}.
 
 *** Real Mode
 :PROPERTIES:
@@ -136,7 +136,7 @@ If the calculator is not in complex mode (Flag 9 clear):
 | {{{c15(g DEG)}}}          | Put calculator in degree mode (if necessary)       |
 | {{{c15(3 ENTER 4 g →P)}}} | Enter $b$ & $c$ on the stack, and convert to polar |
 
-$b$ is the stack at *=X=*, and $\alpha$ is on the stack at *=Y=*.
+$b$ is the stack at {{{stk(X)}}}, and $\alpha$ is on the stack at {{{stk(Y)}}}.
 
 ** General Triangle: SAS (Side Angle Side)
 :PROPERTIES:
@@ -144,9 +144,9 @@ $b$ is the stack at *=X=*, and $\alpha$ is on the stack at *=Y=*.
 :END:
 
 The way the HP-15C works with complex numbers exposes the real & imaginary parts to the user for individual manipulation.  For example the HP-15C has no =Re=,
-=Im=, or =conj= functions because they are simply unnecessary.  This design choice makes it simple to change the sign of the real part of a complex number on the
-HP-15C with a single keystroke!  Most calculators require several keystrokes to achieve the same task. For example, on the HP-42S we might use a sequence like
-=[COMPLEX] [X<>Y] [CHS] [X<>Y] [COMPLEX]= to change the sign of the real part of a complex number.
+=Im=, or =conj= functions because they are simply unnecessary.  This design choice makes it simple to change the sign of the real part of a complex number on
+the HP-15C with a single keystroke!  Most calculators require several keystrokes to achieve the same task. For example, on the HP-42S we might use a sequence
+like =[COMPLEX] [X<>Y] [CHS] [X<>Y] [COMPLEX]= to change the sign of the real part of a complex number.
 
 In the sequence below we change the sign of the real part of a complex number with a single keystroke (step 4 below).  We do this to transform the complex
 number's argument to the supplementary angle.
@@ -156,13 +156,13 @@ file:fig-sas.png
 
 With $b=5$, $\alpha=30$, and $c=4$.
 
-| {{{c15(g DEG)}}}                | Put calculator in degree mode (if necessary)                                          |
-| {{{c15(5 ENTER 3 0 f I f →R)}}} | Enter complex number $5\angle30$ (length of $b$ and $\alpha$ angle)                   |
-| {{{c15(4 -)}}}                  | Subtract $4+0i$ (the length of $c$).  Gives side $a$ as a complex number              |
+| {{{c15(g DEG)}}}                | Put calculator in degree mode (if necessary)                                         |
+| {{{c15(5 ENTER 3 0 f I f →R)}}} | Enter complex number $5\angle30$ (length of $b$ and $\alpha$ angle)                  |
+| {{{c15(4 -)}}}                  | Subtract $4+0i$ (the length of $c$).  Gives side $a$ as a complex number             |
 | {{{c15(CHS)}}}                  | Changing the real part sign transforms the complex angle to the supplementary angle. |
-| {{{c15(→P)}}}                   | Convert to polar form.                                                                |
+| {{{c15(→P)}}}                   | Convert to polar form.                                                               |
 
-$a$ will be on the real stack at *=X=*, and $\beta$ will be on the complex stack at *=X=*.
+$a$ will be on the real stack at {{{stk(X)}}}, and $\beta$ will be on the complex stack at {{{stk(X)}}}.
 
 * Lines
 :PROPERTIES:
@@ -183,60 +183,35 @@ HP-15C requires only 7 keystrokes beyond data entry; however, on the fx-5800P (m
 Find the equation of the line passing through $(2,3)$ and $(5,2)$ in slope-intercept form (i.e. $y=mx+b$).
 
 | {{{c15(f CLR_Σ)}}}      | Clear statistical registers (if necessary) |
-| {{{c15(3 ENTER 2 Σ+)}}} | Enter first point (note y goes in first)  |
-| {{{c15(2 ENTER 5 Σ+)}}} | Enter second point                        |
-| {{{c15(L.R.)}}}         | Compute the line                          |
+| {{{c15(3 ENTER 2 Σ+)}}} | Enter first point (note y goes in first)   |
+| {{{c15(2 ENTER 5 Σ+)}}} | Enter second point                         |
+| {{{c15(L.R.)}}}         | Compute the line                           |
  
-The value for $m$ is in *=Y=*, and value for $b$ is in *=X=*.
+The value for $m$ is in {{{stk(Y)}}}, and value for $b$ is in {{{stk(X)}}}.
 
-** Interpolation & extrapolation (applied to Fahrenheit/Celsius Conversion)
+** Linear Interpolation & extrapolation (applied to Fahrenheit/Celsius Conversion)
 :PROPERTIES:
 :CUSTOM_ID: linInterp
 :END:
 
-This item is a continuation of the [[#linEq2][previous one]], but this time we are interested in computed values on the line instead of the equation -- i.e. we
-are interested in linear interpolation!  Like in the [[#linEq2][previous topic]], this concept works with any calculator capable of linear regression;
+This item is a continuation of the [[#linEq2][previous one]], but this time we are interested in computed values on the line instead of the equation --
+i.e. we are interested in linear interpolation!  Like in the [[#linEq2][previous topic]], this concept works with any calculator capable of linear regression;
 however, the process is so cumbersome on many modern calculators that it's simply not worth the effort.  On the Casio fx-5800P it takes 18 keystrokes (see:
-[[#linEq2][previous topic]]) to set up the interpolation, and 7 keystrokes ([FUNCTION] [7] [2] [DOWN] [DOWN] [DOWN] [ŷ]) to compute an interpolated value. Compare
-this to 7 keystrokes to set up the line, and 2 keystrokes to compute a value on the HP-15C. This is where the HP-15C shines.
+[[#linEq2][previous topic]]) to set up the interpolation, and 7 keystrokes ([FUNCTION] [7] [2] [DOWN] [DOWN] [DOWN] [ŷ]) to compute an interpolated
+value. Compare this to 7 keystrokes to set up the line, and 2 keystrokes to compute a value on the HP-15C. This is where the HP-15C shines.
 
 Suppose we have several Fahrenheit values we need to convert to Celsius.  We know the two values have a linear relationship, and we also remember the
 corresponding values in each system for the freezing and boiling points of water.  In particular 0 Celsius corresponds to 32 degrees Fahrenheit, and 100
 Celsius corresponds to 212 Fahrenheit. We wish to convert 68, 70, & 72 degrees Fahrenheit to Celsius.
 
-| {{{c15(f CLR_Σ)}}}              | Clear statistical registers (if necessary)  |
-| {{{c15(0 ENTER 32 Σ+)}}}        | Enter first known point                    |
-| {{{c15(100 ENTER 212 Σ+)}}}     | Enter second known point                   |
-| {{{c15(68 g ŷ\,r)}}}            | The celsius value is on the stack at *=X=* |
-| {{{c15(70 g ŷ\,r)}}}            | The celsius value is on the stack at *=X=* |
-| {{{c15(72 g ŷ\,r)}}}            | The celsius value is on the stack at *=X=* |
+| {{{c15(f CLR_Σ)}}}          | Clear statistical registers (if necessary)        |
+| {{{c15(0 ENTER 32 Σ+)}}}    | Enter first known point                           |
+| {{{c15(100 ENTER 212 Σ+)}}} | Enter second known point                          |
+| {{{c15(68 g ŷ\,r)}}}        | The celsius value is on the stack at {{{stk(X)}}} |
+| {{{c15(70 g ŷ\,r)}}}        | The celsius value is on the stack at {{{stk(X)}}} |
+| {{{c15(72 g ŷ\,r)}}}        | The celsius value is on the stack at {{{stk(X)}}} |
 
-** Logarithmic Interpolation (Non-Linear Interpolation)
-:PROPERTIES:
-:CUSTOM_ID: logInterp
-:END:
-
-Most modern calculators can do several types of regression (at least logarithmic, exponential, power, and linear).  The HP-15C can do only one, and that's
-linear regression.  Still, with a little extra effort, we can preform these other types of regressions via logarithmic transformation of the input data.
-Additionally we can extend this technique to a whole host of non-linear regression techniques rarely supported by calculators.  For me the most common
-non-linear regression I preform is logarithmic.
-
-Suppose we have two points, $(x_1, y_1)$ and $(x_2, y_2)$, that we know are on a curve of the form $y=m\cdot\ln(x)+b$.  As a practical example, it might be
-the case that we have two voltage/current points on a diode V-I curve and we wish to know the coefficients in the Shockley diode equation.  We can find this
-equation using the method [[#linEq2][used previously]] for finding the equation of a line given two points -- we simply enter the natural logarithm of the $x$
-data.
-
-For this example, let us suppose $(x_1, y_1)=(2,3)$ and $(x_2, y_2)=(5,2)$
-
-| {{{c15(f CLR_Σ)}}}         | Clear statistical registers (if necessary) |
-| {{{c15(3 ENTER 2 LN Σ+)}}} | Enter first point (note y goes in first)  |
-| {{{c15(2 ENTER 5 LN Σ+)}}} | Enter second point                        |
-| {{{c15(L.R.)}}}            | Compute the coefficients                  |
-
-The value for $m$ is in *=Y=*, and value for $b$ is in *=X=*.
-
-This method is quite general. We can replace $\ln$ with any function, $g(x)$, so long as $g(x)$ is monotone on the interval $[x_1, x_2]$.  For example, we
-could fit $y=m\cdot\sin(x)+b$ to the points $(0,1)$ & $(1.5, 2)$ -- because $\sin$ is monotone on $[0, 1.4]$.
+For non-linear interpolation see: [[#nonlinregres-logint][non-linear interpolation]].
 
 * 2D vectors
 :PROPERTIES:
@@ -261,7 +236,7 @@ Sum the following four vectors: $(2,3), (5,2), (7,7), (3,5)$.  In what follows w
 | {{{c15(RCL 3)}}}        | Sum of the $y$ components                  |
 | {{{c15(RCL 5)}}}        | Sum of the $x$ components                  |
  
-The sum of the $x$ components will be in *=X=*, and $y$ sum will be in *=Y=* .
+The sum of the $x$ components will be in {{{stk(X)}}}, and $y$ sum will be in {{{stk(Y)}}} .
 
 ** Angle between vectors
 :PROPERTIES:
@@ -283,7 +258,7 @@ Find the angle between the vectors $(2,3)$ and $(3,2)$.
 | {{{c15(3 ENTER 2 f I)}}} | Enter complex number $3+2i$ for the first vector |
 | {{{c15(÷ →P)}}}          | Divide and convert to polar form                 |
  
-The angle is on the complex stack at *=X=*.
+The angle is on the complex stack at {{{stk(X)}}}.
 
 *** Higher Dimensional Case
 :PROPERTIES:
@@ -303,7 +278,7 @@ For example find the angle between the following two vectors: $(2,3,5)$ & $(6,7,
 | {{{c15(5 ENTER 8 Σ+)}}}               | Enter last coordinates for each vector       |
 | {{{c15( RCL 7 RCL 4 RCL 6 × √x ÷ )}}} | Compute the angle                            |
  
-The angle will be in *=X=*.
+The angle will be in {{{stk(X)}}}.
 
 * General  =HYPOT= Function
 :PROPERTIES:
@@ -324,12 +299,21 @@ When $n=3$ the best sequence is
 When $n>3$ the best sequence is
 | {{{c15(f CLR_Σ)}}} ( $x_i$ {{{c15(f Σ+)}}} ...) {{{c15(RCL 4 √x)}}} |
 
-* Regression
+* Non-Linear Regression & Interpolation
 :PROPERTIES:
-:CUSTOM_ID: regression
+:CUSTOM_ID: nonlinregres
 :END:
 
-Almost all scientific calculators support at last four types of regression:
+Most modern calculators can do several types of regression.  Many older calcualtors supported four: linear, logarithmic, exponential, and power.  One of the
+reason these four were supported early on is that they can be computed from summary statstics via logarithmic/exponential data transformations.  This allowed
+them to be implimented on calcualtors with very little memory.
+
+** Classic Non-Linear Regression
+:PROPERTIES:
+:CUSTOM_ID: nonlinregres-classic
+:END:
+
+Almost all scientific calculators support the folling four types of regression:
 
 #+ATTR_HTML: :align center
 | Regression Type | Formula      |
@@ -339,9 +323,8 @@ Almost all scientific calculators support at last four types of regression:
 | logarithmic     | y=a\ln(x)+b$ |
 | power           | y=bx^{ax}$   |
 
-These four regression types may be computed from simple summary statistics, and are thus suitable even for calculators with very limited RAM.
-Unfortunately the HP-15C only supports linear regression out of the box.  So we must do a bit more work to compute the others.  Luckily, it's
-not hard -- we just need to transform the data as we enter it, and transform answers we extract.
+Unfortunately the HP-15C only supports linear regression out of the box.  So we must do a bit more work to compute the others.  Luckily, it's not hard -- we
+just need to transform the data as we enter it, and transform answers we extract.
 
 #+ATTR_HTML: :align center
 | Regression Type | Data Entry Procedure                            | Regression Coefficients                | Predictiction               |
@@ -351,6 +334,30 @@ not hard -- we just need to transform the data as we enter it, and transform ans
 | logarithmic     | $y_i$ {{{c15(ENTER)}}} $x_i$ {{{c15(g LN Σ+)}}} | {{{c15(f L.R.)}}}                      | $x$ {{{c15(g LN ŷ\,r)}}}    |
 | exponential     | $y_i$ {{{c15(g LN)}}} $x_i$ {{{c15(Σ+)}}}       | {{{c15(f L.R. eˣ)}}}                   | $x$ {{{c15(ŷ\,r eˣ )}}}     |
 | power           | $y_i$ {{{c15(g LN)}}} $x_i$ {{{c15(g LN Σ+)}}}  | {{{c15(f L.R. eˣ)}}}                   | $x$ {{{c15(g LN ŷ\,r eˣ)}}} |
+
+** Logarithmic Interpolation (Non-Linear Interpolation)
+:PROPERTIES:
+:CUSTOM_ID: nonlinregres-logint
+:END:
+
+We can use the same method employed with [[#linEq2][linear interpolation]] with the non-linear regression methods [[#nonlinregres-classic][mentioned
+previously]].  For me the most common non-linear regression I preform is logarithmic.
+
+Suppose we have two points, $(x_1, y_1)$ and $(x_2, y_2)$, that we know are on a curve of the form $y=m\cdot\ln(x)+b$.  As a practical example, it might be
+the case that we have two voltage/current points on a diode V-I curve and we wish to know the coefficients in the Shockley diode equation.
+
+For this example, let us suppose $(x_1, y_1)=(2,3)$ and $(x_2, y_2)=(5,2)$
+
+| {{{c15(f CLR_Σ)}}}         | Clear statistical registers (if necessary) |
+| {{{c15(3 ENTER 2 LN Σ+)}}} | Enter first point (note y goes in first)   |
+| {{{c15(2 ENTER 5 LN Σ+)}}} | Enter second point                         |
+| {{{c15(L.R.)}}}            | Compute the coefficients                   |
+
+The value for $m$ is in {{{stk(Y)}}}, and value for $b$ is in {{{stk(X)}}}.
+
+This technique is quite general and we need not limit ourselves to logarithmic transformations.  For example, we can replace $\ln(x)$ with any function,
+$g(x)$, so long as $g(x)$ is monotone on the interval $[x_1, x_2]$.  For example, we could fit $y=m\cdot\sin(x)+b$ to the points $(0,1)$ & $(1.5, 2)$ --
+because $\sin(x)$ is monotone on $[0, 1.4]$.
 
 * HP 15c CE Stuff
 :PROPERTIES:

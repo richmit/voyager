@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-25 Fri 14:26 -->
+<!-- 2025-04-25 Fri 15:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP-15C Tips &amp; Tricks</title>
@@ -302,8 +302,7 @@ Copyright &copy; 2025 Mitch Richling. All rights reserved.
 <li><a href="#lines">3. Lines</a>
 <ul>
 <li><a href="#linEq2">3.1. Equation of line given two points</a></li>
-<li><a href="#linInterp">3.2. Interpolation &amp; extrapolation (applied to Fahrenheit/Celsius Conversion)</a></li>
-<li><a href="#logInterp">3.3. Logarithmic Interpolation (Non-Linear Interpolation)</a></li>
+<li><a href="#linInterp">3.2. Linear Interpolation &amp; extrapolation (applied to Fahrenheit/Celsius Conversion)</a></li>
 </ul>
 </li>
 <li><a href="#vec2d">4. 2D vectors</a>
@@ -318,7 +317,12 @@ Copyright &copy; 2025 Mitch Richling. All rights reserved.
 </ul>
 </li>
 <li><a href="#hypot">5. General  <code>HYPOT</code> Function</a></li>
-<li><a href="#regression">6. Regression</a></li>
+<li><a href="#nonlinregres">6. Non-Linear Regression &amp; Interpolation</a>
+<ul>
+<li><a href="#nonlinregres-classic">6.1. Classic Non-Linear Regression</a></li>
+<li><a href="#nonlinregres-logint">6.2. Logarithmic Interpolation (Non-Linear Interpolation)</a></li>
+</ul>
+</li>
 <li><a href="#15ce">7. HP 15c CE Stuff</a>
 <ul>
 <li><a href="#15ce-eggs">7.1. Diagnostics &amp; Easter Eggs</a></li>
@@ -355,7 +359,7 @@ This item illustrates the different behavior of <span style='font-family:sans-se
 </p>
 
 
-<div id="org5d087bb" class="figure">
+<div id="orgfb188de" class="figure">
 <p><img src="fig-right.png" alt="fig-right.png" width="30%" align="center" />
 </p>
 </div>
@@ -448,7 +452,7 @@ function, see <a href="#hypot">HYPOT</a> below.
 </p>
 
 
-<div id="org9da25e1" class="figure">
+<div id="org18053af" class="figure">
 <p><img src="fig-345.png" alt="fig-345.png" width="30%" align="center" />
 </p>
 </div>
@@ -534,9 +538,9 @@ If the calculator is not in complex mode (Flag 9 clear):
 <div class="outline-text-3" id="text-SAS">
 <p>
 The way the HP-15C works with complex numbers exposes the real &amp; imaginary parts to the user for individual manipulation.  For example the HP-15C has no <code>Re</code>,
-<code>Im</code>, or <code>conj</code> functions because they are simply unnecessary.  This design choice makes it simple to change the sign of the real part of a complex number on the
-HP-15C with a single keystroke!  Most calculators require several keystrokes to achieve the same task. For example, on the HP-42S we might use a sequence like
-<code>[COMPLEX] [X&lt;&gt;Y] [CHS] [X&lt;&gt;Y] [COMPLEX]</code> to change the sign of the real part of a complex number.
+<code>Im</code>, or <code>conj</code> functions because they are simply unnecessary.  This design choice makes it simple to change the sign of the real part of a complex number on
+the HP-15C with a single keystroke!  Most calculators require several keystrokes to achieve the same task. For example, on the HP-42S we might use a sequence
+like <code>[COMPLEX] [X&lt;&gt;Y] [CHS] [X&lt;&gt;Y] [COMPLEX]</code> to change the sign of the real part of a complex number.
 </p>
 
 <p>
@@ -545,7 +549,7 @@ number's argument to the supplementary angle.
 </p>
 
 
-<div id="orga11a412" class="figure">
+<div id="orgc5b1bef" class="figure">
 <p><img src="fig-sas.png" alt="fig-sas.png" width="30%" align="center" />
 </p>
 </div>
@@ -654,14 +658,14 @@ The value for \(m\) is in <b><code>Y</code></b>, and value for \(b\) is in <b><c
 </div>
 </div>
 <div id="outline-container-linInterp" class="outline-3">
-<h3 id="linInterp"><span class="section-number-3">3.2.</span> Interpolation &amp; extrapolation (applied to Fahrenheit/Celsius Conversion)</h3>
+<h3 id="linInterp"><span class="section-number-3">3.2.</span> Linear Interpolation &amp; extrapolation (applied to Fahrenheit/Celsius Conversion)</h3>
 <div class="outline-text-3" id="text-linInterp">
 <p>
-This item is a continuation of the <a href="#linEq2">previous one</a>, but this time we are interested in computed values on the line instead of the equation &#x2013; i.e. we
-are interested in linear interpolation!  Like in the <a href="#linEq2">previous topic</a>, this concept works with any calculator capable of linear regression;
+This item is a continuation of the <a href="#linEq2">previous one</a>, but this time we are interested in computed values on the line instead of the equation &#x2013;
+i.e. we are interested in linear interpolation!  Like in the <a href="#linEq2">previous topic</a>, this concept works with any calculator capable of linear regression;
 however, the process is so cumbersome on many modern calculators that it's simply not worth the effort.  On the Casio fx-5800P it takes 18 keystrokes (see:
-<a href="#linEq2">previous topic</a>) to set up the interpolation, and 7 keystrokes ([FUNCTION] [7] [2] [DOWN] [DOWN] [DOWN] [ŷ]) to compute an interpolated value. Compare
-this to 7 keystrokes to set up the line, and 2 keystrokes to compute a value on the HP-15C. This is where the HP-15C shines.
+<a href="#linEq2">previous topic</a>) to set up the interpolation, and 7 keystrokes ([FUNCTION] [7] [2] [DOWN] [DOWN] [DOWN] [ŷ]) to compute an interpolated
+value. Compare this to 7 keystrokes to set up the line, and 2 keystrokes to compute a value on the HP-15C. This is where the HP-15C shines.
 </p>
 
 <p>
@@ -710,67 +714,9 @@ Celsius corresponds to 212 Fahrenheit. We wish to convert 68, 70, &amp; 72 degre
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div id="outline-container-logInterp" class="outline-3">
-<h3 id="logInterp"><span class="section-number-3">3.3.</span> Logarithmic Interpolation (Non-Linear Interpolation)</h3>
-<div class="outline-text-3" id="text-logInterp">
-<p>
-Most modern calculators can do several types of regression (at least logarithmic, exponential, power, and linear).  The HP-15C can do only one, and that's
-linear regression.  Still, with a little extra effort, we can preform these other types of regressions via logarithmic transformation of the input data.
-Additionally we can extend this technique to a whole host of non-linear regression techniques rarely supported by calculators.  For me the most common
-non-linear regression I preform is logarithmic.
-</p>
 
 <p>
-Suppose we have two points, \((x_1, y_1)\) and \((x_2, y_2)\), that we know are on a curve of the form \(y=m\cdot\ln(x)+b\).  As a practical example, it might be
-the case that we have two voltage/current points on a diode V-I curve and we wish to know the coefficients in the Shockley diode equation.  We can find this
-equation using the method <a href="#linEq2">used previously</a> for finding the equation of a line given two points &#x2013; we simply enter the natural logarithm of the \(x\)
-data.
-</p>
-
-<p>
-For this example, let us suppose \((x_1, y_1)=(2,3)\) and \((x_2, y_2)=(5,2)\)
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span></td>
-<td class="org-left">Clear statistical registers (if necessary)</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
-<td class="org-left">Enter first point (note y goes in first)</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
-<td class="org-left">Enter second point</td>
-</tr>
-
-<tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.</span></td>
-<td class="org-left">Compute the coefficients</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-The value for \(m\) is in <b><code>Y</code></b>, and value for \(b\) is in <b><code>X</code></b>.
-</p>
-
-<p>
-This method is quite general. We can replace \(\ln\) with any function, \(g(x)\), so long as \(g(x)\) is monotone on the interval \([x_1, x_2]\).  For example, we
-could fit \(y=m\cdot\sin(x)+b\) to the points \((0,1)\) &amp; \((1.5, 2)\) &#x2013; because \(\sin\) is monotone on \([0, 1.4]\).
+For non-linear interpolation see: <a href="#nonlinregres-logint">non-linear interpolation</a>.
 </p>
 </div>
 </div>
@@ -1018,11 +964,20 @@ When \(n>3\) the best sequence is
 </table>
 </div>
 </div>
-<div id="outline-container-regression" class="outline-2">
-<h2 id="regression"><span class="section-number-2">6.</span> Regression</h2>
-<div class="outline-text-2" id="text-regression">
+<div id="outline-container-nonlinregres" class="outline-2">
+<h2 id="nonlinregres"><span class="section-number-2">6.</span> Non-Linear Regression &amp; Interpolation</h2>
+<div class="outline-text-2" id="text-nonlinregres">
 <p>
-Almost all scientific calculators support at last four types of regression:
+Most modern calculators can do several types of regression.  Many older calcualtors supported four: linear, logarithmic, exponential, and power.  One of the
+reason these four were supported early on is that they can be computed from summary statstics via logarithmic/exponential data transformations.  This allowed
+them to be implimented on calcualtors with very little memory.
+</p>
+</div>
+<div id="outline-container-nonlinregres-classic" class="outline-3">
+<h3 id="nonlinregres-classic"><span class="section-number-3">6.1.</span> Classic Non-Linear Regression</h3>
+<div class="outline-text-3" id="text-nonlinregres-classic">
+<p>
+Almost all scientific calculators support the folling four types of regression:
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
@@ -1063,9 +1018,8 @@ Almost all scientific calculators support at last four types of regression:
 </table>
 
 <p>
-These four regression types may be computed from simple summary statistics, and are thus suitable even for calculators with very limited RAM.
-Unfortunately the HP-15C only supports linear regression out of the box.  So we must do a bit more work to compute the others.  Luckily, it's
-not hard &#x2013; we just need to transform the data as we enter it, and transform answers we extract.
+Unfortunately the HP-15C only supports linear regression out of the box.  So we must do a bit more work to compute the others.  Luckily, it's not hard &#x2013; we
+just need to transform the data as we enter it, and transform answers we extract.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
@@ -1125,6 +1079,66 @@ not hard &#x2013; we just need to transform the data as we enter it, and transfo
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div id="outline-container-nonlinregres-logint" class="outline-3">
+<h3 id="nonlinregres-logint"><span class="section-number-3">6.2.</span> Logarithmic Interpolation (Non-Linear Interpolation)</h3>
+<div class="outline-text-3" id="text-nonlinregres-logint">
+<p>
+We can use the same method employed with <a href="#linEq2">linear interpolation</a> with the non-linear regression methods <a href="#nonlinregres-classic">mentioned
+previously</a>.  For me the most common non-linear regression I preform is logarithmic.
+</p>
+
+<p>
+Suppose we have two points, \((x_1, y_1)\) and \((x_2, y_2)\), that we know are on a curve of the form \(y=m\cdot\ln(x)+b\).  As a practical example, it might be
+the case that we have two voltage/current points on a diode V-I curve and we wish to know the coefficients in the Shockley diode equation.
+</p>
+
+<p>
+For this example, let us suppose \((x_1, y_1)=(2,3)\) and \((x_2, y_2)=(5,2)\)
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span></td>
+<td class="org-left">Clear statistical registers (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter first point (note y goes in first)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter second point</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.</span></td>
+<td class="org-left">Compute the coefficients</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The value for \(m\) is in <b><code>Y</code></b>, and value for \(b\) is in <b><code>X</code></b>.
+</p>
+
+<p>
+This technique is quite general and we need not limit ourselves to logarithmic transformations.  For example, we can replace \(\ln(x)\) with any function,
+\(g(x)\), so long as \(g(x)\) is monotone on the interval \([x_1, x_2]\).  For example, we could fit \(y=m\cdot\sin(x)+b\) to the points \((0,1)\) &amp; \((1.5, 2)\) &#x2013;
+because \(\sin(x)\) is monotone on \([0, 1.4]\).
+</p>
+</div>
 </div>
 </div>
 <div id="outline-container-15ce" class="outline-2">
