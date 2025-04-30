@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-24 Thu 14:15 -->
+<!-- 2025-04-30 Wed 12:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -267,12 +267,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2025-04-24</i></td>
+<td class="org-left"><i>2025-04-30</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2025-04-24</i></td>
+<td class="org-left"><i>2025-04-30</i></td>
 </tr>
 </tbody>
 </table>
@@ -330,7 +330,7 @@ HP-15C on my desk.
 </li>
 <li><a href="#newton">3. Newton's Method for Functions of a Complex Variable</a>
 <ul>
-<li><a href="#org3277c46">3.1. Usage</a></li>
+<li><a href="#org5784b79">3.1. Usage</a></li>
 <li><a href="#newtonRes">3.2. Resources Used</a></li>
 <li><a href="#newtonCode">3.3. Program Listing</a></li>
 </ul>
@@ -374,7 +374,7 @@ HP-15C on my desk.
 <li><a href="#quadEquCode">5.3. Program Listing</a></li>
 </ul>
 </li>
-<li><a href="#org7f40b32">6. Summary Resource Use</a>
+<li><a href="#org0290a86">6. Summary Resource Use</a>
 <ul>
 <li><a href="#resSumLab">6.1. Labels</a>
 <ul>
@@ -834,9 +834,9 @@ fortunate, converge to a root.
 </p>
 
 <p>
-This program is a super simple implementation of Newton's method using only two registers and no internal labels.  Being minimal, this implementation doesn't
-check for division by zero (small derivative) or zero progress (small delta x).  It will happily loop forever trying to converge &#x2013; i.e. it won't bail out
-after an excessive number of iterations.
+My primary intent for this program is to provide a good example illustrating <code>STO_CPLX</code> &amp; <code>RCL_CPLX</code> in a program, and thus the implementation super simple
+using no registers or internal labels.  This implementation doesn't check for division by zero (small derivative).  It also performs no convergence checks and
+will happily loop forever.  As simple as it is, I keep it on my calculator because works pretty well.
 </p>
 
 <p>
@@ -847,8 +847,8 @@ In what follows, the function we are solving is referred to as \(f(x)\) and the 
 If the calculator is not already in complex mode, then it will be placed in complex mode by the program.
 </p>
 </div>
-<div id="outline-container-org3277c46" class="outline-3">
-<h3 id="org3277c46"><span class="section-number-3">3.1.</span> Usage</h3>
+<div id="outline-container-org5784b79" class="outline-3">
+<h3 id="org5784b79"><span class="section-number-3">3.1.</span> Usage</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Running the program
@@ -887,8 +887,7 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </ul></li>
 <li>Non-normal Exits:
 <ul class="org-ul">
-<li><b>Program might not converge:</b>  In this case it will run forever.  If the program is interrupted it is highly likely, but not guaranteed, the last guess will
-be stored in registers <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span>.</li>
+<li><b>Convergence failure:</b> In this case the program should be interrupted by the user.  The last guess will likely be stored in registers <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span>, but this is not guaranteed!</li>
 <li><b>Evaluation error:</b> If the function causes an error during evaluation, the program will stop.  The last guess will be stored in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span>.</li>
 <li><b>Zero Derivative:</b> If the derivative is zero, then an "<code>Error 0</code>" will occur.   The last guess will be stored in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span>.</li>
 </ul></li>
@@ -2988,8 +2987,8 @@ labels.  It requires 31 program lines consuming 32 bytes (if I counted correctly
 </div>
 </div>
 </div>
-<div id="outline-container-org7f40b32" class="outline-2">
-<h2 id="org7f40b32"><span class="section-number-2">6.</span> Summary Resource Use</h2>
+<div id="outline-container-org0290a86" class="outline-2">
+<h2 id="org0290a86"><span class="section-number-2">6.</span> Summary Resource Use</h2>
 <div class="outline-text-2" id="text-6">
 </div>
 <div id="outline-container-resSumLab" class="outline-3">
@@ -3272,7 +3271,13 @@ How I normally use register storage.
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.0</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.6</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.0</span></td>
+<td class="org-left">Temporary storage</td>
+<td class="org-left">Whatever, but usually for programs</td>
+</tr>
+
+<tr>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.1</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.6</span></td>
 <td class="org-left">Whatever</td>
 <td class="org-left">Whatever</td>
 </tr>

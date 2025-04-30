@@ -194,9 +194,9 @@ If the calculator is not already in complex mode, then it will be placed in comp
 Newton's method is an iterative root finding algorithm.  From an initial guess for a root, the method generates a sequence of guesses that, if we are
 fortunate, converge to a root.
 
-This program is a super simple implementation of Newton's method using only two registers and no internal labels.  Being minimal, this implementation doesn't
-check for division by zero (small derivative) or zero progress (small delta x).  It will happily loop forever trying to converge -- i.e. it won't bail out
-after an excessive number of iterations.
+My primary intent for this program is to provide a good example illustrating =STO_CPLX= & =RCL_CPLX= in a program, and thus the super simple implementation
+using no registers or internal labels.  This implementation doesn't check for division by zero (small derivative).  It also performs no convergence checks and
+will happily loop forever.  As simple as it is, I keep it on my calculator because works pretty well.
 
 In what follows, the function we are solving is referred to as $f(x)$ and the initial guess is referred to as $x_0$.  The final guess is referred to as $x_n$.
 
@@ -226,8 +226,7 @@ If the calculator is not already in complex mode, then it will be placed in comp
     - {{{reg( 8 )}}} $\Re(x_n)$
     - {{{reg( 9 )}}} $\Im(x_n)$
   - Non-normal Exits:
-   - *Program might not converge:*  In this case it will run forever.  If the program is interrupted it is highly likely, but not guaranteed, the last guess will
-     be stored in registers {{{reg( 8 )}}} & {{{reg( 9 )}}}.
+   - *Convergence failure:* In this case the program should be interrupted by the user.  The last guess will likely be stored in registers {{{reg( 8 )}}} & {{{reg( 9 )}}}, but this is not guaranteed!
    - *Evaluation error:* If the function causes an error during evaluation, the program will stop.  The last guess will be stored in {{{reg( 8 )}}} & {{{reg( 9 )}}}.
    - *Zero Derivative:* If the derivative is zero, then an "=Error 0=" will occur.   The last guess will be stored in {{{reg( 8 )}}} & {{{reg( 9 )}}}.
 
@@ -822,7 +821,8 @@ How I normally use register storage.
 | {{{reg(  0 )}}} - {{{reg(  1 )}}} | Always for matrix indexes$^1$  | Whatever, but usually as matrix indexes |
 | {{{reg(  2 )}}} - {{{reg(  7 )}}} | Always for statistics$^1$      | Whatever, but usually for statistics    |
 | {{{reg(  8 )}}} - {{{reg(  9 )}}} | User visible program registers | Whatever, but usually for programs      |
-| {{{reg( .0 )}}} - {{{reg( .6 )}}} | Whatever                       | Whatever                                |
+|          {{{reg( .0 )}}}          | Temporary storage              | Whatever, but usually for programs      |
+| {{{reg( .1 )}}} - {{{reg( .6 )}}} | Whatever                       | Whatever                                |
 | {{{reg( .7 )}}} - {{{reg( .9 )}}} | Unit conversion factors$^2$    | Unit conversion factors                 |
 
  1) I avoid using the matrix & staticial registers in programs because I ocassionally use matrix & statstical functions in solver programs.  For example, if I
