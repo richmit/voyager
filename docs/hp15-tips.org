@@ -75,7 +75,7 @@ With $b=5$ and $\alpha=30$.
 :CUSTOM_ID: triHypAngleC
 :END:
 
-If the calculator is in complex mode (Flag {{{flg(9)}}} set):
+If the calculator is in complex mode (Flag {{{flg(8)}}} set):
 
 | {{{c15(g DEG)}}}               | Put calculator in degree mode (if necessary)                        |
 | {{{c15(5 ENTER 30 f I f →R)}}} | Enter complex number $5\angle30$ (length of $b$ and $\alpha$ angle) |
@@ -87,7 +87,7 @@ $c$ is on the real stack at {{{stk(X)}}}, and $a$ is on the complex stack at {{{
 :CUSTOM_ID: triHypAngleR
 :END:
 
-If the calculator is not in complex mode (Flag {{{flg(9)}}} clear):
+If the calculator is not in complex mode (Flag {{{flg(8)}}} clear):
 
 | {{{c15(g DEG)}}}           | Put calculator in degree mode (if necessary)                    |
 | {{{c15(30 ENTER 5 f →R)}}} | Enter $\alpha$ and $b$ on the stack, and convert to rectangular |
@@ -99,7 +99,7 @@ $c$ is on the stack at {{{stk(X)}}}, and $a$ is on the stack at {{{stk(Y)}}}.
 :CUSTOM_ID: triLegs
 :END:
 
-Like the [[#triHypAngle][previous item]], this one also illustrates the different behavior of {{{c15(→R)}}} and {{{c15(→P)}}} when complex mode (flag {{{flg(9)}}} set)
+Like the [[#triHypAngle][previous item]], this one also illustrates the different behavior of {{{c15(→R)}}} and {{{c15(→P)}}} when complex mode (flag {{{flg(8)}}} set)
 is enabled.  In addition, this item illustrates the most efficient way to compute the 2D $\mathrm{HYPOT}$ function.
 
 The 2D $\mathrm{HYPOT}$ function is defined as $\mathrm{HYPOT}(x,y)=\sqrt{x^2+y^2}$.  The function is so named because its value is the length of the
@@ -118,7 +118,7 @@ With $c=4$ and $b=3$.
 :CUSTOM_ID: triLegsC
 :END:
 
-If the calculator is in complex mode (Flag {{{flg(9)}}} set):
+If the calculator is in complex mode (Flag {{{flg(8)}}} set):
 
 | {{{c15(g DEG)}}}         | Put calculator in degree mode (if necessary) |
 | {{{c15(4 ENTER 3 f I)}}} | Enter complex number $4+3i$                  |
@@ -131,7 +131,7 @@ $b$ is the real stack at {{{stk(X)}}}, and $\alpha$ is on the complex stack at {
 :CUSTOM_ID: triLegsR
 :END:
 
-If the calculator is not in complex mode (Flag {{{flg(9)}}} clear):
+If the calculator is not in complex mode (Flag {{{flg(8)}}} clear):
 
 | {{{c15(g DEG)}}}          | Put calculator in degree mode (if necessary)       |
 | {{{c15(3 ENTER 4 g →P)}}} | Enter $b$ & $c$ on the stack, and convert to polar |
@@ -185,7 +185,7 @@ Find the equation of the line passing through $(2,3)$ and $(5,2)$ in slope-inter
 | {{{c15(f CLR_Σ)}}}      | Clear statistical registers (if necessary) |
 | {{{c15(3 ENTER 2 Σ+)}}} | Enter first point (note y goes in first)   |
 | {{{c15(2 ENTER 5 Σ+)}}} | Enter second point                         |
-| {{{c15(L.R.)}}}         | Compute the line                           |
+| {{{c15(f L.R.)}}}       | Compute the line                           |
  
 The value for $m$ is in {{{stk(Y)}}}, and value for $b$ is in {{{stk(X)}}}.
 
@@ -207,9 +207,9 @@ Celsius corresponds to 212 Fahrenheit. We wish to convert 68, 70, & 72 degrees F
 | {{{c15(f CLR_Σ)}}}          | Clear statistical registers (if necessary)        |
 | {{{c15(0 ENTER 32 Σ+)}}}    | Enter first known point                           |
 | {{{c15(100 ENTER 212 Σ+)}}} | Enter second known point                          |
-| {{{c15(68 g ŷ\,r)}}}        | The celsius value is on the stack at {{{stk(X)}}} |
-| {{{c15(70 g ŷ\,r)}}}        | The celsius value is on the stack at {{{stk(X)}}} |
-| {{{c15(72 g ŷ\,r)}}}        | The celsius value is on the stack at {{{stk(X)}}} |
+| {{{c15(68 f ŷ\,r)}}}        | The celsius value is on the stack at {{{stk(X)}}} |
+| {{{c15(70 f ŷ\,r)}}}        | The celsius value is on the stack at {{{stk(X)}}} |
+| {{{c15(72 f ŷ\,r)}}}        | The celsius value is on the stack at {{{stk(X)}}} |
 
 For non-linear interpolation see: [[#nonlinregres-logint][non-linear interpolation]].
 
@@ -297,7 +297,7 @@ When $n=3$ the best sequence is
 | $x_1$ {{{c15(ENTER ×)}}} $x_2$ {{{c15(ENTER × +)}}} $x_3$  {{{c15(ENTER × + √x)}}} 
 
 When $n>3$ the best sequence is
-| {{{c15(f CLR_Σ)}}} ( $x_i$ {{{c15(f Σ+)}}} ...) {{{c15(RCL 4 √x)}}} |
+| {{{c15(f CLR_Σ)}}} ( $x_i$ {{{c15(Σ+)}}} ...) {{{c15(RCL 4 √x)}}}   |
 
 * Non-Linear Regression & Interpolation
 :PROPERTIES:
@@ -348,16 +348,45 @@ the case that we have two voltage/current points on a diode V-I curve and we wis
 
 For this example, let us suppose $(x_1, y_1)=(2,3)$ and $(x_2, y_2)=(5,2)$
 
-| {{{c15(f CLR_Σ)}}}         | Clear statistical registers (if necessary) |
-| {{{c15(3 ENTER 2 LN Σ+)}}} | Enter first point (note y goes in first)   |
-| {{{c15(2 ENTER 5 LN Σ+)}}} | Enter second point                         |
-| {{{c15(L.R.)}}}            | Compute the coefficients                   |
+| {{{c15(f CLR_Σ)}}}           | Clear statistical registers (if necessary) |
+| {{{c15(3 ENTER 2 g LN Σ+)}}} | Enter first point (note y goes in first)   |
+| {{{c15(2 ENTER 5 g LN Σ+)}}} | Enter second point                         |
+| {{{c15(L.R.)}}}              | Compute the coefficients                   |
 
 The value for $m$ is in {{{stk(Y)}}}, and value for $b$ is in {{{stk(X)}}}.
 
 This technique is quite general and we need not limit ourselves to logarithmic transformations.  For example, we can replace $\ln(x)$ with any function,
 $g(x)$, so long as $g(x)$ is monotone on the interval $[x_1, x_2]$.  For example, we could fit $y=m\cdot\sin(x)+b$ to the points $(0,1)$ & $(1.5, 2)$ --
 because $\sin(x)$ is monotone on $[0, 1.4]$.
+
+* 2D Normal Equations
+:PROPERTIES:
+:CUSTOM_ID: normal-eq
+:END:
+
+Let \( A\in\mathbb{R}^{m\times 2} \) be a two column real matrix with \( m>2 \).  We wish to compute \( N = A^T A \).  We can use the statistical functions to
+compute the matrix and/or it's determinant.  This technique requires fewer keystrokes, and also consumes no matrix storage.  That said, it uses the
+statistical registers ({{{reg(2)}}}-{{{reg(7)}}}).
+
+For this example, let us suppose 
+  \[ A = 
+    \left[ 
+    {\begin{array}{cc}
+      1 & 2 \\
+      3 & 4 \\
+      5 & 6 \\
+    \end{array} } \right]
+  \]
+
+| {{{c15(f CLR_Σ)}}}      | Clear statistical registers (if necessary) |
+| {{{c15(1 ENTER 2 Σ+)}}} | Enter first row                            |
+| {{{c15(3 ENTER 4 Σ+)}}} | Enter second row                           |
+| {{{c15(5 ENTER 6 Σ+)}}} | Enter third row                            |
+| {{{c15(RCL 6)}}}        | \( N_{1,1} \).                             |
+| {{{c15(RCL 7)}}}        | \( N_{1,2} \) & \( N_{2,1} \)              |
+| {{{c15(RCL 4)}}}        | \( N_{2,2} \).                             |
+
+Note we can compute \( \det(N) \) like this: {{{c15(RCL 6 RCL 6 × RCL 7 g x² -)}}} 
 
 * HP 15c CE Stuff
 :PROPERTIES:

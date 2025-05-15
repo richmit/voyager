@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-30 Wed 12:45 -->
+<!-- 2025-05-15 Thu 15:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP Voyager Programs</title>
@@ -267,12 +267,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2025-04-30</i></td>
+<td class="org-left"><i>2025-05-15</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2025-04-30</i></td>
+<td class="org-left"><i>2025-05-15</i></td>
 </tr>
 </tbody>
 </table>
@@ -330,7 +330,7 @@ HP-15C on my desk.
 </li>
 <li><a href="#newton">3. Newton's Method for Functions of a Complex Variable</a>
 <ul>
-<li><a href="#org5784b79">3.1. Usage</a></li>
+<li><a href="#orgeb6a6fe">3.1. Usage</a></li>
 <li><a href="#newtonRes">3.2. Resources Used</a></li>
 <li><a href="#newtonCode">3.3. Program Listing</a></li>
 </ul>
@@ -365,6 +365,13 @@ HP-15C on my desk.
 <li><a href="#matDetCode">4.4.3. Program Listing</a></li>
 </ul>
 </li>
+<li><a href="#matNrm">4.5. Normal Equations</a>
+<ul>
+<li><a href="#matNrmUsage">4.5.1. Usage</a></li>
+<li><a href="#matNrmRes">4.5.2. Resources Used</a></li>
+<li><a href="#matNrmCode">4.5.3. Program Listing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#quadEqu">5. Quadratic Equation</a>
@@ -374,7 +381,7 @@ HP-15C on my desk.
 <li><a href="#quadEquCode">5.3. Program Listing</a></li>
 </ul>
 </li>
-<li><a href="#org0290a86">6. Summary Resource Use</a>
+<li><a href="#org3ac7047">6. Summary Resource Use</a>
 <ul>
 <li><a href="#resSumLab">6.1. Labels</a>
 <ul>
@@ -543,8 +550,8 @@ The real part of <b><code>Y</code></b> is stored at the register indicated by th
 <ul class="org-ul">
 <li>Entry Point Labels:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> RCL_CPLX &#x2013; <code>STO_CPLX</code> on the left and <code>RCL_CPLX</code> on the right &#x2013; just like the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> &amp; <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> buttons</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>D</span> STO_CPLX</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;E</span> RCL_CPLX &#x2013; <code>STO_CPLX</code> on the left and <code>RCL_CPLX</code> on the right &#x2013; just like the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> &amp; <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> buttons</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;D</span> STO_CPLX</li>
 </ul></li>
 <li>Internal Labels:
 <ul class="org-ul">
@@ -834,7 +841,7 @@ fortunate, converge to a root.
 </p>
 
 <p>
-My primary intent for this program is to provide a good example illustrating <code>STO_CPLX</code> &amp; <code>RCL_CPLX</code> in a program, and thus the implementation super simple
+My primary intent for this program is to provide a good example illustrating <code>STO_CPLX</code> &amp; <code>RCL_CPLX</code> in a program, and thus the super simple implementation
 using no registers or internal labels.  This implementation doesn't check for division by zero (small derivative).  It also performs no convergence checks and
 will happily loop forever.  As simple as it is, I keep it on my calculator because works pretty well.
 </p>
@@ -847,8 +854,8 @@ In what follows, the function we are solving is referred to as \(f(x)\) and the 
 If the calculator is not already in complex mode, then it will be placed in complex mode by the program.
 </p>
 </div>
-<div id="outline-container-org5784b79" class="outline-3">
-<h3 id="org5784b79"><span class="section-number-3">3.1.</span> Usage</h3>
+<div id="outline-container-orgeb6a6fe" class="outline-3">
+<h3 id="orgeb6a6fe"><span class="section-number-3">3.1.</span> Usage</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Running the program
@@ -882,14 +889,14 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </ul></li>
 <li>Exit Register State:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> \(\Re(x_n)\)</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span> \(\Im(x_n)\)</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;8</span> \(\Re(x_n)\)</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;9</span> \(\Im(x_n)\)</li>
 </ul></li>
 <li>Non-normal Exits:
 <ul class="org-ul">
-<li><b>Convergence failure:</b> In this case the program should be interrupted by the user.  The last guess will likely be stored in registers <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span>, but this is not guaranteed!</li>
-<li><b>Evaluation error:</b> If the function causes an error during evaluation, the program will stop.  The last guess will be stored in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span>.</li>
-<li><b>Zero Derivative:</b> If the derivative is zero, then an "<code>Error 0</code>" will occur.   The last guess will be stored in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span>.</li>
+<li><b>Convergence failure:</b> In this case the program should be interrupted by the user.  The last guess will likely be stored in registers <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;8</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;9</span>, but this is not guaranteed!</li>
+<li><b>Evaluation error:</b> If the function causes an error during evaluation, the program will stop.  The last guess will be stored in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;8</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;9</span>.</li>
+<li><b>Zero Derivative:</b> If the derivative is zero, then an "<code>Error 0</code>" will occur.   The last guess will be stored in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;8</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;9</span>.</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -901,7 +908,7 @@ If the calculator is not already in complex mode, then it will be placed in comp
 <ul class="org-ul">
 <li>Entry Point Label:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span> Program label</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;C</span> Program label</li>
 </ul></li>
 <li>Internal Labels:
 <ul class="org-ul">
@@ -909,14 +916,14 @@ If the calculator is not already in complex mode, then it will be placed in comp
 </ul></li>
 <li>External Labels:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> function to solve</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> <code>RCL_CPLX</code></li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>D</span> <code>STO_CPLX</code></li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;1</span> function to solve</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;E</span> <code>RCL_CPLX</code></li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;D</span> <code>STO_CPLX</code></li>
 </ul></li>
 <li>Registers Used:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> Real component of root guess</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span> Complex component of root guess</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;8</span> Real component of root guess</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;9</span> Complex component of root guess</li>
 </ul></li>
 <li>Matrices:
 <ul class="org-ul">
@@ -1244,13 +1251,13 @@ This program, <code>STO_MAT</code>, provides a fast way to dimension &amp; fill 
 </p>
 
 <p>
-When flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> is clear, the real part of the value in the <b><code>X</code></b> stack level is placed in consecutive matrix elements.
+When flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> is clear, the real part of the value in the <b><code>X</code></b> stack level is placed in consecutive matrix elements.
 </p>
 
 <p>
-When flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> is set, the program provides extra help in filling a <b><code>C</code></b> format complex matrix.  In this case, the real &amp; complex parts of the
+When flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> is set, the program provides extra help in filling a <b><code>C</code></b> format complex matrix.  In this case, the real &amp; complex parts of the
 number in the <b><code>X</code></b> stack level are used to fill consecutive matrix elements.  If all the matrix elements are known in advance and in rectangular format, then
-fewer keystrokes will be required with <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> clear:
+fewer keystrokes will be required with <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> clear:
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
 
@@ -1262,7 +1269,7 @@ fewer keystrokes will be required with <span style='font-family:monospace;margin
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span></th>
+<th scope="col" class="org-left">flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span></th>
 <th scope="col" class="org-left">Keystrokes per matrix element</th>
 </tr>
 </thead>
@@ -1279,7 +1286,7 @@ fewer keystrokes will be required with <span style='font-family:monospace;margin
 </tbody>
 </table>
 <p>
-That said, setting flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> is <b>very</b> useful if some computation with the elements is required before we store them &#x2013; like converting them to
+That said, setting flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> is <b>very</b> useful if some computation with the elements is required before we store them &#x2013; like converting them to
 rectangular form with <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R</span>.  
 </p>
 
@@ -1288,7 +1295,7 @@ rectangular form with <span style='font-family:sans-serif;margin:0;padding:.1em 
 <ul class="org-ul">
 <li>Run the program with the following inputs: 
 <ul class="org-ul">
-<li><b><code>Z</code></b>: A matrix descriptor or number <code>0</code> (a <code>0</code> indicates the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> matrix should be used)</li>
+<li><b><code>Z</code></b>: A matrix descriptor or number <code>0</code> (a <code>0</code> indicates the <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> matrix should be used)</li>
 <li><b><code>Y</code></b>: number of rows</li>
 <li><b><code>X</code></b>: Number of columns</li>
 </ul></li>
@@ -1296,7 +1303,7 @@ rectangular form with <span style='font-family:sans-serif;margin:0;padding:.1em 
 <li>The previously entered element, if there was one, will be on level <b><code>Y</code></b> of the stack.</li>
 <li>Enter the value for the matrix position and press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R/S</span>.
 <ul class="org-ul">
-<li>If flag  <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span>  is set, then the real and complex parts will be placed into the matrix in consecutive positions.</li>
+<li>If flag  <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span>  is set, then the real and complex parts will be placed into the matrix in consecutive positions.</li>
 </ul></li>
 <li>Repeat until all the matrix elements have been entered.</li>
 <li>Note the program never ends &#x2013; it just wraps back to the start.</li>
@@ -1310,12 +1317,12 @@ rectangular form with <span style='font-family:sans-serif;margin:0;padding:.1em 
 <ul class="org-ul">
 <li>Entry Point Label:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>7</span> <code>STO_MAT</code> &#x2013; <code>STO_MAT</code> on the left and <code>RCL_MAT</code> on the right &#x2013; just like the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> &amp; <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> buttons.</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;7</span> <code>STO_MAT</code> &#x2013; <code>STO_MAT</code> on the left and <code>RCL_MAT</code> on the right &#x2013; just like the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> &amp; <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> buttons.</li>
 </ul></li>
 <li>Internal Labels:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.1</span> Main loop target</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.2</span> Complex if target</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.1</span> Main loop target</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.2</span> Complex if target</li>
 </ul></li>
 <li>External Labels:
 <ul class="org-ul">
@@ -1323,14 +1330,14 @@ rectangular form with <span style='font-family:sans-serif;margin:0;padding:.1em 
 </ul></li>
 <li>Flags:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> Option flag (complex mode)</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span> CF used as NOP</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> Option flag (complex mode)</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;9</span> CF used as NOP</li>
 </ul></li>
 <li>Registers Used:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span> Matrix indexing</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> Matrix indexing</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span> Matrix descripter</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;0</span> Matrix indexing</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;1</span> Matrix indexing</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;I</span> Matrix descripter</li>
 </ul></li>
 <li>Matrices:
 <ul class="org-ul">
@@ -1663,12 +1670,12 @@ This program, <code>RCL_MAT</code>, provides a fast way iterate over the element
 <ul class="org-ul">
 <li>Run the program with the following inputs: 
 <ul class="org-ul">
-<li><b><code>X</code></b>: A matrix descriptor or number <code>0</code> (a <code>0</code> indicates the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix should be used)</li>
+<li><b><code>X</code></b>: A matrix descriptor or number <code>0</code> (a <code>0</code> indicates the <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:4em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix should be used)</li>
 </ul></li>
 <li>Each element of the matrix will be displayed.  Press <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>R/S</span> to advance.
 <ul class="org-ul">
 <li>The program will wrap around to the first element after the last one is displayed &#x2013; this is a feature.</li>
-<li>If flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> is set, then <b>pairs</b> of elements are pulled from the matrix (i.e. <b><code>C</code></b> format) and placed on the stack as complex numbers</li>
+<li>If flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> is set, then <b>pairs</b> of elements are pulled from the matrix (i.e. <b><code>C</code></b> format) and placed on the stack as complex numbers</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1680,12 +1687,12 @@ This program, <code>RCL_MAT</code>, provides a fast way iterate over the element
 <ul class="org-ul">
 <li>Entry Point Label:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> <code>RCL_MAT</code> &#x2013; <code>STO_MAT</code> on the left and <code>RCL_MAT</code> on the right &#x2013; just like the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> &amp; <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> buttons.</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;8</span> <code>RCL_MAT</code> &#x2013; <code>STO_MAT</code> on the left and <code>RCL_MAT</code> on the right &#x2013; just like the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> &amp; <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> buttons.</li>
 </ul></li>
 <li>Internal Labels:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.3</span> Main loop target</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.4</span> Complex if target</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.3</span> Main loop target</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.4</span> Complex if target</li>
 </ul></li>
 <li>External Labels:
 <ul class="org-ul">
@@ -1693,18 +1700,18 @@ This program, <code>RCL_MAT</code>, provides a fast way iterate over the element
 </ul></li>
 <li>Flags:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> Option flag (complex mode)</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span> CF used as NOP</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> Option flag (complex mode)</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;9</span> CF used as NOP</li>
 </ul></li>
 <li>Registers Used:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span> Matrix indexing</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> Matrix indexing</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>I</span> Matrix descripter</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;0</span> Matrix indexing</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;1</span> Matrix indexing</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;I</span> Matrix descripter</li>
 </ul></li>
 <li>Matrices:
 <ul class="org-ul">
-<li>Matrix on stack level <b><code>X</code></b> when the program starts, or <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> if <b><code>X</code></b> was zero.</li>
+<li>Matrix on stack level <b><code>X</code></b> when the program starts, or <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:4em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>RESULT</span> if <b><code>X</code></b> was zero.</li>
 </ul></li>
 </ul>
 </div>
@@ -1968,36 +1975,36 @@ This program solves the system \(AX=B\) for \(X\).
 <ul class="org-ul">
 <li>Program start conditions
 <ul class="org-ul">
-<li>The \(A\) matrix is stored in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span>.  
+<li>The \(A\) matrix is stored in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span>.  
 <ul class="org-ul">
 <li>It may be an \(n\times n\) real matrix, or an  \(n\times 2n\) complex matrix in <b><code>C</code></b> format.</li>
-<li>The program determines real vs. complex from the matrix size &#x2013; <i>not</i> the setting of flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span>.</li>
+<li>The program determines real vs. complex from the matrix size &#x2013; <i>not</i> the setting of flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span>.</li>
 </ul></li>
-<li>The \(B\) matrix is stored in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span>.</li>
-<li>Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> is set appropriately:
+<li>The \(B\) matrix is stored in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;B</span>.</li>
+<li>Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> is set appropriately:
 <ul class="org-ul">
-<li>Clear: Use more memory, but preserve contents of <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span>.</li>
-<li>Set: Use less memory, but destroy contents of <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span>.</li>
+<li>Clear: Use more memory, but preserve contents of <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span>.</li>
+<li>Set: Use less memory, but destroy contents of <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span>.</li>
 </ul></li>
 </ul></li>
 <li>Program end conditions
 <ul class="org-ul">
-<li>The system "solution", \(X\), will be in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span>.  Note this might not be a valid solution if \(A\) is singular!</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span> is left unchanged!</li>
-<li>The matrix descriptor for <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span> will be in stack position <b><code>Y</code></b>.</li>
-<li>Matrix <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span> will be selected as the <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix.</li>
-<li>Both registers <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> will contain 1 in expectation <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER</span> mode will be used to visit the elements of <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span>.</li>
+<li>The system "solution", \(X\), will be in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;C</span>.  Note this might not be a valid solution if \(A\) is singular!</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;B</span> is left unchanged!</li>
+<li>The matrix descriptor for <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;C</span> will be in stack position <b><code>Y</code></b>.</li>
+<li>Matrix <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;C</span> will be selected as the <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:4em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix.</li>
+<li>Both registers <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;0</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;1</span> will contain 1 in expectation <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>USER</span> mode will be used to visit the elements of <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;C</span>.</li>
 <li>If \(A\) is a real matrix:
 <ul class="org-ul">
-<li>Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span> will be clear</li>
+<li>Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;0</span> will be clear</li>
 <li>\(\mathrm{det}(A)\) is in stack position X</li>
-<li>The LU factorization of \(A\) is in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> is clear, and in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> otherwise</li>
+<li>The LU factorization of \(A\) is in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;E</span> when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> is clear, and in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> otherwise</li>
 </ul></li>
 <li>If \(A\) is a complex matrix
 <ul class="org-ul">
-<li>Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span> will be set</li>
+<li>Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;0</span> will be set</li>
 <li>\(\vert\mathrm{det}(A)\vert\) is in stack position <b><code>X</code></b>.</li>
-<li>The LU factorization of \(\tilde{A}\) is in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> is clear, and in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> otherwise</li>
+<li>The LU factorization of \(\tilde{A}\) is in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;E</span> when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> is clear, and in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> otherwise</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -2009,7 +2016,7 @@ This program solves the system \(AX=B\) for \(X\).
 <ul class="org-ul">
 <li>Entry Point Label:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> Program label</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;8</span> Program label</li>
 </ul></li>
 <li>Internal Labels:
 <ul class="org-ul">
@@ -2017,12 +2024,12 @@ This program solves the system \(AX=B\) for \(X\).
 </ul></li>
 <li>External Labels:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span> Subroutine to compute determinant</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;9</span> Subroutine to compute determinant</li>
 </ul></li>
 <li>Flags:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span> Status flag</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> Option flag</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;0</span> Status flag</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> Option flag</li>
 </ul></li>
 <li>Registers:
 <ul class="org-ul">
@@ -2030,10 +2037,10 @@ This program solves the system \(AX=B\) for \(X\).
 </ul></li>
 <li>Matrices:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span></li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span> Used for the solution</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> Only when flag 1 is clear</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> Input</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;B</span> Input</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;C</span> The solution</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;E</span> LU factorization when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> is clear</li>
 </ul></li>
 </ul>
 </div>
@@ -2233,8 +2240,9 @@ This program solves the system \(AX=B\) for \(X\).
 <h3 id="matDet"><span class="section-number-3">4.4.</span> Matrix Determinants</h3>
 <div class="outline-text-3" id="text-matDet">
 <p>
-This program computes the determinant of a real matrix or the magnitude of the determinant for a complex matrix.  The use case is to determine if a matrix is
-singular.
+This program computes the determinant of a real matrix or the magnitude of the determinant for a complex matrix.  The interactive use case is to determine if
+a matrix is singular.  The non-interactive use case is <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;6</span> &#x2013; <code>LIN_SLV</code> which uses this as a subroutine to 1) detect &amp; transform complex matrices, 2)
+compute the determinant or determinant magnitude, and 3) compute an LU factorization for the solution.
 </p>
 </div>
 <div id="outline-container-matDetUsage" class="outline-4">
@@ -2243,40 +2251,40 @@ singular.
 <ul class="org-ul">
 <li>Program start conditions
 <ul class="org-ul">
-<li>The \(A\) matrix is assumed to be in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span>.  
+<li>The \(A\) matrix is assumed to be in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span>.  
 <ul class="org-ul">
 <li>It may be an \(n\times n\) real matrix, or an  \(n\times 2n\) complex matrix in <b><code>C</code></b> format.</li>
 <li>The program determines real vs. complex from the matrix size.</li>
 </ul></li>
-<li>flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> is set appropriately:
+<li>Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> is set appropriately:
 <ul class="org-ul">
-<li>Clear: Use more memory, but preserve contents of <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span>.</li>
-<li>Set: Use less memory, but destroy contents of <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span>.</li>
+<li>Clear: Use more memory, but preserve contents of <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span>.</li>
+<li>Set: Use less memory, but destroy contents of <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span>.</li>
 </ul></li>
 </ul></li>
 <li>Program end conditions
 <ul class="org-ul">
 <li>The previous contents of the stack are lost</li>
-<li>If flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> is clear
+<li>If flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> is clear
 <ul class="org-ul">
-<li><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> is left unchanged!</li>
-<li><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix set as <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> is left unchanged!</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:4em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix set as <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;E</span></li>
 </ul></li>
-<li>If flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> is set
+<li>If flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> is set
 <ul class="org-ul">
-<li><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix set as <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:4em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>RESULT</span> matrix set as <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span></li>
 </ul></li>
 <li>\(A\) is a real matrix
 <ul class="org-ul">
-<li>Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span> will be clear</li>
+<li>Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;0</span> will be clear</li>
 <li>The \(\mathrm{det}(A)\) is in stack position <b><code>X</code></b>.</li>
-<li>The LU factorization of \(A\) is in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> is clear, and in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> otherwise</li>
+<li>The LU factorization of \(A\) is in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;E</span> when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> is clear, and in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> otherwise</li>
 </ul></li>
 <li>If \(A\) is a complex matrix
 <ul class="org-ul">
-<li>Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> will be set</li>
+<li>Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;0</span> will be set</li>
 <li>\(\vert\mathrm{det}(A)\vert\) is in stack position <b><code>X</code></b>.</li>
-<li>The LU factorization of \(\tilde{A}\) is in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> is clear, and in <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> otherwise</li>
+<li>The LU factorization of \(\tilde{A}\) is in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;E</span> when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> is clear, and in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> otherwise</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -2288,30 +2296,29 @@ singular.
 <ul class="org-ul">
 <li>Entry Point Label:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span>  Program label</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;9</span>  Program label</li>
 </ul></li>
 <li>Internal Labels:
 <ul class="org-ul">
-<li>None</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.9</span> Conditional label</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.9</span> Conditional label</li>
 </ul></li>
 <li>External Labels:
 <ul class="org-ul">
-<li>N/A</li>
+<li>None</li>
 </ul></li>
 <li>Flags:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span> exit flag</li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> option flag</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;0</span> exit flag</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> option flag</li>
 </ul></li>
 <li>Registers:
 <ul class="org-ul">
-<li>N/A</li>
+<li>None</li>
 </ul></li>
 <li>Matrices:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></li>
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span> Only when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> is clear</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> Input</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;E</span> LU factorization when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> is clear</li>
 </ul></li>
 </ul>
 </div>
@@ -2588,6 +2595,232 @@ singular.
 </div>
 </div>
 </div>
+<div id="outline-container-matNrm" class="outline-3">
+<h3 id="matNrm"><span class="section-number-3">4.5.</span> Normal Equations</h3>
+<div class="outline-text-3" id="text-matNrm">
+<p>
+This program transforms the matrices in <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;B</span> into normal form in place.  That is to say <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> is replaced with \( A^T A \) &amp;
+<span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;B</span> is replaced with \( A^T B \).  I mostly use this to solve small, overdetermined systems.  This method is pretty poor practice from a numerical
+analysis standpoint; however, it is simple and has generally worked for my applications.  Note that when the program completes, the <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> &amp;
+<span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;B</span> matrices will be ready for <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;6</span> &#x2013; <code>LIN_SLV</code>.
+</p>
+</div>
+<div id="outline-container-matNrmUsage" class="outline-4">
+<h4 id="matNrmUsage"><span class="section-number-4">4.5.1.</span> Usage</h4>
+<div class="outline-text-4" id="text-matNrmUsage">
+<ul class="org-ul">
+<li>Program start conditions
+<ul class="org-ul">
+<li>The <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> &amp; <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;B</span> matrices have been appropriately initialized</li>
+</ul></li>
+<li>Program end conditions
+<ul class="org-ul">
+<li>The previous contents of the stack are lost</li>
+<li>The <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> matrix contains \( A^T A \)</li>
+<li>The <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;B</span> matrix contains \( A^T B \)</li>
+<li>The <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;E</span> matrix will be deallocated</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:4em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>RESULT</span> will be set to <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;E</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-matNrmRes" class="outline-4">
+<h4 id="matNrmRes"><span class="section-number-4">4.5.2.</span> Resources Used</h4>
+<div class="outline-text-4" id="text-matNrmRes">
+<ul class="org-ul">
+<li>Entry Point Label:
+<ul class="org-ul">
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;5</span>  Program label</li>
+</ul></li>
+<li>Internal Labels:
+<ul class="org-ul">
+<li>None</li>
+</ul></li>
+<li>External Labels:
+<ul class="org-ul">
+<li>None</li>
+</ul></li>
+<li>Flags:
+<ul class="org-ul">
+<li>None</li>
+</ul></li>
+<li>Registers:
+<ul class="org-ul">
+<li>None</li>
+</ul></li>
+<li>Matrices:
+<ul class="org-ul">
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span> Input</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;B</span> Input</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;E</span> Scratch space</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-matNrmCode" class="outline-4">
+<h4 id="matNrmCode"><span class="section-number-4">4.5.3.</span> Program Listing</h4>
+<div class="outline-text-4" id="text-matNrmCode">
+<div class="org-center">
+<p>
+<code>MAT_NML</code> &#x2013; Matrix Normal Equations
+</p>
+</div>
+<table border="2" cellspacing="0" cellpadding="1em" rules="groups" frame="hsides" align="center">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-center" />
+
+<col  class="org-right" />
+
+<col  class="org-center" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Keystrokes</b> &nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Key Codes</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-right"><b>Stack Contents</b></td>
+<td class="org-center">&nbsp;&nbsp;&nbsp;</td>
+<td class="org-left"><b>Comments</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span></td>
+<td class="org-right"><code>42,21, 5</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">? ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>RESULT</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
+<td class="org-right"><code>42,26,15</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">? ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></td>
+<td class="org-right"><code>45,16,11</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">A ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span></td>
+<td class="org-right"><code>45,16,12</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">B A ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span></td>
+<td class="org-right"><code>42,16, 5</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">B A ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span></td>
+<td class="org-right"><code>44,16,12</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">E ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></td>
+<td class="org-right"><code>45,16,11</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">A E ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
+<td class="org-right"><code>36</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">A A E ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span></td>
+<td class="org-right"><code>42,16, 5</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">E ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>STO</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></td>
+<td class="org-right"><code>44,16,11</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">E ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span></td>
+<td class="org-right"><code>0</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">0 E ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span></td>
+<td class="org-right"><code>36</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">0 0 E ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>DIM</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
+<td class="org-right"><code>42,23,15</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">0 0 E ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>RTN</span></td>
+<td class="org-right"><code>43 32</code></td>
+<td class="org-center">&#xa0;</td>
+<td class="org-right">? ? ? ?</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
 <div id="outline-container-quadEqu" class="outline-2">
 <h2 id="quadEqu"><span class="section-number-2">5.</span> Quadratic Equation</h2>
@@ -2629,7 +2862,7 @@ labels.  It requires 31 program lines consuming 32 bytes (if I counted correctly
 </ul></li>
 <li>Exit Flag State:
 <ul class="org-ul">
-<li>If the roots are complex, then <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> will be automatically set</li>
+<li>If the roots are complex, then <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;8</span> will be automatically set</li>
 </ul></li>
 <li>Non-normal Exits:
 <ul class="org-ul">
@@ -2645,7 +2878,7 @@ labels.  It requires 31 program lines consuming 32 bytes (if I counted correctly
 <ul class="org-ul">
 <li>Entry Point Labels:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span> SOLVE_QUAD</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;B</span> SOLVE_QUAD</li>
 </ul></li>
 <li>Internal Labels:
 <ul class="org-ul">
@@ -2657,7 +2890,7 @@ labels.  It requires 31 program lines consuming 32 bytes (if I counted correctly
 </ul></li>
 <li>Flags:
 <ul class="org-ul">
-<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> Option flag (complex mode)</li>
+<li><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> Option flag (complex mode)</li>
 </ul></li>
 <li>Registers Used:
 <ul class="org-ul">
@@ -2987,8 +3220,8 @@ labels.  It requires 31 program lines consuming 32 bytes (if I counted correctly
 </div>
 </div>
 </div>
-<div id="outline-container-org0290a86" class="outline-2">
-<h2 id="org0290a86"><span class="section-number-2">6.</span> Summary Resource Use</h2>
+<div id="outline-container-org3ac7047" class="outline-2">
+<h2 id="org3ac7047"><span class="section-number-2">6.</span> Summary Resource Use</h2>
 <div class="outline-text-2" id="text-6">
 </div>
 <div id="outline-container-resSumLab" class="outline-3">
@@ -3008,43 +3241,43 @@ My general strategy for using labels is as follows:
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-center">Registers</th>
+<th scope="col" class="org-center">Label</th>
 <th scope="col" class="org-left">Use In Programs</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;A</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;E</span></td>
 <td class="org-left">Frequently called programs</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;0</span></td>
 <td class="org-left">Unused</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>3</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;1</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;3</span></td>
 <td class="org-left">Solver/Integrator programs</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>4</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>5</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;4</span></td>
 <td class="org-left">Unused</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>6</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;5</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;9</span></td>
 <td class="org-left">Matrix stuff</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.0</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.0</span></td>
 <td class="org-left">Unused</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.1</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.9</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.1</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.9</span></td>
 <td class="org-left">Internal lables</td>
 </tr>
 </tbody>
@@ -3065,160 +3298,160 @@ My general strategy for using labels is as follows:
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span></th>
+<th scope="col" class="org-center">Label</th>
 <th scope="col" class="org-left">Use</th>
 <th scope="col" class="org-right">Used By</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;A</span></td>
 <td class="org-left">-</td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;B</span></td>
 <td class="org-left"><a href="#quadEqu">Solve Quadratic</a></td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;C</span></td>
 <td class="org-left"><a href="#newton">Complex Newton's Method</a></td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>D</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;D</span></td>
 <td class="org-left"><a href="#storclcplx">Store Complex Number</a></td>
-<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
+<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;C</span></td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;E</span></td>
 <td class="org-left"><a href="#storclcplx">Recall Complex Number</a></td>
-<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
+<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;C</span></td>
 </tr>
 </tbody>
 <tbody>
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;0</span></td>
 <td class="org-left">-</td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;1</span></td>
 <td class="org-left">Solver/Integrator/<a href="#newton">Newton</a></td>
-<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
+<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;C</span></td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>2</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;2</span></td>
 <td class="org-left">Solver/Integrator</td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>3</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;3</span></td>
 <td class="org-left">Solver/Integrator</td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>4</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;4</span></td>
 <td class="org-left">-</td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>5</span></td>
-<td class="org-left">-</td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;5</span></td>
+<td class="org-left"><a href="#matNrm">Normal Equations</a></td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>6</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;6</span></td>
 <td class="org-left"><a href="#matSlv">Solve Linear System</a></td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>7</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;7</span></td>
 <td class="org-left"><a href="#matFill">Fill A Matrix</a></td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;8</span></td>
 <td class="org-left"><a href="#matDump">Dump A Matrix</a></td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;9</span></td>
 <td class="org-left"><a href="#matDet">Determinant</a></td>
-<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>6</span></td>
+<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;6</span></td>
 </tr>
 </tbody>
 <tbody>
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.0</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.0</span></td>
 <td class="org-left">-</td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.1</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.1</span></td>
 <td class="org-left">Internal</td>
-<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>7</span></td>
+<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;7</span></td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.2</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.2</span></td>
 <td class="org-left">Internal</td>
-<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>7</span></td>
+<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;7</span></td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.3</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.3</span></td>
 <td class="org-left">Internal</td>
-<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span></td>
+<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;8</span></td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.4</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.4</span></td>
 <td class="org-left">Internal</td>
-<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span></td>
+<td class="org-right"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL&nbsp;8</span></td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.5</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.5</span></td>
 <td class="org-left">-</td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.6</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.6</span></td>
 <td class="org-left">-</td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.7</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.7</span></td>
 <td class="org-left">-</td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.8</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.8</span></td>
 <td class="org-left">-</td>
 <td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.9</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>LBL.9</span></td>
 <td class="org-left">-</td>
 <td class="org-right">&#xa0;</td>
 </tr>
@@ -3253,37 +3486,37 @@ How I normally use register storage.
 </thead>
 <tbody>
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;0</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;1</span></td>
 <td class="org-left">Always for matrix indexes\(^1\)</td>
 <td class="org-left">Whatever, but usually as matrix indexes</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>2</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>7</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;2</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;7</span></td>
 <td class="org-left">Always for statistics\(^1\)</td>
 <td class="org-left">Whatever, but usually for statistics</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;8</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;9</span></td>
 <td class="org-left">User visible program registers</td>
 <td class="org-left">Whatever, but usually for programs</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.0</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R.0</span></td>
 <td class="org-left">Temporary storage</td>
 <td class="org-left">Whatever, but usually for programs</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.1</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.6</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R.1</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R.6</span></td>
 <td class="org-left">Whatever</td>
 <td class="org-left">Whatever</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.7</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>.9</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R.7</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R.9</span></td>
 <td class="org-left">Unit conversion factors\(^2\)</td>
 <td class="org-left">Unit conversion factors</td>
 </tr>
@@ -3314,34 +3547,34 @@ How I normally use matrix storage.  These habits have strongly influenced the ma
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-center"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>MATRIX</span></th>
+<th scope="col" class="org-center">Matrix</th>
 <th scope="col" class="org-left">Use</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>A</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;A</span></td>
 <td class="org-left">Determinants &amp; LHS of matrix equations (\(AX=B\))</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>B</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;B</span></td>
 <td class="org-left">RHS of matrix equations (\(AX=B\))</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;C</span></td>
 <td class="org-left">Solution for \(AX=B\)</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>D</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;D</span></td>
 <td class="org-left">Unused</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
-<td class="org-left">\(LU\) of \(A\) for determinants &amp; matrix equations when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span> is clear</td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;E</span></td>
+<td class="org-left">\(LU\) of \(A\) for determinants &amp; matrix equations when flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span> is clear</td>
 </tr>
 </tbody>
 </table>
@@ -3366,27 +3599,27 @@ How I normally use matrix storage.  These habits have strongly influenced the ma
 </thead>
 <tbody>
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>0</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;0</span></td>
 <td class="org-left">Inter program status messages</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>1</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;1</span></td>
 <td class="org-left">Externally visable program options</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>2</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>7</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;2</span> - <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;7</span></td>
 <td class="org-left">Unused</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>8</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span></td>
 <td class="org-left">System flag: complex mode</td>
 </tr>
 
 <tr>
-<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span></td>
+<td class="org-center"><span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;9</span></td>
 <td class="org-left">System flag: overflow</td>
 </tr>
 </tbody>
@@ -3397,9 +3630,9 @@ How I normally use matrix storage.  These habits have strongly influenced the ma
 <h3 id="resSumSteps"><span class="section-number-3">6.5.</span> Program Steps</h3>
 <div class="outline-text-3" id="text-resSumSteps">
 <p>
-I normally keep <code>STO_CPLX</code>, <code>RCL_CPLX</code>, <code>NEWTON</code>, <code>STO_MAT</code>, <code>RCL_MAT</code>, <code>LIN_SLV</code>, and <code>DET_A</code> in program memory.  This results in 143 lines of program memory
-consumed by the programs.  I then add three zeros at the end as a little pad to separate my permanent programs from whatever I may add to the end of program
-memory.
+I normally keep <code>STO_CPLX</code>, <code>RCL_CPLX</code>, <code>NEWTON</code>, <code>STO_MAT</code>, <code>RCL_MAT</code>, <code>LIN_SLV</code>, <code>DET_A</code>, and <code>MAT_NML</code> in program memory.  This results in 156 lines of
+program memory consumed by the programs.  I then add three zeros at the end as a little pad to separate my permanent programs from whatever I may add to the
+end of program memory.
 </p>
 
 <table border="2 solid #ccc" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center">
@@ -3425,76 +3658,83 @@ memory.
 <tbody>
 <tr>
 <td class="org-center">001</td>
-<td class="org-right"><code>42 21 14</code></td>
+<td class="org-right"><code>42,21,14</code></td>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>D</span></td>
 <td class="org-left"><a href="#storclcplx">Store Complex Number</a></td>
 </tr>
 
 <tr>
 <td class="org-center">011</td>
-<td class="org-right"><code>42 21 15</code></td>
+<td class="org-right"><code>42,21,15</code></td>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>E</span></td>
 <td class="org-left"><a href="#storclcplx">Recall Complex Number</a></td>
 </tr>
 
 <tr>
 <td class="org-center">022</td>
-<td class="org-right"><code>42 21 13</code></td>
+<td class="org-right"><code>42,21,13</code></td>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>C</span></td>
 <td class="org-left"><a href="#newton">Complex Newton's Method</a></td>
 </tr>
 
 <tr>
 <td class="org-center">051</td>
-<td class="org-right"><code>42 21  7</code></td>
+<td class="org-right"><code>42,21, 7</code></td>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span></td>
 <td class="org-left"><a href="#matFill">Fill A Matrix</a></td>
 </tr>
 
 <tr>
 <td class="org-center">079</td>
-<td class="org-right"><code>42 21  8</code></td>
+<td class="org-right"><code>42,21, 8</code></td>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span></td>
 <td class="org-left"><a href="#matDump">Dump A Matrix</a></td>
 </tr>
 
 <tr>
 <td class="org-center">100</td>
-<td class="org-right"><code>42 21  6</code></td>
+<td class="org-right"><code>42,21, 6</code></td>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span></td>
 <td class="org-left"><a href="#matSlv">Solve Linear System</a></td>
 </tr>
 
 <tr>
 <td class="org-center">117</td>
-<td class="org-right"><code>42 21  9</code></td>
+<td class="org-right"><code>42,21, 9</code></td>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>9</span></td>
 <td class="org-left"><a href="#matDet">Determinant</a></td>
 </tr>
 
 <tr>
 <td class="org-center">143</td>
+<td class="org-right"><code>42,21, 5</code></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>LBL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span></td>
+<td class="org-left"><a href="#matNrm">Matrix Normal Equations</a></td>
+</tr>
+
+<tr>
+<td class="org-center">157</td>
 <td class="org-right"><code>0</code></td>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span></td>
 <td class="org-left">Padding</td>
 </tr>
 
 <tr>
-<td class="org-center">144</td>
+<td class="org-center">158</td>
 <td class="org-right"><code>0</code></td>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span></td>
 <td class="org-left">Padding</td>
 </tr>
 
 <tr>
-<td class="org-center">145</td>
+<td class="org-center">159</td>
 <td class="org-right"><code>0</code></td>
 <td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span></td>
 <td class="org-left">Padding</td>
 </tr>
 
 <tr>
-<td class="org-center">146</td>
+<td class="org-center">160</td>
 <td class="org-right">N/A</td>
 <td class="org-left">N/A</td>
 <td class="org-left">Solver programs etc&#x2026;</td>

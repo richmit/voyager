@@ -67,11 +67,32 @@ Note some things don't work or work strangely.  I'll fix them when I find the ne
                  " ")))
 (defun VOY-labeler (label)
   (format "@@html:<span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>%s</span>@@" label))
+
+(defun c15-lab-labeler (label)
+  (let* ((da-str-tr (string-trim label))
+         (da-str    (concat "LBL" (if (string-prefix-p "." da-str-tr) "" "&nbsp;") da-str-tr)))
+    (format "@@html:<span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>%s</span>@@" da-str)))
+
+(defun c15-reg-labeler (label)
+  (let* ((da-str-tr (string-trim label))
+         (da-str    (concat "R" (if (string-prefix-p "." da-str-tr) "" "&nbsp;") da-str-tr)))
+    (format "@@html:<span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>%s</span>@@" da-str)))
+
+(defun c15-mat-labeler (label)
+  (let* ((da-str-tr (string-trim label)))
+    (if (string-equal da-str-tr "RESULT") 
+        (format "@@html:<span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:4em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>%s</span>@@" da-str-tr)
+        (format "@@html:<span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:3em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>MAT&nbsp;%s</span>@@" da-str-tr))))
+
+(defun c15-flg-labeler (label)
+  (let* ((da-str-tr (string-trim label))
+         (da-str    (concat "F" "&nbsp;" da-str-tr)))
+    (format "@@html:<span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>%s</span>@@" da-str)))
 #+end_src
 
 #+RESULTS:
 #+begin_example
-VOY-labeler
+c15-flg-labeler
 #+end_example
 
 
@@ -81,10 +102,10 @@ VOY-labeler
 #+MACRO: c16 (eval (VOY-buttoner "16c" $1))
 #+MACRO: c12 (eval (VOY-buttoner "12cp" $1))
 
-#+MACRO: lbl (eval (VOY-labeler $1))
-#+MACRO: reg (eval (VOY-labeler $1))
-#+MACRO: flg (eval (VOY-labeler $1))
-#+MACRO: mat (eval (VOY-labeler $1))
+#+MACRO: lbl (eval (c15-lab-labeler $1))
+#+MACRO: reg (eval (c15-reg-labeler $1))
+#+MACRO: flg (eval (c15-flg-labeler $1))
+#+MACRO: mat (eval (c15-mat-labeler $1))
 
 #+MACRO: stk *=$1=*
 

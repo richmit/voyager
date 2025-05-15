@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-30 Wed 12:46 -->
+<!-- 2025-05-15 Thu 15:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=1024, initial-scale=1" />
 <title>HP-15C Tips &amp; Tricks</title>
@@ -264,12 +264,12 @@
 
 <tr>
 <td class="org-right"><b>Updated:</b></td>
-<td class="org-left"><i>2025-04-25</i></td>
+<td class="org-left"><i>2025-05-15</i></td>
 </tr>
 
 <tr>
 <td class="org-right"><b>Generated:</b></td>
-<td class="org-left"><i>2025-04-30</i></td>
+<td class="org-left"><i>2025-05-15</i></td>
 </tr>
 </tbody>
 </table>
@@ -323,13 +323,14 @@ Copyright &copy; 2025 Mitch Richling. All rights reserved.
 <li><a href="#nonlinregres-logint">6.2. Logarithmic Interpolation (Non-Linear Interpolation)</a></li>
 </ul>
 </li>
-<li><a href="#15ce">7. HP 15c CE Stuff</a>
+<li><a href="#normal-eq">7. 2D Normal Equations</a></li>
+<li><a href="#15ce">8. HP 15c CE Stuff</a>
 <ul>
-<li><a href="#15ce-eggs">7.1. Diagnostics &amp; Easter Eggs</a></li>
-<li><a href="#15ce-save">7.2. Voyager Save</a></li>
+<li><a href="#15ce-eggs">8.1. Diagnostics &amp; Easter Eggs</a></li>
+<li><a href="#15ce-save">8.2. Voyager Save</a></li>
 </ul>
 </li>
-<li><a href="#meta">8. Meta Data</a></li>
+<li><a href="#meta">9. Meta Data</a></li>
 </ul>
 </div>
 </div>
@@ -359,7 +360,7 @@ This item illustrates the different behavior of <span style='font-family:sans-se
 </p>
 
 
-<div id="org331e523" class="figure">
+<div id="org80ff70f" class="figure">
 <p><img src="fig-right.png" alt="fig-right.png" width="30%" align="center" />
 </p>
 </div>
@@ -372,7 +373,7 @@ With \(b=5\) and \(\alpha=30\).
 <h4 id="triHypAngleC"><span class="section-number-4">2.1.1.</span> Complex Mode</h4>
 <div class="outline-text-4" id="text-triHypAngleC">
 <p>
-If the calculator is in complex mode (Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span> set):
+If the calculator is in complex mode (Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> set):
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -405,7 +406,7 @@ If the calculator is in complex mode (Flag <span style='font-family:monospace;ma
 <h4 id="triHypAngleR"><span class="section-number-4">2.1.2.</span> Real Mode</h4>
 <div class="outline-text-4" id="text-triHypAngleR">
 <p>
-If the calculator is not in complex mode (Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span> clear):
+If the calculator is not in complex mode (Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> clear):
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -439,7 +440,7 @@ If the calculator is not in complex mode (Flag <span style='font-family:monospac
 <h3 id="triLegs"><span class="section-number-3">2.2.</span> Right Triangle: Known Legs (the 2D HYPOT function)</h3>
 <div class="outline-text-3" id="text-triLegs">
 <p>
-Like the <a href="#triHypAngle">previous item</a>, this one also illustrates the different behavior of <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R</span> and <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→P</span> when complex mode (flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span> set)
+Like the <a href="#triHypAngle">previous item</a>, this one also illustrates the different behavior of <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>→R</span> and <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>→P</span> when complex mode (flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> set)
 is enabled.  In addition, this item illustrates the most efficient way to compute the 2D \(\mathrm{HYPOT}\) function.
 </p>
 
@@ -452,7 +453,7 @@ function, see <a href="#hypot">HYPOT</a> below.
 </p>
 
 
-<div id="org5d88a97" class="figure">
+<div id="org94f73ee" class="figure">
 <p><img src="fig-345.png" alt="fig-345.png" width="30%" align="center" />
 </p>
 </div>
@@ -465,7 +466,7 @@ With \(c=4\) and \(b=3\).
 <h4 id="triLegsC"><span class="section-number-4">2.2.1.</span> Complex Mode</h4>
 <div class="outline-text-4" id="text-triLegsC">
 <p>
-If the calculator is in complex mode (Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span> set):
+If the calculator is in complex mode (Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> set):
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -503,7 +504,7 @@ If the calculator is in complex mode (Flag <span style='font-family:monospace;ma
 <h4 id="triLegsR"><span class="section-number-4">2.2.2.</span> Real Mode</h4>
 <div class="outline-text-4" id="text-triLegsR">
 <p>
-If the calculator is not in complex mode (Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:yellow;background-color:#644117;border-radius:0.3em;'>9</span> clear):
+If the calculator is not in complex mode (Flag <span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>F&nbsp;8</span> clear):
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -549,7 +550,7 @@ number's argument to the supplementary angle.
 </p>
 
 
-<div id="org015b531" class="figure">
+<div id="org2ecd406" class="figure">
 <p><img src="fig-sas.png" alt="fig-sas.png" width="30%" align="center" />
 </p>
 </div>
@@ -646,7 +647,7 @@ Find the equation of the line passing through \((2,3)\) and \((5,2)\) in slope-i
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.</span></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>L.R.</span></td>
 <td class="org-left">Compute the line</td>
 </tr>
 </tbody>
@@ -699,17 +700,17 @@ Celsius corresponds to 212 Fahrenheit. We wish to convert 68, 70, &amp; 72 degre
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>8</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span></td>
 <td class="org-left">The celsius value is on the stack at <b><code>X</code></b></td>
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>0</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span></td>
 <td class="org-left">The celsius value is on the stack at <b><code>X</code></b></td>
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>ŷ,r</span></td>
 <td class="org-left">The celsius value is on the stack at <b><code>X</code></b></td>
 </tr>
 </tbody>
@@ -958,7 +959,7 @@ When \(n>3\) the best sequence is
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span> ( \(x_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span> &#x2026;) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>√x</span></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span> ( \(x_i\) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span> &#x2026;) <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>√x</span></td>
 </tr>
 </tbody>
 </table>
@@ -1113,12 +1114,12 @@ For this example, let us suppose \((x_1, y_1)=(2,3)\) and \((x_2, y_2)=(5,2)\)
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
 <td class="org-left">Enter first point (note y goes in first)</td>
 </tr>
 
 <tr>
-<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>LN</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
 <td class="org-left">Enter second point</td>
 </tr>
 
@@ -1141,15 +1142,87 @@ because \(\sin(x)\) is monotone on \([0, 1.4]\).
 </div>
 </div>
 </div>
+<div id="outline-container-normal-eq" class="outline-2">
+<h2 id="normal-eq"><span class="section-number-2">7.</span> 2D Normal Equations</h2>
+<div class="outline-text-2" id="text-normal-eq">
+<p>
+Let \( A\in\mathbb{R}^{m\times 2} \) be a two column real matrix with \( m>2 \).  We wish to compute \( N = A^T A \).  We can use the statistical functions to
+compute the matrix and/or it's determinant.  This technique requires fewer keystrokes, and also consumes no matrix storage.  That said, it uses the
+statistical registers (<span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;2</span>-<span style='font-family:monospace;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;display:inline-block;width:2em;text-align:center;padding-top:0px;padding-bottom:0px;color:lightgreen;background-color:#644117;border-radius:0.3em;'>R&nbsp;7</span>).
+</p>
+
+<p>
+For this example, let us suppose 
+  \[ A = 
+    \left[ 
+    {\begin{array}{cc}
+      1 & 2 \\
+      3 & 4 \\
+      5 & 6 \\
+    \end{array} } \right]
+  \]
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>f</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:yellow;background-color:#644117;border-radius:0.3em;'>CLR_Σ</span></td>
+<td class="org-left">Clear statistical registers (if necessary)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>1</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>2</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter first row</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>3</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter second row</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>5</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>ENTER</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>Σ+</span></td>
+<td class="org-left">Enter third row</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span></td>
+<td class="org-left">\( N_{1,1} \).</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span></td>
+<td class="org-left">\( N_{1,2} \) &amp; \( N_{2,1} \)</td>
+</tr>
+
+<tr>
+<td class="org-left"><span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>4</span></td>
+<td class="org-left">\( N_{2,2} \).</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Note we can compute \( \det(N) \) like this: <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>6</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>×</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>RCL</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>7</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>g</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:cyan;background-color:#644117;border-radius:0.3em;'>x²</span> <span style='font-family:sans-serif;margin:0;padding:.1em .4em .1em .4em;color:white;background-color:#644117;border-radius:0.3em;'>-</span> 
+</p>
+</div>
+</div>
 <div id="outline-container-15ce" class="outline-2">
-<h2 id="15ce"><span class="section-number-2">7.</span> HP 15c CE Stuff</h2>
+<h2 id="15ce"><span class="section-number-2">8.</span> HP 15c CE Stuff</h2>
 <div class="outline-text-2" id="text-15ce">
 <p>
 I have one 15c from the mid 80's, and <b>three</b> 15 CE (collector's edition) units from 2023.  
 </p>
 </div>
 <div id="outline-container-15ce-eggs" class="outline-3">
-<h3 id="15ce-eggs"><span class="section-number-3">7.1.</span> Diagnostics &amp; Easter Eggs</h3>
+<h3 id="15ce-eggs"><span class="section-number-3">8.1.</span> Diagnostics &amp; Easter Eggs</h3>
 <div class="outline-text-3" id="text-15ce-eggs">
 <ul class="org-ul">
 <li>Turn the Calculator off.</li>
@@ -1175,7 +1248,7 @@ I have one 15c from the mid 80's, and <b>three</b> 15 CE (collector's edition) u
 </div>
 </div>
 <div id="outline-container-15ce-save" class="outline-3">
-<h3 id="15ce-save"><span class="section-number-3">7.2.</span> Voyager Save</h3>
+<h3 id="15ce-save"><span class="section-number-3">8.2.</span> Voyager Save</h3>
 <div class="outline-text-3" id="text-15ce-save">
 <ul class="org-ul">
 <li>Turn the Calculator off.</li>
@@ -1190,7 +1263,7 @@ I have been keeping my CE in 2X memory mode because I find myself needing a bit 
 </div>
 </div>
 <div id="outline-container-meta" class="outline-2">
-<h2 id="meta"><span class="section-number-2">8.</span> Meta Data</h2>
+<h2 id="meta"><span class="section-number-2">9.</span> Meta Data</h2>
 <div class="outline-text-2" id="text-meta">
 <p>
 The primary URL for this page: <a href="https://richmit.github.io/voyager/hp15-tips.html">https://richmit.github.io/voyager/hp15-tips.html</a>

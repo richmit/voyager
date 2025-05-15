@@ -325,7 +325,7 @@ rectangular form with {{{c15(→R)}}}.
 
 - Operation
   - Run the program with the following inputs: 
-    - {{{stk(Z)}}}: A matrix descriptor or number =0= (a =0= indicates the {{{c15(A)}}} matrix should be used)
+    - {{{stk(Z)}}}: A matrix descriptor or number =0= (a =0= indicates the {{{mat(A)}}} matrix should be used)
     - {{{stk(Y)}}}: number of rows
     - {{{stk(X)}}}: Number of columns
   - The matrix element coordinate will appear on the display in =r.c= format.
@@ -413,7 +413,7 @@ This program, =RCL_MAT=, provides a fast way iterate over the elements of a real
 
  - Operation
   - Run the program with the following inputs: 
-    - {{{stk(X)}}}: A matrix descriptor or number =0= (a =0= indicates the {{{c15(RESULT)}}} matrix should be used)
+    - {{{stk(X)}}}: A matrix descriptor or number =0= (a =0= indicates the {{{mat(RESULT)}}} matrix should be used)
   - Each element of the matrix will be displayed.  Press {{{c15(R/S)}}} to advance.
      - The program will wrap around to the first element after the last one is displayed -- this is a feature.
      - If flag {{{flg( 8 )}}} is set, then *pairs* of elements are pulled from the matrix (i.e. *=C=* format) and placed on the stack as complex numbers
@@ -438,7 +438,7 @@ This program, =RCL_MAT=, provides a fast way iterate over the elements of a real
   - {{{reg( 1 )}}} Matrix indexing
   - {{{reg( I )}}} Matrix descripter
 - Matrices:
-  - Matrix on stack level {{{stk(X)}}} when the program starts, or {{{c15(RESULT)}}} if {{{stk(X)}}} was zero.
+  - Matrix on stack level {{{stk(X)}}} when the program starts, or {{{mat(RESULT)}}} if {{{stk(X)}}} was zero.
 
 *** Program Listing
 :PROPERTIES:
@@ -499,7 +499,7 @@ This program solves the system $AX=B$ for $X$.
   - The system "solution", $X$, will be in {{{mat(C)}}}.  Note this might not be a valid solution if $A$ is singular!
   - {{{mat(B)}}} is left unchanged!
   - The matrix descriptor for {{{mat(C)}}} will be in stack position {{{stk(Y)}}}.
-  - Matrix {{{mat(C)}}} will be selected as the {{{c15(RESULT)}}} matrix.
+  - Matrix {{{mat(C)}}} will be selected as the {{{mat(RESULT)}}} matrix.
   - Both registers {{{reg(0)}}} & {{{reg(1)}}} will contain 1 in expectation {{{c15(USER)}}} mode will be used to visit the elements of {{{mat(C)}}}.
   - If $A$ is a real matrix:
     - Flag {{{flg( 0 )}}} will be clear
@@ -527,10 +527,10 @@ This program solves the system $AX=B$ for $X$.
 - Registers:
   - None
 - Matrices:
-  - {{{mat( A )}}}
-  - {{{mat( B )}}}
-  - {{{mat( C )}}} Used for the solution
-  - {{{mat( E )}}} Only when flag 1 is clear
+  - {{{mat( A )}}} Input
+  - {{{mat( B )}}} Input
+  - {{{mat( C )}}} The solution
+  - {{{mat( E )}}} LU factorization when flag {{{flg( 1 )}}} is clear
 
 *** Program Listing
 :PROPERTIES:
@@ -566,8 +566,9 @@ This program solves the system $AX=B$ for $X$.
 :CUSTOM_ID: matDet
 :END:
 
-This program computes the determinant of a real matrix or the magnitude of the determinant for a complex matrix.  The use case is to determine if a matrix is
-singular.
+This program computes the determinant of a real matrix or the magnitude of the determinant for a complex matrix.  The interactive use case is to determine if
+a matrix is singular.  The non-interactive use case is {{{lbl(6)}}} -- =LIN_SLV= which uses this as a subroutine to 1) detect & transform complex matrices, 2)
+compute the determinant or determinant magnitude, and 3) compute an LU factorization for the solution.
 
 *** Usage
 :PROPERTIES:
@@ -575,27 +576,27 @@ singular.
 :END:
 
 - Program start conditions
-  - The $A$ matrix is assumed to be in {{{c15(A)}}}.  
+  - The $A$ matrix is assumed to be in {{{mat(A)}}}.  
     - It may be an $n\times n$ real matrix, or an  $n\times 2n$ complex matrix in *=C=* format.
     - The program determines real vs. complex from the matrix size.
-  - flag {{{flg( 1 )}}} is set appropriately:
-    - Clear: Use more memory, but preserve contents of {{{c15(A)}}}.
-    - Set: Use less memory, but destroy contents of {{{c15(A)}}}.
+  - Flag {{{flg( 1 )}}} is set appropriately:
+    - Clear: Use more memory, but preserve contents of {{{mat(A)}}}.
+    - Set: Use less memory, but destroy contents of {{{mat(A)}}}.
 - Program end conditions
   - The previous contents of the stack are lost
   - If flag {{{flg( 1 )}}} is clear
-    - {{{c15(A)}}} is left unchanged!
-    - {{{c15(RESULT)}}} matrix set as {{{c15(E)}}}
+    - {{{mat(A)}}} is left unchanged!
+    - {{{mat(RESULT)}}} matrix set as {{{mat(E)}}}
   - If flag {{{flg( 1 )}}} is set
-    - {{{c15(RESULT)}}} matrix set as {{{c15(A)}}}
+    - {{{mat(RESULT)}}} matrix set as {{{mat(A)}}}
   - $A$ is a real matrix
     - Flag {{{flg( 0 )}}} will be clear
     - The $\mathrm{det}(A)$ is in stack position {{{stk(X)}}}.
-    - The LU factorization of $A$ is in {{{c15(E)}}} when flag {{{flg( 1 )}}} is clear, and in {{{c15(A)}}} otherwise
+    - The LU factorization of $A$ is in {{{mat(E)}}} when flag {{{flg( 1 )}}} is clear, and in {{{mat(A)}}} otherwise
   - If $A$ is a complex matrix
-    - Flag {{{flg( 1 )}}} will be set
+    - Flag {{{flg( 0 )}}} will be set
     - $\vert\mathrm{det}(A)\vert$ is in stack position {{{stk(X)}}}.
-    - The LU factorization of $\tilde{A}$ is in {{{c15(E)}}} when flag {{{flg( 1 )}}} is clear, and in {{{c15(A)}}} otherwise
+    - The LU factorization of $\tilde{A}$ is in {{{mat(E)}}} when flag {{{flg( 1 )}}} is clear, and in {{{mat(A)}}} otherwise
 
 *** Resources Used
 :PROPERTIES:
@@ -605,18 +606,17 @@ singular.
 - Entry Point Label:
   - {{{lbl( 9 )}}}  Program label
 - Internal Labels:
-  - None
   - {{{lbl( .9 )}}} Conditional label
 - External Labels:
-  - N/A
+  - None
 - Flags:
   - {{{flg( 0 )}}} exit flag
   - {{{flg( 1 )}}} option flag
 - Registers:
-  - N/A
+  - None
 - Matrices:
-  - {{{mat( A )}}}
-  - {{{mat( E )}}} Only when flag {{{flg( 1 )}}} is clear
+  - {{{mat( A )}}} Input
+  - {{{mat( E )}}} LU factorization when flag {{{flg( 1 )}}} is clear
 
 *** Program Listing
 :PROPERTIES:
@@ -655,6 +655,77 @@ singular.
 | {{{c15( RCL MATRIX A )}}} |  =45,16,11= |           |               A n m x |           |                                |
 | {{{c15( f MATRIX 9   )}}} |  =42,16, 9= |           |          DET(A) n m x |           |                                |
 | {{{c15( g RTN        )}}} |     =43 32= |           |          DET(A) n m x |           | Rtn when A real                |
+
+
+** Normal Equations
+:PROPERTIES:
+:CUSTOM_ID: matNrm
+:END:
+
+This program transforms the matrices in {{{mat(A)}}} & {{{mat(B)}}} into normal form in place.  That is to say {{{mat(A)}}} is replaced with \( A^T A \) &
+{{{mat(B)}}} is replaced with \( A^T B \).  I mostly use this to solve small, overdetermined systems.  This method is pretty poor practice from a numerical
+analysis standpoint; however, it is simple and has generally worked for my applications.  Note that when the program completes, the {{{mat(A)}}} &
+{{{mat(B)}}} matrices will be ready for {{{lbl(6)}}} -- =LIN_SLV=.
+
+*** Usage
+:PROPERTIES:
+:CUSTOM_ID: matNrmUsage
+:END:
+
+- Program start conditions
+  - The {{{mat(A)}}} & {{{mat(B)}}} matrices have been appropriately initialized
+- Program end conditions
+  - The previous contents of the stack are lost
+  - The {{{mat(A)}}} matrix contains \( A^T A \)
+  - The {{{mat(B)}}} matrix contains \( A^T B \)
+  - The {{{mat(E)}}} matrix will be deallocated
+  - {{{mat(RESULT)}}} will be set to {{{mat(E)}}}
+
+*** Resources Used
+:PROPERTIES:
+:CUSTOM_ID: matNrmRes
+:END:
+
+- Entry Point Label:
+  - {{{lbl( 5 )}}}  Program label
+- Internal Labels:
+  - None
+- External Labels:
+  - None
+- Flags:
+  - None
+- Registers:
+  - None
+- Matrices:
+  - {{{mat( A )}}} Input
+  - {{{mat( B )}}} Input
+  - {{{mat( E )}}} Scratch space
+
+*** Program Listing
+:PROPERTIES:
+:CUSTOM_ID: matNrmCode
+:END:
+
+#+BEGIN_CENTER
+=MAT_NML= -- Matrix Normal Equations
+#+END_CENTER
+#+ATTR_HTML: :align center :cellpadding 1em
+| <l>                       |         <r> |    <c>    |              <r> |    <c>    | <l>        |
+| *Keystrokes* {{{SPC}}}    | *Key Codes* | {{{SPC}}} | *Stack Contents* | {{{SPC}}} | *Comments* |
+| {{{c15( f LBL 5      )}}} |  =42,21, 5= |           |          ? ? ? ? |           |            |
+| {{{c15( f RESULT E   )}}} |  =42,26,15= |           |          ? ? ? ? |           |            |
+| {{{c15( RCL MATRIX A )}}} |  =45,16,11= |           |          A ? ? ? |           |            |
+| {{{c15( RCL MATRIX B )}}} |  =45,16,12= |           |          B A ? ? |           |            |
+| {{{c15( f MATRIX 5   )}}} |  =42,16, 5= |           |          B A ? ? |           |            |
+| {{{c15( STO MATRIX B )}}} |  =44,16,12= |           |          E ? ? ? |           |            |
+| {{{c15( RCL MATRIX A )}}} |  =45,16,11= |           |          A E ? ? |           |            |
+| {{{c15( ENTER        )}}} |        =36= |           |          A A E ? |           |            |
+| {{{c15( f MATRIX 5   )}}} |  =42,16, 5= |           |          E ? ? ? |           |            |
+| {{{c15( STO MATRIX A )}}} |  =44,16,11= |           |          E ? ? ? |           |            |
+| {{{c15( 0            )}}} |         =0= |           |          0 E ? ? |           |            |
+| {{{c15( ENTER        )}}} |        =36= |           |          0 0 E ? |           |            |
+| {{{c15( f DIM E      )}}} |  =42,23,15= |           |          0 0 E ? |           |            |
+| {{{c15( g RTN        )}}} |     =43 32= |           |          ? ? ? ? |           |            |
 
 * Quadratic Equation
 :PROPERTIES:
@@ -759,16 +830,16 @@ labels.  It requires 31 program lines consuming 32 bytes (if I counted correctly
 My general strategy for using labels is as follows:
 
 #+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
-|                <c>                | <l>                        |
-|             Registers             | Use In Programs            |
-|-----------------------------------+----------------------------|
-| {{{lbl(  A )}}} - {{{lbl(  E )}}} | Frequently called programs |
-|          {{{lbl( 0 )}}}           | Unused                     |
-| {{{lbl(  1 )}}} - {{{lbl(  3 )}}} | Solver/Integrator programs |
-| {{{lbl(  4 )}}} - {{{lbl(  5 )}}} | Unused                     |
-| {{{lbl(  6 )}}} - {{{lbl(  9 )}}} | Matrix stuff               |
-|          {{{lbl( .0 )}}}          | Unused                     |
-| {{{lbl( .1 )}}} - {{{lbl( .9 )}}} | Internal lables            |
+|              <c>              | <l>                        |
+|             Label             | Use In Programs            |
+|-------------------------------+----------------------------|
+| {{{lbl( A)}}} - {{{lbl( E)}}} | Frequently called programs |
+|         {{{lbl( 0)}}}         | Unused                     |
+| {{{lbl( 1)}}} - {{{lbl( 3)}}} | Solver/Integrator programs |
+|         {{{lbl( 4)}}}         | Unused                     |
+| {{{lbl( 5)}}} - {{{lbl( 9)}}} | Matrix stuff               |
+|         {{{lbl(.0)}}}         | Unused                     |
+| {{{lbl(.1)}}} - {{{lbl(.9)}}} | Internal lables            |
 
 *** Label Assignments
 :PROPERTIES:
@@ -776,36 +847,36 @@ My general strategy for using labels is as follows:
 :END:
 
 #+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
-|       <c>       | <l>                                    |            <r> |
-| {{{lbl(LBL)}}}  | Use                                    |        Used By |
-|-----------------+----------------------------------------+----------------|
-| {{{lbl( A )}}}  | -                                      |                |
-| {{{lbl( B )}}}  | [[#quadEqu][Solve Quadratic]]          |                |
-| {{{lbl( C )}}}  | [[#newton][Complex Newton's Method]]   |                |
-| {{{lbl( D )}}}  | [[#storclcplx][Store Complex Number]]  | {{{lbl( C )}}} |
-| {{{lbl( E )}}}  | [[#storclcplx][Recall Complex Number]] | {{{lbl( C )}}} |
-|-----------------+----------------------------------------+----------------|
-| {{{lbl( 0 )}}}  | -                                      |                |
-| {{{lbl( 1 )}}}  | Solver/Integrator/[[#newton][Newton]]  | {{{lbl( C )}}} |
-| {{{lbl( 2 )}}}  | Solver/Integrator                      |                |
-| {{{lbl( 3 )}}}  | Solver/Integrator                      |                |
-| {{{lbl( 4 )}}}  | -                                      |                |
-| {{{lbl( 5 )}}}  | -                                      |                |
-| {{{lbl( 6 )}}}  | [[#matSlv][Solve Linear System]]       |                |
-| {{{lbl( 7 )}}}  | [[#matFill][Fill A Matrix]]            |                |
-| {{{lbl( 8 )}}}  | [[#matDump][Dump A Matrix]]            |                |
-| {{{lbl( 9 )}}}  | [[#matDet][Determinant]]               | {{{lbl( 6 )}}} |
-|-----------------+----------------------------------------+----------------|
-| {{{lbl( .0 )}}} | -                                      |                |
-| {{{lbl( .1 )}}} | Internal                               |   {{{lbl(7)}}} |
-| {{{lbl( .2 )}}} | Internal                               |   {{{lbl(7)}}} |
-| {{{lbl( .3 )}}} | Internal                               |   {{{lbl(8)}}} |
-| {{{lbl( .4 )}}} | Internal                               |   {{{lbl(8)}}} |
-| {{{lbl( .5 )}}} | -                                      |                |
-| {{{lbl( .6 )}}} | -                                      |                |
-| {{{lbl( .7 )}}} | -                                      |                |
-| {{{lbl( .8 )}}} | -                                      |                |
-| {{{lbl( .9 )}}} | -                                      |                |
+|      <c>      | <l>                                    |           <r> |
+|     Label     | Use                                    |       Used By |
+|---------------+----------------------------------------+---------------|
+| {{{lbl( A)}}} | -                                      |               |
+| {{{lbl( B)}}} | [[#quadEqu][Solve Quadratic]]          |               |
+| {{{lbl( C)}}} | [[#newton][Complex Newton's Method]]   |               |
+| {{{lbl( D)}}} | [[#storclcplx][Store Complex Number]]  | {{{lbl( C)}}} |
+| {{{lbl( E)}}} | [[#storclcplx][Recall Complex Number]] | {{{lbl( C)}}} |
+|---------------+----------------------------------------+---------------|
+| {{{lbl( 0)}}} | -                                      |               |
+| {{{lbl( 1)}}} | Solver/Integrator/[[#newton][Newton]]  | {{{lbl( C)}}} |
+| {{{lbl( 2)}}} | Solver/Integrator                      |               |
+| {{{lbl( 3)}}} | Solver/Integrator                      |               |
+| {{{lbl( 4)}}} | -                                      |               |
+| {{{lbl( 5)}}} | [[#matNrm][Normal Equations]]          |               |
+| {{{lbl( 6)}}} | [[#matSlv][Solve Linear System]]       |               |
+| {{{lbl( 7)}}} | [[#matFill][Fill A Matrix]]            |               |
+| {{{lbl( 8)}}} | [[#matDump][Dump A Matrix]]            |               |
+| {{{lbl( 9)}}} | [[#matDet][Determinant]]               | {{{lbl( 6)}}} |
+|---------------+----------------------------------------+---------------|
+| {{{lbl(.0)}}} | -                                      |               |
+| {{{lbl(.1)}}} | Internal                               | {{{lbl( 7)}}} |
+| {{{lbl(.2)}}} | Internal                               | {{{lbl( 7)}}} |
+| {{{lbl(.3)}}} | Internal                               | {{{lbl( 8)}}} |
+| {{{lbl(.4)}}} | Internal                               | {{{lbl( 8)}}} |
+| {{{lbl(.5)}}} | -                                      |               |
+| {{{lbl(.6)}}} | -                                      |               |
+| {{{lbl(.7)}}} | -                                      |               |
+| {{{lbl(.8)}}} | -                                      |               |
+| {{{lbl(.9)}}} | -                                      |               |
 
 ** Registers
 :PROPERTIES:
@@ -837,14 +908,14 @@ How I normally use register storage.
 How I normally use matrix storage.  These habits have strongly influenced the matrix helper routines.  
 
 #+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
-|        <c>        | <l>                                                                               |
-| {{{c15(MATRIX)}}} | Use                                                                               |
-|-------------------+-----------------------------------------------------------------------------------|
-|  {{{mat( A )}}}   | Determinants & LHS of matrix equations ($AX=B$)                                   |
-|  {{{mat( B )}}}   | RHS of matrix equations ($AX=B$)                                                  |
-|  {{{mat( C )}}}   | Solution for $AX=B$                                                               |
-|  {{{mat( D )}}}   | Unused                                                                            |
-|  {{{mat( E )}}}   | $LU$ of $A$ for determinants & matrix equations when flag {{{flg( 1 )}}} is clear |
+|      <c>       | <l>                                                                               |
+|     Matrix     | Use                                                                               |
+|----------------+-----------------------------------------------------------------------------------|
+| {{{mat( A )}}} | Determinants & LHS of matrix equations ($AX=B$)                                   |
+| {{{mat( B )}}} | RHS of matrix equations ($AX=B$)                                                  |
+| {{{mat( C )}}} | Solution for $AX=B$                                                               |
+| {{{mat( D )}}} | Unused                                                                            |
+| {{{mat( E )}}} | $LU$ of $A$ for determinants & matrix equations when flag {{{flg( 1 )}}} is clear |
 
 ** Flags
 :PROPERTIES:
@@ -866,25 +937,26 @@ How I normally use matrix storage.  These habits have strongly influenced the ma
 :CUSTOM_ID: resSumSteps
 :END:
 
-I normally keep =STO_CPLX=, =RCL_CPLX=, =NEWTON=, =STO_MAT=, =RCL_MAT=, =LIN_SLV=, and =DET_A= in program memory.  This results in 143 lines of program memory
-consumed by the programs.  I then add three zeros at the end as a little pad to separate my permanent programs from whatever I may add to the end of program
-memory.
+I normally keep =STO_CPLX=, =RCL_CPLX=, =NEWTON=, =STO_MAT=, =RCL_MAT=, =LIN_SLV=, =DET_A=, and =MAT_NML= in program memory.  This results in 156 lines of
+program memory consumed by the programs.  I then add three zeros at the end as a little pad to separate my permanent programs from whatever I may add to the
+end of program memory.
 
 #+ATTR_HTML: :border 2 solid #ccc :frame hsides :align center
 | <c>  |        <r> | <l>                  | <l>                                    |
 | Step |  Key Codes | Keystrokes           | Use                                    |
 |------+------------+----------------------+----------------------------------------|
-| 001  | =42 21 14= | {{{c15( f LBL D )}}} | [[#storclcplx][Store Complex Number]]  |
-| 011  | =42 21 15= | {{{c15( f LBL E )}}} | [[#storclcplx][Recall Complex Number]] |
-| 022  | =42 21 13= | {{{c15( f LBL C )}}} | [[#newton][Complex Newton's Method]]   |
-| 051  | =42 21  7= | {{{c15( f LBL 7 )}}} | [[#matFill][Fill A Matrix]]            |
-| 079  | =42 21  8= | {{{c15( f LBL 8 )}}} | [[#matDump][Dump A Matrix]]            |
-| 100  | =42 21  6= | {{{c15( f LBL 6 )}}} | [[#matSlv][Solve Linear System]]       |
-| 117  | =42 21  9= | {{{c15( f LBL 9 )}}} | [[#matDet][Determinant]]               |
-| 143  |        =0= | {{{c15( 0 )}}}       | Padding                                |
-| 144  |        =0= | {{{c15( 0 )}}}       | Padding                                |
-| 145  |        =0= | {{{c15( 0 )}}}       | Padding                                |
-| 146  |        N/A | N/A                  | Solver programs etc...                 |
+| 001  | =42,21,14= | {{{c15( f LBL D )}}} | [[#storclcplx][Store Complex Number]]  |
+| 011  | =42,21,15= | {{{c15( f LBL E )}}} | [[#storclcplx][Recall Complex Number]] |
+| 022  | =42,21,13= | {{{c15( f LBL C )}}} | [[#newton][Complex Newton's Method]]   |
+| 051  | =42,21, 7= | {{{c15( f LBL 7 )}}} | [[#matFill][Fill A Matrix]]            |
+| 079  | =42,21, 8= | {{{c15( f LBL 8 )}}} | [[#matDump][Dump A Matrix]]            |
+| 100  | =42,21, 6= | {{{c15( f LBL 6 )}}} | [[#matSlv][Solve Linear System]]       |
+| 117  | =42,21, 9= | {{{c15( f LBL 9 )}}} | [[#matDet][Determinant]]               |
+| 143  | =42,21, 5= | {{{c15( f LBL 5 )}}} | [[#matNrm][Matrix Normal Equations]]   |
+| 157  |        =0= | {{{c15( 0 )}}}       | Padding                                |
+| 158  |        =0= | {{{c15( 0 )}}}       | Padding                                |
+| 159  |        =0= | {{{c15( 0 )}}}       | Padding                                |
+| 160  |        N/A | N/A                  | Solver programs etc...                 |
 
 * Downloads
 :PROPERTIES:
