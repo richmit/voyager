@@ -386,7 +386,7 @@ For this example, let us suppose
 | {{{c15(RCL 7)}}}        | \( N_{1,2} \) & \( N_{2,1} \)              |
 | {{{c15(RCL 4)}}}        | \( N_{2,2} \).                             |
 
-Note we can compute \( \det(N) \) like this: {{{c15(RCL 6 RCL 6 × RCL 7 g x² -)}}} 
+Note we can compute \( \det(N) \) like this: {{{c15(RCL 6 RCL 4 × RCL 7 g x² -)}}} 
 
 * HP 15c CE Stuff
 :PROPERTIES:
@@ -424,6 +424,12 @@ I have one 15c from the mid 80's, and *three* 15 CE (collector's edition) units 
  - This will put the calculator in USB HID mode. 
 
 I have been keeping my CE in 2X memory mode because I find myself needing a bit more RAM for program and matrix storage.
+
+*** Upload programs to calculator                                  :noexport:
+
+#+begin_src sh
+~/winHome/PF/vs/VoyagerSave.exe -r ~/MJR/world/my_prog/voyager/downloads/hp15c-MJR_programs-ram.15CE
+#+end_src
 
 * Meta Data
 :PROPERTIES:
